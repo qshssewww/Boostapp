@@ -442,7 +442,12 @@
   font-size: 150px;
   line-height: 85px;
 }
-
+.border-2{
+  border: 2px solid #E3E3E3 !important;
+}
+.border-2::placeholder{
+  color: #E3E3E3;
+}
 .bsapp-page #weatherblock div {
   font-size: 50px;
   line-height: 50px;
@@ -899,7 +904,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination{
 [dir="rtl"] .bsapp-search-box input{ 
    margin-left : unset !important;
    padding-left: unset !important;
-   margin-right: -30px !important; 
+   margin-right: -30px !important;
    padding-right: 32px !important;
 }
 
@@ -1490,4 +1495,10 @@ html[dir="ltr"] .start-top-10p {
   height:50px;
   background-color: #F5F5F5;
   color:black;
+}
+.br-8{
+  border-radius: 8px !important;
+}
+.color-fa-search:before{
+  color: #E3E3E3;
 }

@@ -567,12 +567,12 @@ $color = Config::get('app.color_scheme');
                                         <div class="bsapp-search-minified  js-search-minified ">
                                             <div class="input-group mb-3 input-group-sm bsapp-search-box" id="js-clientsSearch">
                                                 <div class="input-group-prepend"> 
-                                                    <a href="javascript:;" class="input-group-text d-none d-md-flex text-decoration-none" ><i class="far fa-search"></i></a>
+                                                    <a style="margin-top: 2px; padding-right: 1px;" href="javascript:;" class="input-group-text d-none d-md-flex text-decoration-none " ><i class="far color-fa-search fa-search"></i></a>
                                                     <a href="javascript:;" class="input-group-text d-md-none js-show-search" ><i class="far fa-search"></i></a>
                                                 </div>
-                                                <input type="text" class="form-control typeahead js-typeahead"  placeholder="<?php echo lang('search_client') ?>" >
+                                                <input style="border-radius: 8px !important;" type="text" class="form-control border-2 typeahead js-typeahead"  placeholder="<?php echo lang('search_client') ?>" >
                                                 <div class="input-group-append">
-                                                    <a href="javascript:;"  class="input-group-text js-hide-search" ><i class="fas fa-times"></i></a> 
+                                                    <a href="javascript:;"  class="input-group-text js-hide-search"><i class="fas fa-times"></i></a>
                                                 </div>
                                             </div>
                                         </div>
