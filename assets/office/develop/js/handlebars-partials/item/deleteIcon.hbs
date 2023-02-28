@@ -1,0 +1,8 @@
+{{#if itemCurrentCartId}}
+	<button class="cart--trash-icon text-center {{#if className}}{{className}}{{else}}js--delete-item{{/if}}"
+			data-item-current-cart-id="{{itemCurrentCartId}}"
+			type="button">
+		<i class="fa-light fa-trash-can"></i>
+		<span>{{lang 'cart_delete_from'}}</span>
+	</button>
+{{/if}}

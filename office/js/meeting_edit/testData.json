@@ -1,0 +1,296 @@
+{
+  "__comment_for_allStatuses__": "All the statuses that the user can see in the meeting modal.",
+  "all_statuses": [
+    {
+      "id": "1",
+      "type": "ordered",
+      "bg": "#C8E6FE",
+      "color": "#4CACFB"
+    },
+    {
+      "id": "2",
+      "type": "confirmed",
+      "bg": "#B1DBFD",
+      "color": "#0089FA"
+    },
+    {
+      "id": "3",
+      "type": "started",
+      "bg": "#B1EEC1",
+      "color": "#00C736"
+    },
+    {
+      "id": "4",
+      "type": "completed",
+      "bg": "#F7F7F7",
+      "color": "#707070"
+    },
+    {
+      "id": "5",
+      "type": "didn't arrived",
+      "bg": "#FFB1C6",
+      "color": "#FF0045"
+    },
+    {
+      "id": "6",
+      "type": "done",
+      "bg": "#F7F7F7",
+      "color": "#818181"
+    }
+  ],
+  "meetings": [
+    {
+      "id": "000001",
+      "__comment_for_status__": "The main status of the meeting. IDs need to be change in meetingDetailsModule -> isMeetingType function JS",
+      "status": "4",
+      "__comment_for_type__": "For test, meeting type 1 is assigned to identify the meeting from the lesson",
+      "type": "1",
+      "type_of_meeting": "1",
+      "__comment_for_title__": "Used in calendar box",
+      "title": "פגישת תזונה",
+      "__comment_for_full_title__": "Used in pop-up",
+      "full_title": "פגישה כלשהי עם שם ארוך",
+      "__comment_for_price_total__": "Total cost of the current meeting",
+      "price_total": "145.00",
+      "has_debt": true,
+      "__comment_for_calendarName__": "Appears only when there is more than 1 calendar to the branch.",
+      "calendar_name": "שם היומן",
+      "show_cancellation_policy": true,
+      "backgroundColor": "#29B0F6",
+      "start": "2022-03-08 07:00:00",
+      "end": "2022-03-08 07:45:00",
+      "__comment_for_owner__": "Name of coach or guide - if the studio has only one, his name will not be displayed",
+      "owner": "שם המאמן",
+      "ownerId": "14724",
+      "__comment_for_location__": "Branch name - appears only when there is more than 1 branch to the studio",
+      "location": "סניף תל אביב - סטודיו גדול",
+      "locationId": "1602",
+      "__comment_for_repeat_type__": "1 - if the meeting is part of a series meeting (regular), 2 - servel time, 3 - one time meeting",
+      "repeat_type": "1",
+      "customer": {
+        "id": "65308",
+        "__comment_for_isRandom__": "If the customer is a random customer, the customer's name cannot be clicked. This needs to be double checked because if the user has a meeting, it already exists on the system.",
+        "is_random": false,
+        "is_embedded": true,
+        "__comment_for_MemberShipText__": "Data with suitable subscriptions object",
+        "MemberShipText": {
+          "data": [
+            {
+              "Id": "501632",
+              "ItemText": "פרימיום2"
+            },
+            {
+              "Id": "501629",
+              "ItemText": "פילאטיס: חמישי 30/12"
+            }
+          ]
+        },
+        "__comment_for_clientActiveInfo__": "ID of the suitable or current subscription",
+        "classActInfo": "6580776",
+        "name": "לקוח מזדמן",
+        "phone": "0552379367",
+        "avatar": "https://ui-avatars.com/api/?length=1&name=לקוח&background=f3f3f4&color=000&font-size=0.5",
+        "__comment_for_token__": "Data to check if the user has a card for payment",
+        "token": {
+          "id": "5",
+          "__comment_for_payment_url__": "Link to the relevant payment page",
+          "payment_url": "https://pay.boostapp.co.il/payment/some-url-here"
+        }
+      },
+      "__comment_for_docsPayment__": "From DB [docs], if there is no suitable subscription.",
+      "docs": [
+        {
+          "id": "592370",
+          "TypeNumber": "801699",
+          "__comment_for_Status__": "There is a debt or partially paid. 0-open, 1-close, 2-pay 1/2",
+          "Status": "2",
+          "Refound": "0",
+          "TypeDoc": "8",
+          "TypeHeader": "400",
+          "__comment_for_TypeTitleSingle__": "From DB [docstable] by TypeHeader.",
+          "TypeTitleSingle": "קבלה",
+          "Amount": "40.00",
+          "Dates": "2022-01-16 15:32:23",
+          "UserId": "14727",
+          "__comment_for_displayName__": "From DB [users] by UserId.",
+          "display_name": "צוות BOOSTAPP"
+        },
+        {
+          "id": "592405",
+          "TypeNumber": "801707",
+          "__comment_for_Status__": "There is a debt or partially paid. 0-open, 1-close, 2-pay 1/2",
+          "Status": "2",
+          "Refound": "0",
+          "TypeDoc": "8",
+          "TypeHeader": "400",
+          "__comment_for_TypeTitleSingle__": "From DB [docstable] by TypeHeader.",
+          "TypeTitleSingle": "קבלה",
+          "Amount": "100.00",
+          "Dates": "2022-01-19 10:40:49",
+          "UserId": "14744",
+          "__comment_for_displayName__": "From DB [users] by UserId.",
+          "display_name": "אוהד בדיקה"
+        },
+        {
+          "id": "592408",
+          "TypeNumber": "801710",
+          "__comment_for_Status__": "There is a debt or partially paid. 0-open, 1-close, 2-pay 1/2",
+          "Status": "2",
+          "Refound": "1",
+          "TypeDoc": "8",
+          "TypeHeader": "400",
+          "__comment_for_TypeTitleSingle__": "From DB [docstable] by TypeHeader.",
+          "TypeTitleSingle": "קבלת זיכוי",
+          "Amount": "-100.00",
+          "Dates": "2022-01-19 11:40:49",
+          "UserId": "14744",
+          "__comment_for_display_name__": "From DB [users] by UserId.",
+          "display_name": "אוהד בדיקה"
+        }
+      ],
+      "__comment_for_clientActivities__": "From DB [client_activities].",
+      "client_activities": {
+        "__comment_for_entries__": "Number of entries left for the current subscription",
+        "entries": "3",
+        "id": "501632",
+        "MemberShip": "5836",
+        "__comment_for_Status__": "Open status. 0-open, 1-freez, 2-cancel, 3-close",
+        "Status": "3",
+        "StartDate": "2022-12-30",
+        "TrueDate": "2022-01-11",
+        "ItemText": "פרימיום2",
+        "ItemPrice": "4500.00",
+        "BalanceMoney": "2000.00",
+        "ReceiptId": {
+          "data": [
+            {
+              "DocId": "592370"
+            },
+            {
+              "DocId": "592373"
+            }
+          ]
+        }
+      },
+      "__comment_for_OTHERS__": "Not used now, just copied from the lesson JSON",
+      "branch": "0",
+      "groupNumber": "60c1b08ea612716233063821262055681771856360c1b08ea6141",
+      "isAlarm": false,
+      "isCancelled": false,
+      "isHidden": false,
+      "is_zoom_class": false,
+      "liveClass": false,
+      "maxMembers": "12",
+      "members": 0,
+      "membersNames": [],
+      "minMembers": "0",
+      "regularMembers": "1",
+      "regularMembersCount": 1,
+      "titleId": "6184",
+      "waitingCount": 0
+    },
+    {
+      "id": "000002",
+      "__comment_for_status__": "The main status of the meeting. IDs need to be change in meetingDetailsModule -> isMeetingType function JS",
+      "status": "4",
+      "__comment_for_type__": "For test, meeting type 1 is assigned to identify the meeting from the lesson",
+      "type": "1",
+      "type_of_meeting": "2",
+      "__comment_for_title__": "Used in calendar box",
+      "title": "פגישת תזונה2",
+      "__comment_for_full_title__": "Used in pop-up",
+      "full_title": "פגישה כלשהי עם שם ארוך2",
+      "__comment_for_price_total__": "Total cost of the current meeting",
+      "price_total": "105.00",
+      "is_dept": true,
+      "show_cancellation_policy": false,
+      "backgroundColor": "#e210f3",
+      "start": "2022-03-08 08:00:00",
+      "end": "2022-03-08 08:45:00",
+      "__comment_for_repeat_type__": "1 - if the meeting is part of a series meeting (regular), 2 - servel time, 3 - one time meeting",
+      "repeat_type": "2",
+      "customer": {
+        "id": "65308",
+        "__comment_for_isRandom__": "If the customer is a random customer, the customer's name cannot be clicked. This needs to be double checked because if the user has a meeting, it already exists on the system.",
+        "is_random": false,
+        "is_embedded": true,
+        "__comment_for_MemberShipText__": "Data with suitable subscriptions object (alternative subscription)",
+        "MemberShipText": {
+          "data": [
+            {
+              "Id": "501632",
+              "ItemText": "פרימיום2"
+            }
+          ]
+        },
+        "__comment_for_clientActiveInfo__": "ID of the suitable or current subscription",
+        "classActInfo": "6580776",
+        "name": "לקוח מזדמן",
+        "phone": "0552379367",
+        "avatar": "https://ui-avatars.com/api/?length=1&name=לקוח&background=f3f3f4&color=000&font-size=0.5",
+        "__comment_for_token__": "Data to check if the user has a card for payment",
+        "token": {
+          "id": "5",
+          "__comment_for_payment_url__": "Link to the relevant payment page",
+          "payment_url": "https://pay.boostapp.co.il/payment/some-url-here"
+        }
+      },
+      "__comment_for_docsPayment__": "From DB [docs], if there is no suitable subscription.",
+      "docs": [
+        {
+          "id": "592370",
+          "TypeNumber": "801699",
+          "__comment_for_Status__": "There is a debt or partially paid. 0-open, 1-close, 2-pay 1/2",
+          "Status": "2",
+          "Refound": "0",
+          "TypeDoc": "8",
+          "TypeHeader": "400",
+          "__comment_for_TypeTitleSingle__": "From DB [docstable] by TypeHeader.",
+          "TypeTitleSingle": "קבלה",
+          "Amount": "40.00",
+          "Dates": "2022-01-16 15:32:23",
+          "UserId": "14727",
+          "__comment_for_display_name__": "From DB [users] by UserId.",
+          "display_name": "צוות BOOSTAPP"
+        }
+      ],
+      "__comment_for_clientActivities__": "From DB [client_activities].",
+      "client_activities": {
+        "__comment_for_entries__": "Number of entries left for the current subscription",
+        "entries": "3",
+        "id": "501632",
+        "MemberShip": "5836",
+        "__comment_for_Status__": "Open status. 0-open, 1-freez, 2-cancel, 3-close",
+        "Status": "3",
+        "StartDate": "2022-12-30",
+        "TrueDate": "2022-01-11",
+        "ItemText": "פרימיום2",
+        "ItemPrice": "4500.00",
+        "BalanceMoney": "2000.00",
+        "ReceiptId": {
+          "data": [
+            {
+              "DocId": "592370"
+            }
+          ]
+        }
+      },
+      "__comment_for_OTHERS__": "Not used now, just copied from the lesson JSON",
+      "branch": "0",
+      "groupNumber": "60c1b08ea612716233063821262055681771856360c1b08ea6141",
+      "isAlarm": false,
+      "isCancelled": false,
+      "isHidden": false,
+      "is_zoom_class": false,
+      "liveClass": false,
+      "maxMembers": "12",
+      "members": 0,
+      "membersNames": [],
+      "minMembers": "0",
+      "regularMembers": "1",
+      "regularMembersCount": 1,
+      "titleId": "6184",
+      "waitingCount": 0
+    }
+  ]
+}

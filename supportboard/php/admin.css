@@ -1,0 +1,296 @@
+/*
+* ===========================================================
+* SUPPORT BOARD - ADMIN CSS - PHP ONLY
+* ===========================================================
+*
+* Support Board plugin admin side CSS - Only PHP version 
+* Schiocco - Copyright (c)
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,600');
+
+#sb-admin {
+    font-family: 'Roboto', sans-serif;
+    margin: 15px;
+    background: #F1F1F1;
+    border-radius: 6px;
+    border-bottom: 1px solid #dde4e8;
+    overflow: hidden;
+    position: relative;
+}
+
+.cnt-header, .cnt-main {
+    padding: 30px;
+}
+
+.cnt-header {
+    background: #0e90e4;
+    font-weight: 400;
+    color: #fff;
+    padding: 15px 15px 13px 15px;
+}
+
+    .cnt-header img {
+        max-width: 150px;
+    }
+
+    .cnt-header .sb-doc-link, .cnt-header .sb-php-logout,.cnt-header .sb-version {
+        margin-right: 15px;
+        line-height: 30px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: .5px;
+        text-decoration: none;
+    }
+.sb-doc-link {
+    right: 50px;
+}
+.sb-php-logout {
+    right: 160px;
+}
+.sb-version {
+    right: 0;
+}
+    .sb-php-logout img {
+        width: 15px;
+        position: absolute;
+        margin-left: -25px;
+        margin-top: 8px;
+    }
+
+.cnt-main {
+    padding: 15px 15px 30px 15px;
+}
+
+.tab-plugin .nav-plugin li a {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.nav-plugin {
+    padding: 0;
+}
+
+.sb-ticket-user .sb-name {
+    color: #63686d;
+    font-size: 14px;
+}
+
+.sb-ticket-user .sb-text {
+    font-size: 13px;
+    letter-spacing: .3px;
+    color: #5a6d79;
+}
+
+#sb-admin .button {
+    color: #555;
+    border: 1px solid #ccc;
+    background: #f7f7f7;
+    box-shadow: 0 1px 0 #ccc;
+    vertical-align: top;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: -3px;
+    text-decoration: none;
+}
+
+    #sb-admin .button:hover {
+        background: #fafafa;
+        border-color: #999;
+        color: #23282d;
+    }
+
+    #sb-admin .button:active {
+        background: #eee;
+        border-color: #999;
+        box-shadow: inset 0 2px 5px -3px rgba(0,0,0,.5);
+        transform: translateY(1px);
+    }
+
+    #sb-admin .button.button-primary {
+        background: #0e90e4;
+        border-color: #1281c8 #1281c8 #125a88;
+        box-shadow: 0 1px 0 #006799;
+        color: #fff;
+        text-decoration: none;
+        text-shadow: 0 -1px 1px #1281c8, 1px 0 1px #1281c8, 0 1px 1px #1281c8, -1px 0 1px #1281c8;
+    }
+
+        #sb-admin .button.button-primary:hover {
+            background: #119af2;
+            border-color: #1c77b1;
+            color: #fff;
+        }
+
+        #sb-admin .button.button-primary:active {
+            background: #0073aa;
+            border-color: #006799;
+            -webkit-box-shadow: inset 0 2px 0 #006799;
+            box-shadow: inset 0 2px 0 #006799;
+            vertical-align: top;
+        }
+
+.sb-msg {
+    line-height: 14px;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 7px 15px;
+}
+
+.sb-list-msg {
+    display: block;
+    font-size: 13px;
+    padding-bottom: 15px;
+}
+
+.sb-table {
+    background: #fff;
+    color: #555;
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+    .sb-table thead td {
+        border-bottom: 1px solid #e1e1e1;
+    }
+
+    .sb-table th, .sb-table td {
+        padding: 8px 10px;
+    }
+
+    .sb-table > tbody > :nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .sb-table td {
+        font-size: 13px;
+        line-height: 1.5em;
+        overflow: hidden;
+    }
+
+    .sb-table img {
+        margin-top: -5px;
+    }
+
+.disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+#sb-admin .sb-ticket-user .button {
+    margin-top: 15px;
+}
+
+.sb-user-tickets-delete {
+    font-size: 12px;
+}
+
+.sb-agents-cnt {
+    margin-top: -30px;
+}
+
+.cnt-main:not(.type-super-admin) .li-tab-agents, .cnt-main:not(.type-super-admin) .sb-agents-cnt {
+    display: none !important;
+}
+
+.sb-agents-cnt span {
+    font-size: 13px;
+}
+
+.panel-inner > h2 {
+    font-size: 18px;
+}
+
+.item-row p {
+    font-size: 13px;
+}
+
+.item-row h4 {
+    font-weight: 400;
+}
+
+.box-init {
+    max-width: 600px;
+}
+
+    .box-init h4 {
+        font-weight: 500;
+        color: #0e90e4;
+    }
+
+    .box-init p, .init-text {
+        font-size: 13px;
+        line-height: 19px;
+        margin: 0;
+        color: #696969;
+    }
+
+    .box-init .sb-msg {
+        margin: 0 10px 10px 10px;
+    }
+
+.init-step {
+    background: #fff;
+    border: 1px solid #c3c2c2;
+    border-radius: 6px;
+    margin-top: 25px;
+}
+
+.init-header {
+    padding: 10px;
+    border-bottom: 1px solid #c3c2c2;
+}
+
+    .init-header div {
+        display: inline-block;
+        color: #0e90e4;
+        font-weight: 500;
+        font-size: 20px;
+    }
+
+    .init-header p {
+        display: inline-block;
+        font-size: 14px;
+        color: #0e90e4;
+    }
+
+.init-text {
+    padding: 10px;
+    font-size: 13px;
+    line-height: 19px;
+    margin: 5px 0 0 0;
+    color: #696969;
+}
+
+    .init-text i {
+        background: #e1f0f9;
+        display: inline-block;
+        padding: 0 8px;
+        border-radius: 5px;
+        color: #000;
+    }
+
+.init-step a {
+    margin: 0 10px 20px;
+}
+
+.init-step .input-row {
+    margin: 0 10px 10px;
+}
+
+    .init-step .input-row p {
+        font-weight: 500;
+    }
+
+    .init-step .input-row input {
+        border-radius: 5px;
+        border: 1px solid #c3c2c2;
+        outline: none;
+        padding: 5px;
+        margin-top: 5px;
+    }

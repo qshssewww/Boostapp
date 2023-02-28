@@ -1,0 +1,25 @@
+<div class="bsapp--search-container">
+	{{#each results}}
+
+		{{#if title}}
+			<article class="article back-to-subcategory">
+				<div class="article--content d-flex align-items-center">
+					<p class="subtitle">{{title}}</p>
+				</div>
+			</article>
+		{{/if}}
+		{{#each items}}
+			<article class="article article--search {{#ifCond type '===' 'category'}}subcategory{{else}}item{{/ifCond}}"
+					 data-id="subcategory_{{categoryType}}_{{@index}}"
+					 {{#if subcategoryId}}data-subcategory-id="{{subcategoryId}}"{{/if}}
+					 {{#if disabled}}disabled="disabled"{{/if}}
+					 data-current-type="{{currentType}}"
+					 data-type="{{categoryType}}">
+				{{> itemSquareBox}}
+			</article>
+		{{/each}}
+
+	{{else}}
+		{{> ../iconBox}}
+	{{/each}}
+</div>

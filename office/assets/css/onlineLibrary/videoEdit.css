@@ -1,0 +1,288 @@
+#videoEdit{
+  text-align: start;
+}
+
+#videoEdit {
+  width: 60%;
+  margin-top: 50px;
+}
+#videoEdit .title {
+  font-size: 22px;
+  margin-right: 25px;
+  font-weight: 700;
+}
+#closePopup {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+#popup-wrapper,
+#popup-wrapper-2 {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  background: white;
+  top: 0;
+  left: 100%;
+  z-index: 9;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s;
+}
+
+#popup-wrapper.visible,
+#popup-wrapper-2.visible {
+  visibility: visible;
+  opacity: 1;
+  top: 0;
+  left: 0;
+}
+ 
+#videoEdit .select2-selection__rendered{
+  padding-right: 0;
+}
+#videoEdit .section {
+  box-shadow: 0px 0px 5px #00000029;
+  border-radius: 8px;
+  padding: 30px 60px;
+  margin-bottom: 60px;
+}
+
+#videoEdit input[type="text"],
+#videoEdit select {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  background: transparent;
+  padding: 10px 0px;
+  transition: all 1s;
+}
+
+#videoEdit textarea {
+  padding: 10px 0px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+#videoEdit label {
+  font-size: 14px;
+  line-height: 0;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.checkbox-section {
+  opacity: 0.3;
+  display: none;
+}
+
+#videoEdit label.link-label {
+  font-size: inherit;
+  color: rgba(0, 0, 0, 1);
+}
+
+#videoEdit .grey-area {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+#confirmBtn {
+  float: left;
+  background: #00c736;
+  outline: none;
+  border: none;
+  min-width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cancelBtn {
+  float: right;
+  background: #f6f6f6;
+  outline: none;
+  border: none;
+  color: black;
+  min-width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-checkbox {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.custom-checkbox .v-custom-checkbox {
+  font-size: 12px;
+}
+
+.not-valid {
+  /* border-color: red !important; */
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#duration {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+}
+
+#duration input {
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  text-align: center;
+  background: transparent;
+}
+
+.col-md-6,
+.col-12,
+.row {
+  /* padding:0 !important; */
+  /* margin:0 !important; */
+}
+
+.field-textarea,
+.field {
+  position: relative;
+}
+
+.field label {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-size: inherit !important;
+  transition: all 0.5s;
+}
+
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label {
+  bottom: 35px;
+  right: 15px;
+  transform: scale(0.8);
+}
+
+.field-textarea label {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: inherit !important;
+  transition: all 0.5s;
+}
+
+.field-textarea textarea:focus + label,
+.field-textarea textarea:not(:placeholder-shown) + label {
+  bottom: 65px;
+  right: 15px;
+  transform: scale(0.8);
+}
+
+.require label:after {
+  content: "*";
+  position: absolute;
+  color: red;
+  right: -15px;
+  top: 0px;
+  font-size: 20px;
+}
+
+
+::-webkit-input-placeholder {
+  opacity: 0;
+  transition: inherit;
+}
+/**
+* Show the placeholder when the input is focused.
+*/
+input:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .field label {
+    bottom: 20px;
+  }
+
+  .field input:focus + label {
+    bottom: 45px;
+  }
+
+  #videoEdit {
+    width: auto;
+  }
+  #closePopup {
+    left: 20px;
+    right: auto;
+    color: black;
+    top: 15px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .titleLibrary {
+    margin-right: 20px;
+    font-size: 1.4em;
+  }
+
+  #popup-wrapper,
+  #popup-wrapper-2 {
+    z-index: 999;
+    min-height: 100vh;
+  }
+
+  #videoEdit .section {
+    border-radius: 0px;
+    box-shadow: none;
+    padding: 0px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #videoEdit .section .row {
+    width: 100%;
+  }
+
+  #videoEdit input[type="text"],
+  #videoEdit select {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  #confirmBtn,
+  #cancelBtn {
+    width: 90%;
+    float: none;
+  }
+}

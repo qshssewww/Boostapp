@@ -1,0 +1,117 @@
+@import "assets/office/develop/scss/grid";
+
+/* ========== Search modal ==========
+   ./assets/office/develop/js/modules/cart/SearchModal.js
+   ==================== */
+
+.bsapp--popup-search {
+  .modal-header {
+    margin: 0 auto;
+    max-width: 100%;
+    transition: max-width 0.5s ease-in-out;
+    .close-modal {
+      font-size: 26px;
+    }
+  }
+
+  .bsapp--search-form .form--group-items {
+    .form--group-rel {
+      transition: width 0.5s ease-in-out;
+      width: calc(100% - 9rem);
+
+      @include media-breakpoint-up(lg) {
+        width: 10%;
+        [dir="rtl"] & {
+          float: left;
+        }
+        [dir="ltr"] & {
+          float: right;
+        }
+      }
+    }
+  }
+
+  //&.opened {
+  &.is-visible {
+    .modal-header {
+      max-width: 1366px;
+    }
+    .bsapp--search-form .form--group-items {
+      .form--group-rel {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.bsapp--search-form {
+  padding: 0.625rem var(--theme-padding);
+  min-height: var(--theme-bar-height);
+
+  @include media-breakpoint-down(md) {
+    padding-top: 0.5rem;
+  }
+
+  .form--group-items {
+    padding-inline: 0;
+
+    [name="searchInput"] {
+      padding-inline-start: 3rem;
+      box-shadow: 0 3px 6px var(--theme-shadow);
+    }
+
+    .form--group-icon--search {
+      inset-inline-end: auto;
+      inset-inline-start: 1rem;
+
+      @include media-breakpoint-down(md) {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.bsapp--search-content {
+  height: calc(100% - var(--theme-bar-height));
+  overflow-y: auto;
+
+  @include media-breakpoint-up(lg) {
+    &.with-bg {
+      background-color: var(--theme-box-bg);
+    }
+  }
+}
+
+.bsapp--search-container {
+  margin: 0 auto;
+  max-width: calc(902px + (var(--theme-padding) * 2));
+
+  .back-to-subcategory {
+    &:first-of-type {
+      padding-top: 2.375rem;
+      @include media-breakpoint-up(lg) {
+        padding-top: 1.125rem;
+      }
+    }
+    .subtitle {
+      color: var(--theme-primary);
+      font-weight: 500;
+    }
+  }
+}
+
+/* search items */
+.article--search {
+
+  .article--content {
+    @include media-breakpoint-up(lg) {
+      .favorite--star {
+        margin-inline-end: 3.25rem;
+      }
+
+      .article--btn {
+        min-width: 181px;
+      }
+    }
+  }
+}

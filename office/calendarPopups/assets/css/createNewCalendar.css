@@ -1,0 +1,200 @@
+#createNewCalendar p {
+    font-size: 14px;
+}
+
+.custom-group-radio .custom-control-label::after, .custom-group-radio .custom-control-label::before {
+    top: 50%;
+    transform: translatey(-50%);
+}
+
+.new-custom-checkbox .custom-control-label::before {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 36px;
+}
+.new-custom-checkbox{
+    margin-inline-end : 12px !important;
+    top:-3px;
+}
+@media screen and (min-width: 768px){
+    html[dir=ltr] .bsapp-attendence-checkboxes {
+        padding-inline-end: 20px !important;
+        padding-inline-start: 10px !important;
+        max-width: 100% !important;
+    }
+}
+.new-custom-checkbox .custom-control-label::after {
+    width: 36px;
+    height: 36px;
+}
+.userField{
+    position: relative;
+}
+
+.userField .icon-container {
+    left: 5px;
+}
+
+.userField .icon-container .newLabel {
+    background: #00c736;
+}
+.ct{
+    display: none;
+}
+
+.show-field{
+    display: none;
+}
+
+.DisplayOn{
+    display: block !important;
+}
+
+.note-editor.note-airframe, .note-editor.note-frame {
+    border: none;
+    background: #f3f3f4;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.custom-user-tags {
+    padding: 5px !important;
+    font-size: 13px !important;
+    border: none !important;
+}
+
+.custom-user-tags a.js-user-remove-selected i {
+    background: red;
+    color: #fff;
+    width: 12px;
+    text-align: center;
+    border-radius: 50%;
+    height: 12px;
+    line-height: 12px;
+    font-size: 10px;
+}
+
+.custom-user-design ul.select2-selection__rendered {
+    margin: 0px;
+}
+
+.custom-user-design ul.select2-selection__rendered li.select2-search.select2-search--inline {
+    float: none;
+    clear: both;
+    display: block;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+body .custom-user-design ul.select2-selection__rendered li.select2-search.select2-search--inline input.select2-search__field, body .custom-user-design .select2-container.select2-container--bsapp-dropdown-user-select .selection .select2-selection .select2-selection__rendered li.select2-search .select2-search__field {
+    width: auto !important;
+    display: inline-block !important;
+}
+span.select2-container.select2-container--bsapp-dropdown.select2-container--open {
+    z-index: 9999;
+}
+.popupDisplayOn {
+    z-index: 9999;
+}
+.userselectContainers .select2-container.select2-container--bsapp-dropdown .selection .select2-selection span#select2-userType-container {
+    padding-left: 5px !important;
+    z-index: 1;
+}
+
+.userselectContainers .select2-container.select2-container--bsapp-dropdown .selection .select2-selection span#select2-userType-container .badge.badge-info.badge-pill {
+    position: relative;
+    z-index: 1;
+    background: #00c736;
+    padding: 5px 10px;
+}
+.copylink-box{
+    display: none;
+}
+.sharing-box {
+    position: relative;
+}
+.sharing-box .showCopyLinkBtn {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translatey(-50%);
+    margin: 0px;
+}
+
+.js-window-message-shimming-loader {
+    position: absolute !important;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 1;
+    height: 100%;
+    background: #fff;
+    padding: 30px !important;
+}
+.error-div {
+    position: relative;
+    margin-bottom: 30px !important;
+}
+.error-div label.inputError {
+    position: absolute;
+    right: 0px;
+    bottom: -35px;
+}
+.bsapp-submit, .bsapp-submit:focus {
+    background: transparent;
+    border: none;
+    padding: 0px;
+    outline: none;
+}
+div#pills-tabContent {
+    overflow: visible !important;
+}
+.edit-icon {
+    background: #f7f7f7;
+    padding: 5px;
+    color: #000;
+    border-radius: 5px;
+}
+#js-char-popup-content > .overflow-auto {
+    overflow: hidden auto !important;
+}
+.js-textarea-newly-added {
+    position: relative;
+}
+.js-textarea-newly-added-update {
+    position: relative;
+}
+.js-window-edit-text-loader {
+    position: absolute !important;
+    top: 0px;
+    left: 0px;
+    width: 105%;
+    height: 100%;
+    z-index: 999 !important;
+    background: #ffff;
+    margin: -5px -15px 0px -15px;
+}
+
+@media screen and (max-width:576px){
+
+    .bsapp-attendence-checkboxes{
+        // margin-top: -26px;
+    }
+
+    .new-custom-checkbox{
+        top:1px;
+        margin-inline-end : 10px !important;
+    }
+    /*   .new-custom-checkbox .custom-control-label::before {
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          font-size: 26px;
+      }
+  
+      .new-custom-checkbox .custom-control-label::after {
+          width: 40px;
+          height: 40px;
+      }*/
+}

@@ -1,0 +1,95 @@
+{{#if subcategories}}
+	{{!-- subcategories (desktop only) --}}
+	<div class="article--grid bsapp--tab-panel cart--subcategories-desk fade-in"
+		 data-type="{{type}}">
+		{{#each subcategories}}
+			<article class="article article--grid-box subcategory"
+					 data-id="subcategory_{{../type}}_{{@index}}"
+					 data-current-type="subcategory"
+					 data-type="{{../type}}">
+				{{> itemSquareBox}}
+			</article>
+		{{/each}}
+	</div>
+{{else if items}}
+	{{!-- favorites items (desktop only) --}}
+	<div class="article--grid bsapp--tab-panel cart--subcategories-desk fade-in"
+		 data-type="{{type}}">
+		{{#each items}}
+			<article class="article article--grid-box item article--item-{{id}}"
+					{{#if disabled}}disabled="disabled"{{/if}}
+					{{#ifCond ../type '!==' 'favorites'}}data-current-type="item"{{/ifCond}}
+					 data-type="{{../type}}">
+				{{> itemSquareBox}}
+			</article>
+		{{/each}}
+	</div>
+{{else}}
+	{{!-- if empty --}}
+	<div class="bsapp--tab-panel cart--subcategories-desk fade-in"
+		 data-type="{{type}}">
+		{{> ../iconBox}}
+	</div>
+{{/if}}
+
+{{!-- subcategories and items --}}
+<div class="cart--subcategories-mob js--sub-level-return"
+	 data-type="{{type}}">
+
+	<div class="return-to-subcategories js--back-to-subcategory d-flex d-lg-none align-items-center">
+		<i class="fa-light fa-angle-right ltr--rotate"></i>
+		{{#if categoryTitle}}<h3>{{categoryTitle}}</h3>{{/if}}
+	</div>
+
+	{{#if subcategories}}
+		{{!-- subcategories --}}
+		{{#each subcategories}}
+		<div id="subcategory_{{../type}}_{{@index}}"
+			 class="{{#if items}}article--grid {{/if}}subcategory--sub-level js--sub-level-return fade-in"
+			 data-type="{{../type}}">
+				{{!-- subcategory title (return to subcategory on desktop) --}}
+				<article class="article article--grid-box back-to-subcategory js--back-to-subcategory"
+						 data-id="{{id}}">
+					<div class="article--content d-flex justify-content-lg-center align-items-center text-lg-center">
+						{{#if name}}<p class="subtitle">{{name}}</p>{{/if}}
+						<div class="back-to-rotate"><i class="fa-light fa-arrow-turn-down ltr--rotate"></i></div>
+					</div>
+				</article>
+			{{!-- subcategory items --}}
+			{{#each items}}
+				<article class="article article--grid-box item article--item-{{id}}"
+						{{#if disabled}}disabled="disabled"{{/if}}
+						 data-subcategory-id="{{../id}}"
+						 data-current-type="subItem"
+						 data-type="{{../../type}}">
+					{{> itemSquareBox}}
+				</article>
+			{{/each}}
+		</div>
+		{{/each}}
+
+	{{else if items}}
+		{{!-- items --}}
+		<div id="subcategory_{{type}}"
+			 class="article--grid subcategory--sub-level js--sub-level-return fade-in"
+			 data-type="{{type}}">
+			{{#each items}}
+				<article class="article article--grid-box item article--item-{{id}}"
+						 {{#if disabled}}disabled="disabled"{{/if}}
+						 {{#ifCond ../type '!==' 'favorites'}}data-current-type="item"{{/ifCond}}
+						 data-type="{{../type}}">
+					{{> itemSquareBox}}
+				</article>
+			{{/each}}
+		</div>
+
+	{{else}}
+		{{!-- if empty --}}
+		<div id="subcategory_{{type}}"
+			 class="subcategory--sub-level js--sub-level-return fade-in"
+			 data-type="{{type}}">
+			{{> ../iconBox}}
+		</div>
+	{{/if}}
+
+</div>

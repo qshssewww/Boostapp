@@ -1,0 +1,59 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "Some message here",
+  "orderId": "00001",
+
+  "client": {
+    "id": "251931",
+    "balanceAmount": "10.99",
+    "idNumber": "123456789",
+    "img": "https://ui-avatars.com/api/?length=1&name=משה&background=f3f3f4&color=000&font-size=0.5",
+    "name": "משה גולן",
+    "phone": "0508777066",
+    "email": "moshe@cloud247.co.il",
+    "url": "/office/ClientProfile.php?u=251931"
+  },
+  "cart": {
+    "id": "123123",
+    "vatAmount": 17,
+    "vatPrice": 11.24,
+    "totalPrice": 77.34,
+    "discount": {
+      "amount":7.34,
+      "type":"1",
+      "value":10
+    },
+    "items": [
+      {
+        "id":"111111",
+        "type":"general",
+        "name":"כללי",
+        "price":25,
+        "totalPrice":25,
+        "quantity":1
+      },
+      {
+        "id":"2870242",
+        "type":"lesson",
+        "name":"ריקוד קשה",
+        "price":50.99,
+        "totalPrice":48.44,
+        "quantity":1,
+        "discount": {
+          "amount":2.55,
+          "type":"1",
+          "value":5
+        }
+      }
+    ]
+  },
+  "receipts": [
+    {
+      "id": "123333",
+      "price": 5.99,
+      "DocType": 8,
+      "DocId": 802067
+    }
+  ]
+}

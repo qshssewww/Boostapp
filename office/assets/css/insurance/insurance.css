@@ -1,0 +1,85 @@
+@media screen and (min-width:768px){
+    .w-md-300p{
+        width : 300px ;
+    }
+    .w-md-n300p{
+        width : calc( 100% - 300px );
+    }
+    .text-md-start{
+        text-align: start !important;
+    }
+    .bsapp-section-insurance{
+        min-height: calc( 100vh - 130px) !important;
+    }
+
+    .bsapp-w-156p{
+        width: 156px;
+    }
+}
+.bsapp-label-radios{
+    position:relative;
+    overflow:hidden;
+    color : #7c7c7c;
+}
+.bsapp-label-radios input:checked+span:not(.bsapp-option){
+    position: absolute;
+    background : #D8D8D8;
+    top:0;
+    bottom:0;
+    left:0;
+    right : 0;
+    text-shadow: 0 0 .65px #000, 0 0 .65px #000;
+    color: #000;
+}
+.bsapp-label-radios input:checked+span+span{
+    text-shadow: 0 0 .65px #000, 0 0 .65px #000;
+    color:#000;
+}
+
+.bsapp-section-insurance{
+    min-height: calc( 100vh - 145px) !important;
+}
+.bsapp-label-radios .bsapp-option{
+    z-index:1;
+    position:relative;
+}
+@media screen and (max-width:768px){
+    .bsapp-page.col-md-12{
+        padding:15px 0px;
+    }
+}
+@media screen and (min-width:576px){
+    .bsapp-max-md-h-825p{
+        max-height:825px;
+    }
+}
+
+.bsapp-badge-insurance-new{
+    border-radius: 3px;
+    letter-spacing: 0.27px;
+    height:17px;
+    width:40px;
+    box-shadow:3px 3px 6px rgb(0,0,0,0.16);
+    font-weight:500;
+}
+
+.border-gray-707070{
+    border-color:#707070 !important;
+}
+.bsapp-insurance-mid-scroll::-webkit-scrollbar{
+    width:0px !important
+}
+.flex-even {
+    flex: 1;
+}
+.bsapp-line-clip-4{
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bsapp-js-required-check .custom-control-label::before{
+    border : 1px solid var(--danger);
+}

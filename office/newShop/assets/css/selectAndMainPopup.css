@@ -1,0 +1,63 @@
+#selectPopup .smPopup {
+    /* width: 15vw;*/
+    min-height: 25vh;
+    z-index:9999999999999999999999999999999999999999;
+    padding-bottom: 0;
+}
+#selectPopup .typeSelect{
+    display: block;
+    width: 80%;
+    border: none;
+    margin-top: 2rem;
+    font-size: 20px;
+}
+
+#selectPopup .select2-selection,
+#mainShopPopup .select2-selection,
+#InventoryPopup .select2-selection
+{
+}
+
+#selectPopup .select2-selection--single .select2-selection__rendered ,
+#mainShopPopup .select2-selection--single .select2-selection__rendered
+{
+    display : flex ;
+    align-items : center ;
+}
+
+#selectPopup .select2-results__option,
+#mainShopPopup .select2-results__option
+{
+    //direction: rtl;
+}
+
+.popupSectionsContainer{
+    margin-bottom: 50px;
+}
+.mainShopHeaderFlex{
+    justify-content: flex-end;
+}
+.mainPopupHeaderFlex{
+    display: flex;
+    width: 100%;
+}
+#mainShopPopup .mainPopupHeaderFlex .select2-container{
+    font-size: 22px;
+    font-weight: 700;
+}
+
+#mainShopPopup .generalPopupTitle{
+    padding-top: 1px;
+}
+.selectContainers .select2-selection__arrow b {
+    display: block !important;
+}
+
+#select-type{
+    margin-top: 20px;
+    outline: none;
+    border: none;
+}
+#selectPopup ::-webkit-scrollbar{
+    display: none;
+}

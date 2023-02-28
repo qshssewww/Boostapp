@@ -1,0 +1,117 @@
+<!doctype html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Filter sample</title>
+</head>
+	<script src="codebase/dhtmlxscheduler.js" type="text/javascript" charset="utf-8"></script>
+	<script src='codebase/ext/dhtmlxscheduler_timeline.js' type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="codebase/dhtmlxscheduler.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+	
+<style type="text/css" media="screen">
+	html, body{
+		margin:0px;
+		padding:0px;
+		height:100%;
+		overflow:hidden;
+	}
+.scale_label {
+	border-spacing: 0px;
+	height: 100%;
+	width: 100%;
+	
+}
+.scale_label td {
+	border-left: 1px solid #CECECE;
+}
+</style>
+
+<script type="text/javascript" charset="utf-8">
+	var sections = [
+		{key:1, label:"Site 001", category:1},
+		{key:2, label:"Site 002", category:1},
+		{key:3, label:"Site 003", category:2},
+		{key:4, label:"Site 004", category:2},
+		{key:5, label:"Site 005", category:3},
+		{key:6, label:"Site 006", category:3}
+	];
+
+	function init() {
+
+		scheduler.config.xml_date="%Y-%m-%d %H:%i";
+		scheduler.config.mark_now = false;
+		scheduler.config.details_on_create = true;
+		scheduler.config.dblclick_create = false;
+
+		scheduler.createTimelineView({
+			name:	"timeline",
+			x_unit:	"day",
+			x_date:	"%D %d",
+			x_step:	1,
+			x_size: 14,
+			x_start: 0,
+			x_length: 7,
+			y_unit:	scheduler.serverList("sections", sections), // we create a specific serverList Object for the sections (sites). You can load it from server.
+			y_property:	"sections",
+			render:"bar",
+			event_min_dy: 40
+		});
+
+		scheduler.templates.timeline_scale_label = function(key, label, section){
+			return "<table class='scale_label'><tbody><tr>"+
+						"<td>"+label+"</td>"+
+						"<td style='width:20%;'>"+ section.category +"</td>"+
+						"<td style='width:20%;'>Len</td>"+
+						"<td style='width:20%;'>Sec</td>"+
+					"</tr></tbody></table>"; 
+		};
+
+		scheduler.init("scheduler_here",new Date(),"timeline");
+//		scheduler.load("php/events.php");
+//		var dp = new dataProcessor("php/events.php");
+//		dp.init(scheduler);
+	}
+
+	function filter_sites(el){
+		var value = parseInt(el.value, 10);
+		var filtered_sections = [];
+		if(value === 0){
+			scheduler.updateCollection("sections", sections); // we reset the filter by updating a collection with default values
+			return;
+		}
+		for(var i=0; i<sections.length; i++){
+			if(sections[i].category === value)
+				filtered_sections.push(sections[i]);
+		}
+		// we update the serverList "sections". This method calls the update of the scheduler with new values.
+		scheduler.updateCollection("sections", filtered_sections);
+	}
+
+</script>
+
+<body onload="init();">
+	<div id="scheduler_here" class="dhx_cal_container" style="width:100%; height:100%;">
+		<div class="dhx_cal_navline">
+			<div style="margin-left:20px;">
+				Category : 
+				<select name="category" onchange="filter_sites(this);">
+					<option value="0">&nbsp;</option>
+					<option value="1">Tent</option>
+					<option value="2">RV</option>
+					<option value="3">Cabin</option>
+				</select>
+			</div>
+			<div class="dhx_cal_prev_button">&nbsp;</div>
+			<div class="dhx_cal_next_button">&nbsp;</div>
+			<div class="dhx_cal_today_button"></div>
+			<div class="dhx_cal_date"></div>
+			<div class="dhx_cal_tab" name="day_tab" style="right:204px; display:none;"></div>
+			<div class="dhx_cal_tab" name="week_tab" style="right:140px; display:none;"></div>
+			<div class="dhx_cal_tab" name="month_tab" style="right:76px; display:none;"></div>
+		</div>
+		<div class="dhx_cal_header">
+		</div>
+		<div class="dhx_cal_data">
+		</div>
+	</div>
+</body>

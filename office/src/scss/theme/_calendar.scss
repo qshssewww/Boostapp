@@ -1,0 +1,1086 @@
+@media screen and (min-width : 767px ){
+    .bsapp-calendar-main {
+        max-height:calc( 100vh - 135px );
+    }
+    #bsapp-calendar {
+        .#{$theme-prefix}-filter-scrollable{
+            height: calc( 100vh - 135px ) !important;
+        }
+        .#{$theme-prefix}-modal-calendar-filter{
+            position : relative;
+        }
+    }
+}
+
+
+
+@media screen and (max-width : 767px ){
+    .bsapp-calendar-main {
+        max-height:calc( 100vh - 168px );
+        box-shadow : none !important;
+        padding-left :0 !important;
+        padding-right :0 !important;
+    } 
+    .#{$theme-prefix}-bottom-stats{
+        box-shadow: 1px -2px 7px 1px rgba(0, 0, 0 ,0.14);
+    }
+}
+
+#bsapp-calendar {
+    // Main Styles 
+    .bsapp-modal-calendar-filter {
+        *::-webkit-scrollbar {
+            width: 4px;
+            direction : inherit;
+        }
+        *::-webkit-scrollbar-track {
+            border-radius: 7px;
+            background: #d6d6d6;
+        }
+        *::-webkit-scrollbar-thumb {
+
+            background: #808080;
+            border-radius: 7px;
+
+        } 
+
+        z-index:0 !important;
+        &.show{
+            z-index:1050  !important; 
+        }
+    }
+    .bsapp-calendar-main {
+        box-shadow: 0 0 5px rgba(0,0,0,0.16);
+        overflow-y:auto;
+        overflow-x: hidden;
+
+        *::-webkit-scrollbar {
+            // width: 0px;
+            direction : inherit;
+        }
+
+        #calendarViewSettings {
+            top: 7px;
+            right: 15px ;
+            left : unset;
+            z-index: 99;
+            .dropdown-menu {
+                width: 386px !important;
+            }
+        }
+        #calendar-main {
+            &.fc-media-screen .fc-timegrid-event{
+                bottom : unset !important;               
+                cursor : pointer;                
+            }
+            .fc-header-toolbar {
+                @extend .mb-20;
+            }
+
+            .fc-timeGridWeek-view,.fc-timeGridDay-view,.fc-timeGridThreeDay-view,.fc-resource_timeGridWeek-view,.fc-resource_timeGridDay-view,.fc-resource_timeGridThreeDay-view{
+                .fc-timegrid-event{
+                    @extend .h-100;
+                }
+            }
+            &.#{$theme-prefix}-js-agenda-view{
+                .fc-timeGridWeek-view,.fc-timeGridDay-view,.fc-timeGridThreeDay-view,.fc-resource_timeGridWeek-view,.fc-resource_timeGridDay-view,.fc-resource_timeGridThreeDay-view{
+                    .fc-event-main {
+                        display : flex;
+                        flex-direction : column;
+                        justify-content:space-between;
+
+                    }
+                    .fc-timegrid-slots{
+                        opacity:0;
+                        width:0px !important;
+                        //overflow:hidden;
+                    }
+                    .fc-timegrid-event-harness:nth-child(n){  
+                        position:relative !important;
+                        inset:unset !important;
+                        min-height : 124px;
+                        margin-bottom :8px;
+                    }
+                } 
+                .fc-timegrid-event{
+                    @extend .h-100;
+                }
+            }
+            .fc-event-main{
+                overflow-x: hidden;
+                .#{$theme-prefix}-grad-end{
+                    content : "";
+                    display : block;
+                    top:0;
+                    position:absolute;
+                    height : 72px;
+                    width : 35%;
+                    right:0;   
+                    left : unset ;
+                    background : linear-gradient(90deg, currentColor 0% , rgba(255, 255, 255, 0) 100%);
+                    z-index : 9; 
+                }
+                .#{$theme-prefix}-grad-bottom{
+                    content : "";
+                    display : block;
+                    bottom:0;
+                    position:absolute;
+                    height : 30px;
+                    width : 100%;
+                    right:0;   
+                    left : 0 ;
+                    background :linear-gradient(0deg, currentColor 0%, rgba(255, 255, 255, 0) 100%);
+                    z-index : 9; 
+                }
+            }
+            .fc-view-harness{
+
+            }
+            .fc-toolbar {
+                @extend .d-none; 
+                @extend .d-md-flex; 
+                .fc-toolbar-chunk {
+                    @extend .d-flex;
+                    @extend .align-items-center;
+
+                    &:last-child {
+                        width : 110px ;
+                    }
+                }
+            }
+
+            .fc-resource span.fc-col-header-cell-cushion {
+                overflow : hidden;    
+                white-space : nowrap;     
+                width : 100%;
+                text-overflow :clip;
+                font-size : 12px !important;
+            }
+
+
+            .fc-col-header {
+                @extend .w-100;
+            }
+            .fc-daygrid-body,.fc-timegrid-body,.fc-timegrid-body table:first-child  ,.fc-scrollgrid-sync-table{
+                @extend .w-100;
+            }
+            .fc-col-header-cell,
+            .fc-scrollgrid {
+                @extend .border-0;
+            }
+            .fc-col-header-cell-cushion {
+                @extend .font-weight-normal;
+                @extend .text-gray-500;
+                @extend .bsapp-fs-14;
+                @extend .py-15;
+            }
+            .fc-scrollgrid-section>td {
+                @extend .border-top;
+            }
+            .fc-toolbar-title {
+                @extend .bsapp-fs-24;
+                @extend .text-gray;
+            }
+            .fc-next-button,
+            .fc-prev-button {
+                @extend .bg-transparent;
+                @extend .text-gray;
+                @extend .bsapp-fs-24;
+                @extend .border-0;
+                @extend .p-0;
+                @extend .mx-6;
+                &:focus,
+                    &:active {
+                    @extend .outline-none;
+                    @extend .shadow-none;
+                }
+            }
+            .fc-icon {
+                @extend .font-weight-normal;
+                @extend .bsapp-fs-18;
+                @extend .text-gray;
+            }
+            .fc-daygrid-day-top {
+                @extend .justify-content-center;
+            }
+            .fc-daygrid-day {
+                height: 150px;
+            }
+            .fc-day-today  {
+                @extend .bg-white;
+                .fc-daygrid-day-number {
+                    @extend .text-black;
+                    @extend .bg-white;
+                    @extend .border-primary;
+                    @extend .border;
+                    @extend .rounded-circle;
+                    @extend .d-flex;
+                    @extend .align-items-center;
+                    @extend .justify-content-center;
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+            .fc-daygrid-day-number {
+                @extend .bsapp-fs-10;
+                @extend .text-gray;
+            }
+            .fc-event {
+                border: 0;
+                @mixin color-modifiers {
+                    @each $name, $hex in $colors {
+                        &-#{$name} {
+                            background-color: rgba($hex, .3);
+                            .bsapp-event-participants .badge {
+                                background-color: $hex;
+                            }
+                            &.fc-timegrid-event .fc-event-main {
+                                border-inline-start: 3px solid $hex;
+                            }
+                        }
+                    }
+                }
+                &.color {
+                    @include color-modifiers;
+                }
+                .bsapp-event-participants .badge {
+                    @extend .text-white;
+                }
+                &.event-completed,
+                &.event-cancelled {
+                    @extend .bg-light;
+                    &.fc-timegrid-event .fc-event-main {
+                        @extend .border-0;
+                    }
+                    .fc-event-main {
+                        .bsapp-event-participants .badge {
+                            @extend .bg-transparent;
+                            @extend .px-0;
+                        }
+                        .bsapp-event-state {
+                            @extend .px-6;
+                            border-radius: 15px;
+                        }
+                    }
+                }
+                &.event-completed .fc-event-main {
+                    .bsapp-event-state {
+                        background-color: $dark;
+                        @extend .text-white;
+                    }
+                    .bsapp-event-participants .badge {
+                        @extend .text-gray-700;
+                    }
+                }
+                &.event-cancelled .fc-event-main {
+                    @extend .text-danger;
+                    .bsapp-event-state {
+                        @extend .bg-danger;
+                        @extend .text-white;
+                    }
+                    .bsapp-event-participants .badge {
+                        @extend .text-danger;
+                    }
+                }
+                .bsapp-event-info {
+                    @extend .w-100;
+                    @extend .position-absolute;
+                    @extend .right-0;
+                    @extend .bottom-0;
+                    @extend .bsapp-lh-16;
+                    @extend .d-flex;
+                    @extend .justify-content-between;
+                    @extend .px-10;
+                    @extend .my-6;
+                    @extend .pt-6;
+                    i {
+                        @extend .mis-5;
+                        cursor: pointer;
+                    }
+                    .bsapp-event-pause {
+                        @extend .bsapp-fs-14;
+                        @extend .bsapp-lh-16;
+                        @extend .d-flex;
+                        @extend .align-items-center;
+                        i {
+                            @extend .bsapp-fs-16;
+                        }
+                    }
+                }
+            }
+
+            .fc-daygrid-event {
+                border-radius: 5px;
+                > .fc-event-main{
+                    @extend .px-8;   
+                }
+                .fc-event-main {
+                    //@extend .overflow-hidden;
+                    @extend .d-flex;
+                    @extend .justify-content-between;
+                    @extend .align-items-center;
+
+                    @extend .py-4;
+                    @extend .text-gray-700;
+                    h5 {
+                        @extend .bsapp-fs-10;
+                        @extend .font-weight-bolder;
+                    }
+                    .badge {
+                        @extend .bsapp-fs-8;
+                        @extend .font-weight-normal;
+                        @extend .px-6;
+                        border-radius: 15px;
+                        i {
+                            @extend .mis-5;
+                        }
+                    }
+                    .bsapp-event-state {
+                        @extend .badge;
+                        @extend .px-6;
+                        @extend .font-weight-normal;
+                        @extend .text-white;
+                        @extend .bsapp-fs-8;
+                    }
+                    > div {
+                        @extend .d-flex;
+                    }
+                    .bsapp-event-info {
+                        @extend .py-0;
+                        @extend .pis-0;
+                        @extend .position-relative;
+                    }
+                }
+            }
+            .fc-daygrid-day-bottom {
+                @extend .m-0;
+                .fc-daygrid-more-link {
+                    @extend .px-10;
+                    @extend .bsapp-fs-10;
+                    @extend .bsapp-lh-12;
+                    @extend .font-weight-bolder;
+                }
+            }
+            .fc-timegrid {
+                .fc-event-main {
+                    @extend .d-flex;
+                    @extend .flex-column;
+                    @extend .py-6;
+                    @extend .px-0;
+                    @extend .text-gray-700;
+                    h5 {
+                        @extend .bsapp-fs-18;
+                        @extend .bsapp-lh-22;
+                        @extend .mb-5;
+                    }
+                    .bsapp-event-participants {
+
+
+                        .badge {
+                            @extend .d-inline-flex;
+                            @extend .align-items-center;
+                            @extend .px-6;
+                            @extend .py-4;
+                            @extend .bsapp-fs-14;
+                            @extend .bsapp-lh-16;
+                            @extend .font-weight-normal;
+                            border-radius: 15px;
+                            i {
+                                @extend .mis-6;
+                                @extend .bsapp-fs-12;
+                            }
+                        }
+                    }
+                    .bsapp-event-times {
+                        @extend .bsapp-fs-12;
+                        @extend .bsapp-lh-14;
+                        @extend .font-weight-light;
+                        @extend .mb-5;
+                        white-space: nowrap;
+                    }
+                    .bsapp-event-owner {                       
+                        @extend .bsapp-lh-19;
+                        @extend .font-weight-light;
+                        white-space: nowrap;
+                    }
+                    .bsapp-event-info {
+                        white-space: nowrap;
+                        .bsapp-event-icons i {
+                            @extend .mis-10;
+                            @extend .bsapp-fs-16;
+                        }
+                    }
+                    .bsapp-event-state {
+                        @extend .bsapp-fs-10;
+                        @extend .bsapp-lh-16;
+                        letter-spacing  : 0.5px;
+                    }
+                }
+                .fc-timegrid-col-events {
+                    @extend .w-100;
+                    @extend .mx-0;
+                }
+                .fc-timegrid-now-indicator-line {
+                    @extend .border-dark;
+                    //  @extend .overflow-hidden;
+                    height: 1px;
+                    font-size: 0;
+                }
+                .fc-timegrid-now-indicator-arrow {
+                    @extend .bg-dark;
+                    @extend .text-white;
+                    @extend .bsapp-fs-9;
+                    @extend .border-0;
+                    @extend .font-weight-normal;
+                    @extend .bsapp-lh-14;
+                    @extend .py-0;
+                    @extend .px-6;
+                    border-radius: 15px;
+                }
+            }
+            .fc-timegrid-slot {
+                height: 150px;
+                @extend .align-top;
+            }
+            .fc-timegrid-slot-label,
+            .fc-timegrid-axis,
+            .fc-timegrid .fc-scrollgrid-section > td {
+                @extend .border-0;
+            }
+            .fc-timegrid .fc-scrollgrid-sync-inner {
+                @extend .border;
+            }
+            .fc-timegrid-slot-label-cushion {
+                @extend .bsapp-fs-10;
+                @extend .bsapp-lh-12;
+            }
+
+            .fc-icon-chevron-left::before {
+                content: "\f053";
+            }
+            .fc-icon-chevron-right::before {
+                content: "\f054";
+            }
+        }
+    }
+
+
+    .#{$theme-prefix}-sm-calendar-view ,  .#{$theme-prefix}-sm-calendar-modal-view {
+        @extend .w-100;
+        .fc-toolbar {
+            @extend .d-flex;             
+            .fc-toolbar-chunk {
+                @extend .d-flex;
+                @extend .align-items-center;
+                .fc-next-button,.fc-prev-button{
+                    @extend .d-none; 
+                    @extend .d-md-flex;
+                }
+
+            }
+        }
+
+        .fc-toolbar-chunk {
+            @extend .d-flex;
+            @extend .align-items-center;
+            @extend .justify-content-between;
+            .fc-toolbar-title{
+                @extend .flex-grow-1;
+            }
+            @extend .w-100;
+            .fc-today-button.fc-button-primary{
+                @extend .btn;   
+                @extend .btn-outline-light ;   
+            }
+            .fc-button {
+                @extend .bg-transparent;
+                color: $black;
+                @extend .border-0;
+                @extend .p-0;
+                @extend .m-0;
+                @extend .outline-none;
+                @extend .shadow-none;
+            } 
+
+            &:empty {
+                @extend .d-none;
+            }
+        }
+
+        .fc-toolbar-chunk:not(:first) {
+            display : none !important;
+        }
+        .fc-header-toolbar {
+            @extend .mb-10;
+            @extend .d-none; 
+            @extend .d-md-flex; 
+            @extend .flex-row;
+            @extend .font-weight-bold;
+        }
+        .fc-daygrid-body,
+        .fc-scrollgrid > tbody table,
+        .fc-scrollgrid > tfoot table,
+        .fc-scrollgrid-section table,
+        .fc-toolbar-chunk {
+            @extend .w-100;
+        }
+        .fc-scrollgrid-section table,
+        &.fc-theme-standard th,
+        &.fc-theme-standard td,
+        .fc-scrollgrid-liquid {
+            @extend .border-0;
+        }
+        &.fc-theme-standard td .fc-daygrid-day-frame {
+            @extend .rounded-circle;
+            @extend .d-flex;
+            @extend .align-items-center;
+            @extend .justify-content-center;
+            @extend .mx-auto;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            &:hover:not(.active) {
+                background-color: $gray-100 !important;
+            }
+            &.active {
+                @extend .bg-primary;
+                @extend .text-white;
+                border-color: $green !important;
+            }
+        }
+
+        .fc-day-today , .#{$theme-prefix}-js-active-date {
+            @extend .bg-white;
+            .fc-daygrid-day-number {
+
+                @extend .border-primary;
+                @extend .border;
+                @extend .rounded-circle;
+                @extend .d-flex;
+                @extend .align-items-center;
+                @extend .justify-content-center;
+                width: 24px;
+                height: 24px;
+            }
+        }
+        .#{$theme-prefix}-js-active-date {
+            @extend .bg-primary;
+            @extend .text-white;
+        }
+
+
+        .fc-daygrid-day {
+            @extend .p-5;
+            &.fc-day-today {
+                @extend .bg-transparent;
+            }
+
+        }
+        .fc-col-header-cell-cushion {
+            white-space: nowrap;
+            @extend .overflow-hidden;
+            text-overflow: clip;
+            max-width: 20px;
+            letter-spacing: 20px;
+            line-height: 10px;
+
+            font-weight: 400;
+            @extend .text-gray-700;
+        }
+        .fc-scrollgrid {
+            @extend .border-0;
+        }
+    }
+    .#{$theme-prefix}-sm-calendar-view {
+        .fc-daygrid-day-number {
+            @extend .p-0;
+            @extend .bsapp-fs-10;
+        }
+        .fc-col-header-cell-cushion {
+            @extend .bsapp-fs-13;
+        }
+
+        .fc-toolbar-chunk{
+            h2 {
+                @extend .bsapp-fs-14;
+                @extend .m-0;
+
+                @extend .text-start;
+            }
+        }
+    }
+
+    .#{$theme-prefix}-sm-calendar-modal-view{
+        .fc-day-other{
+            // @extend .d-none;
+        }        
+        .fc-daygrid-day-number {
+            @extend .p-0; 
+        }
+        .fc-toolbar-chunk{
+            h2 {
+                @extend .font-weight-bold;
+                @extend .bsapp-fs-16;                
+            }
+        }
+    }
+
+    .fc-icon {
+        font-family: "Font Awesome 5 Pro" !important;
+        font-weight: 300;
+        @extend .bsapp-fs-14;
+    }
+
+    // Sidebar Filters Styles
+    .bsapp-filter-avatar {
+        width: 20px;
+        height: 20px;
+    }
+    .#{$theme-prefix}-calendar-sidebar {
+        .fc-icon-chevron-left::before {
+            content: "\f053";
+        }
+        .fc-icon-chevron-right::before {
+            content: "\f054";
+        }
+    }
+
+    @media screen and (min-width : 768px ){
+        .bsapp-calendar-sidebar.calendar--filters-none {
+            height: 100%;
+            .with-h-100 {
+                height: 100%;
+                .js-side-filters {
+                    height: 100%;
+                    #calendarFilters {
+                        height: calc(100% - 238px - 40px);
+                        position: relative;
+                        #calendarFilters-none {
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            width: 100%;
+                            -webkit-transform: translateY(-50%);
+                            -ms-transform: translateY(-50%);
+                            transform: translateY(-50%);
+                            padding-top: 38px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.#{$theme-prefix}-calendar-sidebar  .#{$theme-prefix}-sm-calendar-modal-view{
+    .fc-col-header  {
+        @extend .d-none;
+    } 
+}
+
+
+// RTL Specific
+[dir="rtl"] {
+
+    .fc-event-main .#{$theme-prefix}-grad-end{
+        right: unset !important;
+        left : 0 !important ;
+        background : linear-gradient(-90deg, currentColor 0% , transparent 100%);
+    }
+    #calendar-main {
+        .fc-toolbar {
+
+        }
+    }
+    #calendarViewSettings {
+        left : 15px !important ;
+        right: unset  !important ;  
+    }
+
+
+    .#{$theme-prefix}-sm-calendar-view.#{$theme-prefix}-sidebar-calendar{
+        .fc-col-header-cell-cushion {  
+            direction : ltr !important;
+        }
+
+        .fc-icon-chevron-left::before {
+            content: "\f053" !important ;
+        }
+        .fc-icon-chevron-right::before {
+            content: "\f054"  !important;
+        }
+    }
+
+}
+
+
+[dir="rtl"]{
+    .#{$theme-prefix}-modal-calendar-filter.show{
+        .#{$theme-prefix}-sm-calendar-view ,  .#{$theme-prefix}-sm-calendar-modal-view {
+            .fc-col-header-cell-cushion {
+                letter-spacing : 0px !important;
+            }
+        }
+    }
+}
+
+/* ===== START Calendar pop-up on mobile /office/DeskPlanNew.php ===== */
+$sizeHandAnimation: 40px;
+$speedHandAnimation: 1.5s;
+@-webkit-keyframes scaleHandAnimation {
+    0% {
+        -webkit-transform: scale3d(0.5, 1, 1);
+        transform: scale3d(0.5, 1, 1);
+    }
+
+    30% {
+        -webkit-transform: scale3d(1.3, 1, 1);
+        transform: scale3d(1.3, 1, 1);
+    }
+
+    55% {
+        -webkit-transform: scale3d(0.5, 1, 1);
+        transform: scale3d(0.5, 1, 1);
+    }
+
+    100% {
+        -webkit-transform: scale3d(0.5, 1, 1);
+        transform: scale3d(0.5, 1, 1);
+    }
+}
+@keyframes scaleHandAnimation {
+    0% {
+        -webkit-transform: scale3d(0.5, 1, 1);
+        transform: scale3d(0.5, 1, 1);
+    }
+
+    30% {
+        -webkit-transform: scale3d(1.3, 1, 1);
+        transform: scale3d(1.3, 1, 1);
+    }
+
+    55% {
+        -webkit-transform: scale3d(0.5, 1, 1);
+        transform: scale3d(0.5, 1, 1);
+    }
+
+    100% {
+        -webkit-transform: scale3d(0.5, 1, 1);
+        transform: scale3d(0.5, 1, 1);
+    }
+}
+@-webkit-keyframes slideHandAnimation {
+    0% {
+        opacity: 0.15;
+        -webkit-transform: translate3d(-$sizeHandAnimation * 1.5, 0, 0);
+        transform: translate3d(-$sizeHandAnimation * 1.5, 0, 0);
+    }
+    15% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.15;
+        -webkit-transform: translate3d($sizeHandAnimation * 1.5, 0, 0);
+        transform: translate3d($sizeHandAnimation * 1.5, 0, 0);
+    }
+}
+@keyframes slideHandAnimation {
+    0% {
+        opacity: 0.15;
+        -webkit-transform: translate3d(-$sizeHandAnimation * 1.5, 0, 0);
+        transform: translate3d(-$sizeHandAnimation * 1.5, 0, 0);
+    }
+    15% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.15;
+        -webkit-transform: translate3d($sizeHandAnimation * 1.5, 0, 0);
+        transform: translate3d($sizeHandAnimation * 1.5, 0, 0);
+    }
+}
+@-webkit-keyframes pulseHandAnimation {
+    0% {
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+    }
+    80% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+    100% {
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+@keyframes pulseHandAnimation {
+    0% {
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+    }
+    80% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+    100% {
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+#calendarMainAboutScroll {
+    .modal-dialog {
+        height: auto !important;
+    }
+    .modal-dialog {
+        bottom: 0;
+        position: absolute;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+
+        -webkit-transition: -webkit-transform .3s ease-out;
+        transition: -webkit-transform .3s ease-out;
+        -o-transition: transform .3s ease-out;
+        transition: transform .3s ease-out;
+        transition: transform .3s ease-out, -webkit-transform .3s ease-out;
+        -webkit-transform: translateY(50px);
+        -ms-transform: translateY(50px);
+        transform: translateY(50px);
+
+        .modal-content {
+            border: none;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            font-weight: bold;
+
+            .modal-body {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: end;
+                -ms-flex-pack: end;
+                justify-content: center;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                color: #4D4D4D;
+                p {
+                    max-width: 80%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .hand-animation {
+                    margin: 4rem auto;
+                    width: $sizeHandAnimation * 3;
+                    height: 40px;
+                    position: relative;
+                    -webkit-animation: slideHandAnimation $speedHandAnimation cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+                    animation: slideHandAnimation $speedHandAnimation cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+
+                    .box {
+                        position: absolute;
+                        top: 0;
+                        left: calc(50% - #{$sizeHandAnimation / 2});
+                        z-index: 1;
+                        width: $sizeHandAnimation;
+                        -webkit-animation: slideHandAnimation $speedHandAnimation cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+                        animation: slideHandAnimation $speedHandAnimation cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+
+                        .fal {
+                            font-size: 40px;
+                            background-color: #fff;
+                            position: relative;
+                            z-index: 1;
+                            width: 50px;
+                            text-align: center;
+                            &:after {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: 14px;
+                                width: 10px;
+                                height: 10px;
+                                display: block;
+                                border-radius: 50%;
+                                -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+                                box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+                                -webkit-transform: scale(1);
+                                -ms-transform: scale(1);
+                                transform: scale(1);
+                                -webkit-animation: pulseHandAnimation $speedHandAnimation infinite;
+                                animation: pulseHandAnimation $speedHandAnimation infinite;
+                            }
+                        }
+
+                        &::after,
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            width: $sizeHandAnimation * 2;
+                            background-image: -webkit-gradient(linear, left top, right top, color-stop(33%, red), color-stop(0%, rgba(255,255,255,0)));
+                            background-image: -o-linear-gradient(left, red 33%, rgba(255,255,255,0) 0%);
+                            background-image: linear-gradient(to right, red 33%, rgba(255,255,255,0) 0%);
+                            background-position: bottom;
+                            background-size: 10px 1px;
+                            background-repeat: repeat-x;
+                            height: 1px;
+                        }
+                        &::before {
+                            -webkit-transform-origin: 0 0;
+                            -ms-transform-origin: 0 0;
+                            transform-origin: 0 0;
+                            -webkit-animation: scaleHandAnimation $speedHandAnimation * 2 cubic-bezier(0.445, 0.050, 0.550, 0.950) -$speedHandAnimation infinite;
+                            animation: scaleHandAnimation $speedHandAnimation * 2 cubic-bezier(0.445, 0.050, 0.550, 0.950) -$speedHandAnimation infinite;
+                        }
+                        &::after {
+                            left: -$sizeHandAnimation;
+                            -webkit-transform-origin: 100% 0;
+                            -ms-transform-origin: 100% 0;
+                            transform-origin: 100% 0;
+                            -webkit-animation: scaleHandAnimation $speedHandAnimation * 2 cubic-bezier(0.445, 0.050, 0.550, 0.950) infinite;
+                            animation: scaleHandAnimation $speedHandAnimation * 2 cubic-bezier(0.445, 0.050, 0.550, 0.950) infinite;
+                        }
+                    }
+                }
+            }
+            .modal-footer {
+                border: none;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                .btn {
+                    width: 100%;
+                    background-color: var(--light);
+                    color: inherit;
+                    border: none;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    &.show .modal-dialog {
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+    }
+}
+/* ===== END Calendar pop-up on mobile /office/DeskPlanNew.php ===== */
+
+@media screen and (max-width : 767px ){
+    table.#{$theme-prefix}-company-details {
+        .sorting_asc {
+            &:before, &:after {
+                top: 0.25rem;
+            }
+        }
+        th, td {
+            padding: 0.25rem 0 !important;
+        }
+        th {
+            .form-check {
+                margin-inline-end: 10px !important;
+            }
+            .form-check,
+            .fa-user-friends {
+                line-height: 24px;
+                min-width: 40px;
+            }
+        }
+        td {
+            &.#{$theme-prefix}-td-cta {
+                text-align: end;
+            }
+        }
+        .#{$theme-prefix}-fs-18 {
+            font-size: 16px;
+        }
+        .#{$theme-prefix}-fs-13 {
+            font-size: 12px;
+        }
+        .#{$theme-prefix}-fs-44.dropdown-toggle {
+            padding-inline-start: 10px !important;
+        }
+        .#{$theme-prefix}-attendence-checkboxes {
+            padding-inline-end: 0 !important;
+            max-width: 100% !important;
+            margin-inline-start: auto;
+            .new-custom-checkbox {
+                margin-inline-end: 5px !important;
+                margin-right: 5px;
+                min-width: 36px;
+                height: 36px;
+                padding-left: 0;
+                .custom-control-label {
+                    width: 100%;
+                    height: 100%;
+                    &:after,
+                    &:before {
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 374px) {
+    .#{$theme-prefix}-char-popup .#{$theme-prefix}-tab-pills .nav-link {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    table.#{$theme-prefix}-company-details {
+        th {
+            .form-check,
+            .fa-user-friends {
+                min-width: 34px;
+            }
+        }
+        .#{$theme-prefix}-fs-44.dropdown-toggle {
+            font-size: 34px;
+            margin-top: 3px;
+        }
+        .#{$theme-prefix}-fs-18 {
+            font-size: 14px;
+        }
+        .#{$theme-prefix}-attendence-checkboxes {
+            .new-custom-checkbox {
+                min-width: 30px;
+                height: 30px;
+                margin-top: 3px;
+                .custom-control-label:before {
+                    line-height: 30px;
+                }
+            }
+        }
+        .#{$theme-prefix}-img-to-check {
+            width: 34px !important;
+            height: 34px !important;
+            margin-top: 3px;
+        }
+    }
+}

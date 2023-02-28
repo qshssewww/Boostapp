@@ -1,0 +1,58 @@
+.more-options{
+    width:100%;
+    display:flex;
+
+    align-items: center;
+    padding: 0 0 10px;
+}
+
+.more-options-btn{
+    cursor: pointer;
+    color:#0089ff;
+}
+.extraOption .select2-search__field{
+    border: none
+}
+
+.extraOption.productExtraRight, .selectContainers .productExtraRight{
+    margin-right: 8px;
+}
+
+.extraOption.productExtraLeft, .selectContainers .productExtraLeft{
+    margin-right: 0
+}
+.selectContainersHalf .shouldBeHidden{
+    width: 100%;
+}
+#Price{
+    width: 25%!important;
+}
+#taxInclude1{
+    display: inline-block;
+    width: 15px;
+}
+.taxVat{
+    padding-top: 4.2%;
+    margin: 0 auto;
+}
+.AddInventory{
+    font-weight: bold;
+    color: #0089ff;
+    cursor: pointer;
+}
+#SizeInventory{
+    width: 50%;
+    margin-left: auto;
+}
+.field .colorGrid{
+    left: 0;
+    right: initial;
+}
+#InventoryList{
+
+    width: 100%;
+}
+#InventoryList .field{
+    position: relative;
+    width: 100%;
+}

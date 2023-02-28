@@ -1,0 +1,84 @@
+$body-bg: #FFFFFF;
+$body-color: #000000;
+$box-bg: #F5F5F5;
+$primary: #191919;
+$secondary: #0D7DFF;
+$third: #A5A5A5;
+$default: #B9B9B9;
+$success: #01C736;
+$error: #FF0045;
+$red: #FF0031;
+$yellow: #FFD02F;
+$shadow: #00000029;
+$border-color: #B9B9B9;
+$border-color-light: #E5E5E7;
+$input-placeholder-color: #707070;
+
+$border-radius: 8px;
+$padding: 1rem;
+$padding-big: 1.5rem;
+
+$asideWidth: 26rem;
+$headerHeight: 72px;
+$headerHeightMob: 57px;
+$barHeight: 90px;
+
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+:root {
+  --theme-body-bg: #{$body-bg};
+  --theme-body-color: #{$body-color};
+  --theme-box-bg: #{$box-bg};
+  --theme-primary: #{$primary};
+  --theme-secondary: #{$secondary};
+  --theme-third: #{$third};
+  --theme-default: #{$default};
+  --theme-success: #{$success};
+  --theme-error: #{$error};
+  --theme-red: #{$red};
+  --theme-yellow: #{$yellow};
+  --theme-shadow: #{$shadow};
+  --theme-border-color: #{$border-color};
+  --theme-border-color-light: #{$border-color-light};
+  --theme-input-placeholder-color: #{$input-placeholder-color};
+
+  --theme-modal-bg--rgb: #{hexToRGB($primary)};
+  --theme-box-bg--rgb: #{hexToRGB($box-bg)};
+  --color-secondary--rgb: #{hexToRGB($secondary)};
+  --color-success--rgb: #{hexToRGB($success)};
+  --color-default--rgb: #{hexToRGB($default)};
+
+  --theme-border-radius: #{$border-radius};
+  --theme-padding: #{$padding};
+  --theme-padding-big: #{$padding-big};
+
+  --theme-aside-width: #{$asideWidth};
+  --theme-header-height: #{$headerHeight};
+  --theme-header-height-mob: #{$headerHeightMob};
+  --theme-bar-height: #{$barHeight};
+
+  --swiper-navigation-size: 48px;
+  --swiper-navigation-color: #{$primary};
+
+  --fc-neutral-bg-color: #{$body-bg};
+  --fc-border-color: #{$box-bg};
+  --fc-highlight-color: #{$body-bg};
+  --fc-highlight-bg: #{$body-color};
+  --fc-today-bg-color: #{$body-bg};
+  --fc-disabled-bg-color: #A5A5A5;
+  --fc-button-border-color: #{$box-bg};
+  --fc-button-hover-border-color: #{$box-bg};
+  --fc-button-active-border-color: #{$box-bg};
+  --fc-button-bg-color: #{$body-bg};
+  --fc-button-active-bg-color: #{$box-bg};
+  --fc-button-text-color: #{$body-color};
+}
+
+@media (max-width: 959.98px) {
+  :root {
+    --theme-header-height: #{$headerHeightMob};
+    --theme-padding: #{$padding-big};
+  }
+}

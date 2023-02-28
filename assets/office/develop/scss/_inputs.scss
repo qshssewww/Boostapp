@@ -1,0 +1,244 @@
+/* ========== General Input styles ==========
+   ./assets/office/develop/js/modules/cart/AdditionalEvents.js
+   ==================== */
+@keyframes shrink-bounce {
+  0% {transform: scale(1);}
+  33% {transform: scale(.85);}
+  100% {transform: scale(1);}
+}
+@keyframes radio-check {
+  0% {
+    box-shadow: inset 0 0 0 2rem var(--theme-secondary);
+  }
+  33% {
+    box-shadow: inset 0 0 0 1px var(--theme-secondary), inset 0 0 0 2px var(--theme-body-bg), inset 0 0 0 1.125rem var(--theme-secondary);
+  }
+  100% {
+    box-shadow: inset 0 0 0 1px var(--theme-secondary), inset 0 0 0 7px var(--theme-body-bg), inset 0 0 0 1.125rem var(--theme-secondary);
+  }
+}
+
+.form--group-icon {
+  width: 1.625rem;
+  height: 1.625rem;
+  padding: 0.25rem;
+  position: absolute;
+  inset-inline-end: 0.5rem;
+  top: 50%;
+  margin-top: -0.8125rem;
+  line-height: 1.25rem;
+  font-size: 1.125rem;
+  transition: all 0.25s ease;
+
+  &.form--group-icon--remove {
+    &:not(.active) {
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden;
+      pointer-events: none;
+    }
+  }
+
+  &.form--group-icon--arrow {
+    font-size: 1.25rem;
+
+    & ~ .form--group-icon--remove {
+      inset-inline-end: calc(0.75rem + 1rem + 1.125rem);
+    }
+  }
+
+  &.form--group-icon--remove.active {
+    & ~ .form--group-icon--close-modal {
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden;
+      pointer-events: none;
+    }
+  }
+}
+
+.form--group-items {
+  padding: 0.625rem var(--theme-padding);
+
+  & ~ .form--group-items {
+    border-top: 1px solid var(--theme-border-color-light);
+    margin-top: 0.5rem;
+  }
+
+  .form--group-error {
+    span {
+      display: inline-block;
+      margin-block: 1rem 0.25rem;
+    }
+  }
+
+  .form--group-rel {
+    position: relative;
+
+    .bsapp--icon-input {
+      --input-padding-end: 2.625rem;
+      padding-inline-end: var(--input-padding-end);
+
+      &.js--group-input--search {
+        --input-padding-end: calc(2.625rem + 1rem + 1.125rem);
+
+        &:active {
+          box-shadow: none;
+        }
+      }
+
+      &[ltr] {
+        [dir="rtl"] & {
+          padding-inline-end: 0.875rem;
+          padding-inline-start: var(--input-padding-end);
+        }
+      }
+    }
+  }
+}
+
+.form--group {
+  display: grid;
+  grid-gap: 1rem;
+  padding: 0.625rem var(--theme-padding);
+
+  .form--group-items {
+    padding: 0;
+
+    & ~ .form--group-items {
+      margin-top: 0;
+      border-top: none;
+    }
+  }
+
+  &.half {
+    grid-template-columns: 1fr 1fr;
+  }
+  &.third-first {
+    grid-template-columns: minmax(66.666%, 1fr) 1fr;
+  }
+}
+
+.form--group-note {
+  font-size: 1rem;
+  color: var(--theme-input-placeholder-color);
+  background-color: var(--theme-box-bg);
+  border: 1px solid var(--theme-border-color);
+  padding: 0.5rem;
+  margin-block: 4.0625rem;
+}
+
+input[type="date"]::-webkit-datetime-edit,
+input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  padding: 0;
+  margin: 0;
+}
+
+input[type="date"] {
+  color: var(--theme-body-color);
+  text-align: left;
+  &::-webkit-date-and-time-value {
+    text-align: left;
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    color: transparent;
+    background: transparent;
+  }
+
+  &::-webkit-clear-button {
+    display: none;
+    -webkit-appearance: none;
+  }
+}
+
+.form--group-date {
+  input[type="date"] {
+    padding-right: 42px;
+  }
+
+  &:before {
+    content: '';
+    color: var(--theme-body-color);
+    opacity: 1;
+    display: block;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M112 0C120.8 0 128 7.164 128 16V64H320V16C320 7.164 327.2 0 336 0C344.8 0 352 7.164 352 16V64H384C419.3 64 448 92.65 448 128V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V128C0 92.65 28.65 64 64 64H96V16C96 7.164 103.2 0 112 0zM416 192H32V448C32 465.7 46.33 480 64 480H384C401.7 480 416 465.7 416 448V192zM384 96H64C46.33 96 32 110.3 32 128V160H416V128C416 110.3 401.7 96 384 96z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    margin-top: -10px;
+    padding: 0;
+    pointer-events: none;
+  }
+}
+
+.bsapp--radio-input {
+  &[type="radio"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  & + label {
+    .bsapp--radio-animate {
+      width: 1.75rem;
+      height: 1.75rem;
+      display: block;
+      border: 1px solid var(--theme-primary);
+      margin-bottom: 0;
+      font-size: 1.125rem;
+      text-align: center;
+      padding: 5px;
+      cursor: pointer;
+      transition: all 250ms ease;
+      border-radius: 50%;
+      position: relative;
+    }
+  }
+
+  &:checked + label {
+    .bsapp--radio-animate {
+      padding: 0;
+      border: none;
+
+      &:after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin-top: 0;
+        margin-left: 0;
+
+        animation-duration: 0.25s;
+        animation-name: radio-check;
+        animation-iteration-count: 1;
+        animation-direction: Normal;
+        box-shadow: inset 0 0 0 1px var(--theme-secondary), inset 0 0 0 7px var(--theme-body-bg), inset 0 0 0 1.125rem var(--theme-secondary);
+      }
+    }
+  }
+}

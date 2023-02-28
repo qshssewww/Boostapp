@@ -1,0 +1,139 @@
+.modal-tag {
+  @include media-breakpoint-up(m) {
+    max-width: 375px;
+    height: 723px;
+    max-height: 100vh;
+  }
+  justify-content: center;
+
+  .modal-body {
+    .tag-main-box {
+      padding-right: 18px;
+      padding-left: 29px;
+      padding-top: 19px;
+
+      .category-container,
+      .tag-container {
+
+        justify-content: flex-end;
+        width: calc(100% + 16px);
+        margin-left: -8px;
+
+        .tag-favorite-header {
+          color: #182434;
+          letter-spacing: 0.17px;
+          line-height: 22px;
+        }
+
+        .tag-other-header {
+          color: #182434;
+          letter-spacing: 0.13px;
+          line-height: 17px;
+          margin-top: 8px;
+        }
+
+        .oval-form {
+          background-color: white;
+          border-radius: 18px;
+          display: inline-block;
+          padding: 8px 10px;
+          margin-left: 8px;
+          margin-top: 5px;
+          cursor: pointer;
+        }
+
+        .oval-border-favorite {
+          border: 1px solid #00C736;
+        }
+
+        .oval-border-other {
+          border: 1px solid #878787;
+        }
+
+        .oval-border-black {
+          border: 1px solid black;
+        }
+
+        p {
+          display: table-cell;
+          text-align: left;
+          vertical-align: middle;
+          font-size: 16px;
+          line-height: 17px;
+        }
+
+        .favorite {
+          color: #00C736;
+        }
+
+        .other {
+          color: #878787;
+        }
+
+        .blue {
+          color: #0062FF;
+        }
+      }
+    }
+  }
+
+  .modal-footer-text {
+    color: #878787;
+    letter-spacing: 0.15px;
+    line-height: 19px;
+    font-size: 16px;
+  }
+
+  .modal-footer-link-text {
+    color: black;
+    line-height: 19px;
+    font-size: 16px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.modal-request {
+  @include media-breakpoint-up(m) {
+    max-width: 298px;
+    height: 434px;
+    max-height: 100vh;
+  }
+
+  .tag-search-main-box {
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-top: 46px;
+  }
+
+  .tag-request-text {
+    color: black;
+    letter-spacing: 0.15px;
+    line-height: 19px;
+    text-align: center;
+  }
+
+  .tag-request-text-padding {
+    padding-bottom: 50px;
+    padding-right: 41px;
+    padding-left: 41px;
+  }
+
+  .btn-request {
+    height: 47px;
+    border-radius: 8px;
+  }
+
+  .request-send {
+    margin-top: auto;
+  }
+
+}
+
+.font-weight-500 {
+  font-weight: 500;
+}
+
+.width-100 {
+  width: 100%;
+}

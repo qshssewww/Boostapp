@@ -1,0 +1,14 @@
+#GoogleLocationAddressUpdateModal{max-width: 480px;}
+#GoogleLocationAddressUpdateModal .form-wrapper{z-index: 1;}
+.bs-modal-reposition{position: fixed !important; z-index: 1050; inset: 0px; display: none; outline: none !important;}
+.bs-modal-reposition .modal-dialog{margin: auto !important;}
+.bs-modal-reposition .modal-content{height: 813px; max-width: 480px; min-height: 220px;}
+.bs-modal-reposition p.description{font-weight: 500;}
+.bs-modal-reposition #updateGoogleAddressForm i.fa-search{right: 0;opacity: 0.6;top: 3px; color: #B9B9B9;}
+.bs-modal-reposition #updateGoogleAddressForm input {font-size: 18px; border: 2px solid #B9B9B9; border-radius: 8px;}
+.bs-modal-reposition #updateGoogleAddressForm input::placeholder{ color: #B9B9B9;}
+.bs-modal-reposition #updateGoogleAddressForm .pickFromListError{display: none; animation:opac 0.4s}
+.bs-modal-reposition #updateGoogleAddressForm .pickFromListError.active{display: block;}
+[dir=rtl] .bs-modal-reposition #updateGoogleAddressForm i.fa{right: 0;}
+[dir=rtl] .bs-modal-reposition .close{margin: -1rem;}
+@keyframes opac{from{opacity:0} to{opacity:1}}

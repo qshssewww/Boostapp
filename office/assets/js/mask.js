@@ -1,0 +1,80 @@
+// JavaScript Document
+
+jQuery(function($){
+        $('#inputDate').mask('99/99/9999');
+		$('#inputPhone').mask('999-9999999');
+		$('#inputPhoneExit').mask("(999) 999-9999? x99999");
+		$('#inputIntPhone').mask("99-9999999");
+		$('#inputTaxID').mask("999999999");
+		$('#inputSSN').mask("999-99-9999");
+		$('#inputProductKey').mask("a*-999-a999");
+		$('#inputEyeScript').mask("~9.99 ~9.99 999");
+		$('#inputPurchaseOrder').mask("aaa-999-***");
+		$('#inputPercent').mask("99%");
+		$('#inputCharacterRanges').mask("^9%");
+		$('#inputMaskEscaping').mask("99-999 ?a");
+		
+		
+		$('#inputDate1').mask('99/99/9999');
+		$('#inputPhone1').mask('999-9999999');
+		$('#inputTaxID1').mask("999999999");
+		$('#inputDate2').mask('99/99/9999');
+		$('#inputPhone2').mask('999-9999999');
+		$('#inputTaxID2').mask("999999999");
+		$('#inputDate3').mask('99/99/9999');
+		$('#inputPhone3').mask('999-9999999');
+		$('#inputTaxID3').mask("999999999");
+		$('#inputDate4').mask('99/99/9999');
+		$('#inputPhone4').mask('999-9999999');
+		$('#inputTaxID4').mask("999999999");
+		$('#inputDate5').mask('99/99/9999');
+		$('#inputPhone5').mask('999-9999999');
+		$('#inputTaxID5').mask("999999999");
+		$('#inputDate6').mask('99/99/9999');
+		$('#inputPhone6').mask('999-9999999');
+		$('#inputTaxID6').mask("999999999");
+		$('#inputDate7').mask('99/99/9999');
+		$('#inputPhone7').mask('999-9999999');
+		$('#inputTaxID7').mask("999999999");
+		$('#inputDate8').mask('99/99/9999');
+		$('#inputPhone8').mask('999-9999999');
+		$('#inputTaxID8').mask("999999999");
+		$('#inputDate9').mask('99/99/9999');
+		$('#inputPhone9').mask('999-9999999');
+		$('#inputTaxID9').mask("999999999");
+		$('#inputDate10').mask('99/99/9999');
+		$('#inputPhone10').mask('999-9999999');
+		$('#inputTaxID10').mask("999999999");
+		
+		
+		$('#inputDate11').mask('99/99/9999');
+		$('#inputPhone11').mask('999-9999999');
+		$('#inputTaxID11').mask("999999999");
+		$('#inputDate12').mask('99/99/9999');
+		$('#inputPhone12').mask('999-9999999');
+		$('#inputTaxID12').mask("999999999");
+		$('#inputDate13').mask('99/99/9999');
+		$('#inputPhone13').mask('999-9999999');
+		$('#inputTaxID13').mask("999999999");
+		$('#inputDate14').mask('99/99/9999');
+		$('#inputPhone14').mask('999-9999999');
+		$('#inputTaxID14').mask("999999999");
+		$('#inputDate15').mask('99/99/9999');
+		$('#inputPhone15').mask('999-9999999');
+		$('#inputTaxID15').mask("999999999");
+		$('#inputDate16').mask('99/99/9999');
+		$('#inputPhone16').mask('999-9999999');
+		$('#inputTaxID16').mask("999999999");
+		$('#inputDate17').mask('99/99/9999');
+		$('#inputPhone17').mask('999-9999999');
+		$('#inputTaxID17').mask("999999999");
+		$('#inputDate18').mask('99/99/9999');
+		$('#inputPhone18').mask('999-9999999');
+		$('#inputTaxID18').mask("999999999");
+		$('#inputDate19').mask('99/99/9999');
+		$('#inputPhone19').mask('999-9999999');
+		$('#inputTaxID19').mask("999999999");
+		$('#inputDate20').mask('99/99/9999');
+		$('#inputPhone20').mask('999-9999999');
+		$('#inputTaxID20').mask("999999999");
+});

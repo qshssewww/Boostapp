@@ -1,0 +1,152 @@
+/*
+This file is for the common styling of the wizards with summary view 
+Example: Add Client Popup
+*/
+/* 
+    Created on : 22-Sep-2020, 22:59:50
+    Author     : @abhishek
+*/
+
+
+
+.#{$theme-prefix}-wizard-with-summary{
+
+    .#{$theme-prefix}-summary-container{
+        width : 100%;
+
+        &.#{$theme-prefix}-shrink-50{
+            @extend .w-50;
+            @extend .border-ie-1 ;
+            @extend .border-light
+        }	
+        transition : all 0.3s ease-in;  
+
+
+    }
+    @media screen and (max-width : 576px){
+        .#{$theme-prefix}-summary-container{ 
+
+            &.#{$theme-prefix}-shrink-50{
+                width : 0px !important;
+                overflow : hidden;
+
+            }	
+            transition : all 0.3s ease-in;  
+        }
+    }
+
+
+    .wizard-container{
+        width : 0px;
+
+        &.#{$theme-prefix}-expand-50{
+            @extend .w-50;
+        }	
+        transition : all 0.3s ease-in;  
+    }
+    @media screen and (max-width : 576px){
+        .wizard-container{
+            width : 0px;
+
+            &.#{$theme-prefix}-expand-50{
+                width : 100% !important; 
+            }	
+            transition : all 0.3s ease-in;  
+        } 
+    }
+
+    .#{$theme-prefix}-wizard-box{
+
+
+        // height : calc( 100vh - 60px );  
+        height :  calc(  100%  - 60px ); 
+    }	
+
+    @media screen and (max-width : 576px){
+        .#{$theme-prefix}-wizard-box{
+            box-shadow : none ;
+            border-radius : 0px;
+            // height : calc( 100vh ) ; 
+            height : 100% ; 
+        }	
+    }
+
+
+    .form-control{
+        @extend .bg-light;
+        @extend .border-light;
+
+        &:focus{
+            @extend .shadow-none;
+        }
+    }
+
+
+
+    .btn-next{
+        @extend .btn-info;
+    }
+    .btn-next.disabled{
+        @extend .btn-light;
+
+    }
+
+
+    .#{$theme-prefix}-overlay{
+        @extend .position-absolute; 
+        display : flex;
+        @extend .h-100;
+        @extend .w-100;
+        @extend .justify-content-center;
+        @extend .align-items-center;
+        z-index : 99;
+        top:0;
+        left:0;
+        right:0;
+        bottom: 0;
+        background: rgba(255,255,255,0.84);
+    }
+
+    .form-control.error{
+        @extend .border-danger;
+        background-color : rgba( $red , 0.07) !important;
+    }
+
+    label.error{
+        display : none !important;
+    }
+
+
+    .fa-angle-rtl:before { 
+        content: "\f104";
+    }
+
+    .collapsed{
+        .fa-caret-up:before {
+            content: "\f0d7";
+        }
+    }
+
+
+
+
+
+}
+
+
+[dir="rtl"]{
+    .#{$theme-prefix}-verified+.#{$theme-prefix}-verified-icon{
+        color : $green; 
+        position: absolute; 
+        display : block;
+        right: unset;
+        left: 15px;
+    }
+
+    .fa-angle-rtl:before {
+        content: "\f105";
+
+    }
+
+
+}

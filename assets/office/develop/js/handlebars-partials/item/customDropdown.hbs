@@ -1,0 +1,79 @@
+<div class="bsapp--custom-select{{#if className}} {{className}}{{/if}}">
+	<div class="form--group-items">
+		{{#ifCond labelKey '||' label}}
+			<label for="{{type}}CustomDropdown" class="bsapp--label">
+				{{#if labelKey}}{{lang labelKey}}{{else}}{{label}}{{/if}}</label>
+		{{/ifCond}}
+		<div class="form--group-rel">
+			<input id="{{type}}CustomDropdown"
+				   class="bsapp--custom-input form--group-input bsapp--icon-input full js--group-input{{#if search}} js--group-input--search js--group-input--remove{{/if}}{{#if bigClass}} input--big{{/if}}"
+				   name="{{type}}CustomDropdown"
+				   type="text"
+				   value="{{filter items selectedOptionId 'id' 'text'}}"
+				   autocomplete="off"
+				   readonly="readonly"
+				{{#if disabled}} disabled="disabled"{{/if}}
+				{{#ifCond type '!==' 'colors'}}placeholder="{{#if placeholderKey}} {{lang placeholderKey}}{{else}}{{lang 'choose'}}{{/if}}"{{/ifCond}}
+			>
+
+			{{#ifCond type '===' 'colors'}}
+				<button style="background-color: {{filter items selectedOptionId 'id' 'color'}}"
+						class="form--group-icon--color js--group-icon--arrow"
+						data-color="{{filter items selectedOptionId 'id' 'color'}}"
+						title="{{filter items selectedOptionId 'id' 'text'}}"
+						type="button"></button>
+			{{/ifCond}}
+
+			{{#if items}}
+				<button class="form--group-icon form--group-icon--arrow js--group-icon--arrow"
+						type="button"><i class="fa-light fa-angle-down"></i></button>
+			{{/if}}
+
+			{{#if search}}
+				<button class="form--group-icon form--group-icon--remove js--group-icon--remove"
+						type="button"><i class="fa-light fa-circle-xmark"></i></button>
+			{{/if}}
+		</div>
+	</div>
+	{{#if items}}
+	<div class="form--group-dropdown js--group-dropdown"{{#if search}} data-no-items="{{lang 'not_found'}}"{{/if}}>
+		<ul>
+		{{#each items}}
+			<li class="dropdown-item js--dropdown-item"
+				{{#if id}}data-id="{{id}}"{{/if}}
+				{{#if dataJson}}data-json="{{dataJson}}"{{/if}}
+				{{#if color}}data-color="{{color}}"{{/if}}
+				{{#if disabled}}disabled="disabled"{{/if}}
+				aria-label="{{text}}"
+				aria-selected="{{#ifCond id '===' ../selectedOptionId}}true{{else}}false{{/ifCond}}"
+				tabindex="0">
+				{{#if color}}
+					<span style="background-color: {{color}}"
+						  data-color="{{color}}"
+						  title="{{text}}"
+						  class="form--group-icon--color"></span>
+				{{else}}
+					<span>{{text}}</span>
+				{{/if}}
+			</li>
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if createSelect}}
+		<select name="{{#if selectId}}{{selectId}}{{else}}{{type}}CustomSelect{{/if}}"
+				class="bsapp--custom-select_hidden"
+				{{#if position}} data-position="{{position}}"{{/if}}
+				{{#if required}} required="required"{{/if}}
+				hidden>
+			{{#each items}}
+				<option{{#ifCond id '===' ../selectedOptionId}} selected="selected"{{/ifCond}}
+					{{#if disabled}}disabled="disabled"{{/if}}
+					{{#if color}}data-color="{{color}}"{{/if}}
+					{{#if docPaymentId}}data-doc-payment-id="{{docPaymentId}}"{{/if}}
+					{{#if maxValue}}data-max-value="{{maxValue}}"{{/if}}
+						value="{{id}}">{{text}}</option>
+			{{/each}}
+		</select>
+	{{/if}}
+</div>

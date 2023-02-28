@@ -1,0 +1,23 @@
+.#{$theme-prefix}-draggable-fields{
+    .list-group-item {
+        &.sortable-ghost,&.active{
+            .#{$theme-prefix}-item-view{
+                @extend .text-dark;
+                @extend .border;    
+                @extend .border-success;    
+            }
+        }
+        &.#{$theme-prefix}-js-error{
+            
+            .#{$theme-prefix}-item-view{
+                @extend .border;    
+                @extend .border-danger;      
+            }
+            .input-group{
+                @extend .border;    
+                @extend .border-danger; 
+            }
+            
+        }    
+    }
+}

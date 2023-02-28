@@ -1,0 +1,840 @@
+.stop {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    background: red;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: scale(1) rotate(0deg);
+    outline: none !important;
+    border: none;
+    margin-inline-start: 6px;
+}
+
+.select2-container--default
+.select2-results__option--highlighted[aria-selected] {
+    background-color: #00c736;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #eb6a6ae8;
+}
+
+@keyframes close {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.5) rotate(90deg);
+    }
+
+    100% {
+        transform: scale(0) rotate(-360deg);
+    }
+}
+
+.stop:focus {
+    animation: close 0.5s;
+}
+
+.stop::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 7px;
+    height: 3px;
+    background: white;
+    margin: auto;
+}
+.plus, .ImgName{
+    padding: 2px 5px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-size: 16px;
+    /* color: #7f7f7f; */
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.calendar-image-upload {
+    color: transparent;
+}
+
+.calendar-image-upload:focus {
+    outline: none;
+}
+
+.calendar-image-upload::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.calendar-image-upload::before {
+    content: "+ תמונה";
+    display: inline-block;
+    padding: 2px 5px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #7f7f7f;
+    outline: none;
+}
+.calendar-image-upload:hover::before {
+    border-color: black;
+}
+.calendar-image-upload:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+/*::-webkit-scrollbar {*/
+/*  display: none;*/
+/*}*/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 20px;
+    margin: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.transitionAll{
+    transition: transform 0.5s, opacity 0.5s, visibility 0.5s, height 0.5s !important;
+}
+
+input:checked + .slider {
+    background-color: #f54b4b;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #f54b4b;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(15px);
+    -ms-transform: translateX(15px);
+    transform: translateX(15px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* The container */
+.radio-container {
+    display: block;
+    position: relative;
+    padding-right: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+/* Create a custom radio button */
+.radio-container .checkmark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-container input:checked ~ .checkmark {
+    background-color: transparent;
+    border: 1px solid #f54b4b;
+}
+
+label.radio-container {
+    font-size: 15px;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio-container .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .checkmark:after {
+    top: 4px;
+    right: 4px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #f54b4b;
+}  
+
+/* Hide the browser's default radio button */
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+/* Create a custom radio button */
+.radio-container .checkmarkBlue {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .checkmarkBlue {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-container input:checked ~ .checkmarkBlue {
+    background-color: transparent;
+    border: 1px solid #00c736;
+}
+
+label.radio-container {
+    font-size: 15px;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio-container .checkmarkBlue:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .checkmarkBlue:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .checkmarkBlue:after {
+    top: 4px;
+    right: 4px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #00c736;
+} 
+
+/* The container */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    padding-right: 20px !important;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 0.9em;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox-container .checkmark {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border: 1px solid rgb(0, 0, 0, 0.5);
+    border-radius: 1px;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+    background-color: white;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #f54b4b;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkbox-container .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+    left: 4px;
+    top: 0px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.generalPopupHeader,
+.generalPopupFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 0;
+    align-items: center;
+    text-align: right;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.generalPopupHeader h4,
+.generalPopupFooter h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+}
+
+.generalPopupHeader h1,
+.generalPopupHeader h2,
+.generalPopupHeader h3,
+.generalPopupHeader h4,
+.generalPopupHeader h5 {
+
+}
+.newCalendarPopupCloseTimes {
+    color: black;
+    opacity: 1;
+    font-weight: lighter;
+    font-size: 2em;
+}
+
+.generalPopupBody {
+    text-align: start;
+    height: calc(100vh - 170px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+@media screen and ( max-width : 576px ){
+    .popupContainer{
+        height : 100% ;
+        width : 100%;
+        border-radius: 0px ;
+    }
+
+    .generalPopupBody {
+        height: calc(100vh - 140px);
+    }
+
+}
+
+.current-btn {
+    color: #f54b4b;
+    font-weight: bold;
+}
+.selectContainers {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+}
+.selectContainerFlex {
+    display: flex;
+    align-items: flex-end;
+}
+.icon-container {
+    position: absolute;
+    left: 0;
+    bottom: 0.3em;
+    font-size: 1.2em;
+}
+.icon-container svg,
+.icon-container i {
+    opacity: 0.2;
+}
+.selectContainers .selectContainersHalf {
+
+}
+.selectContainers .selectContainerHalfSingle{
+
+    /* margin-right: 1.2em; */
+}
+.selectContainers input,
+.selectContainers select,
+.selectContainers textarea,
+.selectContainers .select2-selection {
+
+}
+#limitStandbyList{
+    text-decoration: underline;
+    background-color: white;
+    outline: none;
+    margin: 0;
+    border: none;
+    border-bottom:1px solid black;
+    position: relative;
+    align-items: center;
+    padding: 2px 1px;
+    margin-right:5px;
+    min-height: 30px;
+    max-height: 30px;
+    text-align: center;
+}
+
+
+.select2-results__option {
+
+}
+.extraRows .select2-selection {
+    /* width: 100%;
+    display: block;
+    border: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
+    padding: 0 0 5px 0;
+    outline: none;
+    background: transparent;
+    border-radius: none;
+    border-radius: 0px !important; */
+
+}
+
+
+.selectContainers label {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.5);
+}
+.selectContainers .select2-selection__arrow b {
+    display: none !important;
+}
+.selectContainers .select2-selection__rendered {
+    padding: 0 !important;
+}
+.calendarPopupsTimeInPutsContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+.calendarPopupsTimeInPutsContainer input,
+.calendarPopupsTimeInPutsContainer div {
+    flex: 1;
+    border: none !important;
+    text-align: center;
+}
+.calendarPopupsTimeInPutsContainer input {
+    max-width: 50px;
+}
+.ui-timepicker-list li,
+.ui-timepicker-list,
+.ui-timepicker-wrapper {
+    max-width: 75px;
+}
+.smallTimeDiv {
+    max-width: 10px;
+}
+.calendarPopupsTimeInPutsContainer {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
+}
+#dateTextOutput {
+    text-align: right;
+}
+.extraRows {
+    display: flex;
+    flex-direction: column;   
+}
+.showMore {
+    margin: 0.5em 0;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: #f54b4b;
+    cursor: pointer;
+}
+.rowInput {
+    display: flex;
+    margin: 0.5em 0;
+    align-items: center;
+    position: relative;
+    /* width:fit-content; */
+}
+.rowInputAlignStart {
+    align-items: flex-start;
+}
+.rowInputDouble {
+    display: flex;
+}
+.rowInputDouble .rowInput {
+    width: 50%;
+}
+.rowIconContainer {
+    font-size: 1em;
+    margin: 0;
+    width: 25px;
+    text-align: center;
+    padding-inline-end : 5px;
+    color: rgba(0, 0, 0, 0.5);
+}
+.colorGridSelect {
+    position: relative;
+    background-color: #f3f3f4;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+.colorGridSelect .downArrow {
+    margin: 0 5px;
+    /* color: #4a4848; */
+    color: #888;
+    font-size: small;
+}
+.colorGridContainer {
+    display: none;
+}
+.colorGrid {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 120px;
+    height: auto;
+    box-shadow: 0 0 10px #eeeeeefe;
+    background: white;
+    z-index: 1;
+}
+.colorCube {
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 7px;
+}
+.smallColorCube {
+    background-color: white;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    margin: 0px 7px;
+}
+.popupWrapper {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    left: 0;
+    top: 0;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s, opacity 0.5s, visibility 0.5s;
+}
+.displayNoneSuperImportant {
+
+}
+.popupContainer {     
+    background-color: white;
+    padding: 1em;    
+    transform: scale(0.5);
+    transition: transform 0.5s, opacity 0.5s;    
+    position: relative;
+    padding-bottom: 50px;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+    border: 0;
+    border-radius: 0.3rem;
+}
+.scaleUp {
+    transform: scale(1);
+}
+.popupDisplayOn {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 0.5s, opacity 0.5s;
+}
+.labelDisplayOn {
+    display: inline-block !important;
+}
+.cute-input,
+#allowAsStandBy {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #413F3F;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #7f7f7f;
+    border-radius: 0.25rem;
+    -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    border-color: #f3f3f4 !important;
+    background-color: #f3f3f4 !important;
+}
+select.cute-input option {
+    margin: 40px;
+    background-color: #f3f3f4;
+    color: black;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.smPopup {
+    width: 20vw;
+    width: 100%;
+}
+@media screen and ( min-width : 576px){
+    .smPopup {
+        width: 480px;
+    }
+}
+.mdPopup {   
+    min-width: 375px;
+}
+.bgPopup {
+    width: 70vw;
+    min-width: 375px;
+}
+.HUMONGOUSPopup {
+    width: 95vw;
+    min-width: 375px;
+}
+.newLabel {
+    color: white;
+    background: #f65752;
+    border-radius: 15px;
+    display: none;
+    padding: 1px 10px;
+    font-size: 0.8em;
+}
+
+.generalPopupFooter {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0 20px 20px 20px;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 0.5s, opacity 0.5s, visibility 0.5s, height 0.5s;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    width: 0 !important;
+    padding: 0;
+    transform: scale(0.5);
+}
+.hiddenImportant{
+    visibility: hidden!important;
+    opacity: 0!important;
+    height: 0!important;
+    margin: 0!important;
+    width: 0 !important;
+    padding: 0!important;
+    transform: scale(0.5)!important;
+    display:none!important;
+}
+
+.calendarAndApp,
+.justCalendar {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+    transition: visibility 0.5s, opacity 0.5s, transform 0.5s;
+}
+
+.showMoreChangeable {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.5s;
+}
+
+.justCalendarPopup .calendarAndApp,
+.calendarAndAppPopup .justCalendar,
+.hideShowMoreChangeable {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    /* width: 0;  */
+    padding: 0;
+    transform: scale(0.5);
+}
+
+#extraCheckboxes {
+    margin-right: 1rem;
+}
+.extraCheckboxesContainerFlex {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em 0;
+}
+.extraCheckboxesContainerFlex .row {
+    width: 50%;
+}
+.smallTextCheckbox {
+    font-size: 0.8em;
+    color: #b2b2b2;
+    padding-bottom: 1em;
+}
+
+.subCancel,
+.subSave:focus {
+    border: none;
+    background: transparent;
+    color: #a2a2a2;
+    font-size: 16px;
+    cursor: pointer;
+    outline: 1px solid transparent !important;
+    margin-left: 10px;
+}
+
+.subSave,
+.subSave:focus {
+    border: none;
+    background: transparent;
+    color: #f65752;
+    font-size: 18px;
+    cursor: pointer;
+    outline: 1px solid transparent !important;
+}
+
+.tox.tox-tinymce {
+    width: 100%;
+}
+
+#contentShow {
+    position: absolute;
+    z-index: 3;
+    left: 24px;
+    top: 40px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.rowIconContainer .edit-avatar{
+    padding-top: 2px;
+}
+.DISPLAYNONEIMPORTANT {
+    display: none !important;
+}
+
+.select2-selection[aria-labelledby="select2-prodcastOptions-container"] {
+    background-color:transparent!important;
+}

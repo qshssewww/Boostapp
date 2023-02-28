@@ -1,0 +1,107 @@
+{{#if receipts}}
+	<div class="aside--partial-transactions">
+		<p class="s-18">{{lang 'checkout_previous_receipts'}}</p>
+		<ul>
+			{{#each receipts}}
+				<li class="d-flex align-items-center justify-content-between">
+					<div class="d-flex align-items-center">
+						<a href="{{#if pdfUrl}}{{pdfUrl}}{{else}}/office/PDF/Docs.php?DocType={{DocType}}&DocId={{DocId}}{{/if}}"
+						   class="js--open-pdf-modal">
+							{{lang 'receipt'}} {{DocId}}
+						</a>
+					</div>
+					<p class="price"><i dir="ltr">{{strFormatPrice (strAbsFormatPrice price)}}</i></p>
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+{{/if}}
+{{#if refundReceipts}}
+	<div class="aside--partial-transactions">
+		<p class="s-18">{{lang 'checkout_previous_refund_receipts'}}</p>
+		<ul>
+			{{#each refundReceipts}}
+				<li class="d-flex align-items-center justify-content-between">
+					<div class="d-flex align-items-center">
+						<a href="{{#if pdfUrl}}{{pdfUrl}}{{else}}/office/PDF/Docs.php?DocType={{DocType}}&DocId={{DocId}}{{/if}}"
+						   class="js--open-pdf-modal">
+							{{docHeaderTypeName}} {{DocId}}
+						</a>
+					</div>
+					<p class="price"><i dir="ltr">{{strFormatPrice price true true}}</i></p>
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+{{/if}}
+{{#if transactions}}
+	<div class="aside--partial-transactions">
+		<p class="s-18">
+		{{#if isRefund}}
+            {{lang 'refund_details'}}
+        {{else}}
+            {{lang 'detailed_receipt'}}
+        {{/if}}
+        </p>
+		<ul>
+			{{#each transactions}}
+				<li class="d-flex align-items-center justify-content-between">
+					<div class="d-flex align-items-center">
+						<button class="btn btn--icon icon-sm js--delete-transaction"
+								login-order-id="{{loginOrderId}}"
+								data-id="{{id}}"
+								data-payment-setting="{{creditPaymentSettings}}"
+								data-type="{{type}}"
+								title="{{lang 'action_cacnel'}}"
+								type="button"><i class="fa-light fa-trash-can"></i></button>
+						<p>{{typeKey}}</p>
+					</div>
+					<p class="price">{{strFormatPrice price}}</p>
+				</li>
+			{{/each}}
+		</ul>
+		<ul>
+			{{#if subTotalPrice}}
+				<li class="d-flex align-items-center justify-content-between">
+					<p>{{lang 'checkout_total_received'}}</p>
+					<p class="price">{{strFormatPrice subTotalPrice}}</p>
+				</li>
+			{{/if}}
+			<li class="d-flex align-items-center justify-content-between{{#ifCond restTotalPrice '>' 0}} error{{else}} success{{/ifCond}}">
+				<p>
+				{{#if isRefund}}
+                            {{lang 'remainder_of_refund'}}
+                        {{else}}
+                            {{lang 'remainder_of_payment'}}
+                        {{/if}}
+				</p>
+				<p class="price">{{#ifCond restTotalPrice '>' 0}}{{strFormatPrice restTotalPrice}}{{else}}{{strFormatPrice '0'}}{{/ifCond}}</p>
+			</li>
+		</ul>
+	</div>
+{{/if}}
+
+{{#if clearingReceiptsBtn}}
+	<div class="aside--keep-in-debt-link">
+		<button id="removeTransactions"
+				class="theme--link text-center"
+				type="button">
+				{{#if isRefund}}
+				    {{lang 'refund_clear_return_to_refund'}}
+                {{else}}
+                    {{lang 'checkout_clear_return_to_payments'}}
+                {{/if}}
+		</button>
+	</div>
+{{/if}}
+{{#if showConfirmedBtn}}
+	<div class="aside--generate-receipt">
+		<button class="btn btn--primary btn--big btn--full {{#if isRefund}} js-popup-create-refund-receipt{{else}} js--go-to-payment-confirmation{{/if}}"type="button">
+				{{#if isRefund}}
+                    {{lang 'checkout_generate_refund_receipt'}}
+                {{else}}
+                    {{lang 'checkout_generate_receipt'}}
+                {{/if}}
+				</button>
+	</div>
+{{/if}}

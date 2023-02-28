@@ -1,0 +1,36 @@
+{{!-- {{#if clientId}} --}}
+<a href="/office/ClientProfile.php?u={{clientId}}" target="_blank">בדיקות בלבד - מעבר לכרטיס לקוח</a>
+{{!-- {{/if}} --}}
+<i class="fa-light fa-circle-check"></i>
+{{#if titleKey}}
+	<h2>{{lang titleKey}}</h2>
+{{/if}}
+{{#with invoice}}
+<div class="aside--success-invoice d-flex align-items-center justify-content-center">
+	<span>{{lang 'checkout_invoice_number'}}:</span>
+	<a id="checkoutInvoiceNumber"
+	   class="theme--link js--open-pdf-modal"
+	   data-id="{{typeNumber}}"
+	   doc-id="{{docId}}"
+	   copy-href="{{prefixNewUrl}}/office/PDF/DocsClient.php?RandomUrl={{randomUrl}}&ClientId={{clientId}}"
+	   href="/office/PDF/Docs.php?DocType={{docType}}&DocId={{typeNumber}}">{{typeNumber}}</a>
+</div>
+{{/with}}
+{{#if receipts}}
+<div class="aside--success-invoice d-flex align-items-center justify-content-center">
+	<span>
+	{{#if isRefund}}
+        {{lang 'refund_receipt_doc_name'}}:
+    {{else}}
+        {{lang 'receipt'}}:
+    {{/if}}
+	</span>
+	{{#each receipts}}
+		<a class="theme--link js--open-pdf-modal js--receipt-number-link js-checkout-receipt-number"
+		   data-id="{{typeNumber}}"
+		   doc-id="{{docId}}"
+		   copy-href="{{prefixNewUrl}}/office/PDF/DocsClient.php?RandomUrl={{randomUrl}}&ClientId={{clientId}}"
+		   href="/office/PDF/Docs.php?DocType={{docType}}&DocId={{typeNumber}}">{{typeNumber}}</a>
+	{{/each}}
+</div>
+{{/if}}

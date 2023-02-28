@@ -1,0 +1,316 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "Some message here",
+  "vatAmount": 17,
+  "client": {
+    "id": "251931",
+    "name": "משה גולן",
+    "phone": "0508777066"
+  },
+  "products": [
+    {
+      "id": 111,
+      "name": "t-shirt",
+      "isFavorite": true,
+      "items": [
+        {
+          "id": 66,
+          "price": 0,
+          "name": "שם המוצר",
+          "isFavorite": true,
+          "inventory": 10
+        },
+        {
+          "id": 15692,
+          "price": 90.00,
+          "name": "shirt",
+          "variants": [
+            {
+              "id": 236,
+              "inventory": 2,
+              "option1": "XS"
+            },
+            {
+              "id": 237,
+              "inventory": 10,
+              "option1": "S"
+            }
+          ],
+          "options": [
+            {
+              "type": "sizes",
+              "label": "מידה"
+            }
+          ]
+        },
+        {
+          "id": 15887,
+          "price": 30.99,
+          "name": "גרביים",
+          "isFavorite": true
+        }
+      ]
+    },
+    {
+      "id": 222,
+      "name": "bottoms",
+      "items": [
+        {
+          "id": 666,
+          "price": 4500.00,
+          "inventory": 5,
+          "name": "שם המוצר"
+        },
+        {
+          "id": 156922,
+          "price": 90.00,
+          "name": "שם המוצר test",
+          "variants": [
+            {
+              "id": 236,
+              "inventory": 2,
+              "option1": "XS"
+            }
+          ],
+          "options": [
+            {
+              "type": "sizes",
+              "label": "מידה"
+            }
+          ]
+        },
+        {
+          "id": 158877,
+          "price": 30.00,
+          "name": "גרביים",
+          "variants": [
+            {
+              "id": 257,
+              "inventory": 5,
+              "option1": "XS",
+              "option2": "Black__#000"
+            },
+            {
+              "id": 258,
+              "inventory": 15,
+              "option1": "S",
+              "option2": "Black__#000"
+            },
+            {
+              "id": 259,
+              "inventory": 25,
+              "option1": "M",
+              "option2": "Black__#000"
+            }
+          ],
+          "options": [
+            {
+              "type": "sizes",
+              "label": "מידה"
+            },
+            {
+              "type": "colors",
+              "label": "צבע"
+            }
+          ]
+        },
+        {
+          "id": 158870,
+          "price": 66.99,
+          "name": "שם של מוצר",
+          "isFavorite": false,
+          "variants": [
+            {
+              "id": 257,
+              "inventory": 5,
+              "option1": "Black__#000"
+            },
+            {
+              "id": 258,
+              "inventory": 20,
+              "option1": "Red__#DE3618"
+            },
+            {
+              "id": 259,
+              "inventory": 50,
+              "option1": "White__#fff"
+            },
+            {
+              "id": 260,
+              "inventory": 5,
+              "option1": "Light Blue__#759eff"
+            },
+            {
+              "id": 269,
+              "inventory": 50,
+              "option1": "Blue__#006FBB"
+            },
+            {
+              "id": 279,
+              "inventory": 2,
+              "option1": "Yellow__#FFD02F"
+            }
+          ],
+          "options": [
+            {
+              "type": "colors",
+              "label": "צבע"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "id": 66,
+      "price": 160.00,
+      "name": "מנוי חודשי חופשי",
+      "eachMonth": true
+    },
+    {
+      "id": 166,
+      "price": 300.00,
+      "name": "מנוי תקופתי - 12 כניסות",
+      "entry": "12"
+    },
+    {
+      "id": 167,
+      "price": 450.00,
+      "name": "פרימיום - מנוי תקופתי",
+      "isFavorite": true,
+      "durationNum": 2,
+      "durationType": 3,
+      "packageManualStart": "2022-09-01",
+      "entry": "320"
+    }
+  ],
+  "services": [
+    {
+      "id": 11100,
+      "name": "טיפול",
+      "isFavorite": true,
+      "items": [
+        {
+          "id": 1066,
+          "price": 60.00,
+          "name": "שם של טיפול",
+          "isFavorite": true
+        },
+        {
+          "id": 1067,
+          "price": 70.00,
+          "name": "שם כלשהו של טיפול",
+          "date": "2022-09-09",
+          "time": "10:30",
+          "durationMin": 90,
+          "coachId": 2,
+          "coaches": [
+            {
+              "id": 1,
+              "name": "שם המטפל",
+              "image": "https://devlogin.boostapp.co.il/camera/uploads/large/14698_1655811725.jpg"
+            },
+            {
+              "id": 2,
+              "name": "שם המטפל 2"
+            },
+            {
+              "id": 3,
+              "name": "שם המטפל 3"
+            }
+          ]
+        },
+        {
+          "id": 1068,
+          "price": 140.00,
+          "name": "שם כלשהו של טיפול 2",
+          "date": "2022-09-09",
+          "time": "15:00",
+          "durationMin": 180,
+          "coachId": 2,
+          "coaches": [
+            {
+              "id": 2,
+              "name": "שם המטפל 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11101,
+      "name": "bottoms 2",
+      "items": [
+        {
+          "id": 10666,
+          "price": 50.99,
+          "name": "שם של טיפול",
+          "date": "2022-09-21",
+          "time": "10:15",
+          "durationMin": 300,
+          "diaryId": 1,
+          "diary": [
+            {
+              "id": 1,
+              "name": "שם היומן"
+            },
+            {
+              "id": 2,
+              "name": "שם היומן 2"
+            },
+            {
+              "id": 3,
+              "name": "שם היומן 3"
+            }
+          ],
+          "coachId": 1,
+          "coaches": [
+            {
+              "id": 1,
+              "name": "שם המטפל",
+              "image": "https://devlogin.boostapp.co.il/camera/uploads/large/14698_1655811725.jpg"
+            },
+            {
+              "id": 2,
+              "name": "שם המטפל 2"
+            },
+            {
+              "id": 3,
+              "name": "שם המטפל 3"
+            },
+            {
+              "id": 4,
+              "name": "שם המטפל 4"
+            },
+            {
+              "id": 5,
+              "name": "שם המטפל 5"
+            },
+            {
+              "id": 6,
+              "name": "שם המטפל 6"
+            },
+            {
+              "id": 7,
+              "name": "שם המטפל 7"
+            },
+            {
+              "id": 8,
+              "name": "שם המטפל 8"
+            },
+            {
+              "id": 9,
+              "name": "שם המטפל 9"
+            },
+            {
+              "id": 18,
+              "name": "שם המטפל 18"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

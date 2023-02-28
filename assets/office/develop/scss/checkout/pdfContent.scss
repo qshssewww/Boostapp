@@ -1,0 +1,148 @@
+@import "assets/office/develop/scss/grid";
+
+/* ========== Checkout PDF Content ==========
+   ./assets/office/develop/js/modules/
+   ==================== */
+
+.main--section-check {
+  max-width: calc(895px + (3.125rem * 2));
+  margin: 0 auto;
+  padding: 3.125rem;
+
+  @include media-breakpoint-down(lg) {
+    padding: 2.125rem;
+  }
+}
+
+.checkout--pdf-container {
+  padding: 2rem 3rem;
+  background-color: var(--theme-body-bg);
+
+  & ~ .checkout--pdf-container {
+    min-height: 257px;
+  }
+
+  &.pt-0 {
+    padding-top: 0;
+  }
+  &.pb-0 {
+    padding-bottom: 0;
+  }
+
+  .user-balance-amount {
+    font-weight:bold;
+    font-size: 10px;
+    margin-top: 1rem;
+  }
+
+  table {
+    width: 100%;
+    vertical-align: top;
+
+    .thead-break {
+      height:3px;
+      background-color: var(--theme-body-bg);
+    }
+
+    thead {
+      .thead-title {
+        border-bottom:1px solid var(--theme-border-color);
+
+        td {
+          padding: 10px 5px;
+          text-align: right;
+        }
+      }
+
+      .thead-subtitles {
+        border-bottom:1px solid var(--theme-border-color);
+
+        td {
+          background-color: #EEEEEE;
+          padding: 5px;
+        }
+      }
+    }
+
+    tbody {
+      .thead-total,
+      .tbody-items {
+        td {
+          padding: 5px;
+        }
+      }
+
+      .tbody-items {
+        border-bottom: 1px solid var(--theme-border-color);
+
+        td {
+          &:first-of-type {
+            padding-right:5px;
+          }
+        }
+      }
+
+      .thead-total {
+        td:not(.without-border) {
+          font-size: 13px;
+          border-bottom: 1px solid var(--theme-border-color);
+        }
+      }
+    }
+
+    tr {
+      td {
+        padding: 0;
+        vertical-align: top;
+      }
+    }
+
+    .table-info_date {
+      font-size: 11px;
+      text-align: left;
+    }
+
+    &.table-items,
+    &.table-info {
+      font-size: 11px;
+    }
+
+    &.table-info {
+      max-width: 200px;
+      table-layout: auto;
+      padding: 0;
+      margin-top: -2px;
+      margin-right: 0;
+
+      .client-title {
+        padding-right: 0;
+        margin-right: 0;
+        vertical-align: top;
+        padding-left: 5px;
+      }
+
+      .client-info {
+        padding-right: 0;
+        margin-right: 0;
+        vertical-align: top;
+      }
+    }
+
+    & ~.table-items {
+      margin-top: 2rem;
+    }
+
+    &.table-items,
+    &.table-transactions {
+      font-size: 9pt;
+      border-collapse: collapse;
+    }
+  }
+}
+
+.checkout--pdf-title {
+  font-size: 1.375rem;
+  font-weight: normal;
+  margin-block: 57px 1.25rem;
+  text-align: center;
+}

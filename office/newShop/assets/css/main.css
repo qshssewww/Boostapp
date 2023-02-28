@@ -1,0 +1,655 @@
+/* The Checkbox slider */
+.shopWrapper {
+    width: 100%;
+}
+.errorMsg {
+    color: red;
+}
+body {
+    background-color: #fff;
+}
+.checkboxDiv {
+    display: flex;
+    margin-top: 74px;
+    float: left;
+    margin-left: 20px;
+}
+.checkboxDiv-table {
+    margin-top: 0;
+    float: none;
+}
+.sliderCheckboxLabel {
+    position: relative;
+    display: inline-block;
+    width: 47px;
+    height: 17px;
+    vertical-align: middle;
+}
+.sliderCheckboxLabel-dt {
+    width: 80%;
+}
+.sliderCheckboxLabel .sliderCheckbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkbox-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e3e3e3;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    width: 30px;
+}
+
+.checkbox-slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 30px;
+    bottom: 1px;
+    background-color: #cccccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+.checkbox-round-dt:before {
+    left: 13px;
+}
+.sliderCheckbox:checked + .checkbox-slider {
+    background-color: #00c736;
+}
+
+.sliderCheckbox:focus + .checkbox-slider {
+    box-shadow: 0 0 1px #fff;
+}
+
+.sliderCheckbox:checked + .checkbox-slider:before {
+    -webkit-transform: translateX(-26px);
+    -ms-transform: translateX(-26px);
+    transform: translateX(-26px);
+    background-color: #fff;
+}
+.sliderCheckbox-dt:checked + .checkbox-round-dt:before {
+    -webkit-transform: translateX(-12px);
+    -ms-transform: translateX(-12px);
+    transform: translateX(-12px);
+}
+.checkbox-slider.checkbox-round {
+    border-radius: 34px;
+}
+
+.checkbox-slider.checkbox-round:before {
+    border-radius: 50%;
+}
+/* The Checkbox slider end */
+
+.shop-page {
+    width: 70%;
+    /* width: 1000px; */
+    margin: auto;
+    position: relative;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 10px 5px #00000029;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.shop-top-bar {
+    padding: 16px 16px 0 16px;
+    background: #fff 0% 0% no-repeat padding-box;
+    border-radius: 8px 8px 0px 0px;
+    opacity: 1;
+    width: 100%;
+    height: 60px;
+}
+.shop-top-bar .search {
+    float: right;
+    font-size: 13px;
+    padding-right: 5px;
+    border: none;
+    background: #fff 0% 0% no-repeat padding-box;
+    /* margin-right: 32px; */
+    /* margin-top: 10px; */
+    outline: none;
+}
+
+.shop-top-bar .search:focus {
+    border-bottom: 1px solid black;
+}
+
+.shop-top-bar .excel-btn {
+    width: 79px;
+    height: 32px;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #413f3f;
+    border-radius: 4px;
+    opacity: 0.5;
+    color: #413f3f;
+    font-size: 11px;
+    /* margin-left: 20px; */
+    padding-top: 8px;
+}
+.shop-page table {
+    padding: 0 5px 0 5px;
+    font-size: 14px;
+}
+
+.shop-page .table > thead > tr > th {
+    font-size: 14px;
+    border-bottom: none;
+    color: #413f3f;
+    font-weight: 900;
+}
+.shop-dots-btn {
+    border: none;
+    background: transparent;
+    text-align: center;
+    padding-left: 0;
+    position: relative;
+    cursor: pointer;
+}
+
+.rowBox, .rowBox1 {
+    display: none;
+    opacity: 1;
+}
+.rowBox-item {
+    font-size: 13px;
+    color: #413f3f;
+    padding: 5px 8px 3px 3px;
+    cursor: pointer;
+}
+.rowBox-item:hover {
+    background-color: #f5f5f5;
+}
+.rowBox-active {
+    position: absolute;
+    display: block;
+    width: 85px;
+    z-index: 99;
+    box-shadow: 0px 0px 5px #00000029;
+    border-radius: 8px;
+    left: 2px;
+    background: #ffffff;
+}
+
+.rowBox.rowBox-active {
+    top: 0;
+    inset-inline-end: 0;
+    right: auto;
+    left: 0;
+}
+
+html[dir="ltr"] .rowBox.rowBox-active {
+    right: 0;
+    /*inset-inline-end: unset;*/
+    /*inset-inline-end: 0;*/
+    left: auto;
+}
+
+.rowBox1.rowBox-active {
+    top: 0;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+.dataTables_scrollBody {
+    -ms-overflow-style: none;
+}
+
+.shopContainer {
+
+    /* margin-bottom: 4vh; */
+}
+.shopContainer #shopSetting {
+    padding-top: 6px;
+    margin-right: auto;
+    color: #b8b8b8;
+    font-size: 25px;
+}
+.shop-page .sorting_disabled {
+    outline: none;
+}
+
+.shop-page table .disabledTrRow, .shop-page table .disabledTrRow:hover{
+    /*opacity: 0.5;*/
+    color: #b7b9ba;
+}
+
+
+.typeButtons .current-btn {
+    color: #00c736;
+}
+.shop-page .table.dataTable.display tbody tr.odd,
+.shop-page .table.dataTable.display tbody tr.even {
+    background-color: #ffffff;
+}
+.excel-btn {
+    width: 79px;
+    height: 32px;
+    border: 1px solid #413f3f;
+    border-radius: 4px;
+    opacity: 1;
+    font-size: 11px;
+    /* margin-left: 20px; */
+    padding-top: 8px;
+}
+.hiddenTable {
+    display: none;
+}
+/*.add-something {*/
+/*  width: 40px;*/
+/*  height: 40px;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  cursor: pointer;*/
+/*  justify-content: center;*/
+/*  position: absolute;*/
+/*  bottom: 0;*/
+/*  left: -70px;*/
+/*  font-size: 18px;*/
+/*  background:#00c736;*/
+/*  color: white;*/
+/*  !* padding: 20px; *!*/
+/*  border-radius: 50%;*/
+/*  z-index: 1;*/
+/*}*/
+.folderRowSelected {
+    /* color: #4b82ce; */
+    outline: none;
+}
+.folderRow {
+    font-size: 14px;
+}
+.itemRow, #shopLinksTable tr {
+    font-size: 14px;
+}
+.dataTables_wrapper.no-footer .dataTables_scrollBody {
+    border-bottom: 1px solid transparent;
+}
+.dt-buttons {
+    position: absolute;
+    right: 15px;
+    top: -45px;
+}
+
+[dir="rtl"] .dt-buttons {
+    position: absolute;
+    top: -45px;
+    left: 15px;
+}
+
+.dataTables_scrollBody {
+    height: 66vh;
+}
+
+.dt-button.buttons-excel.buttons-html5.excel-btn.btn {
+    border-radius: 5px;
+    color: #636363;
+    background: #f4f4f4;
+    border: none;
+}
+
+table.dataTable thead th,
+table.dataTable tbody td {
+    /*padding: 8px 20px 10px 0;*/
+    padding: 8px 10px;
+}
+/*table.dataTable thead th {*/
+/*    padding: 8px 10px;*/
+/*}*/
+
+/*.shop-page table.dataTable tbody td:last-child {*/
+/*  padding-left: 34px;*/
+/*  padding-top: 22px;*/
+/*}*/
+.blueImportant {
+    color: #00c736 !important;
+}
+.generalShopPopupButtonSave {
+    background-color: #00c736;
+    color: white;
+}
+
+/*.selectContainers input,*/
+/*.selectContainers select,*/
+/*.selectContainers textarea,*/
+/*.selectContainers .select2-selection {*/
+/*  height: 30px;*/
+/*}*/
+
+.select2-container--default
+.select2-results__option--highlighted[aria-selected] {
+    background-color:#00c736;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #00c736;
+}
+.newLabel {
+    background: #00c736;
+}
+
+.rowInput select {
+    width: fit-content;
+    border: none !important;
+    padding: 0;
+}
+
+.popupLineText {
+    outline: none;
+    padding: 0;
+    border: none;
+    position: relative;
+    background-color: #f3f3f4 !important;
+    display: flex;
+    align-items: center;
+    padding: 2px 5px;
+    border-radius: 5px;
+    min-height: 30px;
+    max-width: 90%;
+    text-align: right;
+}
+.shopImage {
+    height: 10vh;
+}
+.redBorder {
+    border-color: red !important;
+}
+.shop-dots-btn i {
+    font-size: 32px;
+}
+.selectPopupButtonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 15px;
+}
+.selectPopupButton {
+    background-color: #00c736;
+    /* border: 1px solid #0066cb; */
+    border: 0;
+    color: white;
+    padding: 5px 10px;
+    margin: 7px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 0.25rem;
+}
+.selectPopupButton:hover {
+    /*background-color: white; !* Green *!*/
+    background-color: #00c736;
+}
+.mr-2,
+.mx-2 {
+    margin-right: 0.5em !important;
+}
+.ml-2,
+.mx-2 {
+    margin-left: 0.5em !important;
+}
+button:focus {
+    outline: 0;
+}
+
+.copyToClipboard {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.alertush {
+    position: absolute;
+    width: 130px;
+    height: 40px;
+    bottom: 70px;
+    background: #00c736;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 9;
+    border-radius: 6px;
+}
+
+.alertush-active {
+    opacity: 1;
+}
+.DISPLAYNONEIMPORTANT {
+    display: none !important;
+}
+
+#mainShopPopup .mainPopupHeaderFlex .select2-container {
+
+}
+
+@media screen and (max-width: 1300px) {
+    .shop-page {
+        /* width: 60%; */
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .shop-page {
+        /* width: 60%; */
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .shop-page {
+        /* width: 60%; */
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .shop-page {
+        /* width: 60%; */
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .shop-page {
+        /* width: 60%; */
+        width: 100%;
+    }
+}
+
+.shop-page label {
+    padding: 0;
+}
+.popupContainer .newLabel {
+    margin-left: 20px;
+}
+
+.field {
+    position: relative !important;
+    /*margin-left: 8px !important;*/
+    /*margin-right: 8px !important;*/
+    display: flex;
+    align-items: flex-end;
+    min-height: 50px;
+}
+
+.field input {
+    /* min-height: 50px; */
+    font-size: inherit;
+}
+.field label {
+    position: absolute !important;
+    bottom: 10px;
+    right: 0px;
+    font-size: inherit !important;
+    transition: all 0.5s;
+}
+
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label {
+    bottom: 25px;
+    right: -8px;
+    transform: scale(0.8);
+}
+
+.field   ::-webkit-input-placeholder {
+    opacity: 0;
+    transition: inherit;
+}
+/**
+* Show the placeholder when the input is focused.
+*/
+input:focus::-webkit-input-placeholder {
+    opacity: 1;
+}
+.fitContent{
+    width:fit-content;
+}
+#shopMembershipsTable_processing{
+    display:none!important;
+}
+.CheckboxLabel input:checked ~ .shopCheckmark {
+    background-color: #00c736;
+}
+.floating-plus-btn:hover {
+    color: #fff;
+}
+#InventoryTable{
+    width: 100%;
+    text-align: start;
+}
+#InventoryTable th{
+    padding: 0 1vw;
+}
+#InventoryTable td{
+    padding: 0 1vw;
+    width: 38%;
+}
+
+#InventoryTable .colorCube, #InventoryList .colorCube {
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+}
+
+#InventoryTable .colorCube[data-id="0"]::after,
+#InventoryList .colorCube[data-id="0"]::after {
+    content: "X";
+    color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#InventoryPopup .field{
+    min-height: initial;
+    display: initial;
+}
+
+.select2-selection__clear {
+    margin-left: 30px;
+    z-index: 9999;
+}
+
+.select2-selection__placeholder {
+    line-height: 12px;
+}
+
+.border-gray-200{
+    border-color: #E3E3E3;
+}
+.was-validated .in-valid:invalid{
+    border: 1px solid red !important;
+    border-radius: 5px;
+}
+
+.js-select-shop-new {
+    border-color: #e9ecef !important;
+}
+
+#create-club-memberships-popup .select2-container--default.select2-container--focus .select2-selection--multiple,
+#create-club-memberships-popup .select2-selection.select2-selection--multiple
+{
+    border-color: #E3E3E3;
+}
+
+#create-club-memberships-popup .validation-check.is-invalid{
+    border: 1px solid red !important;
+    border-radius: 5px;
+}
+
+#create-club-memberships-popup input.is-invalid, #create-club-memberships-popup select.is-invalid,
+#create-club-memberships-popup .is-invalid-container.is-invalid{
+    border: 1px solid red !important;
+    border-radius: 5px;
+}
+
+/*small*/
+@media screen and ( max-height: 814px ) {
+    #create-club-memberships-popup .sub-tab-body-main {
+        height: calc(100vh - 110px);
+        overflow: auto!important;
+    }
+
+    #create-club-memberships-popup .sub-tab-body {
+        height: calc(100vh - 55px);
+        overflow: auto!important;
+    }
+
+    form.add-club-memberships .popupContainer{
+        height: 100vh;
+    }
+}
+
+@media screen and ( min-height: 814px ) {
+    #create-club-memberships-popup .sub-tab-body-main {
+        height: 688px;
+    }
+
+    #create-club-memberships-popup .sub-tab-body {
+        /*height: 758px;*/
+    }
+
+    form.add-club-memberships .popupContainer{
+        height: 813px;
+    }
+}
+
+
+
+
+
+
+
+/*@media only screen*/
+/*and  (max-height: 832px){*/
+/*    .popupWrapper {*/
+/*        height: 813px;*/
+/*    }*/
+/*}*/
+
+/*@media only screen*/
+/*and  (max-height: 780px){*/
+/*    .popupWrapper {*/
+/*        height: 100vh;*/
+/*    }*/
+/*}*/
+

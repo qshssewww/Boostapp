@@ -1,0 +1,64 @@
+<div class="cart--item-detail cart--package-box">
+	{{#if duration}}
+		<div class="cart--package-info d-flex align-items-center">
+			<i class="fa-light fa-calendar-day s-24"></i>
+			<span class="s-20">{{duration}}</span>
+		</div>
+	{{/if}}
+	{{#if entry}}
+		<div class="cart--package-info d-flex align-items-center">
+			<i class="fa-light fa-circle-dot s-24"></i>
+			<span class="s-20">{{entry}} {{lang 'entries'}}</span>
+		</div>
+	{{/if}}
+	{{#if eachMonth}}
+		<div class="cart--package-info d-flex align-items-center">
+			<i class="fa-light fa-calendar-day s-24"></i>
+			<span class="s-20">{{lang 'cart_fixed_monthly_charge'}}</span>
+		</div>
+	{{/if}}
+</div>
+{{#if duration}}
+<div class="cart--item-detail cart--package-inputs">
+	{{#with packageType}}
+		<div class="form--group-items">
+			{{> ../item/customDropdown}}
+		</div>
+	{{/with}}
+	<div data-show-for="cart_manual"
+		{{#ifCond packageType.selectedOptionId '!==' 4}} style="display: none;" {{/ifCond}}>
+		<div class="form--group_half d-flex justify-content-between">
+			<div class="form--group-items">
+				<label for="packageManualStart" class="bsapp--label">{{lang 'cart_start_date'}}</label>
+				<div class="form--group-rel form--group-date">
+					<input id="packageManualStart"
+						   class="bsapp--custom-input form--group-input full"
+						   name="packageManualStart"
+						   type="date"
+						   required
+						   min="{{packageManualStart}}"
+						   value="{{packageManualStart}}"
+						   data-duration-num="{{durationNum}}"
+						   data-duration-type="{{durationType}}"
+						   pattern="\d{4}-\d{2}-\d{2}"
+						   autocomplete="off">
+				</div>
+			</div>
+			<div class="form--group-items">
+				<label for="packageManualEnd" class="bsapp--label">{{lang 'cart_end_date'}}</label>
+				<div class="form--group-rel form--group-date">
+					<input id="packageManualEnd"
+						   class="bsapp--custom-input form--group-input full"
+						   name="packageManualEnd"
+						   type="date"
+						   required
+						   min="{{packageManualStart}}"
+						   value="{{packageManualEnd}}"
+						   pattern="\d{4}-\d{2}-\d{2}"
+						   autocomplete="off">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{/if}}

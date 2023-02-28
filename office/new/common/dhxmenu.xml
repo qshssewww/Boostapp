@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<menu>
+    
+	<item id="ClassList" text="ניהול מתאמנים" img="fas fa-cogs" imgdis="fas fa-cogs">
+	    <item id="ClientList" text="מתאמנים משובצים" img="fas fa-users" imgdis="fas fa-users"/>
+        <item id="ClientWatingList" text="סידור רשימת המתנה" img="fas fa-arrows-alt" imgdis="fas fa-arrows-alt"/>
+	</item>
+	
+	
+	<item id="ClassStatus" text="סטטוס השיעור" img="fas fa-tasks" imgdis="fas fa-tasks">
+		<item id="ClassClose" text="שיעור הושלם" img="fas fa-check-square" imgdis="fas fa-check-square"/>
+		<item id="file_sep_1" type="separator"/>
+		<item id="ClassCancel" text="בטל שיעור" img="fas fa-trash-alt" imgdis="fas fa-trash-alt"/>
+	</item>
+    
+	<item id="sep_top_1" type="separator"/>
+	<item id="ClassMessage" text="הגדרת הודעות לשיעור" img="fas fa-mobile-alt" imgdis="fas fa-mobile-alt">
+		<item id="SendNofitication" text="שליחת הודעה לרשומים" img="fas fa-comments" imgdis="fas fa-comments"/>
+	</item>
+	<item id="sep_top_2" type="separator"/>
+	<item id="ClassInfo" text="פרטי השיעור" img="fas fa-info" imgdis="fas fa-info">
+        <item id="ClassViewDesks" text="צפה בפרטי השיעור" img="fas fa-eye" imgdis="fas fa-eye"/>
+	    <item id="ClassEditDesk" text="ערוך פרטי שיעור" img="fas fa-edit" imgdis="fas fa-edit"/>
+	</item>
+    
+    
+</menu>

@@ -1,0 +1,226 @@
+<header class="modal-header without--b-bottom p-0">
+	<div class="return-to-aside js--return-to-aside d-flex align-items-center">
+		<i class="fa-light fa-angle-right ltr--rotate"></i>
+		{{#with modalHeader}}
+			<h3>{{title}}</h3>
+			<i class="fa-light {{iconClass}}"></i>
+		{{/with}}
+	</div>
+</header>
+<section class="modal-body p-0{{#unless modalFooter}} without-footer{{/unless}}">
+	<div class="aside--half-sidebar-pay" data-type="{{type}}" data-type-open="{{typeOpen}}">
+		{{#switch type}}
+			{{#case 'credit'}}
+				{{#with creditPaymentSettings}}
+					<div class="form--group-items">
+						{{> ../item/customDropdown}}
+					</div>
+				{{/with}}
+				<div class="form--group third-first" id="js-payment-method">
+					{{#with paymentMethod}}
+						<div class="form--group-items">
+							{{> ../item/customDropdown}}
+						</div>
+					{{/with}}
+					{{#with paymentNumber}}
+						<div class="form--group-items">
+							{{> ../item/customDropdown}}
+						</div>
+					{{/with}}
+				</div>
+				<div data-type-block="1">
+					<div class="form--group">
+						<div class="form--group-note text-center">{{lang 'swipe_credit_card'}}</div>
+					</div>
+				</div>
+				<div data-type-block="2">
+					<div id="creditSavedCardContent" class="form--group">
+						{{#with creditSavedCard}}
+							{{> ../item/customDropdown}}
+						{{/with}}
+					</div>
+				</div>
+				<div data-type-block="3">
+					<div id="iframeForPayment" class="form--group"></div>
+					<input id="creditSavedCardId" name="creditSavedCardId" type="hidden" value="0">
+					<input id="loginOrderId" name="loginOrderId" type="hidden" value="0">
+				</div>
+				<div data-type-block="4">
+					<div class="form--group-items">
+						<label for="creditOriginalChargeDate" class="bsapp--label">{{lang 'original_charge_date'}}</label>
+						<div class="form--group-rel form--group-date">
+							<input id="creditOriginalChargeDate"
+								   class="form--group-input full input--big"
+								   name="creditOriginalChargeDate"
+								   type="date"
+								   value="{{creditOriginalChargeDate}}"
+								   pattern="\d{4}-\d{2}-\d{2}"
+								   required
+								   placeholder="DD/MM/YY">
+						</div>
+					</div>
+					<div class="form--group half">
+						<div class="form--group-items">
+							<label for="creditConfirmationNumber" class="bsapp--label">{{lang 'confirmation_number'}}</label>
+							<div class="form--group-rel">
+								<input id="creditConfirmationNumber"
+									   class="form--group-input full input--big"
+									   name="creditConfirmationNumber"
+									   type="tel"
+									   value="{{creditConfirmationNumber}}"
+									   validate-only-number
+									   required
+									   placeholder="{{lang 'type_here'}}">
+							</div>
+						</div>
+						<div class="form--group-items">
+							<label for="credit4Number" class="bsapp--label">{{lang 'last_four_chars_on_cc'}}</label>
+							<div class="form--group-rel">
+								<input id="credit4Number"
+									   class="form--group-input full input--big"
+									   name="credit4Number"
+									   type="tel"
+									   maxlength="4" minlength="4"
+									   validate-only-number
+									   required
+									   value="{{credit4Number}}"
+									   placeholder="****">
+							</div>
+						</div>
+					</div>
+					<div class="form--group half">
+						{{#with creditTypeCard}}
+							<div class="form--group-items">
+								{{> ../item/customDropdown}}
+							</div>
+						{{/with}}
+						{{#with creditTypeBank}}
+							<div class="form--group-items">
+								{{> ../item/customDropdown}}
+							</div>
+						{{/with}}
+					</div>
+				</div>
+			{{/case}}
+			{{#case 'bankTransfer'}}
+				{{#with bankTransferType}}
+					<div class="form--group-items">
+						{{> ../item/customDropdown}}
+					</div>
+				{{/with}}
+				<div class="form--group-items">
+					<label for="bankTransferRefNumber" class="bsapp--label">{{lang 'ref_number'}}</label>
+					<div class="form--group-rel">
+						<input id="bankTransferRefNumber"
+							   class="form--group-input full input--big"
+							   name="bankTransferRefNumber"
+							   type="text"
+							   value="{{bankTransferRefNumber}}"
+							   validate-only-number-letter
+							   required
+							   placeholder="{{lang 'type_here'}}">
+					</div>
+				</div>
+				<div class="form--group-items">
+					<label for="bankTransferDepositDate" class="bsapp--label">{{lang 'deposit_date'}}</label>
+					<div class="form--group-rel form--group-date">
+						<input id="bankTransferDepositDate"
+							   class="form--group-input full input--big"
+							   name="bankTransferDepositDate"
+							   type="date"
+							   value="{{bankTransferDepositDate}}"
+							   pattern="\d{4}-\d{2}-\d{2}"
+							   required
+							   placeholder="DD/MM/YY">
+					</div>
+				</div>
+			{{/case}}
+			{{#case 'check'}}
+				<div class="form--group-items">
+					<label for="checkNumber" class="bsapp--label">{{lang 'check_number'}}</label>
+					<div class="form--group-rel">
+						<input id="checkNumber"
+							   class="form--group-input full input--big"
+							   name="checkNumber"
+							   type="tel"
+							   value="{{checkNumber}}"
+							   validate-only-number
+							   required
+							   placeholder="{{lang 'type_here'}}">
+					</div>
+				</div>
+				<div class="form--group-items">
+					<label for="checkPaymentDate" class="bsapp--label">{{lang 'payment_date'}}</label>
+					<div class="form--group-rel form--group-date">
+						<input id="checkPaymentDate"
+							   class="form--group-input full input--big"
+							   name="checkPaymentDate"
+							   type="date"
+							   value="{{checkPaymentDate}}"
+							   pattern="\d{4}-\d{2}-\d{2}"
+							   required
+							   placeholder="DD/MM/YY">
+					</div>
+				</div>
+				<div class="form--group half">
+					<div class="form--group-items">
+						<label for="checkBankNumber" class="bsapp--label">{{lang 'bank_number'}}</label>
+						<div class="form--group-rel">
+							<input id="checkBankNumber"
+								   class="form--group-input full input--big"
+								   name="checkBankNumber"
+								   type="tel"
+								   value="{{checkBankNumber}}"
+								   maxlength="2"
+								   validate-only-number
+								   required
+								   placeholder="{{lang 'type_here'}}">
+						</div>
+					</div>
+					<div class="form--group-items">
+						<label for="checkBranchNumber" class="bsapp--label">{{lang 'bank_branch_number'}}</label>
+						<div class="form--group-rel">
+							<input id="checkBranchNumber"
+								   class="form--group-input full input--big"
+								   name="checkBranchNumber"
+								   type="tel"
+								   maxlength="3" minlength="3"
+								   validate-only-number
+								   required
+								   value="{{checkBranchNumber}}"
+								   placeholder="***">
+						</div>
+					</div>
+				</div>
+				<div class="form--group-items">
+					<label for="checkAccountNumber" class="bsapp--label">{{lang 'account_number'}}</label>
+					<div class="form--group-rel">
+						<input id="checkAccountNumber"
+							   class="form--group-input full input--big"
+							   name="checkAccountNumber"
+							   type="tel"
+							   validate-only-number
+							   required
+							   value="{{checkAccountNumber}}"
+							   placeholder="{{lang 'type_here'}}">
+					</div>
+				</div>
+			{{/case}}
+			{{#case 'link'}}
+				<div class="form--group-items text-center">
+					<p class="s-18 w-500">{{lang 'checkout_link_type_description'}}</p>
+					<button id="payLink"
+							class="theme--link c-secondary"
+							type="button">{{lang 'checkout_issue_invoice'}}</button>
+				</div>
+			{{/case}}
+		{{/switch}}
+	</div>
+</section>
+{{#if modalFooter}}
+	<footer class="modal-footer without--b-top d-flex align-items-end">
+		<button class="btn btn--primary btn--full btn--big js--create-transaction"
+				data-type="{{type}}"
+				type="button">{{#if modalFooter.textKey}}{{lang modalFooter.textKey}}{{else}}{{lang 'checkout_pay'}}{{/if}}</button>
+	</footer>
+{{/if}}

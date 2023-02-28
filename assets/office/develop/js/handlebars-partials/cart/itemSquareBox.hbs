@@ -1,0 +1,38 @@
+<div class="article--content js--article-content d-flex align-items-center"
+	 data-id="{{id}}"
+	{{#if categoryType}} data-category-type="{{categoryType}}"{{/if}}
+	{{#if currentType}} data-current-type="{{currentType}}"{{/if}}
+	{{#if subcategoryId}} data-subcategory-id="{{subcategoryId}}"{{/if}}>
+
+	<div class="favorite--star js--favorite--star{{#if isFavorite}} active{{/if}}">
+		<i class="fa-{{#if isFavorite}}solid{{else}}light{{/if}} fa-star fa-star-icon"></i>
+	</div>
+
+	{{#if name}}
+		<div class="text--overflow-dots_mob">
+			<h4 class="title">{{name}}</h4>
+			{{#if parentTitle}}
+				<p class="article--subcategory-title">{{parentTitle}}</p>
+			{{/if}}
+		</div>
+	{{/if}}
+
+	{{#ifCond price '>=' 0}}
+		<button class="article--btn text-center js--add-to-cart"
+				data-id="{{id}}"
+				data-name="{{name}}"
+				data-price="{{price}}"
+				data-has-variants="{{#if variants}}true{{else}}false{{/if}}"
+			{{#if inventory}} data-inventory="{{inventory}}"{{/if}}
+				type="button">
+			<span>{{strFormatPrice price}}</span>
+		</button>
+	{{else if showChooseBtn}}
+		<button class="article--btn text-center js--choose-subcategory"
+				data-id="{{id}}"
+				data-category-type="{{categoryType}}"
+				type="button">
+			<span class="article--btn-title">{{lang 'choose'}}</span>
+		</button>
+	{{/ifCond}}
+</div>

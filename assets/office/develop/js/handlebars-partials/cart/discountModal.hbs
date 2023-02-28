@@ -1,0 +1,41 @@
+<div class="modal--preloader js--modal-preloader d-none">
+	<div class="spinner-border"><span class="sr-only">{{lang 'loading'}}</span></div>
+</div>
+<header class="modal-header p-0 flex-column">
+	<div class="modal-header_content d-flex align-items-center justify-content-between">
+		<h3 class="h3">{{lang 'cart_general_discount'}}</h3>
+		<button class="close-modal js--close-modal" aria-label="close modal" data-close="" type="button">
+			<i class="fa-light fa-xmark"></i>
+		</button>
+	</div>
+</header>
+<section class="modal-body p-0 d-flex flex-column justify-content-between">
+	<div class="cart--detail-content js--cart-detail-content">
+		<div class="cart--item-detail cart--discount-box">
+			{{#with originalPrice}}
+				{{> ../item/totalPriceBox}}
+			{{/with}}
+			{{#if discount}}
+				<div class="js--cart-box-discount cart--add-discount d-flex justify-content-between align-items-end">
+					{{> ../item/discountBox}}
+				</div>
+			{{/if}}
+		</div>
+		{{#with subtotalPrice}}
+			<div class="cart--item-detail" {{#if originalPrice}}data-price-original="{{originalPrice}}"{{/if}}>
+				{{> ../item/totalPriceBox}}
+			</div>
+		{{/with}}
+	</div>
+	{{#with deleteIcon}}
+		{{> ../item/deleteIcon}}
+	{{/with}}
+</section>
+<footer class="modal-footer only-mob--b-top btn--to-half-mob btn--revert d-flex">
+	<button id="saveGeneralDiscount"
+			class="btn btn--primary btn--big"
+			type="submit">{{lang 'save'}}</button>
+
+	<button class="btn btn--primary-revert btn--big close-modal js--close-modal"
+			type="button">{{lang 'action_cacnel'}}</button>
+</footer>

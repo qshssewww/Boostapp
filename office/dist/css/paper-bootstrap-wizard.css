@@ -1,0 +1,659 @@
+/*! =========================================================
+ *
+ Paper Bootstrap Wizard - V1.0.1 
+*
+* =========================================================
+*
+* Copyright 2016 Creative Tim (http://www.creative-tim.com/product/paper-bootstrap-wizard)
+ *
+ *                       _oo0oo_
+ *                      o8888888o
+ *                      88" . "88
+ *                      (| -_- |)
+ *                      0\  =  /0
+ *                    ___/`---'\___
+ *                  .' \|     |// '.
+ *                 / \|||  :  |||// \
+ *                / _||||| -:- |||||- \
+ *               |   | \\  -  /// |   |
+ *               | \_|  ''\---/''  |_/ |
+ *               \  .-\__  '-'  ___/-. /
+ *             ___'. .'  /--.--\  `. .'___
+ *          ."" '<  `.___\_<|>_/___.' >' "".
+ *         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+ *         \  \ `_.   \_ __\ /__ _/   .-` /  /
+ *     =====`-.____`.___ \_____/___.-`___.-'=====
+ *                       `=---='
+ *
+ *     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *
+ *               Buddha Bless:  "No Bugs"
+ *
+ * ========================================================= */
+.bsapp-wizard {
+  /*     General overwrite     */
+  /*           Animations              */
+  /* .btn,
+.navbar .navbar-nav > li > a.btn{
+    border-radius: $border-radius-btn-base;
+    box-sizing: border-box;
+    border-width: $border-thick;
+    background-color: $transparent-bg;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+
+    padding: $padding-base-vertical $padding-base-horizontal;
+
+    @include btn-styles($default-color, $default-states-color);
+    @include transition($fast-transition-time, linear);
+
+    &:hover,
+    &:focus{
+        outline: 0 !important;
+    }
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+         @include box-shadow(none);
+         outline: 0 !important;
+    }
+
+    &.btn-icon{
+        border-radius: 25px;
+        padding: 7px 10px;
+        i{
+          margin-right: 0px;
+        }
+    }
+
+    [class*="fa-"]{
+        vertical-align: middle;
+    }
+
+}
+
+
+// Apply the mixin to the buttons
+//.btn-default { @include btn-styles($default-color, $default-states-color); }
+.navbar .navbar-nav > li > a.btn.btn-primary, .btn-primary { @include btn-styles($primary-color, $primary-states-color); }
+.navbar .navbar-nav > li > a.btn.btn-success, .btn-success { @include btn-styles($success-color, $success-states-color); }
+.navbar .navbar-nav > li > a.btn.btn-info, .btn-info    { @include btn-styles($info-color, $info-states-color); }
+.navbar .navbar-nav > li > a.btn.btn-warning, .btn-warning { @include btn-styles($warning-color, $warning-states-color); }
+.navbar .navbar-nav > li > a.btn.btn-danger, .btn-danger  { @include btn-styles($danger-color, $danger-states-color); }
+
+.btn-neutral {
+    @include btn-styles($white-color, $white-color);
+
+    &:hover,
+    &:focus{
+        color: $default-color;
+        i{
+            color: $default-color;
+            opacity: 1;
+        }
+    }
+
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle{
+        background-color: $white-color;
+        color: $default-color;
+        i{
+            color: $default-color;
+            opacity: 1;
+        }
+    }
+
+    &.btn-fill{
+        color: $default-color;
+        i{
+            color: $default-color;
+            opacity: 1;
+        }
+    }
+    &.btn-fill:hover,
+    &.btn-fill:focus{
+        color: $default-states-color;
+        i{
+            color: $default-states-color;
+            opacity: 1;
+        }
+    }
+
+    &.btn-simple:active,
+    &.btn-simple.active{
+        background-color: transparent;
+    }
+}
+
+.btn{
+     &:disabled,
+     &[disabled],
+     &.disabled,
+     &.btn-disabled{
+        @include opacity(.5);
+    }
+}
+.btn-disabled{
+    cursor: default;
+}
+.btn-simple{
+    border: $none;
+    padding: $padding-base-vertical $padding-base-horizontal;
+
+}
+
+.navbar .navbar-nav > li > a.btn.btn-lg,
+.btn-lg{
+   @include btn-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $border-radius-btn-large, $line-height-small);
+   font-weight: $font-weight-normal;
+    &.btn-icon{
+        border-radius: 30px;
+        padding: 9px 16px;
+    }
+}
+.navbar .navbar-nav > li > a.btn.btn-sm,
+.btn-sm{
+    @include btn-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $border-radius-btn-small, $line-height-small);
+    &.btn-icon{
+        padding: 3px 6px;
+        .fa{
+            line-height: 1.6;
+            width: 15px;
+        }
+    }
+}
+.navbar .navbar-nav > li > a.btn.btn-xs,
+.btn-xs{
+    @include btn-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-xs, $border-radius-btn-small, $line-height-small);
+    &.btn-icon{
+        padding: 1px 5px;
+        .fa{
+            width: 10px;
+        }
+    }
+}
+.navbar .navbar-nav > li > a.btn.btn-wd,
+.btn-wd{
+    min-width: 140px;
+}
+
+.btn-group.select{
+    width: 100%;
+}
+.btn-group.select .btn{
+    text-align: left;
+}
+.btn-group.select .caret{
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+    right: 8px;
+}
+.btn-tooltip{
+    white-space: nowrap;
+}
+
+.buttons-with-margin{
+    .btn {
+        margin-bottom: 5px;
+    }
+}
+*/
+  /*            Navigation menu                */ }
+  .bsapp-wizard .form-control::-moz-placeholder {
+    color: #6c757d; }
+  .bsapp-wizard .form-control:-moz-placeholder {
+    color: #6c757d; }
+  .bsapp-wizard .form-control::-webkit-input-placeholder {
+    color: #6c757d; }
+  .bsapp-wizard .form-control:-ms-input-placeholder {
+    color: #6c757d; }
+  .bsapp-wizard .form-control:focus {
+    border: 1px solid #6c757d;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0 !important; }
+  .has-success .bsapp-wizard .form-control,
+  .has-error .bsapp-wizard .form-control,
+  .has-success .bsapp-wizard .form-control:focus,
+  .has-error .bsapp-wizard .form-control:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+  .has-error .bsapp-wizard .form-control, .bsapp-wizard .form-control.error {
+    background-color: #fff;
+    color: #dc3545;
+    border-color: #dc3545; }
+  .has-success .bsapp-wizard .form-control, .bsapp-wizard .form-control.valid {
+    color: #212529;
+    border-color: #6c757d; }
+  .has-error .bsapp-wizard .form-control:focus, .bsapp-wizard .form-control.error:focus {
+    background-color: #FFFFFF;
+    border-color: #dc3545; }
+  .has-success .bsapp-wizard .form-control:focus, .bsapp-wizard .form-control.valid:focus {
+    background-color: #FFFFFF;
+    border-color: #28a745; }
+  .bsapp-wizard .form-control + .form-control-feedback {
+    border-radius: 6px;
+    font-size: 14px;
+    margin-top: -7px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    vertical-align: middle; }
+  .open .bsapp-wizard .form-control {
+    border-bottom-color: transparent; }
+  .bsapp-wizard .form-control.input-no-border {
+    border: 0 none; }
+  .input-group .bsapp-wizard .form-control:not(:first-child):not(:last-child) {
+    border-left: 0;
+    border-right: 0; }
+  .bsapp-wizard label.error:not(.form-control) {
+    color: #dc3545;
+    font-weight: 300;
+    font-size: 0.8em;
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: -15px; }
+  .bsapp-wizard .input-lg {
+    height: 55px;
+    padding: 11px 30px; }
+  .bsapp-wizard .has-error .form-control-feedback, .bsapp-wizard .has-error .control-label {
+    color: #dc3545; }
+  .bsapp-wizard .has-success .form-control-feedback, .bsapp-wizard .has-success .control-label {
+    color: #28a745; }
+  .bsapp-wizard .input-group-addon {
+    background-color: #6c757d;
+    border: 1px solid #6c757d;
+    border-radius: 4px; }
+    .has-success .bsapp-wizard .input-group-addon,
+    .has-error .bsapp-wizard .input-group-addon {
+      background-color: #FFFFFF; }
+    .has-error .form-control:focus + .bsapp-wizard .input-group-addon {
+      color: #dc3545; }
+    .has-success .form-control:focus + .bsapp-wizard .input-group-addon {
+      color: #28a745; }
+    .form-control:focus + .bsapp-wizard .input-group-addon,
+    .form-control:focus ~ .bsapp-wizard .input-group-addon {
+      background-color: #FFFFFF; }
+    .has-error .bsapp-wizard .input-group-addon {
+      color: #dc3545;
+      border-color: #dc3545; }
+    .has-error .bsapp-wizard .input-group-addon {
+      color: #28a745;
+      border-color: #28a745; }
+    .bsapp-wizard .input-group-addon + .form-control {
+      padding-left: 0; }
+  .bsapp-wizard .input-group {
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 15px; }
+  .bsapp-wizard .input-group[disabled] .input-group-addon {
+    background-color: #e9ecef; }
+  .bsapp-wizard .input-group .form-control:first-child,
+  .bsapp-wizard .input-group-addon:first-child,
+  .bsapp-wizard .input-group-btn:first-child > .dropdown-toggle,
+  .bsapp-wizard .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle) {
+    border-right: 0 none; }
+  .bsapp-wizard .input-group .form-control:last-child,
+  .bsapp-wizard .input-group-addon:last-child,
+  .bsapp-wizard .input-group-btn:last-child > .dropdown-toggle,
+  .bsapp-wizard .input-group-btn:first-child > .btn:not(:first-child) {
+    border-left: 0 none; }
+  .bsapp-wizard .form-control[disabled], .bsapp-wizard .form-control[readonly], .bsapp-wizard fieldset[disabled] .form-control {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+    color: #212529;
+    opacity: 1;
+    filter: alpha(opacity=100); }
+  .bsapp-wizard .form-control[disabled]::-moz-placeholder {
+    color: #212529;
+    opacity: 1;
+    filter: alpha(opacity=100); }
+  .bsapp-wizard .form-control[disabled]:-moz-placeholder {
+    color: #ced4da;
+    opacity: 1;
+    filter: alpha(opacity=100); }
+  .bsapp-wizard .form-control[disabled]::-webkit-input-placeholder {
+    color: #ced4da;
+    opacity: 1;
+    filter: alpha(opacity=100); }
+  .bsapp-wizard .form-control[disabled]:-ms-input-placeholder {
+    color: #ced4da;
+    opacity: 1;
+    filter: alpha(opacity=100); }
+  .bsapp-wizard .input-group-btn .btn {
+    border-width: 1px;
+    padding: 9px 18px; }
+  .bsapp-wizard .input-group-btn .btn-default:not(.btn-fill) {
+    border-color: #ced4da; }
+  .bsapp-wizard .input-group-btn:last-child > .btn {
+    margin-left: 0; }
+  .bsapp-wizard textarea.form-control {
+    max-width: 100%;
+    padding: 10px 18px;
+    resize: none; }
+  .bsapp-wizard .input-group-focus .input-group-addon {
+    background-color: #FFFFFF; }
+  .bsapp-wizard .form-control, .bsapp-wizard .input-group-addon {
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear; }
+  .bsapp-wizard .image-container {
+    min-height: 100vh;
+    background-position: center center;
+    background-size: cover;
+    position: relative; }
+  .bsapp-wizard .wizard-container {
+    z-index: 3; }
+  .bsapp-wizard .label {
+    padding: 3px 8px;
+    border-radius: 12px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    display: inline-block;
+    line-height: 1.5em; }
+  .bsapp-wizard .label-icon {
+    padding: 0.4em 0.55em; }
+    .bsapp-wizard .label-icon i {
+      font-size: 0.8em;
+      line-height: 1; }
+  .bsapp-wizard .label-default {
+    background-color: #212529; }
+  .bsapp-wizard .label-primary {
+    background-color: #fd7e14; }
+  .bsapp-wizard .label-info {
+    background-color: #007bff; }
+  .bsapp-wizard .label-success {
+    background-color: #28a745; }
+  .bsapp-wizard .label-warning {
+    background-color: #ffc107; }
+  .bsapp-wizard .label-danger {
+    background-color: #dc3545; }
+  .bsapp-wizard .nav-pills {
+    background-color: #fd7e14;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    text-align: center; }
+    .bsapp-wizard .nav-pills > li + li {
+      margin-left: 0; }
+    .bsapp-wizard .nav-pills > li > a {
+      padding: 0;
+      max-width: 78px;
+      margin: 0 auto;
+      color: #6c757d;
+      border-radius: 50%;
+      position: relative;
+      z-index: 100; }
+      .bsapp-wizard .nav-pills > li > a:after {
+        content: '';
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        right: -1px;
+        top: -4px;
+        transform: scale(0);
+        transition: .2s all linear; }
+      .bsapp-wizard .nav-pills > li > a:hover, .bsapp-wizard .nav-pills > li > a:focus {
+        background-color: transparent;
+        color: #6c757d;
+        outline: 0 !important;
+        cursor: pointer; }
+    .bsapp-wizard .nav-pills > li.active > a:after {
+      content: '';
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: inline-block;
+      position: absolute;
+      right: 5px;
+      top: -2px;
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -o-transition: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+      -webkit-transition: all 0.2s linear;
+      -moz-transition: all 0.2s linear;
+      -o-transition: all 0.2s linear;
+      -ms-transition: all 0.2s linear;
+      transition: all 0.2s linear; }
+    .bsapp-wizard .nav-pills > li.active > a,
+    .bsapp-wizard .nav-pills > li.active > a:hover,
+    .bsapp-wizard .nav-pills > li.active > a:focus {
+      background-color: transparent;
+      font-size: 15px;
+      -webkit-transition: font-size 0.2s linear;
+      -moz-transition: font-size 0.2s linear;
+      -o-transition: font-size 0.2s linear;
+      -ms-transition: font-size 0.2s linear;
+      transition: font-size 0.2s linear; }
+      .bsapp-wizard .nav-pills > li.active > a [class*="fa-"],
+      .bsapp-wizard .nav-pills > li.active > a:hover [class*="fa-"],
+      .bsapp-wizard .nav-pills > li.active > a:focus [class*="fa-"] {
+        color: #FFFFFF;
+        font-size: 24px;
+        top: 21px;
+        -webkit-transition: all 0.2s linear;
+        -moz-transition: all 0.2s linear;
+        -o-transition: all 0.2s linear;
+        -ms-transition: all 0.2s linear;
+        transition: all 0.2s linear; }
+  .bsapp-wizard .card .card-checkboxes {
+    background-color: #6c757d;
+    box-shadow: none;
+    color: rgba(0, 0, 0, 0.3); }
+  .bsapp-wizard .card .card-hover-effect {
+    -webkit-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+    -moz-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+    -o-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+    -ms-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+    transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease; }
+    .bsapp-wizard .card .card-hover-effect:hover {
+      box-shadow: 0px 12px 17px -7px rgba(0, 0, 0, 0.3);
+      -webkit-transform: translateY(-10px);
+      -moz-transform: translateY(-10px);
+      -o-transition: translateY(-10px);
+      -ms-transform: translateY(-10px);
+      transform: translateY(-10px); }
+  .bsapp-wizard .wizard-card {
+    min-height: 410px; }
+    .bsapp-wizard .wizard-card .picture-container {
+      position: relative;
+      cursor: pointer;
+      text-align: center; }
+    .bsapp-wizard .wizard-card .icon-circle {
+      font-size: 20px;
+      border: 3px solid #fd7e14;
+      text-align: center;
+      border-radius: 50%;
+      color: #fd7e14;
+      font-weight: 600;
+      width: 70px;
+      height: 70px;
+      background-color: #FFFFFF;
+      margin: 0 auto;
+      position: relative;
+      top: -2px; }
+      .bsapp-wizard .wizard-card .icon-circle [class*="fa-"] {
+        position: absolute;
+        z-index: 1;
+        left: 1px;
+        right: 0px;
+        top: 23px; }
+    .bsapp-wizard .wizard-card a.active .icon-circle {
+      background-color: #fd7e14;
+      color: #FFFFFF; }
+    .bsapp-wizard .wizard-card .picture {
+      width: 106px;
+      height: 106px;
+      background-color: #d8d1c9;
+      border: 4px solid transparent;
+      color: #FFFFFF;
+      border-radius: 50%;
+      margin: 5px auto;
+      overflow: hidden;
+      transition: all 0.2s;
+      -webkit-transition: all 0.2s; }
+      .bsapp-wizard .wizard-card .picture:hover {
+        border-color: #2ca8ff; }
+    .bsapp-wizard .wizard-card .picture-src {
+      width: 100%; }
+    .bsapp-wizard .wizard-card[data-color="azure"] .picture:hover {
+      border-color: #fd7e14; }
+    .bsapp-wizard .wizard-card[data-color="azure"] .nav-pills > li.active > a:after {
+      background-color: #fd7e14; }
+    .bsapp-wizard .wizard-card[data-color="azure"] .nav-pills > li.active > a {
+      color: #fd7e14; }
+    .bsapp-wizard .wizard-card[data-color="azure"] .nav-pills .icon-circle.checked {
+      border-color: #fd7e14; }
+    .bsapp-wizard .wizard-card[data-color="azure"] .choice.active .card-checkboxes {
+      color: #fd7e14; }
+    .bsapp-wizard .wizard-card[data-color="azure"] .wizard-navigation .progress-bar {
+      background-color: #fd7e14; }
+    .bsapp-wizard .wizard-card[data-color="green"] .picture:hover {
+      border-color: #28a745; }
+    .bsapp-wizard .wizard-card[data-color="green"] .nav-pills > li.active > a:after {
+      background-color: #28a745; }
+    .bsapp-wizard .wizard-card[data-color="green"] .nav-pills > li.active > a {
+      color: #28a745; }
+    .bsapp-wizard .wizard-card[data-color="green"] .nav-pills .icon-circle.checked {
+      border-color: #28a745; }
+    .bsapp-wizard .wizard-card[data-color="green"] .choice.active .card-checkboxes {
+      color: #28a745; }
+    .bsapp-wizard .wizard-card[data-color="green"] .wizard-navigation .progress-bar {
+      background-color: #28a745; }
+    .bsapp-wizard .wizard-card[data-color="blue"] .picture:hover {
+      border-color: #007bff; }
+    .bsapp-wizard .wizard-card[data-color="blue"] .nav-pills > li.active > a:after {
+      background-color: #007bff; }
+    .bsapp-wizard .wizard-card[data-color="blue"] .nav-pills > li.active > a {
+      color: #007bff; }
+    .bsapp-wizard .wizard-card[data-color="blue"] .nav-pills .icon-circle.checked {
+      border-color: #007bff; }
+    .bsapp-wizard .wizard-card[data-color="blue"] .choice.active .card-checkboxes {
+      color: #007bff; }
+    .bsapp-wizard .wizard-card[data-color="blue"] .wizard-navigation .progress-bar {
+      background-color: #007bff; }
+    .bsapp-wizard .wizard-card[data-color="orange"] .picture:hover {
+      border-color: #ffc107; }
+    .bsapp-wizard .wizard-card[data-color="orange"] .nav-pills > li.active > a:after {
+      background-color: #ffc107; }
+    .bsapp-wizard .wizard-card[data-color="orange"] .nav-pills > li.active > a {
+      color: #ffc107; }
+    .bsapp-wizard .wizard-card[data-color="orange"] .nav-pills .icon-circle.checked {
+      border-color: #ffc107; }
+    .bsapp-wizard .wizard-card[data-color="orange"] .choice.active .card-checkboxes {
+      color: #ffc107; }
+    .bsapp-wizard .wizard-card[data-color="orange"] .wizard-navigation .progress-bar {
+      background-color: #ffc107; }
+    .bsapp-wizard .wizard-card[data-color="red"] .picture:hover {
+      border-color: #dc3545; }
+    .bsapp-wizard .wizard-card[data-color="red"] .nav-pills > li.active > a:after {
+      background-color: #dc3545; }
+    .bsapp-wizard .wizard-card[data-color="red"] .nav-pills > li.active > a {
+      color: #dc3545; }
+    .bsapp-wizard .wizard-card[data-color="red"] .nav-pills .icon-circle.checked {
+      border-color: #dc3545; }
+    .bsapp-wizard .wizard-card[data-color="red"] .choice.active .card-checkboxes {
+      color: #dc3545; }
+    .bsapp-wizard .wizard-card[data-color="red"] .wizard-navigation .progress-bar {
+      background-color: #dc3545; }
+    .bsapp-wizard .wizard-card .picture input[type="file"] {
+      cursor: pointer;
+      display: block;
+      height: 100%;
+      left: 0;
+      opacity: 0 !important;
+      position: absolute;
+      top: 0;
+      width: 100%; }
+    .bsapp-wizard .wizard-card .tab-content {
+      min-height: 435px;
+      padding: 105px 20px 10px; }
+    .bsapp-wizard .wizard-card .wizard-footer {
+      padding: 0 15px 5px; }
+    .bsapp-wizard .wizard-card .disabled {
+      display: none; }
+    .bsapp-wizard .wizard-card .wizard-header {
+      padding: 15px 15px 15px 15px;
+      position: relative;
+      border-radius: 3px 3px 0 0;
+      z-index: 3; }
+      .bsapp-wizard .wizard-card .wizard-header h3 {
+        text-align: center; }
+    .bsapp-wizard .wizard-card .wizard-title {
+      color: #252422;
+      font-weight: 300;
+      margin: 0; }
+    .bsapp-wizard .wizard-card .category {
+      font-size: 14px;
+      font-weight: 400;
+      color: #9A9A9A;
+      margin-bottom: 0px;
+      text-align: center; }
+    .bsapp-wizard .wizard-card .wizard-navigation {
+      position: relative; }
+      .bsapp-wizard .wizard-card .wizard-navigation .progress-with-circle {
+        position: relative;
+        top: 40px;
+        z-index: 50;
+        height: 4px; }
+        .bsapp-wizard .wizard-card .wizard-navigation .progress-with-circle .progress-bar {
+          box-shadow: none;
+          -webkit-transition: width .3s ease;
+          -o-transition: width .3s ease;
+          transition: width .3s ease; }
+    .bsapp-wizard .wizard-card .info-text {
+      text-align: center;
+      padding-bottom: 18px;
+      padding-top: 12px; }
+    .bsapp-wizard .wizard-card .choice {
+      text-align: center;
+      cursor: pointer;
+      margin-top: 38px; }
+      .bsapp-wizard .wizard-card .choice .icon {
+        text-align: center;
+        vertical-align: middle;
+        height: 116px;
+        width: 116px;
+        border-radius: 50%;
+        background-color: #999999;
+        color: #FFFFFF;
+        margin: 0 auto 20px;
+        border: 4px solid #CCCCCC;
+        transition: all 0.2s;
+        -webkit-transition: all 0.2s; }
+      .bsapp-wizard .wizard-card .choice i {
+        font-size: 32px;
+        line-height: 55px; }
+      .bsapp-wizard .wizard-card .choice:hover .icon, .bsapp-wizard .wizard-card .choice.active .icon {
+        border-color: #2ca8ff; }
+      .bsapp-wizard .wizard-card .choice input[type="radio"],
+      .bsapp-wizard .wizard-card .choice input[type="checkbox"] {
+        position: absolute;
+        left: -10000px;
+        z-index: -1; }
+    .bsapp-wizard .wizard-card .description {
+      color: #999999;
+      font-size: 14px; }
+  @media (max-width: 768px) {
+    .bsapp-wizard .main .container {
+      margin-bottom: 50px; } }
+  @media (min-width: 768px) {
+    .bsapp-wizard .navbar-form {
+      margin-top: 21px;
+      margin-bottom: 21px;
+      padding-left: 5px;
+      padding-right: 5px; }
+    .bsapp-wizard .btn-wd {
+      min-width: 140px; } }

@@ -1,0 +1,9 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "Some message here",
+  "userBalanceAmount": 10.99,
+  "user": {
+    "id": 1111
+  }
+}

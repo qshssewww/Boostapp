@@ -1,0 +1,187 @@
+<div ng-app="app" ng-controller="calc as vm" ng-cloak>
+    <h3 class="text-center">מחשבון בסיס קצב חילוף חומרים <small class="text-muted">(BMR - Basal Metabolic Rate)</small></h3>
+
+    <form name="bodyFatCalc">
+        <!-- client -->
+        <div class="form-group clientId">
+            <label>מתאמן</label>
+            <select ng-model="vm.chossenClient" class="form-control" ng-change="vm.changeClient(vm.chossenClient)">
+                <option value="">בחר מתאמן</option>
+                <option ng-repeat="x in vm.clients" value="{{x}}">{{x.fullName}}</option>
+            </select>
+        </div>
+        <!-- time -->
+        <div class="form-group">
+            <label>תאריך</label>
+            <input type="date" name="date" id="date" ng-model="vm.fields.date" class="form-control">
+        </div>
+        <!-- gender -->
+        <div class="form-group" id="gender">
+            <label>מין</label>
+            <div>
+                <input type="radio" name="gender" value="male" id="male" ng-model="vm.fields.gender" hidden>
+                <label for="male" class="btn btn-default"><i class="fas fa-mars"></i> זכר</label>
+                <input type="radio" name="gender" id="female" value="female" ng-model="vm.fields.gender" hidden>
+                <label for="female" class="btn btn-default"><i class="fas fa-venus"></i> נקבה</label>
+            </div>
+        </div>
+        <!-- age -->
+        <div class="form-group" id="age">
+            <label>גיל</label>
+            <input type="number" name="age" ng-model="vm.fields.age" class="form-control">
+        </div>
+        <!-- weight -->
+        <div class="form-group" id="weight">
+            <label>משקל גופך בק"ג</label>
+            <input type="number" name="weight" ng-model="vm.fields.weight" class="form-control">
+        </div>
+
+        <!-- height -->
+        <div class="form-group" id="height">
+            <label>גובה</label>
+            <input type="number" name="age" ng-model="vm.fields.height" class="form-control">
+        </div>
+    </form>
+
+    <div>
+        <label>BMR: </label>
+        <span>{{vm.BMR || 'מלא טופס לקבלת הנתון'}}</span>
+    </div>
+    <div class="text-left text-light mb-2">
+        <a ng-click="vm.save()" class="btn btn-success">שמור</a>
+    </div>
+
+    <div class="text-right" ng-show="vm.$$error.length">
+        <h4 class="card-title">מצאנו שגיאות...</h4>
+        <div class="card bg-faded">
+            <ul class="list-group list-group-flush pr-0">
+                <li class="list-group-item pr-2 text-danger" ng-repeat="err in vm.$$error">{{err}}</li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="card bg-faded bg-success text-light" ng-show="vm.$$success">
+        {{vm.$$success}}
+    </div>
+</div>
+<style>
+    #gender input:checked+label {
+        background-color: #48AD42;
+        color: #fff
+    }
+
+    #gender input+label {
+        background: rgb(207, 207, 207)
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+<script>
+    angular.module('app', []).controller('calc', ['$http', '$scope', '$window', function ($http, $scope, $window) {
+
+        var vm = this;
+        var restURL = $window.restURL || '../rest/';
+        vm.$$error = [];
+
+        vm.clients = [];
+
+        $http.get(restURL+'?type=medicalindicators&method=clients&clientId='+$window.restClient).then(function (res) {
+            vm.clients = res.data.items;
+
+            if($window.restClient){
+                var chosenClient = vm.clients.filter(function(x){return x.clientId == $window.restClient.toString()});
+                vm.changeClient( JSON.stringify(chosenClient[0] || {clientId: $window.restClient}) );
+            }
+
+            setTimeout(function () {
+                if(jQuery.fn.select2) jQuery('select[ng-model="vm.chossenClient"]').select2();
+            }, 0)
+        }, function () { })
+
+        vm.fields = {
+            gender: "male",
+            date: new Date()
+        };
+
+        $scope.$watch('vm.fields', function (oldValue, newValue) {
+            vm.calc();
+        }, true)
+
+        vm.changeClient = function (client) {
+            try {
+                client = JSON.parse(client);
+                // console.log(client);
+                vm.fields.clientId = client.clientId || undefined;
+                vm.fields.gender = client.gender || undefined;
+                vm.fields.age = parseInt(client.age) || undefined;
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+        vm.validate = function () {
+            vm.$$error = [];
+            if (!vm.fields.clientId) vm.$$error.push('אנא בחר מתאמן');
+
+            if (!vm.fields.gender) vm.$$error.push('אנא בחר מגדר מתאמן');
+
+            var weight = parseFloat(vm.fields.weight || 0);
+            if (!weight) vm.$$error.push('אנא הכנס סכום משקל');
+
+            var height = parseFloat(vm.fields.height || 0);
+            if (!height) vm.$$error.push('אנא הכנס סכום גובה');
+
+            var age = parseFloat(vm.fields.age || 0);
+            if (!age) vm.$$error.push('אנא הכנס גיל');
+
+            return !vm.$$error.length;
+        }
+
+        vm.calc = function () {
+
+
+            var weight = parseFloat(vm.fields.weight || 0);
+            var height = parseFloat(vm.fields.height || 0);
+            var age = parseFloat(vm.fields.age || 0);
+
+            if (!weight || !height || !age) {
+                vm.BMR = undefined;
+                return;
+            }
+            switch (vm.fields.gender) {
+                case "male":
+                    vm.BMR = 10 * weight + 6.25 * height - 5 * age + 5
+                    break;
+                case "female":
+                    vm.BMR = (10 * weight + 6.25 * height - 5 * age - 161)
+                    break;
+                default:
+                    vm.BMR = undefined;
+            }
+
+        }
+
+        vm.save = function () {
+            vm.$$success = false;
+            if (!vm.validate()) return;
+            var fields = angular.copy(vm.fields)
+            fields.date = vm.fields.date.toISOString().split('T')[0];
+            fields.mbr = vm.BMR;
+            $http.post(restURL+'/?type=medicalindicators&method=bmr', fields).then(function (data) {
+                vm.fields = {
+                    gender: fields.gender,
+                    date: new Date(),
+                    age: fields.age,
+                    clientId: fields.clientId
+                };
+                vm.$$success = 'הנתון נקלט בהצלחה';
+                // console.log('הנתון נקלט בהצלחה')
+            }, function (data) {
+                // console.log(data);
+                vm.$$error = vm.$$error || [];
+                vm.$$error.push(data.data || data.error);
+            })
+        }
+
+
+    }]);
+</script>

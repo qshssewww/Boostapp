@@ -1,0 +1,258 @@
+<div ng-app="app" ng-controller="calc as vm" ng-cloak>
+    <h3 class="text-center">דוח :: מסת שריר</h3>
+
+    <form name="bodyFatCalc">
+        <!-- client -->
+        <div class="form-group clientId">
+            <label>מתאמן</label>
+            <select ng-model="vm.chossenClient" class="form-control" ng-change="vm.get(vm.chossenClient)">
+                <option value="">בחר מתאמן</option>
+                <option ng-repeat="x in vm.clients" value="{{x}}">{{x.fullName}}</option>
+            </select>
+        </div>
+
+        <div class="row" id="clientData">
+            <div class="col-md-6">
+
+                <!-- client info -->
+                <div class="row" ng-show="vm.client">
+                    <div class="col-md-4">
+                        <label>שם:</label> {{vm.client.fullName}}</div>
+                    <div class="col-md-4">
+                        <label>מייל:</label> {{vm.client.email}}</div>
+                    <div class="col-md-4">
+                        <label>טלפון:</label> {{vm.client.phone}}</div>
+                    <div class="col-md-4">
+                        <label>גיל:</label> {{vm.client.age}}</div>
+                    <div class="col-md-4">
+                        <label>מין:</label> {{vm.client.genderHebrew || vm.data.items[0].age || 'לא ידוע'}}</div>
+                    <div class="col-md-4" ng-show="vm.client.branch">
+                        <label>סניף:</label> {{vm.client.branch}}</div>
+
+                </div>
+                <!-- client mbr data -->
+                <!-- <pre>{{vm.filter|json}}</pre> -->
+                <table class="table" ng-show="vm.client">
+                    <thead>
+                        <th class="">תאריך</th>
+                        <th class="">מסת שריר</th>
+                        <th class="">גיל</th>
+                    </thead>
+                    <tsearch>
+                        <th>
+                            <input placeholder="חפש" type="text" name="dateRange" ng-model="vm.filter.date" date-range-picker class="form-control date-picker" options="vm.filterDaterangeOptions"
+                                ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }">
+                        </th>
+                        <th>
+                            <input placeholder="חפש" type="number" name="muscleMass" ng-model="vm.filter.muscleMass" class="form-control" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }">
+                        </th>
+                        <th></th>
+                    </tsearch>
+                    <tbody>
+                        <tr ng-show="vm.data.items.length && !vm.loading" ng-repeat="item in vm.data.items">
+                            <td class="">{{item.displayDate}}</td>
+                            <td class="">{{item.muscleMass}}</td>
+                            <td class="">{{item.age}}</td>
+                        </tr>
+                        <tr ng-show="!vm.data.items.length">
+                            <td ng-show="vm.loading" colspan="5" class="text-center">מחפש נתונים
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </td>
+                            <td ng-show="vm.loading == false && !vm.data.items.length" colspan="5" class="text-center">אין נתונים</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="row paganation" ng-show="!vm.loading && vm.data.items.length">
+                    <span class="mt-1">
+                        <input type="number" ng-model="vm.filter.limit" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }"
+                            style="width: 2em; height: 1.5em; text-align: center; border: 0;border-bottom: 1px solid red;" min="1"
+                            max="{{vm.data.totalFilltered}}"> מתוך {{vm.data.totalFilltered}}
+                        <span ng-if="vm.data.totalFilltered != vm.data.userTotalData">({{vm.data.userTotalData}} סה"כ נתונים במערכת)</span>
+                    </span>
+
+                    <!-- https://getbootstrap.com/docs/4.1/components/pagination/ -->
+                    <nav aria-label="Page navigation example" ng-show="!vm.loading && vm.data.items.length" class="float-left">
+                        <ul class="pagination">
+                            <li class="page-item" ng-class="{'disabled': vm.filter.page <= 1 || !vm.filter.page}">
+                                <a class="page-link" href="#" ng-click="(vm.filter.page <= 1 || !vm.filter.page)?false:vm.filter.page=vm.filter.page-1">הקודם</a>
+                            </li>
+                            <li class="page-item" ng-repeat="i in vm.data.pages track by $index" ng-class="{'active': vm.data.currentPage == $index+1}">
+                                <a class="page-link" href="#" ng-click="vm.filter.page = $index+1; false">{{$index+1}}</a>
+                            </li>
+                            <li class="page-item" ng-class="{'disabled': vm.filter.page >= (vm.data.pages.length)}">
+                                <a class="page-link" href="#" ng-click="vm.filter.page >= (vm.data.pages.length)?false:vm.filter.page=vm.filter.page+1">הבא</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!-- <a ng-click="vm.toCsv()" class="btn btn-primary">CSV</a> -->
+                    <!-- <a ng-click="vm.toPdf()" class="btn btn-primary">PDF</a> -->
+                </div>
+
+
+
+            </div>
+            <div class="col-md-6 chart">
+                <canvas ng-show="vm.data.items.length && !vm.loading" id="line" class="chart chart-line" chart-data="vm.chart.data" chart-labels="vm.chart.labels"
+                    chart-series="vm.chart.series" chart-options="vm.chart.options" chart-dataset-override="vm.chart.datasetOverride"
+                    chart-click="vm.chart.onClick">
+                </canvas>
+            </div>
+        </div>
+
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<script src="/CDN/angular-chart.js"></script>
+<script src="/CDN/angular-daterangepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/3.0.3/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/he.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/3.0.3/daterangepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/3.0.3/daterangepicker.min.css"
+    crossorigin="anonymous" />
+
+<script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+
+
+<script>
+    // http://jtblin.github.io/angular-chart.js/
+    angular.module('app', ['chart.js', 'daterangepicker']).controller('calc', ['$http', '$scope', '$window', function ($http, $scope, $window) {
+
+        var vm = this;
+
+        // init. fields
+        vm.$$error = [];
+        vm.loading = false;
+        vm.clients = [];
+        vm.data = {}
+        vm.chart = {
+            labels: [],
+            series: [],
+            data: [],
+            onClick: function (point, e) { },
+            datasetOverride: [],
+            options: {
+                scales: {
+                    xAxes: [{dispaly: true, scaleLabel: {display: true, labelString: 'תאריך'}}],
+                    yAxes: [{dispaly: true, scaleLabel: {display: true, labelString: 'משקל בק"ג'}}]
+                }
+            }
+        } // define chartJs or AJAX calls
+        vm.filter = {
+            limit: 10,
+            page: 1,
+            date: { startDate: null, endDate: null },
+            bmr: null,
+            weight: null
+        }
+
+
+        vm.filterDaterangeOptions = {
+            showDropdowns: true,
+            locale: {
+                applyLabel: "אישור",
+                cancelLabel: "ביטול",
+                format: "DD/MM/YYYY"
+            }
+        }
+
+        // AJAX client list
+        $http.get('../rest/?type=medicalindicators&method=clients').then(function (res) {
+            vm.clients = res.data.items;
+            if($window.restClient){
+                var chosenClient = vm.clients.filter(function(x){return x.clientId == $window.restClient.toString()});
+                vm.get( JSON.stringify(chosenClient[0] || {clientId: $window.restClient}) );
+            }
+            setTimeout(function () {
+                if(jQuery.fn.select2) jQuery('select[ng-model="vm.chossenClient"]').select2();
+            }, 0)
+        }, function () { });
+
+        // get a single client data
+        vm.get = function (client) {
+            vm.client = false;
+            try {
+                var data = JSON.parse(client);
+                var clientId = data.clientId;
+                if (!clientId) return;
+                vm.client = data;
+                vm.loading = true;
+                vm.data = {}
+
+                // hard code filter search, fields undefined are not sent
+                var params = {
+                    type: 'medicalindicators',
+                    method: 'muscleMass',
+                    clientId: clientId,
+                    limit: Math.round(parseInt(vm.filter.limit)),
+                    page: vm.filter.page ? Math.round(parseInt(vm.filter.page)) : 1,
+                    dateFrom: vm.filter.date.startDate ? new Date(vm.filter.date.startDate) : undefined,
+                    dateTo: vm.filter.date.endDate ? new Date(vm.filter.date.endDate) : undefined,
+                    bmr: vm.filter.bmr,
+                    muscleMass: vm.filter.muscleMass
+                };
+
+                $http.get('../rest/', { params: params }).then(function (res) {
+                    vm.data = res.data;
+                    vm.data.pages = (new Array(vm.data.pages)); // allow ng-repeat
+                    vm.loading = false;
+
+                    if (vm.filter.limit > parseInt(vm.data.totalFilltered)) vm.filter.limit = vm.data.totalFilltered;
+
+                    // one data dosn't look nice in charts;
+                    // if (!res.data.items || !res.data.items.length || res.data.items.length == 1) return true;
+                    vm.chart.labels = res.data.items.map(function (x) { return x.displayDate });
+                    vm.chart.series[0] = 'מסת שריר';
+                    vm.chart.data[0] = res.data.items.map(function (x) { return x.muscleMass });
+
+                }, function (res) {
+                    vm.loading = false;
+                })
+            } catch (e) {
+                // error, let earse the GUI :)
+                vm.data = {}
+            }
+        }
+
+        // on the fly filter with debounce options in the field sets
+        // must come after vm.get function (order is important)
+        $scope.$watch('vm.filter', function (oldValue, newValue) {
+            if (!vm.client || !vm.client.clientId) return false;
+            // ugly hack, since angular model is a string
+            vm.get(JSON.stringify(vm.client));
+        }, true);
+
+        vm.toCsv = function () {
+
+            console.log(vm.data);
+            if (!vm.data || !vm.data.items || !vm.data.items.length) return false;
+
+            var csvContent = "data:text/csv;charset=utf-8,";
+
+            var items = angular.copy(vm.data.items);
+            // header
+            var csvContent = jQuery('thead th').map(function (i, el) { return ("'" + el.innerHTML + "'") }).toArray().join(",") + '\n'
+
+            csvContent += items.map(function (x) {
+                return x.map(function (y) { return "'" + y + "'" }).join(',')
+            }).join('\n');
+            console.log(csvContent);
+
+            var encodedUri = encodeURI(csvContent);
+            var link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "customers.csv");
+            document.body.appendChild(link); // Required for FF
+            link.click();
+            document.body.removeChild(link);
+        }
+
+
+
+
+    }]);
+</script>

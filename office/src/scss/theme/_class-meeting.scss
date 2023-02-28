@@ -1,0 +1,15 @@
+.#{$theme-prefix}-tab-active-underline{
+    .nav-link{
+        @extend .text-dark;
+         border : 2px  solid transparent ;
+        &:not(.active):hover{ 
+           
+            @extend .border-transparent;
+        }
+        &.active{      
+            @extend .text-primary;            
+            border : 2px  solid transparent ;
+            border-bottom : 2px solid $primary ;
+        }
+    }
+}

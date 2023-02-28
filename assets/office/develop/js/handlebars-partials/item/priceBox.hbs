@@ -1,0 +1,21 @@
+<div class="form--group-items">
+	<label for="itemPrice" class="bsapp--label">
+		{{#if labelKey}}{{lang labelKey}}{{else}}{{lang price}}{{/if}}
+	</label>
+	<div class="form--group-rel">
+		<input id="itemPrice"
+			   class="form--group-input bsapp--icon-input full"
+			   name="itemPrice"
+			   type="number"
+			   data-validate-price=""
+			   step="0.01"
+			   min="0"
+			   pattern="[0-9]([\.][0-9])?"
+			   value="{{#if priceStr}}{{priceStr}}{{else}}0{{/if}}"
+			   data-price="{{#if price}}{{price}}{{else}}0{{/if}}"
+			   autocomplete="off"
+			   placeholder="{{#if placeholderKey}}{{lang placeholderKey}}{{else}}{{lang 'price'}}{{/if}}"
+			{{#if readonly}} readonly="readonly"{{/if}}>
+		<span class="form--group-icon"><i class="fa-light fa-shekel-sign"></i></span>
+	</div>
+</div>

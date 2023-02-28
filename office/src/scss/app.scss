@@ -1,0 +1,45 @@
+$font-family-sans-serif: 'Rubik', "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+@import "bootstrap";
+
+$theme-class :  theme-boostapp;
+$theme-prefix :  bsapp;
+
+/** for common styles :: begin  **/
+@import "theme/animate";
+@import "theme/common"; 
+@import "theme/header";
+
+//@import "theme/footer";
+@import "theme/typeahead";  
+@import "theme/parsley";
+@import "theme/select2";
+//@import "theme/editorjs";
+@import "theme/datatables"; 
+//@import "theme/common-wizard-with-summary";
+/** for common styles :: end    **/  
+
+
+
+/** feature specific styles :: begin **/
+@import "theme/dashboard"; 
+@import "theme/char-popup"; 
+//@import "theme/client-popup";
+@import "theme/class-meeting";
+//@import "theme/get_started";
+@import "theme/insurance-form";    
+
+@import "theme/calendar";
+@import "theme/settings-dialog";
+@import "theme/custom-plugins";
+/** feature specific styles :: end **/
+@import "theme/login";
+
+@import "theme/meeting-popup";
+
+
+/** feature specific styles :: end **/
+@import "theme/settings-pages";
+/** feature specific styles :: end **/
+@import "theme/tag";
+
+/** feature specific styles :: end **/

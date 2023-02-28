@@ -1,0 +1,27 @@
+$ins_blue_color : #04346F;
+.#{$theme-prefix}-insurance-btn-blue{
+    @include button-variant($ins_blue_color, $ins_blue_color);
+}
+.#{$theme-prefix}-insurance-light-blue{
+    @include button-variant(#2166C4, #2166C4);
+}
+.custom-control.#{$theme-prefix}-control-insurance-blue{
+    .custom-control-input:not(:disabled):active ~ .custom-control-label::before{
+        color: #fff;
+        background : $ins_blue_color;
+        border : 1px solid $ins_blue_color ;
+    }
+    .custom-control-input:focus:not(:checked) ~ .custom-control-label::before{
+        border : 1px solid $ins_blue_color ;
+    }
+
+    .custom-control-input:focus ~ .custom-control-label::before{
+        box-shadow : 0 0 0 0.2rem rgba($ins_blue_color  , 0.25);
+    }
+
+    .custom-control-input:checked ~ .custom-control-label::before{
+        background : $ins_blue_color;
+        border : 1px solid $ins_blue_color ;
+        @extend .shadow-none; 
+    } 
+}

@@ -1,0 +1,43 @@
+.priceRow .membershipPrice {
+    width: 80px;
+    border: none;
+    background-color: #f4f3f3;
+    padding: 3px 5px;
+}
+.extraRows .CheckboxLabel {
+    padding-top: 7px;
+    margin-inline-end: 5px;
+}
+.extraRows .taxIncludeLabel,
+.extraRows .alertOnEndLabel {
+    padding-top: 10px;
+}
+.priceRow .membershipPrice:focus {
+    border: none;
+    outline: none;
+}
+.membershipLengthFlex {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.alertOnEndFlex {
+    display: flex;
+    align-items: center;
+}
+
+.alertOnEndOpend.closed {
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+.alertOnEndOpend {
+    visibility: visible;
+    opacity: 1;
+}
+.membershipLenghtFLexHide{
+    display: none!important;
+}
+.selectContainers  .ContainersHalfRight,.selectContainers  .ContainersHalfLeft{
+    margin-right: 8px;
+}

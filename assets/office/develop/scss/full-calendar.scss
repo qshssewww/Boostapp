@@ -1,0 +1,142 @@
+.fc {
+  &.fc-theme-standard {
+    .fc-scrollgrid,
+    .fc-scrollgrid-section table,
+    td,
+    th {
+      border-color: transparent;
+    }
+
+    .fc-scrollgrid-section table {
+      min-width: 100%;
+    }
+  }
+
+  .fc-button-primary {
+    font-size: 0.875em;
+    font-weight: 500;
+    line-height: 17px;
+    box-shadow: 0 3px 6px #00000029;
+    border-radius: 0.25rem;
+    padding: 7px 0.875rem;
+    transition: all 0.2s ease;
+    &:focus,
+    &:hover,
+    &:disabled {
+      background-color: var(--theme-box-bg);
+      box-shadow: inset 0 3px 6px #00000029;
+    }
+
+    &:disabled {
+      cursor: default;
+    }
+  }
+
+  .fc-next-button,
+  .fc-prev-button {
+    border: none;
+    box-shadow: none;
+    font-size: 1.25rem;
+    padding: 0.25rem;
+
+    &:disabled {
+      background-color: transparent;
+      box-shadow: none;
+      opacity: 0.45;
+    }
+  }
+
+  .fc-toolbar-title {
+    @media (min-width: 768px) {
+      [dir="rtl"] & {
+        font-size: 1.375em;
+      }
+    }
+    @media (min-width: 391px) {
+      font-size: 1.25em;
+    }
+    font-size: 1em;
+    letter-spacing: 0.21px;
+    font-weight: normal;
+  }
+
+  .fc-col-header-cell-cushion {
+    font-size: 1.125em;
+    letter-spacing: 0.17px;
+    font-weight: 500;
+    color: var(--theme-body-color);
+  }
+
+  .fc-daygrid-body {
+    min-width: 100%;
+    .fc-scrollgrid-sync-table {
+      min-width: 100%;
+    }
+  }
+  .fc-toolbar.fc-header-toolbar {
+    margin-bottom: 1rem;
+  }
+  .fc-toolbar.fc-footer-toolbar {
+    margin-top: 0;
+  }
+  .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+    display: none;
+  }
+  .fc-daygrid-day-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .fc-daygrid-day-number {
+      font-size: 1em;
+      line-height: 19px;
+      letter-spacing: 0.15px;
+      color: inherit;
+    }
+  }
+  .fc-daygrid-day {
+    cursor: pointer;
+    &.fc-day-other,
+    &.fc-day-disabled,
+    &.fc-day-past {
+      color: var(--fc-disabled-bg-color, rgba(0, 0, 0, 0.3));
+      cursor: default;
+      pointer-events: none;
+    }
+
+    &.fc-day-other .fc-daygrid-day-top {
+      opacity: 1;
+    }
+
+    .fc-daygrid-day-frame {
+      border: 1px solid transparent;
+      border-radius: 50%;
+      width: 2.25rem;
+      height: 2.25rem;
+      padding: 0.25rem;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .fc-daygrid-bg-harness {
+      display: none;
+    }
+
+    &.fc-day-selected,
+    &.fc-day-today {
+      .fc-daygrid-day-frame {
+        border-color: var(--fc-highlight-bg);
+      }
+    }
+    &.fc-day-selected {
+      .fc-daygrid-day-frame {
+        color: var(--fc-highlight-color, rgba(0, 0, 0, 0.3));
+        background-color: var(--fc-highlight-bg);
+      }
+    }
+  }
+}
+
+.fc-toolbar-chunk {
+  display: flex;
+  align-items: center;
+}

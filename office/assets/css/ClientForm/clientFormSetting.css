@@ -1,0 +1,156 @@
+
+ .hide-form{
+     display:none;
+ }
+.show-form{
+    display:block;
+}
+.flexRow{
+    display:inline-flex;
+}
+.deleteButton,
+.deleteButtonRow{
+    color:rgb(93,13,94);
+    cursor:pointer;
+    margin-right: 5px;
+    font-size:1.2rem;
+}
+.display-flex-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.color {
+    color: rgb(93,13,94)
+}
+
+.settings-form{
+    padding: 1vw 0.5vw;
+    width: 35vw;
+    background: white;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.settings-form .header{
+    display: flex;
+}
+.settings-form .header span{
+    font-weight: bold;
+    margin-inline-end: 1vw;
+    font-size: x-large;
+}
+.settings-form .header select{
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: smaller;
+    color: rgba(93, 13, 94, 0.7);
+    border: 2px solid rgba(93, 13, 94, 0.4);
+}
+
+/*form table{*/
+/*    width: 100%;*/
+/*    position: relative;*/
+/*    border-collapse:separate;*/
+/*    !*border-spacing:0 15px; *!*/
+/*}*/
+.formFields table th{
+    font-weight: normal;
+}
+ .formFields th:nth-child(1){
+    padding-inline-start: 3%;
+}
+ .formFields th:nth-child(2),td:nth-child(2),th:nth-child(3),td:nth-child(3) {
+    width: 15%;
+    text-align: center;
+}
+ .formFields table td{
+    color: #9c9a9a;
+    padding: 0.5vw 0;
+}
+table tr:nth-child(odd) td{
+    background:#c1c1c10a;
+}
+ .formFields table td svg{
+    margin-inline-end: 2%;
+    opacity:0.5;
+}
+ .formFields .add-new-field{
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: start;
+    font-size: small;
+    padding: 0 3% 4% 0;
+    font-weight: bold;
+}
+ .formFields .saveSettings{
+    color: white;
+    background: rgb(93,13,94);
+    border: none;
+    margin-inline-end: 1vw;
+    padding: 0.3vw 2vw;
+    font-size: small;
+    border-radius: 5px;
+}
+#fields-table{
+    text-align: right;
+}
+.replace {
+    display: block;
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.replace input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    /*left: 0;*/
+    /*top: 0;*/
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+}
+
+
+.replace input:checked ~ .checkmark {
+    background-color: rgb(93,13,94);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.replace input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.replace .checkmark:after {
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}

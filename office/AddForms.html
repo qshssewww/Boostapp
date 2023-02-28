@@ -1,0 +1,249 @@
+<link rel="stylesheet" href="Health/css/textAngular.css">
+<link rel="stylesheet" href="Health/css/style.css">
+
+<div ng-app="dynForm" ng-controller="formGen as vm" class="container" ng-cloak>
+    <div class="card">
+        <h5 class="card-header">
+            <!-- form title -->
+            <span ng-class="{'border-error': vm.data.title.$$error}" style="padding-bottom: 15px;">
+                <span class="hoverEdit" ng-show="!vm.data.title.$$edit" ng-click="vm.data.title.$$edit = true" ng-class="{'text-muted': !vm.data.title.text}">
+                    {{vm.data.title[vm.data.title.text?'text':'placeholder']}}   
+                </span>
+                <span ng-show="vm.data.title.$$edit" class="d-inline-block">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <a ng-click="vm.data.title.$$edit = false" class="btn btn-primary btn-sm  text-white">
+                                <i class="fas fa-save"></i>
+                            </a>
+                        </div>
+                        <input class="form-control w-100" ng-model="vm.data.title.text" placeholder="{{vm.data.title.placeholder}}">
+
+                    </div>
+                </span>
+                <span ng-show="vm.data.title.$$error" class="text-danger">{{vm.data.title.$$error}}</span>
+            </span>
+           <hr ng-show="vm.data.items.length">
+            <!-- menu items -->
+            <div class="pull-left" ng-show="vm.data.items.length">
+<!--                <button class="btn btn-success" ng-click="vm.data.items.splice(0,0,{$$edit: true, data:{ required:true}, answers: [{}], type: 'question'})">-->
+                <button class="btn btn-success" ng-click="vm.data.items.push({$$edit: true, data:{ required:true}, answers: [{}], type: 'question', q_id:'' }); vm.scrollEnd();">
+                    <i class="fas fa-plus"></i> שאלה חדשה
+                </button>
+
+                <button class="btn btn-success" ng-click="vm.data.items.push({$$edit: true, type: 'instruction'}); vm.scrollEnd();">
+                    <i class="fas fa-plus"></i> טקסט חדש
+                </button>
+            </div>
+
+
+            <hr>
+            <span class="hoverEdit" ng-click="vm.data.header.$$edit = true" ng-class="{'text-muted font-italic': !vm.data.header.text}"
+                ng-show="!vm.data.header.$$edit">{{vm.data.header[vm.data.header.text?'text':'placeholder']}}</span>
+            <span ng-show="vm.data.header.$$edit">
+                <textarea ng-model="vm.data.header.text" placeholder="{{vm.data.header.placeholder}}" class="form-control"></textarea>
+                <a class="btn btn-block btn-primary text-white" ng-click="vm.data.header.$$edit = false">
+                    <i class="fas fa-save"></i> סגור עריכה</a>
+            </span>
+        </h5>
+        <div class="card-body">
+            <h3 ng-show="!vm.data.items.length" class="text-center m-4">
+                לחץ על שאלה חדשה או טקסט חדש על מנת להתחיל לבנות טופס
+                <div class="mt-5">
+                    <button class="btn btn-success" ng-click="vm.data.items.splice(0,0,{$$edit: true, data:{ required:true}, answers: [{}], type: 'question', q_id:'' })">
+                        <i class="fas fa-plus"></i> שאלה חדשה
+                    </button>
+
+                    <button class="btn btn-success" ng-click="vm.data.items.splice(0,0,{$$edit: true, type: 'instruction'})">
+                        <i class="fas fa-plus"></i> טקסט חדש
+                    </button>
+                </div>
+            </h3>
+
+            <div class="card mb-1" ng-repeat="item in vm.data.items" ng-class="{'border-danger': item.$$message.length}">
+                <!-- Question -->
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span class="d-inline-block sorting">
+                                <i class="fas fa-caret-up" ng-if="!$first" ng-click="vm.move($index, 'up', item, vm.data.items)"></i>
+                                <i class="fas fa-caret-down" ng-if="!$last" ng-click="vm.move($index, 'down', item, vm.data.items)"></i>
+                            </span>
+                            <span class="badge badge-dark">{{$index+1}}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <div ng-show="item.type == 'question'">
+                                <span ng-show="!item.$$edit" class="pl-2" ng-click="item.$$edit = true">
+                                    <span ng-show="item.question">{{item.question}} [{{item.typeQ.label}}]</span>
+                                    <span ng-show="!item.question" class="text-muted">אנא לחץ על מנת להזין שאלה</span>
+                                </span>
+
+
+                                <div ng-show="item.$$edit" class="pl-2 d-inline-block w-100">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control w-100" ng-model="item.question" placeholder="אנא לחץ על מנת להזין שאלה">
+                                        <div class="input-group-append">
+                                            <select class="form-control" ng-options="type as type.label for type in vm.types track by type.type" ng-model="item.typeQ"
+                                                ng-show="item.question" ng-change="vm.toggleOptions(item)">
+                                                <option value="">בחר סוג תשובה</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- instruction type -->
+                            <div ng-show="item.type == 'instruction'">
+                                <span ng-show="!item.$$edit" class="pl-2" ng-click="item.$$edit = true" ng-bind-html="item.instruction?item.instruction:'לחץ על מנת להזין טקסט'">
+                                </span>
+                                <span ng-show="item.$$edit" class="">
+                                    <div text-angular ng-model="item.instruction" ta-text-editor-class="border-around" ta-html-editor-class="border-around" ta-toolbar="[['bold', 'italics', 'underline']]"
+                                        placeholder="לחץ על מנת להזין טקסט"></div>
+
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <span class="btn btn-sm btn-info d-inline-block bg-light text-dark" ng-if="item.question && ['text'].indexOf(item.typeQ.type) == -1"
+                                ng-click="item.$$showAnswers = !item.$$showAnswers">
+                                <i class="fas" ng-class="{'fa-eye-slash': !item.$$showAnswers, 'fa-eye': item.$$showAnswers}"></i>
+                                <span ng-show="!item.$$showAnswers">תשובות</span>
+                                <span ng-show="item.$$showAnswers">הסתר</span>
+                            </span>
+                            <span class="btn btn-sm btn-danger text-white" ng-click="vm.data.items.splice($index, 1)">
+                                <i class="fas fa-trash"></i>
+                            </span>
+                            <span class="btn btn-sm btn-info" ng-show="!item.$$edit" ng-click="item.$$edit = true">
+                                <i class="fas fa-edit"></i>
+                            </span>
+                            <span class="btn btn-sm btn-info" ng-show="item.$$edit" ng-click="item.$$edit = false">
+                                <i class="fas fa-save"></i>
+                            </span>
+
+                            <span ng-show="item.type === 'question'" ng-click="item.data.required = !item.data.required" class="btn btn-sm" ng-class="{'btn-info': !item.data.required, 'btn-success': item.data.required}">
+                                {{item.data.required?'שאלת חובה':'שאלת רשות'}}
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Question options -->
+                <div class="card-body ml-4" ng-show="item.$$showAnswers" ng-if="['text'].indexOf(item.typeQ.type) == -1">
+                    <div class="text-right mb-2">
+                        <a class="btn btn-success btn-sm bg-light text-dark" ng-click="item.answers.push({}); item.$$$edit=true">
+                            <i class="fas fa-plus"></i> הוסף תשובה</a>
+                    </div>
+
+                    <ul class="list-group">
+                        <li class="list-group-item row" ng-repeat="answer in item.answers">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <span class="d-inline-block sorting mr-1">
+                                        <i class="fas fa-caret-up" ng-if="!$first" ng-click="vm.move($index, 'up', answer, item.answers)"></i>
+                                        <i class="fas fa-caret-down" ng-if="!$last" ng-click="vm.move($index, 'down', answer, item.answers)"></i>
+                                    </span>
+                                    <span class="badge badge-light">{{$index+1}}</span>
+                                </div>
+                                <div class="col-md-7">
+                                    <div ng-show="!item.$$$edit" ng-click="item.$$$edit = true" ng-class="{'text-muted': !answer.item}">
+                                        <span></span>{{answer.item || 'לחץ על מנת לערוך תשובה חדשה'}}</span>
+                                        <span class="badge badge-success" ng-if="answer.explain">פירוט</span>
+                                    </div>
+                                    <div ng-show="item.$$$edit" class="row">
+                                       
+									   <div class="col-md-8">
+                                       <input type="text" ng-model="answer.item" class="form-control w-100" placeholder="הכנס תשובה חדשה">
+											
+									    <input type="hidden" ng-model="answer.a_id" id="aid_{{$parent.$index}}_{{$index}}">
+											
+                                        </div>
+										
+                                        <div class="col-md-2">
+                                            <div class="custom-checkbox">
+                                                <input type="checkbox" ng-model="answer.explain" id="explain_{{$parent.$index}}_{{$index}}" class="custom-control-input">
+                                                <label for="explain_{{$parent.$index}}_{{$index}}" class="custom-control-label pr-2"> נימוק?</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2" ng-show="answer.explain">
+                                            <div class="custom-checkbox">
+                                                <input type="checkbox" ng-disabled="!answer.explain" ng-model="answer.alert" id="explain_alert_{{$parent.$index}}_{{$index}}" class="custom-control-input">
+                                                <label for="explain_alert_{{$parent.$index}}_{{$index}}" class="custom-control-label pr-2"> להתריע?</label>
+                                            </div>
+                                            
+                                        </div>
+										
+										
+										
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <a class="btn btn-sm btn-danger text-white" ng-class="{'disabled': item.answers.length <= 1}" ng-click="item.answers.length <= 1?false:item.answers.splice($index, 1)">
+                                        <i class=" fa fa-trash"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </li>
+                    </ul>
+                </div>
+                <!-- Error inputs -->
+                <div class="card-footer" ng-show="item.$$message.length">
+                    <ul>
+                        <li ng-repeat="error in item.$$message">{{error}}</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end repeat -->
+
+
+        </div>
+        <!-- end dynamic question form -->
+        <div class="card-footer">
+            <span class="hoverEdit" ng-click="vm.data.footer.$$edit = true" ng-class="{'text-muted font-italic': !vm.data.footer.text}"
+                ng-show="!vm.data.footer.$$edit">{{vm.data.footer[vm.data.footer.text?'text':'placeholder']}}</span>
+            <span ng-show="vm.data.footer.$$edit">
+                <textarea ng-model="vm.data.footer.text" placeholder="{{vm.data.footer.placeholder}}" class="form-control"></textarea>
+                <a class="btn btn-block btn-primary text-white" ng-click="vm.data.footer.$$edit = false">
+                    <i class="fas fa-save"></i> סגור עריכה</a>
+            </span>
+<!--
+            <div class="mt-1 mb-1 custom-control custom-checkbox">
+
+                <input type="checkbox" ng-model="vm.data.options.forceRenew" class="custom-control-input" id="requireNewSignuture">
+                <label class="custom-control-label" for="requireNewSignuture"> האם לחייב את כל הלקוחות שמילאו טופס זה למלא ולחתום מחדש</label>
+            </div>
+-->
+
+            <input type="hidden" id="formId" ng-model="vm.data.editoption.formId" value="">    
+            
+            <a class="btn btn-block btn-primary text-white mt-1" ng-click="vm.submit(); false" ng-class="{'disabled': vm.data.$submit}">
+                <span ng-show="!vm.data.$submit">צור טופס</span>
+                <span ng-show="vm.data.$submit">
+                    <i class="fas fa-spinner fa-spin" aria-hidden="true"></i> אנו מייצרים בשבילך את הטופס</span>
+            </a>
+            <div ng-show="vm.data.$$response" class="alert alert-success text-center mt-2">
+                {{vm.data.$$response.message}}
+            </div>
+            <div ng-show="!vm.data.$$valid && vm.data.$$dirty" class="alert alert-danger text-center mt-2">
+                אנא בדוק את הטופס, זיהינו שגיאות.
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<script src="Forms/js/angular.min.js"></script>
+<script src="Forms/js/textAngular/textAngular-rangy.min.js"></script>
+<script src="Forms/js/textAngular/textAngular-sanitize.min.js"></script>
+<script src="Forms/js/textAngular/textAngular.min.js"></script>
+<script src="Forms/js/index.js"></script>
+<!--custom script injection-->

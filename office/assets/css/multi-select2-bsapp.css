@@ -1,0 +1,29 @@
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    cursor: default;
+    float: right;
+    margin-right: 5px;
+    margin-top: 5px;
+    outline: none;
+    border: none;
+    position: relative;
+    background-color: #f3f3f4;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    text-align: center;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color:#00c736;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #00c736;
+}
+.select2-selection__clear {
+    margin-left: 30px;
+    z-index: 9999;
+}
+
+.select2-selection__placeholder {
+    line-height: 12px;
+}

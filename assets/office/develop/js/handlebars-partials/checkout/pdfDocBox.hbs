@@ -1,0 +1,226 @@
+<div class="checkout--pdf-container pt-0">
+	<table dir="rtl" class="table-main">
+		<tbody>
+			<tr>
+				<td style="width: 33.333%">
+				{{#if client}}
+					<table class="table-info">
+						<tbody>
+						{{#with client}}
+							<tr class="ClientTable">
+								<td class="client-title">לכבוד:</td>
+								<td class="client-info"><b>{{name}}</b></td>
+							</tr>
+							{{#if idNumber}}
+							<tr class="ClientTable">
+								<td class="client-title">ת.ז / ע.מ:</td>
+								<td class="client-info">{{idNumber}}</td>
+							</tr>
+							{{/if}}
+							{{#ifCond substrPhone '||' phone}}
+							<tr class="ClientTable">
+								<td class="client-title">טלפון נייד:</td>
+								<td class="client-info"><span dir="ltr">{{#if substrPhone}}{{substrPhone}}{{else}}{{phone}}{{/if}}</span></td>
+							</tr>
+							{{/ifCond}}
+							{{#if address}}
+							<tr class="ClientTable">
+								<td class="client-title">כתובת:</td>
+								<td class="client-info">{{address}}</td>
+							</tr>
+							{{/if}}
+							{{#if email}}
+							<tr class="ClientTable">
+								<td class="client-title">דוא״ל:</td>
+								<td class="client-info">{{email}}</td>
+							</tr>
+							{{/if}}
+						{{/with}}
+						</tbody>
+					</table>
+				{{/if}}
+				</td>
+				<td style="width: 33.333%;"></td>
+				<td style="width: 33.333%;">
+					<div class="table-info_date">{{dateStr}}</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	{{#if cart}}
+		<table class="table-items" dir="rtl">
+			<thead>
+			<tr class="thead-title">
+				<td colspan="6" style="background-color:{{studioBg}};color:{{studioColor}};"><strong>פירוט המסמך</strong></td>
+			</tr>
+			<tr class="thead-break"><td></td></tr>
+			<tr class="thead-subtitles">
+				<td style="width: 15%"><strong>מק''ט</strong></td>
+				<td style="width: 40%"><strong>שם הפריט</strong></td>
+				<td style="width: 10%"><strong>מחיר ליח'</strong></td>
+				<td style="width: 10%"><strong>כמות</strong></td>
+				<td style="width: 10%"><strong>הנחה</strong></td>
+				<td style="width: 15%"><strong>סה"כ</strong></td>
+			</tr>
+			</thead>
+			<tbody>
+			<!-- ITEMS HERE -->
+			{{#each cart.items}}
+				<tr class="tbody-items">
+					<td>
+                        {{#ifCond type '===' 'package'}}{{id}}{{/ifCond}}
+                        {{#ifCond type '===' 'product'}}{{id}}{{/ifCond}}
+					</td>
+					<td>{{name}}</td>
+					<td>{{strFormatPrice price false false}}</td>
+					<td>{{strFormatZero quantity}}</td>
+					<td>
+						{{#ifCond discount '&&' discount.amount}}
+							{{strFormatPrice discount.amount false false}}
+						{{else}}
+							{{strFormatPrice 0 false false}}
+						{{/ifCond}}
+					</td>
+					<td>
+						{{#if totalPrice}}
+							{{strFormatPrice totalPrice false false}}
+						{{else}}
+							{{strFormatPrice price false false}}
+						{{/if}}
+					</td>
+				</tr>
+			{{/each}}
+			<!-- END ITEMS HERE -->
+			<tr class="thead-break"><td></td></tr>
+			<tr class="thead-total">
+				<td colspan="3" class="without-border"></td>
+				<td colspan="2"><strong>סכום ביניים:</strong></td>
+				<td><strong>{{strFormatPrice cartSubtotalPrice false false}}</strong></td>
+			</tr>
+			{{#if cart.discount}}
+				<tr class="thead-total">
+				{{#with cart.discount}}
+					<td colspan="3" class="without-border"></td>
+					<td colspan="2">
+						<strong>
+							הנחה
+							{{#ifCond type '==' '1'}}({{value}}%){{/ifCond}}:
+						</strong>
+					</td>
+					<td><strong>{{strFormatPrice amount false false}}</strong></td>
+				{{/with}}
+				</tr>
+			{{/if}}
+			{{#if cart.totalPriceMinusVat}}
+                <tr class="thead-total">
+                    <td colspan="3" class="without-border"></td>
+                    <td colspan="2">
+                        <strong>
+                            סה"כ ללא מע"מ:
+                        </strong>
+                    </td>
+                    <td><strong>
+                       {{#if cart.totalPriceMinusVat}}
+                            {{strFormatPrice cart.totalPriceMinusVat false false}}
+                       {{else}}
+                            {{strFormatPrice cart.totalPrice false false}}
+                       {{/if}}
+                    </strong></td>
+                </tr>
+            {{/if}}
+			<tr class="thead-total">
+				<td colspan="3" class="without-border"></td>
+				<td colspan="2" class="without-border">
+					<strong>
+						מע''מ
+						({{cart.vatAmount}}%):
+					</strong>
+				</td>
+				<td class="without-border">
+					<strong>
+					{{#if cart.vatPrice}}
+						{{strFormatPrice cart.vatPrice false false}}
+					{{else}}
+						{{strFormatPrice 0 false false}}
+					{{/if}}
+					</strong>
+				</td>
+			</tr>
+			{{#if cart.totalPrice}}
+				<tr class="thead-total">
+					<td colspan="3" class="without-border"></td>
+					<td colspan="2" class="without-border" style="background-color:{{studioBg}};color:{{studioColor}};">
+						<strong>סה"כ לתשלום:</strong>
+					</td>
+					<td class="without-border" style="background-color:{{studioBg}};color:{{studioColor}};">
+						<strong>{{strFormatPrice cart.totalPrice false false}}</strong>
+					</td>
+				</tr>
+			{{/if}}
+			</tbody>
+		</table>
+	{{/if}}
+</div>
+
+{{#if transactions}}
+	<h3 class="checkout--pdf-title" data-type="transaction">
+	{{#if isRefund}}
+	    {{lang 'refund_preview_receipts'}}
+	{{else}}
+	    {{lang 'checkout_receipts'}}
+    {{/if}}
+	</h3>
+	<div class="checkout--pdf-container" data-type="transaction">
+		<table class="table-transactions" dir="rtl">
+			<thead>
+			<tr class="thead-title">
+				<td colspan="4" style="background-color:{{studioBg}};color:{{studioColor}};"><strong>
+				{{#if isRefund}}{{lang 'refund_details'}}
+                {{else}}{{lang 'checkout_receipts'}}
+                {{/if}}
+				</strong></td>
+			</tr>
+			<tr class="thead-break"><td></td></tr>
+			<tr class="thead-subtitles">
+				<td style="width: 15%"><strong>{{lang 'receipt_type'}}</strong></td>
+				<td style="width: 40%"><strong>פירוט</strong></td>
+				<td style="width: 15%"><strong>תאריך פרעון</strong></td>
+				<td style="width: 15%"><strong>סה"כ</strong></td>
+			</tr>
+			</thead>
+			<tbody>
+			<!-- TRANSACTIONS HERE -->
+			{{#each transactions}}
+				<tr class="tbody-items">
+					<td>{{typeKey}}</td>
+					<td>{{details}}</td>
+					<td>{{strFormatDate dateCreated false '/'}}</td>
+					<td>{{strFormatPrice price false false}}</td>
+				</tr>
+			{{/each}}
+			<!-- END TRANSACTIONS HERE -->
+			<tr class="thead-break"><td></td></tr>
+			{{#if transactionsTotalPrice}}
+				<tr class="thead-total">
+					<td colspan="2" class="without-border"></td>
+					<td class="without-border" style="background-color:{{studioBg}};color:{{studioColor}};">
+						<strong>
+                        {{#if isRefund}}סה"כ זוכה:
+                        {{else}}סה"כ לתשלום:
+                        {{/if}}
+                        </strong>
+					</td>
+					<td class="without-border" style="background-color:{{studioBg}};color:{{studioColor}};">
+						<strong>{{strFormatPrice transactionsTotalPrice false false}}</strong>
+					</td>
+				</tr>
+			{{/if}}
+			</tbody>
+		</table>
+
+		{{#ifCond client '&&' client.balanceAmount}}
+			<div dir="rtl" class="user-balance-amount">יתרת כרטסת: <span dir="ltr">{{strFormatPrice client.balanceAmount false false}}</span></div>
+		{{/ifCond}}
+	</div>
+{{/if}}

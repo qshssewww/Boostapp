@@ -1,0 +1,109 @@
+@media (max-width:760px) {
+    .newShopPage{
+        margin-top: 10%;
+    }
+    .newShopPage #pageNavSelect, .shopNewItems .newMembership{
+        width: 90%;
+        margin: auto;
+        padding: 10px;
+        border: none;
+        color: #30C93D;
+        background-color: #ffffff;
+    }
+
+    .shopNewItems #newItemsForm{
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .newShopPage  #pageNavSelect option{
+        color: #333;
+    }
+    .shop-buttons{
+        width: 100%;
+    }
+    .shop-page{
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .shop-page .dt-buttons{
+        width: auto;
+    }
+    .shop-page table{
+        padding: 32px 0 0 0;
+        font-size: 14px;
+    }
+    .shop-page table tr{
+        padding-right: 15px;
+    }
+    .shop-page table tr td {
+        padding-right: 5px;
+    }
+    .shop-page .table>thead>tr>th.sorting {
+        font-size: 15px;
+        padding-right: 5px;
+    }
+    .shopNewItems .ItemBlockLabel {
+        margin-top: 30px;
+    }
+    .shopNewItems .ItemBlock {
+        width: 100%;
+        display: block;
+        font-size: 14px;
+    }
+    .shopNewItems .itemBlockDiv {
+        width: 100%;
+        display: block;
+        padding: 15px 10px 0 10px;
+    }
+    .shopNewItems .no-padding-row {
+        padding-top: 0;
+    }
+    .shopNewItems .newMembership{
+        margin-top: 10px;
+    }
+    .shopNewItems .regularMemCalcLabel{
+        width: 100%;
+    }
+    .shopNewItems .checkboxDiv{
+        margin-top: 35px;
+    }
+    .shopNewItems .shopLabel{
+        font-size: 14px;
+        width: 88%;
+    }
+    .shopNewItems .shopLabelBold{
+        color: #333;
+        font-weight: bolder;
+        font-size: 14px;
+    }
+    .shopNewItems #timePeriod, .shopNewItems #timePeriodRenew, .shopNewItems #regNumber, .shopNewItems #regBeforeClass{
+        width: 20%;
+    }
+    .shopNewItems #timePeriodDdl, .shopNewItems #timePeriodRenewDdl, .shopNewItems #regTime, .shopNewItems #regBeforeClassTime{
+        width: 70%;
+        padding-bottom: 3px;
+    }
+    .shopNewItems #rankSelectLimit, .shopNewItems #MaxSelectLimit, .shopNewItems #DaysSelectLimit{
+        width: 30%;
+    }
+    .shopNewItems .blockInput{
+        font-size: 14px;
+    }
+    .shopNewItems .itemBlockBtn{
+        width: 100%;
+        text-align: initial;
+    }
+    .shopNewItems .InputLimit{
+        width: 30%;
+    }
+    .shopNewItems .midDiv{
+        height: auto;
+    }
+    .shopNewItems .dealTypeMob{
+        margin-bottom: 0;
+    }
+    .shopNewItems .blockSelectLimit, .shopNewItems .MultiLimitBlock{
+
+    }
+}

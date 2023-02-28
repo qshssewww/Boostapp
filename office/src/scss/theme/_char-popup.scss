@@ -1,0 +1,253 @@
+.#{$theme-prefix}-char-popup{
+
+    .#{$theme-prefix}-company-details{
+        td{
+            //vertical-align: middle ;
+        }
+    }
+    .modal-dialog{
+        // height : calc( 100% - 50px );
+
+        .modal-content{
+            //   @extend .h-100;
+        }
+    } 
+    .#{$theme-prefix}-tab-pills{
+
+        @extend .px-0;
+        .nav-item:first-child{
+            @extend .pie-8 ;
+        }
+        .nav-item:last-child{
+            @extend .mis-auto ;
+        }
+        .nav-link{
+
+            @extend .btn-light;
+            @extend .btn-sm;
+            @extend .btn-rounded;		
+
+            &.active{ 
+                @extend .text-info; 
+            }
+        }
+    }
+
+    .#{$theme-prefix}-img-to-check{
+        @extend .d-flex;
+        @extend .align-items-center;
+        @extend .justify-content-center;
+        @extend .overflow-hidden ;
+        img{
+            width : inherit;
+            height : inherit;
+
+        }
+
+        .form-check{ 
+            padding-left: 9px !important;
+            margin-bottom: -1px !important;   
+            input:before {
+                cursor : pointer ;
+                content: "";
+                @extend .w-100p;
+                @extend .h-100p;
+                @extend .position-absolute;
+                @extend .bg-transparent ;
+                top: -50px; 
+                background: transparent ;
+                left: -50px;
+                right : -50px; 
+            }
+        }
+
+        &.#{$theme-prefix}-check-shown{
+            @extend .border;
+            @extend .border-gray-300;
+            @extend .bg-light;
+        }
+    }
+
+
+    .#{$theme-prefix}-tabs-underline{
+        @extend .border-transparent ;
+        .nav-item {
+            a{	
+                @extend .border-0;
+                @extend .text-gray-500;
+                &.active{
+                    @extend .text-primary;
+                    border-bottom : 4px solid $primary !important ;    
+                }
+            } 
+        }
+    }
+
+    .#{$theme-prefix}-disabled-actions{
+        .#{$theme-prefix}-td-cta{
+            pointer-events: none;
+            div{
+                opacity: 0.5;
+            }
+        }
+
+        .#{$theme-prefix}-link-cta {
+            &:after{
+                pointer-events: none;
+            }
+            pointer-events: none;
+        }
+    }
+
+
+
+    @media screen and (max-width: 567px){
+        table{
+            font-size : 14px !important;
+
+            th,  td {
+                padding: 0.5rem !important;
+            }
+        } 
+
+    }
+
+    @media screen and (max-width: 380px){
+        table{          
+            th,  td {
+                padding: 0.25rem !important;
+            }
+        }
+    }
+
+}    
+
+
+.dt-rowReorder-float{
+    width : calc( 100% - 30px );
+    max-width: 650px !important;
+    .#{$theme-prefix}-img-to-check{
+        @extend .d-flex;
+        @extend .align-items-center;
+        @extend .justify-content-center;
+        @extend .overflow-hidden ; 
+        img{
+            width : inherit;
+            height : inherit;
+
+        }
+
+        .form-check{ 
+            padding-left: 9px !important;
+            margin-bottom: -1px !important;   
+            input:before {
+                cursor : pointer ;
+                content: "";
+                @extend .w-100p;
+                @extend .h-100p;
+                @extend .position-absolute;
+                @extend .bg-transparent ;
+                top: -50px; 
+                background: transparent ;
+                left: -50px;
+                right : -50px; 
+            }
+        }
+
+        &.#{$theme-prefix}-check-shown{
+            @extend .border;
+            @extend .border-gray-300;
+            @extend .bg-light;
+        }
+    }
+}     
+
+
+
+//size above 576px
+@media screen and ( min-width : 576px){
+    .#{$theme-prefix}-char-popup{
+
+        .modal-dialog{
+            height : 75% ;             
+        } 
+    }
+}
+@media screen and ( max-width : 576px){
+    .#{$theme-prefix}-char-popup{
+
+        .modal-dialog{
+            margin:0px !important;             
+        } 
+    }
+}
+
+@media screen and ( max-width : 576px){
+    .modal-dialog.modal-dialog-centered{
+        margin:0px !important;    
+    }
+
+}
+.#{$theme-prefix}-floating-badge,.#{$theme-prefix}-floating-badge-waiting{
+    padding:4px 10px !important;
+}
+
+@media screen and ( max-width : 460px){
+
+    .#{$theme-prefix}-floating-badge{
+        position: absolute;
+        right : 4px;            
+        left : unset;
+        height: 15px;
+        padding: 1px 10px !important;
+    }
+}
+
+[dir="rtl"]{
+    @media screen and ( max-width : 460px){
+        .#{$theme-prefix}-floating-badge{
+            left: 4px;  
+            right : unset;
+
+        }
+    }
+}
+
+
+
+@media screen and ( max-width : 530px){
+    .#{$theme-prefix}-floating-badge-waiting{
+        position: absolute;
+        right : 4px;            
+        left : unset;
+        height: 15px;
+        padding: 1px 10px !important;
+    }
+    .#{$theme-prefix}-btn-waiting{
+        width: 90px;
+        padding: 2px 5px !important;
+        margin-top:7px;
+    }
+}
+
+@media screen and ( max-width : 450px){
+    .#{$theme-prefix}-width-430 a.dropdown-toggle{
+        padding-inline-start:8px !important;
+    }
+}
+
+[dir="rtl"]{
+    @media screen and ( max-width : 530px){
+        .#{$theme-prefix}-floating-badge-waiting{
+            left: 4px;  
+            right : unset;
+        }
+
+    }
+}  
+
+@media screen and ( min-width : 567px){
+    .#{$theme-prefix}-floating-badge-waiting,.#{$theme-prefix}-floating-badge{
+        font-size:11px !important;   
+    }         
+} 

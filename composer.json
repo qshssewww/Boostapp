@@ -1,0 +1,53 @@
+{
+  "require": {
+    "php": ">=5.3.2",
+    "illuminate/container": "v4.1.25",
+    "ircmaxell/password-compat": "dev-master",
+    "filp/whoops": "<=2.14.1",
+    "swiftmailer/swiftmailer": "5.2.*@dev",
+    "lusitanian/oauth": "~0.3",
+    "guzzlehttp/guzzle": "5.3.3",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "predis/predis": "^2.0",
+    "paragonie/random_compat": "v2.0.11",
+    "google/apiclient": "^2.12.1"
+  },
+  "scripts": {
+    "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
+  },
+  "extra": {
+    "google/apiclient-services": [
+      "Calendar",
+      "Oauth2"
+    ]
+  },
+
+  "require-dev": {
+    "phpstan/phpstan": "^1.4"
+  },
+
+  "autoload": {
+    "psr-0": {
+      "Hazzard": "src/",
+      "ImagePicker": "src/",
+      "App": "app/"
+    },
+
+    "psr-4": {
+      "OAuth\\UserData\\": "src/OAuth/UserData/",
+      "App\\Controllers\\": "app/controllers/",
+      "App\\Database\\": "app/database/",
+      "App\\Models\\": "app/models/",
+      "App\\Utils\\": "app/utils/"
+    },
+
+    "classmap": [
+
+    ],
+
+    "files": [
+      "src/Hazzard/Support/helpers.php"
+    ]
+  }
+}

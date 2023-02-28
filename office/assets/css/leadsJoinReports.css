@@ -1,0 +1,67 @@
+/* not active */
+.pill-1:not(.active) {
+    /*    background-color: rgba(255, 0, 0, 0.5);*/
+    color: #838383 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+}
+
+.pill-2:not(.active) {
+    color: #838383 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+}
+
+.pill-3:not(.active) {
+    color: #838383 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+}
+
+
+/* active (faded) */
+.pill-1 {
+    color: #1d2124 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom-width: medium !important;
+    border-bottom-color: #1d2124 !important;
+}
+
+.pill-2 {
+    color: #48AD42 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom-width: medium !important;
+    border-bottom-color: #48AD42 !important;
+}
+
+.pill-3 {
+    color: #dc3545 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom-width: medium !important;
+    border-bottom-color: #dc3545 !important;
+}
+
+.dataTables_wrapper .dataTables_length{ display: none;}
+table.table th{width: unset !important;}
+.tableFiltersWrap{position: relative; z-index: 100;}
+.dateFilterSelectWrap label{min-width: 8em}
+.tableFiltersWrap .datepicker-wrap{display: none}
+.tableFiltersWrap .datepicker-wrap.active{display: inline-flex}
+table[id*=leadsReportTable] thead{ position: sticky !important; top: 0 !important; z-index: 10;}
+table[id*=leadsReportTable] thead *{height: unset !important ; min-height: 35px;}
+.dataTables_scrollHead{position: absolute !important; z-index: 100 !important; opacity: 0 !important; height: 70px;}
+table.dataTable thead .sorting:before{ bottom: unset !important};
+@media screen and (max-width: 500px){ #leadsReport-nav-tabs .nav-link{padding: 0.5rem 0.25rem !important}}
+@media screen and (min-width: 1000px) {.dataTables_wrapper .checkbox-buttons-container{ position: relative; margin-bottom: -2em; top: -2.5em;}}

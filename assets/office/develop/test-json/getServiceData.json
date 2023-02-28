@@ -1,0 +1,69 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "Some message here",
+  "item": {
+    "date": "2022-08-28",
+    "time": "10:15",
+    "durationMin": 60,
+    "diaryId": 1,
+    "diary": [
+      {
+        "id": 1,
+        "name": "שם היומן"
+      },
+      {
+        "id": 2,
+        "name": "שם היומן 2"
+      },
+      {
+        "id": 3,
+        "name": "שם היומן 3"
+      }
+    ],
+    "coachId": 1,
+    "coaches": [
+      {
+        "id": 1,
+        "name": "שם המטפל",
+        "image": "https://devlogin.boostapp.co.il/camera/uploads/large/14698_1655811725.jpg"
+      },
+      {
+        "id": 2,
+        "name": "שם המטפל 2"
+      },
+      {
+        "id": 3,
+        "name": "שם המטפל 3"
+      },
+      {
+        "id": 4,
+        "name": "שם המטפל 4"
+      },
+      {
+        "id": 5,
+        "name": "שם המטפל 5"
+      },
+      {
+        "id": 6,
+        "name": "שם המטפל 6"
+      },
+      {
+        "id": 7,
+        "name": "שם המטפל 7"
+      },
+      {
+        "id": 8,
+        "name": "שם המטפל 8"
+      },
+      {
+        "id": 9,
+        "name": "שם המטפל 9"
+      },
+      {
+        "id": 18,
+        "name": "שם המטפל 18"
+      }
+    ]
+  }
+}

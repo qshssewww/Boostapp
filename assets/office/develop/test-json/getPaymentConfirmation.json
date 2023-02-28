@@ -1,0 +1,10 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "Some message here",
+  "invoice": {
+    "id": "123333",
+    "DocType": 8,
+    "DocId": 802067
+  }
+}

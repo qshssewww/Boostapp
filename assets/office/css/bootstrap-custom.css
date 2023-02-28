@@ -1,0 +1,89 @@
+body {
+	padding-top: 80px;
+	padding-bottom: 30px;
+	background: #f8f8f8;
+}
+
+a {
+	outline: 0 !important;
+	-webkit-transition: 150ms linear all;
+	-moz-transition: 150ms linear all;
+	transition: 150ms linear all;
+}
+
+
+.table a {
+	outline: 0 !important;
+	color:  #24a3b8 !important;
+	-webkit-transition: 150ms linear all;
+	-moz-transition: 150ms linear all;
+	transition: 150ms linear all;
+}
+
+.select2-container--default .select2-results>.select2-results__options {
+	
+text-align: right;	
+}
+
+
+input[type=checkbox], input[type=radio] {
+	border: 1px solid #bbb;
+	cursor: pointer;
+	height: 16px;
+	margin: 0px 4px 0 0;
+	padding: 0!important;
+	text-align: center;
+	vertical-align: middle;
+	width: 16px;
+	min-width: 16px;
+
+}
+
+
+@media (min-width: 768px) {
+	.modal-md {
+		width: 455px;
+	}
+	.modal-md-2 {
+		width: 520px;
+	}
+	
+	.NewBlock {
+		margin-right: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+	.NewBlock {
+		margin-top: 5px;
+        display: block;
+        width: 100%;
+    }
+	
+	
+}
+
+
+
+
+.alert {
+	border-radius: 2px;
+	padding: 8px 10px;
+	margin-bottom: 10px;
+}
+
+.alert>ul {
+	padding-left: 20px;
+}
+
+
+.alertb {
+	border-radius: 2px;
+	padding: 8px 10px;
+	margin-bottom: 10px;
+}
+
+.alertb>ul {
+	padding-left: 20px;
+}
+

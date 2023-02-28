@@ -1,0 +1,127 @@
+.typeahead,
+.tt-query,
+.tt-hint {
+    text-align : start; 
+    height: 30px;
+    @extend .px-15;
+    @extend .py-15;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    outline: none;
+    text-align : start;   
+}
+.twitter-typeahead{
+
+    direction : inherit !important;
+    //margin-inline-start : -30px;
+    transition : all 0.3s ease-in; 
+
+    input.typeahead{
+        width : calc(100% + 30px) !important;
+    }
+}
+.typeahead {
+    background-color: #fff;
+    direction : inherit;
+}
+
+
+.typeahead:focus {
+    border: 0px ;
+}
+
+.tt-query {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-hint {
+    color: #999
+}
+
+
+.tt-menu  {
+    position: absolute; 
+    z-index: 100;  
+    width: calc(100% + 30px );
+    margin-inline-start: -30px;
+    border-radius: 8px; 
+    left : unset !important;
+    @extend .mt-1;
+    @extend .mb-12; 
+    @extend .px-0;
+    background-color: #fff;
+    @extend .shadow;
+
+    font-size : 13px;
+    line-height : 17px; 
+}
+
+.tt-suggestion{
+    @extend .px-15;
+    @extend .py-3;
+}
+
+
+
+.tt-suggestion:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: $primary;
+    z-index : 0 !important;
+}
+
+.tt-suggestion.tt-selectable.tt-cursor{
+    color: #fff;
+    background-color: $primary;
+    z-index : 0 !important;
+}
+
+.tt-highlight { background-color : yellow !important ;}  
+
+
+.#{$theme-prefix}-image{
+    @extend .w-30p;
+    @extend .h-30p ;
+    @extend .rounded-circle;
+    @extend .position-relative;
+    z-index : -1;
+}
+.#{$theme-prefix}-status-icon{
+    width : 13px;
+    height : 13px;
+    @extend .rounded-circle;
+    z-index : 9;
+    margin-top:-10px;
+    @extend .mis-auto;
+}
+
+
+.#{$theme-prefix}-sm-menu{
+    .twitter-typeahead {
+        min-width: calc( 100% - 30px );
+        direction : inherit !important;
+    }
+}
+.#{$theme-prefix}-sm-search-screen{
+    .twitter-typeahead {
+        min-width: calc( 100% - 30px );
+        direction : inherit inherit !important;
+    } 
+}
+
+
+#js-clientsSearch {
+    @include media-breakpoint-down(sm) {
+        min-width: 40px;
+
+        .twitter-typeahead {
+            width: 200px;
+            .twitter-typeahead input.typeahead {
+                height: 40px;
+            }
+        }
+    }
+}

@@ -1,0 +1,114 @@
+
+.select-lesson-type{
+    display: flex;
+    flex-wrap: wrap;
+}
+.select-lesson-type .form-group{
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+.select-lesson-type input[type="radio"]{
+    margin-inline-end: 4px;
+    height: 16px;
+    width: 16px;
+}
+
+.select-lesson-type label{
+    height: 16px;
+}
+
+.zoomSection .repalce-check-box input[type="checkbox"]{
+    /* display:none; */
+    position: absolute;
+    right: 10px;
+    opacity: 0;
+    z-index: 2;
+    margin-top: 1%; 
+    margin-left: 2%;
+}
+
+.zoomSection .repalce-check-box label{
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.zoomSection .repalce-check-box label::before {
+    width: 13px;
+    height: 13px;
+    background-color: #fff;
+    display: block;
+    content: "";
+    border: 1px solid #a1a1aa;
+    float: right;
+    border-radius: 1px;
+    margin-inline-end: 5px;
+}
+
+.zoomSection .repalce-check-box .checkmark {
+    position: absolute;
+    top: 6%;
+    right: 15px;
+    height: 13px;
+    width: 13px;
+    background-color:#fff;
+    border: 1px solid #a1a1aa;
+}
+/* Show the checkmark when checked */
+.zoomSection .repalce-check-box input:checked ~ .checkmark::after {
+  display: block;
+}
+.zoomSection .repalce-check-box input:checked ~ .checkmark{
+    background-color:#30C93D;
+    border: none;
+}
+/* Style the checkmark/indicator */
+.zoomSection .repalce-check-box .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    right: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.zoomRadioBtn{
+    width: fit-content;
+    margin-left: 15px;
+}
+.zoomSection .copy-to{
+    margin: 0.5% 3% 0.5% 0;
+    background-color: #CBCBCB;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+}
+
+.zoomSection .copy-to svg{
+    width: auto;
+    height: 24px;
+}
+
+.sw-theme-arrows .sw-toolbar {
+    justify-content: space-between !important;
+}
+#avatar{
+    height: 200px;
+    width: 350px;
+}
+@media (max-width: 767.98px) {
+    #avatar{
+        max-width: 100%;
+    }
+    .select-lesson-type .form-group {
+        margin-bottom: 0.5rem;
+    }
+}

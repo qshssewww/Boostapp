@@ -1,0 +1,17 @@
+<div class="bsapp--dropdown-content"
+	{{#if width}}data-width="{{width}}"{{/if}}
+	{{#if top}}data-top="{{top}}"{{/if}}>
+	<ul class="bsapp--dropdown-list">
+		{{#each list}}
+			<{{#ifCond type '===' 'link'}}a href="{{href}}"{{#if target}} target="{{target}}"{{/if}} aria-label="{{lang textKey}}"{{else}}li{{/ifCond}}
+				class="bsapp--dropdown-li d-flex align-items-center justify-content-{{#if icon}}between{{else}}center{{/if}}{{#if class}} {{class}}{{/if}}">
+				<span>{{lang textKey}}</span>
+				{{#if icon}}<i class="{{icon}}"></i>{{/if}}
+			</{{#ifCond type '===' 'link'}}a{{else}}li{{/ifCond}}>
+		{{/each}}
+	</ul>
+</div>
+<div class="bsapp--dropdown-footer d-lg-none">
+	<button class="btn btn--primary-revert btn--big btn--full close-modal js--close-modal"
+			type="button">{{lang 'close'}}</button>
+</div>

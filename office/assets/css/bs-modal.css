@@ -1,0 +1,10 @@
+.bs-modal-reposition{
+    position: fixed !important;
+    z-index: 1050;
+    inset: 0px;
+    display: none;
+}
+
+.bs-modal-reposition .modal-dialog{margin: auto !important; }
+
+[dir=rtl] .bs-modal-reposition .close{margin: -1rem;}

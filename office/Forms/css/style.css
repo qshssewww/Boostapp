@@ -1,0 +1,55 @@
+
+.btn-items{
+    padding-top:5px;
+}
+
+.sorting{
+    position: relative;
+    width: 1em
+}
+
+.sorting .fa{
+    position: absolute;
+}
+
+.sorting .fa.fa-caret-up{
+    bottom: 2px
+}
+.sorting .fa.fa-caret-down{
+    top: -10px
+}
+/*
+.hoverEdit:after{
+    content:'\f040';
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 0.6em;
+    color: #5f5c5c;
+    padding: 0 0.5em;
+}
+*/
+
+.hoverEdit:hover, .hoverEdit:hover:after, .hoverEdit:hover .text-muted{
+    color: blue!important;
+    cursor: pointer;
+}
+
+[ng-app="dynForm"]{
+    direction: rtl;
+}
+
+
+[ng-app="dynForm"] .custom-control-label::after, 
+    [ng-app="dynForm"] .custom-control-label::before{
+    right: 0px!important;
+    left: initial!important;
+}
+
+[ng-app="dynForm"]  .custom-control {
+    padding-right: 1.5rem!important;
+    padding-left: initial!important;
+}

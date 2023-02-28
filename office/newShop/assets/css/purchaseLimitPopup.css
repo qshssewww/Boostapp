@@ -1,0 +1,65 @@
+
+#purchaseLimitPopup .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    cursor: default;
+    float: right;
+    margin-right: 5px;
+    margin-top: 5px;
+    outline: none;
+    border: none;
+    position: relative;
+    background-color: #f3f3f4;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+.smallExplanaitionText{
+    font-size: 0.8em;
+    padding-right: 5px;
+}
+.openPurchaseLimitPopup{
+  display: flex;
+  cursor: pointer;
+}
+.editPurchaseLine{
+  cursor:pointer;
+}
+#purchaseLimitPopup .plus{
+  display: none;
+}
+#purchaseLimitPopup .extraRows .rowInput,#purchaseLimitPopup .extraRows{
+  margin:0;
+}
+#purchaseLimitPopup .extraRows .rowInput .visible{
+  margin:0.5em 0;
+}
+#purchaseLimitPopup #openHiddenRowInputsSelect{
+    margin-top: 15px;
+    background-color: #fff;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+#purchaseLimitPopup .extraRows .CheckboxLabel {
+    margin-inline-end: 5px;
+    padding-top: 10px;
+}
+#purchaseLimitPopup .hiddenHeader{
+    margin-bottom: 0;
+}
+#purchaseLimitPopup .radio-container{
+    margin-bottom:0;
+    padding-right:18px;
+    padding-left: 10px;
+}
+#purchaseLimitPopup .rowInput{
+    width: initial;
+}
+
+
+
+
+
+/* #purchaseLimitPopup .hiddenHeader{
+  display:none;
+} */

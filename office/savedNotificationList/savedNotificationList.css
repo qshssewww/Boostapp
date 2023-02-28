@@ -1,0 +1,17 @@
+.function-description{
+    font-size: 12px;
+    color: grey;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+#js-savedNotificationSettings {
+    line-height: 1.2;
+}
+
+#js-savedNotificationSettings hr{
+    border: 0;
+}
+

@@ -1,0 +1,46 @@
+{{#if discount.type}}
+	<div class="d-flex">
+		<div class="form--group-items">
+			<label class="bsapp--label"
+				   for="{{#if type}}{{type}}ItemDiscount{{else}}generalDiscount{{/if}}">
+				{{lang 'cart_item_discount'}}
+			</label>
+
+			<div class="form--group-rel">
+				<input id="{{#if type}}{{type}}ItemDiscount{{else}}generalDiscount{{/if}}"
+					   class="form--group-input bsapp--icon-input full js--group-input--remove"
+					   name="{{#if type}}{{type}}ItemDiscount{{else}}generalDiscount{{/if}}"
+					   type="number"
+					   min="0"
+					   step="{{#ifCond discount.type '==' '1'}}1{{else}}0.01{{/ifCond}}"
+					   data-item-type="{{type}}"
+					   data-type="{{discount.type}}"
+					   value="{{discount.value}}"
+					   autocomplete="off"
+					   data-discount-value>
+				<button class="form--group-icon form--group-icon--remove js--group-icon--remove{{#ifCond discount.value '!=' 0}} active{{/ifCond}}"
+						type="button"><i class="fa-light fa-circle-xmark"></i></button>
+			</div>
+		</div>
+		<div class="form--group-btns d-flex align-items-end">
+			<button class="btn btn--icon btn--primary-revert discount-btn js--discount-btn{{#ifCond discount.type '==' '1'}} active{{/ifCond}}"
+					data-type="1"
+					type="button">%</button>
+			<button class="btn btn--icon btn--primary-revert discount-btn js--discount-btn{{#ifCond discount.type '==' '2'}} active{{/ifCond}}"
+					data-type="2"
+					type="button">₪</button>
+		</div>
+	</div>
+
+	<p class="s-22 error" data-discount-amount>
+		{{#if type}}
+			-{{strFormatPrice discount.amount}}
+		{{else}}
+			{{#ifCond discount.type '==' '1'}}
+				-{{discount.value}}%
+			{{else}}
+				-{{strFormatPrice discount.value}}
+			{{/ifCond}}
+		{{/if}}
+	</p>
+{{/if}}

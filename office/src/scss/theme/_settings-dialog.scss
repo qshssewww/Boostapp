@@ -1,0 +1,561 @@
+.bsapp-settings-dialog {
+    justify-content: flex-end;
+    .animated {
+        animation-duration: .3s;
+        &.delay-1 {
+            animation-delay: .3s;
+        }
+        &.delay-2 {
+            animation-delay: .6s;
+        }
+        &.delay-3 {
+            animation-delay: .9s;
+        }
+    }
+    > .dropdown-menu {
+        top: 0;
+        max-width: 386px;
+        height: 585px;
+        > .dropdown-toggle {
+            right: 10px;
+            top: 15px;
+        }
+    }
+    .scrollable {
+        overflow-y: auto;
+        @extend .h-100;
+        width: 100%;
+        padding-inline-end: 1em;
+        div > a > i {
+            flex: none;
+        }
+    }
+    > .dropdown-menu {
+        right: 0;
+        left: auto;
+    }
+    .dropdown-menu {
+        min-width: 0;
+    }
+    .list-group-item.active {
+        color: $primary !important;
+    }
+    .input-group .badge {
+        background-color: $blue !important;
+    }
+    input {
+        &::placeholder {
+            color: $gray-500;
+            opacity: 1;
+        }
+        &:-ms-input-placeholder,
+            &::-ms-input-placeholder {
+            color: $gray-500;
+        }
+        &[required]:not(.border-danger) {
+            border-color: $gray-100 !important;
+        }
+        &[type="number"] {
+            &:focus,
+                &:active {
+                @extend .outline-none;
+            }
+        }
+    }
+}
+
+.bsapp-settings-panel .input-group {
+    &.bg-light.border:not(.border-danger) {
+        border-color: $gray-100 !important;
+    }
+    > input {
+        &:focus,
+            &:active {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        &[type="number"] {
+            max-width: 45px; // remove this
+        }
+        &.bg-light.border:not(.border-danger) {
+            border-color: $gray-100 !important;
+        }
+    }
+    .input-group-append {
+        .select2-container {
+            @extend .border-0;
+            @extend .bg-transparent;
+        }
+        &.bg-light.border:not(.border-danger) {
+            border-color: $gray-100 !important;
+        }
+    }
+}
+
+.label-boxes label {
+    > div {
+        transition: all 0.2s linear;
+    }
+    &.active {
+        > div {
+            border-color: $green !important;
+            box-shadow: $box-shadow-sm;
+            transform: scale(1.05);
+        }
+        i {
+            color: $green !important;
+        }
+        b {
+            color: $gray-700 !important;
+        }
+    }
+}
+
+// Calendar Settings Specific
+.bsapp-appointments-img {
+    border-radius: 50%;
+    width: 24px;
+}
+
+.bsapp-availability-templates .col-6 {
+    &:first-child {
+        .select2-container .select2-selection--single {
+            border: 1px solid $gray-100 !important;
+            .select2-selection__rendered {
+                color: $blue;
+            }
+            .select2-selection__arrow b {
+                border-color: $blue transparent transparent transparent !important;
+            }
+        }
+    }
+    &:nth-child(2) {
+        .select2-container .select2-selection--single {
+            @extend .bg-white;
+            border: 1px solid $blue !important;
+            .select2-selection__rendered {
+                color: $blue;
+            }
+            .select2-selection__arrow b {
+                border-color: $blue transparent transparent transparent !important;
+            }
+        }
+    }
+}
+
+.availability-days .item-loading {
+    display: none;
+}
+
+.bsapp-startTime,
+.bsapp-endTime {
+    &:not(.border-danger) {
+        border-color: transparent !important;
+    }
+}
+
+.bsapp-settings-panel {
+    @extend .top-0;
+    @extend .left-0;
+    > a {
+        cursor: pointer;
+    }
+    #bsapp-template-calendar {
+        @extend .w-100;
+        .fc-toolbar-chunk {
+            @extend .w-100;
+            @extend .d-flex;
+            @extend .align-items-center;
+            .fc-button {
+                @extend .bg-transparent;
+                color: $black;
+                @extend .border-0;
+                @extend .p-0;
+                @extend .m-0;
+                @extend .outline-none;
+                @extend .shadow-none;
+            }
+            h2 {
+                @extend .bsapp-fs-16;
+                @extend .m-0;
+                @extend .px-10;
+            }
+            &:empty {
+                @extend .d-none;
+            }
+        }
+        .fc-header-toolbar {
+            @extend .mb-10;
+        }
+    }
+    .fc-daygrid-body,
+    .fc .fc-scrollgrid > tbody table,
+    .fc .fc-scrollgrid > tfoot table,
+    .fc .fc-scrollgrid-section table,
+    .fc-toolbar-chunk {
+        @extend .w-100;
+    }
+    .fc .fc-scrollgrid-section table,
+    .fc-theme-standard th,
+    .fc-theme-standard td,
+    .fc .fc-scrollgrid-liquid {
+        @extend .border-0;
+    }
+    .fc-theme-standard td .fc-daygrid-day-frame {
+        @extend .border;
+        border-color: $gray-500;
+        @extend .rounded-circle;
+        @extend .d-flex;
+        @extend .align-items-center;
+        @extend .justify-content-center;
+        width: 42px;
+        height: 42px;
+        cursor: pointer;
+        &:hover:not(.active) {
+            background-color: $gray-100 !important;
+        }
+        &.active {
+            @extend .bg-primary;
+            @extend .text-white;
+            border-color: $green !important;
+        }
+    }
+    .fc {
+        .fc-daygrid-day-number {
+            @extend .p-0;
+        }
+        .fc-daygrid-day {
+            @extend .p-5;
+            &.fc-day-today {
+                @extend .bg-transparent;
+            }
+        }
+        .fc-col-header-cell-cushion {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: clip;
+            max-width: 20px;
+            letter-spacing: 20px;
+            line-height: 10px;
+            @extend .bsapp-fs-13;
+            font-weight: 400;
+            color: $gray-700;
+        }
+        .fc-scrollgrid {
+            @extend .border-0;
+        }
+    }
+}
+
+.bsapp-availability {
+    #date-range:not(.show) {
+        display: none;
+    }
+}
+
+// Store Settings Specific
+.storeSettings-manage-categories .text-truncate {
+    max-width: 80%;
+}
+
+.storeSettings-order-products {
+    .order-list li.ui-sortable-helper > div {
+        @extend .shadow-sm;
+    }
+}
+
+.storeSettings-coupons {
+    .item-label {
+        width: 120px;
+        min-height: 32px;
+    }
+    .item-count {
+        min-width: 40px;
+        text-align: center;
+    }
+    .item-value {
+        min-width: 36px;
+    }
+}
+
+.bsapp-settings-panel ul li {
+    &.disabled {
+        > div {
+            @extend .bg-light;
+        }
+    }
+}
+
+
+.bsapp-tabs-navigation a {
+    color: $gray-500;
+    border-bottom: 2px solid $gray-300;
+    &.active {
+        color: $gray-700;
+        border-color: $green;
+    }
+}
+
+// SELECT2 MODIFIED
+.bsapp-settings-dialog {
+    .select2-container {
+        @extend .w-100;
+        @extend .outline-none;
+        border-width: 1px !important;
+        border-style: solid !important;
+        @extend .rounded;
+        &:not(.border-danger) {
+            border-color: transparent !important;
+        }
+        .select2-search--inline .select2-search__field {
+            @extend .w-100;
+            margin-left: 0;
+        }
+        .selection {
+            @extend .outline-none;
+        }
+        .select2-selection--single {
+            background-color: $gray-100 !important;
+            height: auto;
+            @extend .border-0;
+            @extend .outline-none;
+            .select2-selection__rendered {
+                padding-top: 5px !important;
+                padding-bottom: 5px !important;
+                min-height: 38px;
+                @extend .px-10;
+            }
+            .select2-selection__arrow {
+                top: 7px;
+                right: 5px;
+            }
+        }
+        .select2-selection--multiple {
+            @extend .border-0;
+            @extend .p-0;
+            .select2-selection__choice {
+                @extend .border-0;
+                @extend .bsapp-fs-14;
+                @extend .d-flex;
+                @extend .pl-6;
+                @extend .py-6;
+                margin: 0 10px 5px 0 !important;
+                flex-flow: row-reverse;
+                color: $gray-700 !important;
+                background-color: $gray-100 !important;
+                &:first-child {
+                    margin-left: 0;
+                }
+                .select2-selection__choice__remove {
+                    @extend .border-0;
+                    @extend .m-0;
+                    color: transparent;
+                    width: 22px;
+                    span {
+                        @extend .d-none;
+                    }
+                    &::before {
+                        @extend .bsapp-fs-14;
+                        font-family: "Font Awesome 5 Pro";
+                        content: "\f056";
+                        font-weight: 300;
+                        color: $gray-700;
+                    }
+                }
+            }
+        }
+    }
+    .select2-container--hide-arow .select2-selection__arrow {
+        @extend .d-none;
+    }
+    .select2-dropdown {
+        @extend .border-0;
+        background-color: $gray-100 !important;
+        .select2-search__field:focus,
+            .select2-search__field:active {
+            outline: none;
+        }
+    }
+    input[data-pair] {
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        &[type=number] {
+            -moz-appearance: textfield;
+        }
+    }
+}
+
+[dir="ltr"] {
+    .slideInStart {
+        -webkit-animation-name: slideInRight;
+        animation-name: slideInRight;
+    }
+    .slideOutStart {
+        -webkit-animation-name: slideOutRight;
+        animation-name: slideOutRight;
+    }
+}
+
+// RTL Support
+[dir="rtl"] {
+    .slideInStart {
+        -webkit-animation-name: slideInLeft;
+        animation-name: slideInLeft;
+    }
+    .slideOutStart {
+        -webkit-animation-name: slideOutLeft;
+        animation-name: slideOutLeft;
+    }
+    .bsapp-settings-dialog {
+        .dropdown-menu {
+            > .dropdown-toggle {
+                right: auto !important;
+                left: 15px !important;
+            }
+        }
+        > .dropdown-menu {
+            right: auto;
+            left: 0;
+        }
+        .dropdown-menu-right {
+            right: auto !important;
+            left: 0 !important;
+            transform: translate3d(0px, 22px, 0px) !important;
+        }
+
+    }
+}
+
+@media (max-width: 767px) {
+    .bsapp-settings-dialog {
+        > .dropdown-menu {
+            position: fixed !important;
+            left: 0;
+            right: 0;
+            top: 0;
+            width: auto;
+            max-width: unset;  
+            //height: calc(100% - 65px);
+            height : 100%;
+            //padding-top: 70px !important;
+            /*padding-bottom: 75px !important;*/
+            box-sizing: border-box;
+            > .dropdown-toggle {
+                //top: 70px;
+            }
+        }
+        .bsapp-settings-panel {
+            //padding-top: 70px !important;
+        }
+    }
+}
+
+.bsapp-dialog-custom-control {
+    @extend .position-relative;
+
+    &::selection {
+        @extend .bg-transparent;
+    }
+
+    input + span {
+        content: "";
+        box-sizing: content-box;
+        @extend .d-inline-block;
+        @extend .bg-white;
+        @extend .m-0;
+        @extend .mie-6;
+        @extend .p-0;
+        vertical-align: middle;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        width: 28px;
+        height: 28px;
+        border: 1px solid $gray-500;
+
+        &::after {
+            content: "";
+            @extend .d-block;
+            transform: scale(0);
+            transition: transform 0.2s;
+        }
+    }
+
+    input:checked + span::after {
+        transform: scale(1);
+    }
+
+    input {
+        @extend .position-absolute;
+        cursor: pointer;
+        opacity: 0;
+    }
+}
+
+.bsapp-custom-radio,
+.bsapp-custom-checkbox {
+    @extend .bsapp-dialog-custom-control;
+
+    input + span {
+        &::after {
+            content: "\f00c";
+            font-family: 'Font Awesome 5 Pro';
+            font-style: normal;
+            font-variant: normal;
+            color: #fff;
+            text-rendering: auto;
+            font-size: 9px;
+            text-align: center;
+        }
+    }
+    input:checked + span {
+        border-color: transparent;
+        background-color: $green !important;
+    }
+}
+
+.bsapp-custom-checkbox {
+    input + span {
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+        &::after {
+            @extend .position-relative;
+            width: 15px;
+            height: 15px;
+            margin-inline-start: -1.5px;
+            margin-top: -3px;
+        }
+    }       
+}
+// WYISWYG Editor overrides
+.bsapp-settings-dialog .note-editor {
+    @extend .border-0;
+    @extend .w-100;
+    @extend .rounded;
+    @extend .overflow-hidden;
+    .note-toolbar-wrapper {
+        height: 40px !important;
+        .note-toolbar.card-header {
+            @extend .bg-light;
+            @extend .border-0;
+        }
+    }
+    .note-editing-area .note-editable {
+        @extend .bg-light;
+        @extend .text-gray-700;
+        @extend .pt-0;
+    }
+    .note-btn {
+        @extend .text-gray-500;
+        @extend .bsapp-fs-14;
+    }
+    .note-statusbar {
+        @extend .border-0;
+        .note-resizebar {
+            @extend .d-none;
+        }
+    }
+}

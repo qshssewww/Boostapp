@@ -1,0 +1,52 @@
+{{#ifShowTitleDebt}}
+	<div class="aside--summary-title aside--debt-title">
+		<p>{{lang 'cart_previous_balance'}}</p>
+	</div>
+{{/ifShowTitleDebt}}
+
+<div class="aside--summary-item d-flex justify-content-between js--cart-item-options">
+	<div class="d-flex align-items-center">
+		<div class="summary--qty icon--qty">
+			{{#if quantity}}{{quantity}}{{else}}1{{/if}}
+		</div>
+		<div class="summary--name">
+			<p class="s-18">
+				{{#ifCond type '==' 'lesson'}}
+					{{lang 'class_single'}} "{{name}}"
+				{{else}}
+					{{name}}
+				{{/ifCond}}
+			</p>
+			{{#ifCond discount.amount '>' 0}}
+				{{#with discount}}
+					<p class="s-14 summary--details">
+						<span>{{strFormatPrice amount}}</span> {{lang 'discount'}} {{#ifCond type '==' '1'}} {{value}}%{{/ifCond}}
+					</p>
+				{{/with}}
+			{{else}}
+				{{#ifCond quantity '>' 1}}
+					<p class="s-14 summary--details">{{strFormatPrice price}}</p>
+				{{/ifCond}}
+			{{/ifCond}}
+		</div>
+	</div>
+	<div class="summary--total d-flex align-items-center">
+		<div class="text-end">
+			<p class="s-18 summary--total-price">{{strFormatPrice totalPrice}}</p>
+			{{#ifCond discount.amount '>' 0}}
+				<small class="s-14 summary--details"><s>{{strFormatPrice originalPrice}}</s></small>
+			{{/ifCond}}
+			{{#if eachMonth}}
+				<p class="c-secondary">{{lang 'set_each_month'}}</p>
+			{{/if}}
+		</div>
+		<button class="cart--options-btn btn btn--icon icon-sm"
+				data-index="{{@index}}"
+				data-id="{{id}}"
+				data-item-current-cart-id="{{itemCurrentCartId}}"
+				data-type="{{type}}"
+				type="button">
+			<i class="fa-solid fa-ellipsis-vertical"></i>
+		</button>
+	</div>
+</div>

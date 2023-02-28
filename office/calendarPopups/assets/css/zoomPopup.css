@@ -1,0 +1,11 @@
+#zoomPopup .cute-input {
+  text-align: left !important;
+}
+
+#zoomPopup p ,#zoomPopup b{
+    font-size: 14px;
+}
+
+.switch-line {
+    vertical-align:center;
+}

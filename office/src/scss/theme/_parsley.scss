@@ -1,0 +1,10 @@
+.parsley-errors-list{
+    @extend .d-none;
+}
+
+.parsley-error{
+    &.form-control{
+        @extend .bg-white;
+        border-color: rgba( $danger , 0.4) !important;
+    }
+}

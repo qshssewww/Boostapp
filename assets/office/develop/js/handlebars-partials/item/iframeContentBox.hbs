@@ -1,0 +1,23 @@
+{{#if showLikeModal}}
+	<header class="modal-header p-0 flex-column">
+		<div class="modal-header_content d-flex align-items-center justify-content-end">
+			<button class="close-modal js--close-modal" aria-label="close modal" data-close="" type="button"><i class="fal fa-times"></i></button>
+		</div>
+	</header>
+	<section class="modal-body without-footer p-0">
+{{/if}}
+{{# if showWithoutHeader}}
+
+<div class="tclose js--close-modal" style='background-image:url("../../../office/tinybox2/images/close.png")'></div>
+{{/if}}
+<div id="iframeContent" class="form--group-iframe loading">
+		<iframe src="{{iframeUrl}}" width="100%" height="{{#if iframeHeight}}{{iframeHeight}}{{else}}710{{/if}}"
+			frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+			style="padding-top: 20px; background-color: #fff;"
+			onload="document.getElementById('iframeContent').classList.remove('loading');"></iframe>
+	<div id="AfterSavingCreditSuccess" class="js--assign-client-to-meeting"></div>
+	<div id="AfterSavingCreditError" class="js--try-again-get-iframe"></div>
+</div>
+{{#if showLikeModal}}
+	</section>
+{{/if}}

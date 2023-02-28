@@ -1,0 +1,74 @@
+#shopSetting {
+  position: relative;
+  direction: rtl;
+  text-align: right;
+  color: black !important;
+}
+
+/*#shopSetting * {*/
+/*  font-size: 18px;*/
+/*}*/
+
+#closeSettings {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.settings-popup-wrapper {
+  font-size: 18px;
+  position: absolute;
+  width: 450px;
+  top: 45px;
+  left: 0;
+  /* background: rgb(105, 30, 30); */
+  word-wrap: break-word;
+  box-shadow: 3px 3px 9px lightgrey;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1s;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.settings-popup-wrapper h5 {
+  font-weight: bold;
+  font-size: 16px !important;
+  position: relative;
+  display: inline-block;
+}
+
+.settings-popup-wrapper small {
+  font-size: 14px !important;
+  color: grey;
+  display: block;
+}
+
+.settings-popup-wrapper .container {
+  line-height: 1;
+}
+
+.settings-popup-wrapper .container i {
+  font-size: 35px !important;
+  color: grey;
+}
+
+.settings-popup-wrapper .settings-alert {
+  position: absolute;
+  top: 0;
+  left: -25px;
+  font-weight: 900;
+  font-size: 12px !important;
+  color: white;
+  background: #00c736;
+  border-radius: 35%;
+  width: 20px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

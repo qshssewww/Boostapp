@@ -1,0 +1,261 @@
+* {
+  direction: rtl;
+  text-align: right;
+}
+
+#fields label {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.radios label input {
+  margin-left: 15px;
+}
+
+.btn-addrow {
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.create-btn {
+  border-radius: 5px !important;
+  padding: 8px 35px !important;
+}
+
+.cancel-btn {
+  color: white;
+  border-radius: 5px !important;
+  padding: 8px 35px !important;
+}
+
+.current-btn {
+  color: rgb(93, 13, 94) !important;
+}
+
+.create-btn,
+.client-btn:hover,
+.lead-btn:hover {
+  color: #e3e5eb !important;
+  background: rgb(93, 13, 94) !important;
+}
+
+.check-label {
+  margin-right: 30px;
+}
+.btns-wrapper .col-md-6,
+.btns-wrapper .col-md-3,
+.btns-wrapper .col-md-4,
+.btns-wrapper .col-md-12,
+#fields .col-md-6,
+#fields .col-md-3,
+#fields .col-md-4,
+#fields .col-md-12 {
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+  margin-bottom: 30px;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.title svg {
+  margin-left: 15px;
+}
+
+.address-wrapper,
+.fields-wrapper {
+  padding: 30px 0;
+}
+
+.btn {
+  border-radius: 30px;
+  background: #e3e5eb;
+  padding: 0;
+  padding: 3px 30px;
+  margin: 0;
+  margin: 0 0 0px 20px;
+  color: grey;
+}
+
+.btn:hover {
+}
+
+.icon-input-wrapper {
+  position: relative;
+}
+
+.icon-input-wrapper svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.valid-msg {
+  position: absolute;
+    font-size: 10px;
+    bottom: -20px;
+    right: 0px;
+    left: 0px;
+    margin: auto;
+    display: inline-block;
+    color: red;
+    width: max-content;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  display: block;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 0 0 15px 0;
+  outline: none;
+  background: transparent;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  padding: 0 0 15px 0;
+}
+
+.inputcontainer {
+  position: relative;
+}
+
+input {
+  width: 100%;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+.icon-container {
+  position: absolute;
+  left: 70px;
+  bottom: 3px;
+  display: none;
+  opacity: 0.2;
+  font-size: 18px;
+}
+
+.visible-always {
+  display: block !important;
+}
+
+.loader {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  animation: around 5.4s infinite;
+}
+
+@keyframes around {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader::after,
+.loader::before {
+  content: "";
+  background: white;
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-width: 2px;
+  border-color: #333 #333 transparent transparent;
+  border-style: solid;
+  border-radius: 20px;
+  box-sizing: border-box;
+  top: 0;
+  right: 0;
+  animation: around 0.7s ease-in-out infinite;
+}
+
+.loader::after {
+  animation: around 0.7s ease-in-out 0.1s infinite;
+  background: transparent;
+}
+
+.replace {
+  display: block;
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+  font-size: 22px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: fit-content;
+  align-self: flex-end;
+}
+
+.replace input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 17px;
+  width: 17px;
+  background-color: #eee;
+  margin: auto;
+}
+
+.replace input:checked ~ .checkmark {
+  background-color: rgb(93, 13, 94);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.replace input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.replace .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.grey {
+  background: #f6f6f6;
+}

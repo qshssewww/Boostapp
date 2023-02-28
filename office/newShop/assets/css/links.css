@@ -1,0 +1,6 @@
+#shopLinksTable_filter{
+    display:none;
+}
+#shopLinksTable td:nth-child(2){
+    padding-left: 0;
+}

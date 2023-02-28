@@ -1,0 +1,844 @@
+.nav-shop {
+  flex-direction: row;
+  width: 100%;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+#page-content-wrapper {
+  padding: 0;
+  top: 44px;
+}
+
+.nav-shop li a {
+  display: block;
+  text-decoration: none;
+  color: #999999;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+li.nav-shop-active {
+  color: #30c93d;
+  border: 1px solid #30c93d;
+}
+li.nav-shop-active a {
+  color: #30c93d;
+}
+.nav-shop-item {
+  text-indent: 8px;
+  margin-left: 20px;
+  border: 1px solid #f8f8f8;
+  border-radius: 13px;
+  background-color: #f8f8f8;
+  padding-left: 10px;
+  margin-bottom: 12px;
+}
+.shop-page {
+  width: 50%;
+  margin: auto;
+  position: relative;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 5px #00000029;
+  border-radius: 8px;
+  opacity: 1;
+}
+.shop-top-bar {
+  padding: 15px;
+  background: #fbfbfb 0% 0% no-repeat padding-box;
+  border-radius: 8px 8px 0px 0px;
+  opacity: 1;
+  width: 100%;
+  height: 60px;
+}
+.shop-top-bar .search {
+  float: right;
+  font-size: 11px;
+  padding-right: 5px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  background: #fbfbfb 0% 0% no-repeat padding-box;
+  /* margin-right: 20px; */
+  margin-top: 10px;
+}
+.shop-top-bar .excel-btn {
+  width: 79px;
+  height: 32px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #413f3f;
+  border-radius: 4px;
+  opacity: 0.5;
+  color: #413f3f;
+  font-size: 11px;
+  /* margin-left: 20px; */
+  padding-top: 8px;
+}
+.shop-page table {
+  padding: 32px 32px 0 32px;
+  font-size: 11px;
+}
+/*.shop-page table tr td{*/
+/*    padding-right: 30px;*/
+/*}*/
+.shop-page table.paymentTable tr td {
+  padding-right: 0;
+}
+.shop-page .table > thead > tr > th {
+  font-size: 12px;
+  font-weight: bold;
+  border-bottom: none;
+}
+.shop-btn {
+  color: #413f3f;
+  display: inline-block;
+  border: 1px solid #413f3f;
+  border-radius: 4px;
+  font-size: 13px;
+  width: 85px;
+  height: 30px;
+  opacity: 0.5;
+  text-align: center;
+  padding-top: 5px;
+  background: transparent;
+}
+.shop-btn-selected {
+  background: rgba(48, 201, 61, 0.12) 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  border: 1px solid #30c93d;
+  color: #30c93d !important;
+}
+.shop-buttons {
+  position: relative;
+  top: 45px;
+  width: 50%;
+  margin: auto;
+  padding-right: 30px;
+}
+.shop-page #categories_filter {
+  display: none;
+}
+.shop-dots-btn {
+  border: none;
+  background: transparent;
+  float: left;
+  padding-left: 0;
+  position: relative;
+  cursor: pointer;
+}
+.shop-page .phone-act {
+  color: #30c93d;
+}
+.shop-page .phone-no-act {
+  color: #413f3f;
+}
+.shop-page table.dataTable td:nth-child(6) {
+  padding-left: 0;
+}
+.shop-page .payment-icon {
+  color: #30c93d;
+}
+.rowBox {
+  display: none;
+}
+.rowBox-item {
+  font-size: 10px;
+  color: #413f3f;
+  padding: 5px 8px 3px 3px;
+  cursor: pointer;
+}
+.rowBox-item:hover {
+  background-color: #f5f5f5;
+}
+.rowBox-active {
+  position: absolute;
+  display: block;
+  width: 85px;
+  z-index: 99;
+  box-shadow: 0px 0px 5px #00000029;
+  border-radius: 8px;
+  left: 10px;
+  top: 0 ;
+  background: #ffffff;
+}
+.shop-page table.dataTable thead .sorting::after,
+.shop-page table.dataTable thead .sorting_asc::after,
+.shop-page table.dataTable thead .sorting_desc::after,
+.shop-page table.dataTable thead .sorting::before,
+.shop-page table.dataTable thead .sorting_asc::before,
+.shop-page table.dataTable thead .sorting_desc::before {
+  content: "";
+}
+.shop-row-separate {
+  font-weight: bold;
+}
+.dataTables_scrollBody::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+.dataTables_scrollBody {
+  -ms-overflow-style: none;
+}
+.shop-float {
+  top: 26px;
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 40px;
+  left: 40px;
+  float: left;
+  background-color: #5cb85c;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 1;
+  cursor: pointer;
+}
+.shop-page .paymentTable .no-padding-right {
+  padding-right: 0;
+}
+.my-shop-float {
+  margin-top: 12px;
+  color: #fff;
+}
+.shopNewItems {
+  width: 100%;
+  height: 848px;
+  background: #f8f8f8;
+  position: relative;
+  display: none;
+}
+.shopNewItems .ItemBlockLabel,
+.shopNewItems .sliderCheckboxName {
+  font-size: 11px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+#shop-back-btn {
+  position: relative;
+  border: none;
+  background: transparent;
+  float: right;
+  padding-right: 30px;
+  padding-top: 15px;
+}
+.shopNewItems .newMembership {
+  width: 40%;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  margin-top: 23px;
+  border: none;
+  border-bottom: 1px solid;
+  height: 45px;
+  background: transparent;
+  /*background: url() no-repeat left transparent;*/
+  -webkit-appearance: none;
+}
+.shopNewItems .newMembership:focus {
+  outline: none;
+}
+.shopNewItems .newMembership option {
+  text-align: center;
+}
+.shopNewItems .newItemsForm {
+  padding-top: 10px;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: right;
+  color: #a1a1a1;
+  margin-bottom: 30px;
+}
+.shopNewItems .midDiv {
+  height: 77px;
+}
+.shopNewItems .ItemBlock {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  background: #fff;
+  height: auto;
+  font-size: 11px;
+  padding-bottom: 30px;
+}
+.shopNewItems .ItemBlockCol {
+  flex-flow: column;
+}
+.shopNewItems .ItemBlockLabel {
+  margin-top: 75px;
+}
+.shopNewItems .blockInput {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #a1a1a1;
+  border-radius: 0;
+  font-size: 11px;
+  padding-right: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #000000;
+  outline: none;
+  box-shadow: none;
+}
+.shopNewItems .blockInput.blockInputClasses {
+  border: none;
+  margin-right: 10px;
+}
+/*.shopNewItems .blockInput:focus{*/
+/*    outline: none;*/
+/*    border-bottom: 1px solid #30C93D;*/
+/*    border-top: none;*/
+/*}*/
+.shopNewItems .shopLabel {
+  font-size: 11px;
+  width: 60%;
+  padding-right: 10px;
+  outline: none;
+}
+.shopNewItems .shopLabel.multiSelectLabel {
+  width: 100%;
+}
+.shopNewItems .shopLabel.labelBlock {
+  width: 100%;
+  color: #747474;
+  padding-right: 0;
+  margin-bottom: 10px;
+}
+/*.shopNewItems .shopLabel:focus{*/
+/*    color: #30C93D;*/
+/*}*/
+.shopNewItems .form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.shopNewItems .shopLabel.form-control-placeholder {
+  position: absolute;
+  top: 0;
+  padding: 7px 0 0 13px;
+  transition: all 200ms;
+  opacity: 1;
+  outline: none;
+}
+.shopNewItems .dateInput {
+  line-height: 10px;
+  margin-bottom: 10px;
+  width: 70%;
+}
+.shopNewItems .blockInput:focus {
+  border-bottom: 1px solid #30c93d;
+}
+.dateInput[type="date"]:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+.dateInput[type="date"]:focus::-webkit-datetime-edit {
+  color: black !important;
+}
+.blockInput.form-control:focus + .shopLabel.form-control-placeholder,
+.blockInput.form-control:valid + .shopLabel.form-control-placeholder {
+  font-size: 88%;
+  transform: translate3d(0, -100%, 0);
+  opacity: 1;
+  color: #30c93d;
+  outline: none;
+  box-shadow: none;
+}
+
+.shopNewItems .itemBlockDiv {
+  display: flex;
+  flex-flow: column;
+  width: 50%;
+  margin-top: 10px;
+  padding: 30px 55px 0 55px;
+}
+.shopNewItems .itemBlockDiv-row {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+}
+
+.shopNewItems .no-padding-row {
+  padding-top: 0;
+}
+.shopNewItems .padding-bottom-row {
+  padding-bottom: 30px;
+}
+.shopNewItems .padding-right-elem {
+  padding-right: 10px;
+}
+.shopNewItems .paddingTop {
+  padding-top: 10px;
+}
+.shopNewItems .no-padding-right {
+  padding-right: 0;
+}
+.shopNewItems #timePeriod,
+.shopNewItems #timePeriodRenew,
+.shopNewItems #regNumber,
+.shopNewItems #regBeforeClass {
+  width: 50px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+.shopNewItems #timePeriodDdl,
+.shopNewItems #timePeriodRenewDdl,
+.shopNewItems #regTime,
+.shopNewItems #regBeforeClassTime {
+  width: 100px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+.shopNewItems #timePeriodLabel,
+.shopNewItems .timePeriodLabel {
+  width: auto;
+}
+.shopNewItems .renewLabel {
+  padding-top: 2px;
+}
+.taxIncludeLabel {
+  font-size: 11px;
+  /* padding-top: 9px; */
+}
+.CheckLabel {
+  font-size: 11px;
+  color: #747474;
+}
+.shopNewItems .itemBlockBtn {
+  width: 10%;
+  border: none;
+  color: #30c93d;
+  background: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.shopNewItems .shopLabel.shopLabelLimit {
+  width: 55px;
+  padding-top: 12px;
+}
+.shopNewItems .blockInputLimit {
+  width: 50px;
+  background-color: #f8f8f8;
+  padding-top: 15px;
+}
+.shopNewItems .InputLimit {
+  width: 10%;
+  background-color: #f8f8f8;
+  padding-top: 15px;
+  line-height: 20px;
+}
+.shopNewItems .blockSelectLimit,
+.shopNewItems .MultiLimitBlock {
+  background-color: #f8f8f8;
+  margin-top: 15px;
+  width: 60%;
+}
+.shopNewItems .limitBlock {
+  padding-right: 15px;
+  background-color: #f8f8f8;
+  padding-left: 0;
+  display: block;
+}
+.shopNewItems #DateApp {
+  width: auto;
+  margin-bottom: 0;
+  padding-top: 13px;
+  margin-right: 5px;
+  line-height: 15px;
+  background: #f8f8f8;
+}
+.shopNewItems .newItemBlockRemove {
+  display: block;
+}
+.shopNewItems .selectSib.itemBlockDiv-row {
+  margin-bottom: 20px;
+}
+.shopNewItems .itemsSelection .newItemRemove {
+  width: 34px;
+  height: 34px;
+  padding-top: 0;
+  color: red;
+  float: left;
+  cursor: pointer;
+}
+.shopNewItems .limitBlock .shopLabel {
+  padding-top: 20px;
+  width: auto;
+}
+.shopNewItems #rankSelectLimit,
+.shopNewItems #MaxSelectLimit,
+.shopNewItems #DaysSelectLimit {
+  width: 20%;
+  margin-right: 10px;
+  padding-top: 0;
+  padding-bottom: 2px;
+}
+.shopNewItems .LimitDivSelect.MultiSelectDiv {
+  margin-bottom: 5px;
+}
+.shopNewItems .MultiSelectDiv .select2-container {
+  margin-right: 10px;
+}
+.shopNewItems .PaymentNum {
+  width: auto;
+}
+.shopNewItems #PaymentNum {
+  width: 20%;
+  text-align: center;
+}
+.shopNewItems #shopPayment {
+  display: none;
+}
+.shopNewItems .limitRemove {
+  color: red;
+  width: 40px;
+  height: 42px;
+  padding-top: 8px;
+  float: left;
+  cursor: pointer;
+}
+.shopNewItems #limitsBtn {
+  margin: 30px auto 0 auto;
+  display: block;
+  background: transparent;
+  border: 1px solid #a1a1a1;
+  border-radius: 4px;
+  opacity: 1;
+}
+.shopNewItems .thirdItemBlock {
+  margin-bottom: 10px;
+}
+.shopNewItems #TypeSelectLimit {
+  width: 30%;
+}
+.shopNewItems #ItemSelectLimit {
+  width: 100%;
+  padding-top: 4px;
+  background-color: #fff;
+}
+.shopNewItems .label-black {
+  color: #413f3f;
+}
+.shopNewItems #LimitedItem {
+  margin-left: 10px;
+}
+.shopNewItems .MultiLimit {
+  background-color: #f8f8f8;
+}
+.shopNewItems .LimitCount {
+  width: 30%;
+  background-color: #f8f8f8;
+}
+
+.shopNewItems .limitRemoveBlock {
+  color: #a1a1a1;
+}
+.shopNewItems #dealType {
+  width: 100%;
+  color: #413f3f;
+}
+.shopNewItems .select2block .select2-selection__choice {
+  background: #dfdfdf 0 0 no-repeat padding-box;
+  border-radius: 12px;
+  opacity: 1;
+  color: #000000;
+}
+.shopNewItems .sixthItemBlock input,
+.shopNewItems .sixthItemBlock select {
+  width: 60%;
+}
+.shopNewItems .itemsSelection {
+  display: none;
+}
+.shopNewItems #regularMemCalc {
+  width: 100%;
+  padding-right: 30px;
+  padding-bottom: 10px;
+}
+.shopNewItems #definedMemCalc {
+  display: none;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 0;
+}
+.shopNewItems .untilDiv {
+  display: none;
+  width: 100%;
+  padding-right: 30px;
+  padding-left: 0;
+}
+.shopNewItems .calcTicketDiv,
+.shopNewItems .PayClassesBlock,
+.shopNewItems .PayClassesBlockDiv {
+  display: none;
+}
+.shopNewItems #definedMemCalc .CheckboxLabel {
+  padding-left: 20px;
+}
+/*.shopNewItems .select2-selection__choice__remove{*/
+/*    float: left;*/
+/*    margin-right: 2px;*/
+/*    margin-left: auto;*/
+/*    padding-top: 1px;*/
+/*}*/
+
+/*.shopNewItems .itemBlockLabelDiv,*/
+/*.shopNewItems #limitsBtn,*/
+/*.shopNewItems .SecondItemBlock,*/
+/*.shopNewItems .thirdItemBlock,*/
+/*.shopNewItems .fourthItemBlock{*/
+/*    display: none;*/
+/*}*/
+
+/* Radio Btn */
+
+.rdo {
+  position: relative;
+  display: block;
+  float: left;
+  width: 11px;
+  height: 11px;
+  border: 1px solid #30c93d;
+  border-radius: 10px;
+
+  background-color: white;
+  transition: all 0.15s ease;
+}
+.rdo:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 2px;
+  left: 2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #30c93d;
+  opacity: 0;
+  transform: scale(0);
+}
+.rdo,
+.selectSib span {
+  float: left;
+  margin-left: 6px;
+}
+
+.calcRadioDiv .rdo,
+.PayClassesBlock .rdo,
+.calcTicketDiv .rdo {
+  float: right;
+}
+.rdo-input {
+  position: absolute;
+  opacity: 0;
+}
+.rdo-input:checked {
+  background-color: #606062;
+  background-image: linear-gradient(#255cd2, #1d52c1);
+}
+.rdo-input:checked + .rdo:after {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.15s ease;
+}
+/* Radio btn End */
+
+/* Tax CheckBox */
+
+.CheckboxLabel {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.CheckboxLabel .shopCheckbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  left: 5px;
+  top: 0px;
+  height: 15px;
+  width: 15px;
+  z-index: 1;
+}
+.shopCheckmark {
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  height: 15px;
+  width: 15px;
+  background-color: #eee;
+}
+.shopNewItems .mainItemBlock .shopCheckmark,
+.shopNewItems .itemMainBlock .shopCheckmark,
+.shopNewItems .mainItemBlock .CheckboxLabel .shopCheckbox,
+.shopNewItems .itemMainBlock .CheckboxLabel .shopCheckbox {
+  /* top: 8px; */
+}
+.check-black .shopCheckmark {
+  background-color: #ffffff;
+}
+.CheckboxLabel:hover .shopCheckbox ~ .shopCheckmark {
+  background-color: #ccc;
+}
+.check-black:hover .shopCheckbox ~ .shopCheckmark {
+  background-color: #ffffff;
+}
+.CheckboxLabel .shopCheckbox:checked ~ .shopCheckmark {
+  background-color: #30c93d;
+}
+.check-black .shopCheckbox:checked ~ .shopCheckmark {
+  background-color: #ffffff;
+}
+
+.shopCheckmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.CheckboxLabel .shopCheckbox:checked ~ .shopCheckmark:after {
+  display: block;
+}
+
+.CheckboxLabel .shopCheckmark:after {
+  left: 5px;
+  top: 0;
+  width: 6px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.check-black .shopCheckmark:after {
+  border: solid #a1a1aa;
+  border-width: 0 3px 3px 0;
+  left: 4px;
+}
+.check-black .shopCheckmark {
+  border: 1px solid #a1a1aa;
+}
+.shopSubmit {
+  float: left;
+  border: none;
+  color: #ffffff;
+  font-size: 12px;
+  width: 129px;
+  height: 40px;
+  margin-top: 13px;
+  margin-bottom: 13px;
+  background: #30c93d 0 0 no-repeat padding-box;
+  box-shadow: 0 1px 3px #00000033;
+  border-radius: 4px;
+  opacity: 1;
+}
+
+/* The Checkbox slider */
+.checkboxDiv {
+  display: flex;
+  margin-top: 74px;
+  float: left;
+  margin-left: 20px;
+}
+.checkboxDiv-table {
+  margin-top: 0;
+  float: none;
+}
+.sliderCheckboxLabel {
+  position: relative;
+  display: inline-block;
+  width: 47px;
+  height: 17px;
+  vertical-align: middle;
+}
+.sliderCheckboxLabel-dt {
+  width: 80%;
+}
+.sliderCheckboxLabel .sliderCheckbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #e3e3e3;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.checkbox-slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 30px;
+  bottom: 1px;
+  background-color: #cccccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.checkbox-round-dt:before {
+  left: 23px;
+}
+.sliderCheckbox:checked + .checkbox-slider {
+  background-color: #2d70cf;
+}
+
+.sliderCheckbox:focus + .checkbox-slider {
+  box-shadow: 0 0 1px #fff;
+}
+
+.sliderCheckbox:checked + .checkbox-slider:before {
+  -webkit-transform: translateX(-26px);
+  -ms-transform: translateX(-26px);
+  transform: translateX(-26px);
+  background-color: #fff;
+}
+.sliderCheckbox-dt:checked + .checkbox-round-dt:before {
+  -webkit-transform: translateX(-22px);
+  -ms-transform: translateX(-22px);
+  transform: translateX(-22px);
+}
+.checkbox-slider.checkbox-round {
+  border-radius: 34px;
+}
+
+.checkbox-slider.checkbox-round:before {
+  border-radius: 50%;
+}
+/* The Checkbox slider end */
+
+/* New Shop Css */
+
+.shopContainer {
+  direction: rtl;
+}
+.shopContainer #shopSetting {
+  padding-top: 6px;
+  margin-right: auto;
+}
+.typeButtons .btn {
+  margin-left: 0.8em;
+  font-size: 0.8em;
+}
+.typeButtons .current-btn {
+  color: #2d70cf;
+}
+.shop-page .table.dataTable.display tbody tr.odd,
+.shop-page .table.dataTable.display tbody tr.even {
+  background-color: #ffffff;
+}

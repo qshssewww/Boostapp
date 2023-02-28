@@ -1,0 +1,59 @@
+<div class="cart--service-box {{classes}}{{#if list}} bsapp--slide-box js--toggle-service-box{{/if}}">
+	<label class="bsapp--label">{{lang labelKey}}</label>
+	{{#with selected}}
+		<div class="cart--service-selected d-flex align-items-center">
+			<div class="bsapp--icon{{#if image}} bsapp--customer-avatar{{/if}}">
+				{{#if image}}
+					<img src="{{image}}" alt="{{name}}">
+				{{else}}
+					<i class="{{../iconClass}} bsapp-fa"></i>
+				{{/if}}
+			</div>
+			<span class="service-name s-18">{{name}}</span>
+		</div>
+	{{/with}}
+	{{#if list}}
+		<i class="fa-light fa-angle-left ltr--rotate s-20"></i>
+	{{/if}}
+</div>
+{{#if list}}
+	<div class="cart--service-box-slide">
+		<div class="modal-header justify-content-center justify-content-lg-start js--toggle-service-box">
+			<button class="close-box-modal"
+					aria-label="close modal"
+					type="button"><i class="fa-light fa-angle-right ltr--rotate s-20"></i></button>
+			<h3 class="h3">{{lang boxTitleKey}}</h3>
+		</div>
+		<div class="modal-body without-footer p-0">
+			<ul class="cart--service-list">
+				{{#each list}}
+					<li class="cart--service-list_item">
+						<input id="service_{{../type}}_{{id}}"
+							   class="bsapp--radio-input js--service-change-data"
+							   type="radio"
+							   data-type="{{../type}}"
+							   data-id="{{id}}"
+							   data-name="{{name}}"
+					{{#ifCond ../type '===' 'coaches'}}{{#if image}}data-image="{{image}}"{{/if}}{{/ifCond}}
+							   name="service_{{../type}}"
+							{{#ifCond id '===' ../selected.id}} checked="checked"{{/ifCond}}>
+						<label class="d-flex align-items-center"
+							   for="service_{{../type}}_{{id}}">
+							{{#ifCond ../type '===' 'coaches'}}
+								<div class="bsapp--customer-avatar">
+									{{#if image}}
+										<img src="{{image}}" alt="{{name}}">
+									{{else}}
+										<i class="fa-solid fa-circle-user bsapp-fa s-40"></i>
+									{{/if}}
+								</div>
+							{{/ifCond}}
+							<p>{{name}}</p>
+							<div class="bsapp--radio-animate"></div>
+						</label>
+					</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+{{/if}}

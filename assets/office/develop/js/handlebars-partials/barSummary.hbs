@@ -1,0 +1,14 @@
+<div class="d-flex align-items-center justify-content-between">
+	<div class="summary-total--details">
+		<p class="s-20 c-secondary">{{lang 'total'}} {{strFormatPrice totalPrice}}</p>
+		<p class="note">{{#ifCond itemCount '>' 1}}{{lang 'items'}}{{else}}{{lang 'item_single'}}{{/ifCond}} {{itemCount}}</p>
+	</div>
+	<div class="d-flex summary-total--btns">
+		<button id="toCartAsideBtn"
+				class="btn btn--white btn--big btn--full d-flex justify-content-center justify-content-lg-between align-items-center"
+			{{#ifCond itemCount '===' 0}} disabled="disabled"{{/ifCond}}
+				type="button">
+			<span>{{lang 'cart_continue_order_details'}}</span>
+		</button>
+	</div>
+</div>

@@ -1,0 +1,27 @@
+<div class="d-flex align-items-center">
+	{{#if id}}
+		<div class="aside--customer-icon">
+			{{#if isNew}}
+				<div class="bsapp--customer-avatar with-icon">
+					<i class="fal fa-plus s-20" ></i>
+				</div>
+			{{else}}
+				<div class="bsapp--customer-avatar">
+					<img src="{{img}}" alt="{{name}}">
+				</div>
+				<span class="bsapp-status-icon {{status}}"></span>
+			{{/if}}
+		</div>
+		<div class="d-flex flex-column">
+			<p class="name">{{#if name}}{{name}}{{else}}{{text}}{{/if}}</p>
+			{{#if phone}}<p class="phone s-14" dir="ltr">{{phone}}</p>{{/if}}
+		</div>
+
+		{{#if isNew}}
+			<div class="badge badge-info">{{lang 'create_new_cal'}}</div>
+		{{/if}}
+
+	{{else}}
+		<div>{{text}}</div>
+	{{/if}}
+</div>

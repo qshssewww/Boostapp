@@ -1,0 +1,122 @@
+<div class="modal--preloader js--modal-preloader d-none">
+	<div class="spinner-border"><span class="sr-only">{{lang 'loading'}}</span></div>
+</div>
+<header class="modal-header p-0 flex-column">
+	<div class="modal-header_content d-flex align-items-center justify-content-between">
+		<h3 class="h3">{{modalTitle}}</h3>
+		<button class="close-modal js--close-modal" aria-label="close modal" data-close="" type="button"><i class="fa-light fa-xmark"></i></button>
+	</div>
+</header>
+<section class="modal-body p-0 d-flex flex-column justify-content-between">
+	<div class="cart--detail-content js--cart-detail-content"
+		{{#if item.type}} data-item-type="{{item.type}}"{{/if}}
+		{{#if item.id}} data-item-id="{{item.id}}"{{/if}}
+		{{#if item.itemCurrentCartId}} data-item-current-cart-id="{{item.itemCurrentCartId}}"{{/if}}>
+
+		{{#with item}}
+			{{#ifCond type '===' 'lesson'}}
+				<div class="cart--item-detail">
+					{{> ../item/lessonBox}}
+				</div>
+			{{else}}
+				<div class="cart--item-detail cart--title-box">
+					<div class="cart--name-box">
+						<label class="bsapp--label">{{../itemNameLabel}}</label>
+						<div class="d-flex justify-content-between">
+							{{#if shortName}}
+								<div class="s-22">{{shortName}}</div>
+							{{else if name}}
+								<div class="s-22">{{name}}</div>
+							{{/if}}
+							<div class="text-end">
+								<p class="s-22">{{strFormatPrice price}}</p>
+								{{#if eachMonth}}
+									<p class="s-18 c-secondary">{{lang 'set_each_month'}}</p>
+								{{/if}}
+							</div>
+						</div>
+					</div>
+				</div>
+			{{/ifCond}}
+
+			{{#ifCond type '===' 'package'}}
+				{{> ../item/packageBox}}
+			{{/ifCond}}
+
+			{{#ifCond type '===' 'service'}}
+				{{#with placesData}}
+					<div class="cart--item-detail"
+						 data-service-type="{{type}}"
+						 data-selected-id="{{selected.id}}">
+						{{> ../item/serviceBox}}
+					</div>
+				{{/with}}
+				{{#ifCond time '&&' date}}
+					<div class="cart--item-detail"
+						 data-service-type="dates"
+						 data-service-duration-min="{{durationMin}}"
+						 data-service-time="{{time}}"
+						 data-service-date="{{date}}">
+						{{> ../item/serviceCalendarBox}}
+					</div>
+				{{/ifCond}}
+				{{#with coachesData}}
+					<div class="cart--item-detail"
+						 data-service-type="{{type}}"
+						 data-selected-id="{{selected.id}}">
+						{{> ../item/serviceBox}}
+					</div>
+				{{/with}}
+			{{/ifCond}}
+
+			{{#ifCond variants '||' quantityMax}}
+				<div class="cart--item-detail">
+					{{> ../item/variantsBox}}
+				</div>
+			{{/ifCond}}
+
+			{{#with priceData}}
+				<div class="cart--item-detail">
+					{{> ../item/priceBox}}
+				</div>
+			{{/with}}
+
+			{{#if ../showQuantity}}
+				<div class="cart--item-detail cart--quantity-detail"
+					 data-item-max-quantity="{{quantityMax}}">
+					{{> ../item/quantityBox}}
+				</div>
+			{{/if}}
+
+			{{#if ../showDiscount}}
+				<div class="cart--item-detail cart--discount-box">
+					<div class="js--cart-box-discount cart--add-discount d-flex justify-content-between align-items-end">
+						{{> ../item/discountBox}}
+					</div>
+				</div>
+			{{/if}}
+		{{/with}}
+
+		{{#with subtotalPrice}}
+			<div class="cart--item-detail"
+				 data-item-quantity="{{../item.quantity}}"
+				 data-price-original="{{originalPrice}}">
+				{{> ../item/totalPriceBox}}
+			</div>
+		{{/with}}
+	</div>
+
+	{{#with deleteIcon}}
+		{{> ../item/deleteIcon}}
+	{{/with}}
+</section>
+<footer class="modal-footer without--b-top btn--to-half-mob btn--revert d-flex">
+	<button id="saveCartItem"
+			class="btn btn--primary btn--big"
+		{{#if item.additionalData}} data-additional-json="{{item.additionalData}}"{{/if}}
+		{{#if item.primaryData}} data-primary-json="{{item.primaryData}}"{{/if}}
+			type="submit">{{lang 'save'}}</button>
+
+	<button class="btn btn--primary-revert btn--big close-modal js--close-modal"
+			type="button">{{lang 'action_cacnel'}}</button>
+</footer>

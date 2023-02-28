@@ -1,0 +1,12 @@
+{{#each this}}
+<li class="nav-item category"
+	data-type="{{type}}">
+    <a href="#{{type}}"
+        class="nav-link {{#if jsClass}}{{jsClass}}{{else}}js--nav-link{{/if}}{{#if @first}} active{{/if}}"
+        aria-title="{{categoryTitle}}"
+		{{#if jsAttr}}{{{jsAttr}}}{{/if}}>
+		<span>{{categoryTitle}}</span>
+		<i class="fa-light fa-angle-left d-lg-none ltr--rotate"></i>
+	</a>
+</li>
+{{/each}}

@@ -1,0 +1,126 @@
+#registerLimitPopup .select2-container .select2-search--inline {
+  display: none;
+}
+
+#registerLimitPopup .select2-container--default .select2-selection--multiple .select2-selection__choice {
+  cursor: default;
+  float: right;
+  margin-right: 5px;
+  margin-top: 5px;
+  outline: none;
+  border: none;
+  position: relative;
+  background-color: #f3f3f4;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  text-align: center;
+}
+#openMaxLimit,
+#openFreeSpaceSettings,
+#openDaysLimit,
+#openHoursLimit {
+  cursor: pointer;
+}
+
+.days ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.limitDayLi {
+  display: inline-flex;
+  margin-right: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: #f3f3f4;
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.limitDayLiSelected {
+  background-color: #00c736;
+  color: #f3f3f4;
+}
+.hiddenHoursLimit .fa-clock{
+    font-size: 1em;
+    opacity: 0.8;
+    cursor: default;
+}
+.hiddenHeader{
+    display: block;
+    font-weight: bold;
+    text-align: right;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+}
+.maxFlex{
+    display: flex;
+}
+.hourLimitFlex{
+    display:flex;
+    flex-direction: column;
+}
+
+.addAnotherButton{
+    padding: 2px 5px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #7f7f7f;
+}
+.smallText{
+    font-size:0.9em;
+    margin-right: 2em;
+}
+#addAnotherHourLimit, .extraHoursLimitContainer{
+    margin-top:5px;
+}
+
+.maxLimitContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.maxLimitLine{
+  display: flex;
+  margin: 0.5em 0;
+  align-items: center;
+  order:2;
+}
+.maxColumnFlex{
+  font-size: 0.8em;
+}
+
+#registerLimitPopup .hiddenHeader{
+  margin-bottom: 0;
+}
+#registerLimitPopup .plus{
+  display: none;
+}
+
+#registerLimitPopup .extraRows .rowInput,#registerLimitPopup .extraRows{
+  margin:0;
+}
+#registerLimitPopup .extraRows .rowInput .visible{
+  margin:0.5em 0;
+}
+#addAnotherHourLimit{
+  display: none!important;
+}
+#registerLimitPopupOpenSelect{
+    background-color: #fff;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+#registerLimitPopup #openRegisterLimits .plus{
+    padding-right: 0;
+}

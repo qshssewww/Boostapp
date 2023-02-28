@@ -1,0 +1,30 @@
+.imgPopup .ip-upload,
+.imgPopup .ip-save{
+    color:#00c736;
+    background-color: #ffffff;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+.imgPopup .ip-upload{
+    padding: 0;
+}
+.imgPopup .ip-capture,
+.imgPopup .ip-close,
+.imgPopup .ip-cancel{
+    background-color: #ffffff;
+}
+.imgPopup .ip-modal-content{
+    background-color: #fff;
+    box-shadow: none;
+    border-top: none;
+}
+.imgPopup .ip-modal-header{
+    background-color: #fff;
+    box-shadow: none;
+    border: none;
+}
+.imgPopup .ip-rotate-ccw,
+.imgPopup .ip-rotate-cw{
+    background-color: #ffffff;
+}

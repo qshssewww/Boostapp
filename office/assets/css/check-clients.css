@@ -1,0 +1,74 @@
+
+/* not active */
+.pill-1:not(.active) {
+    /*    background-color: rgba(255, 0, 0, 0.5);*/
+    color: #838383 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none!important;
+}
+
+.pill-2:not(.active) {
+    color: #838383 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none!important;
+}
+
+/* active (faded) */
+.pill-1 {
+    color: #1d2124 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom-width: medium !important;
+    border-bottom-color: #1d2124 !important;
+}
+
+.pill-2 {
+    color: #1d2124 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom-width: medium !important;
+    border-bottom-color: #1d2124 !important;
+}
+
+.bg-gray {
+    background-color: #e9ecef;
+}
+
+.dataTables_scrollHead table {
+    margin-bottom: 0px;
+}
+div.dataTables_wrapper div.dataTables_processing {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background: #38ab4b;
+    color: #fff;
+}
+th.text-start:first-child {width: 26px !important}
+th.text-start:nth-child(2) {width: 25% !important}
+th.appendInputs {white-space: nowrap;}
+th.appendInputs input{display: inline-block; max-width: 60px}
+th.appendInputs select{display: inline-block; max-width: 20px}
+.select2-container .select2-search__field {
+    width: 100% !important;
+}
+
+.datepicker-dropdown {
+    max-width: 300px;
+}
+.datepicker {
+    float: right
+}
+
+.datepicker.dropdown-menu {
+    right: auto
+}

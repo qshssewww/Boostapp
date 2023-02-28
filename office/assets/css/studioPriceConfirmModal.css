@@ -1,0 +1,7 @@
+#SubscribersPriceIncreaseModal .modal dialog{max-width: 480px;}
+#SubscribersPriceIncreaseModal .modal-content{height: 842px !important; max-height: 97vh;}
+#SubscribersPriceIncreaseModal .modal-footer .moreinfo{font-size: 14px;}
+
+@media screen and (max-width: 576px){
+    #SubscribersPriceIncreaseModal .modal-content{height: 600px !important;}
+}

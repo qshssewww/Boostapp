@@ -1,0 +1,11 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "Some message here",
+  "phoneNumber": "0528488488",
+  "invoice": {
+    "id": "123333",
+    "DocType": 8,
+    "DocId": 802067
+  }
+}

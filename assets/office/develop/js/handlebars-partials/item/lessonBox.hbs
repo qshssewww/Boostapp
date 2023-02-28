@@ -1,0 +1,50 @@
+<div class="bsapp--meeting-popup-header d-flex align-items-center justify-content-between">
+	<div class="d-flex align-items-center">
+		<span class="meeting--event-color" style="background-color:{{backgroundColor}};"></span>
+		<h4 class="meeting--title lesson--title">
+			{{name}}
+			{{#if live}}
+				<i class="fa-light fa-video c-secondary m-in-start-8"></i>
+			{{/if}}
+		</h4>
+	</div>
+	{{#if itemCurrentCartId}}
+		<div class="s-22">{{strFormatPrice price}}</div>
+	{{else}}
+		<button class="theme--link js--back-to-calendar-lesson"
+				type="button">{{lang 'change_lesson'}}</button>
+	{{/if}}
+</div>
+<ul class="bsapp--meeting-popup-ul">
+	{{#if owner}}
+		<li class="d-flex align-items-center">
+			<i class="fa-light fa-circle-user"></i>{{owner}}
+		</li>
+	{{/if}}
+	{{#if dateStr}}
+		<li class="d-flex align-items-center">
+			<i class="fa-light fa-calendar-day"></i>{{dateStr}}
+		</li>
+	{{/if}}
+	{{#if timeStr}}
+		<li class="d-flex align-items-center">
+			<i class="fa-light fa-clock"></i>
+			{{timeStr}}
+			{{#if durationStr}} | {{durationStr}}{{/if}}
+		</li>
+	{{/if}}
+	{{#ifCond branchName '||' calendar_name}}
+		<li class="d-flex align-items-center">
+			<i class="fa-light fa-location-dot"></i>
+			{{#if branchName}}{{lang 'branch'}} {{branchName}}{{/if}}
+			{{#ifCond branchName '&&' calendar_name}} - {{/ifCond}}
+			{{#if calendar_name}}{{calendar_name}}{{/if}}
+		</li>
+	{{/ifCond}}
+	{{#ifCond participants '&&' participantsMax}}
+		<li class="d-flex align-items-center">
+			<i class="fa-light fa-user"></i>
+			{{lang 'registered'}} {{participants}}/{{participantsMax}}
+		</li>
+	{{/ifCond}}
+</ul>

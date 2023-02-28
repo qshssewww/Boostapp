@@ -1,0 +1,559 @@
+.dataTables_scrollBody::-webkit-scrollbar {
+  display: none;
+}
+
+#page-content-wrapper {
+  padding: 0;
+  top: 44px;
+}
+
+.onlineLibraryPage {
+  /* overflow-x: hidden;
+  overflow-y: visible;
+  min-height: 85vh; */
+}
+
+.add-video,
+.add-folder {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 25px;
+  background: #00c736;
+  color: white;
+  /* padding: 20px; */
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.opacityMove {
+  opacity: 1 !important;
+}
+
+.library-page {
+  width: 65%;
+  height: 600px;
+  margin: auto;
+  position: relative;
+  top: 30px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 5px #00000029;
+  border-radius: 8px;
+  opacity: 1;
+}
+
+.library-top-bar {
+  padding: 20px 15px;
+  /* background: #fbfbfb 0% 0% no-repeat padding-box; */
+  /* border-radius: 8px 8px 0px 0px; */
+  opacity: 1;
+  width: 100%;
+  /* height: 60px; */
+}
+
+.search {
+   
+  font-size: 15px;
+  border: none;
+  outline: none;
+  /* background: #fbfbfb 0% 0% no-repeat padding-box; */
+}
+
+.search:not(:focus)::placeholder {
+  opacity: 1;
+  /* color:black; */
+}
+
+.dataTables_wrapper.no-footer .dataTables_scrollBody {
+  /* border-bottom: 1px solid #111; */
+  /* border-bottom: none !important; */
+  border: none !important;
+}
+
+table.dataTable.no-footer {
+  border: none;
+}
+
+table.dataTable tbody th,
+table.dataTable tbody td {
+  padding: 0.4rem 10px;
+  border-top: 1px solid #f4f4f4 !important;
+}
+
+table.dataTable tbody th::first-child,
+table.dataTable tbody td:first-child {
+  border: none;
+}
+
+#foldersEdit .odd,
+#foldersEdit .even {
+  background-color: #ffffff !important;
+}
+
+#popup-wrapper-2 .library-top-bar {
+  background-color: white;
+}
+
+#closePopup2 .fa-times {
+  font-size: 15px;
+  color: black !important;
+}
+
+#closePopup2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.folderRow {
+  max-width: 150px;
+}
+
+.LibraryFolderRow {
+  height: 50px;
+  background-color: #f6f6f6 !important;
+}
+
+.LibraryFolderRowSelected {
+  /* color: #4b82ce; */
+  outline: none;
+}
+
+.LibraryVideoRow .fa-grip-vertical,
+.LibraryFolderRow .fa-grip-vertical,
+.LibraryVideoRow .fa-ellipsis-h,
+.LibraryVideoRow .fa-calendar-alt,
+.LibraryFolderRow .fa-pencil-alt {
+  color: #b8b8b8;
+}
+
+.LibraryVideoRow .fa-link-a,
+.LibraryVideoRow .fa-link-a:visited,
+.fa-times {
+  color: #b8b8b8 !important;
+}
+
+.LibraryVideoRow .fa-grip-vertical,
+.LibraryFolderRow .fa-grip-vertical,
+.LibraryVideoRow .fa-ellipsis-h,
+.LibraryVideoRow .fa-link-a,
+.LibraryVideoRow .fa-link-a:visited,
+.LibraryFolderRow .fa-chevron-down,
+.LibraryFolderRow .fa-chevron-up,
+.LibraryFolderRow .fa-pencil-alt,
+.LibraryFolderRow .fa-times,
+.LibraryFolderRow .fa-check {
+  font-size: 15px;
+}
+
+.LibraryFolderRow .fa-trash,
+.LibraryFolderRow .fa-check {
+  font-size: 16em;
+}
+
+.LibraryFolderRow .fa-trash,
+.LibraryFolderRow .fa-times {
+  color: #fa95ab !important;
+  cursor: pointer;
+}
+
+.LibraryFolderRow .fa-check {
+  color: #4b82ce;
+  cursor: pointer;
+}
+
+.LibraryFolderRow .fa-pencil-alt,
+#openVideoFolderEdit,
+#closePopup2 {
+  cursor: pointer;
+}
+
+.deleteInputStyle {
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  background: unset;
+  box-shadow: unset;
+  border: unset;
+  text-shadow: unset;
+  font-size: 1px;
+}
+
+.deleteInputStyle:hover {
+  background: unset;
+  box-shadow: unset;
+  border: unset;
+  text-shadow: unset;
+}
+
+.deleteInputStyle:focus {
+  outline: 0;
+}
+
+.deleteInput {
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  background: unset;
+  box-shadow: unset;
+  border: unset;
+  text-shadow: unset;
+}
+
+.deleteInput:hover {
+  background: unset;
+  box-shadow: unset;
+  border: unset;
+  text-shadow: unset;
+}
+
+.deleteInput:focus {
+  outline: 0;
+}
+
+Feel fr .dataTables_scrollBody::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Hide scrollbar for IE and Edge */
+
+.dataTables_scrollBody {
+  -ms-overflow-style: none;
+}
+
+.library-dots-btn {
+  border: none;
+  background: transparent;
+  /* float: right; */
+  padding-left: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.rowBox {
+  display: none;
+  position: relative;
+  background: white;
+  border-radius: 10px;
+}
+
+#rowBoxEdit {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#rowBoxDel {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.rowBox:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 17px solid transparent;
+  border-right-color: white;
+  border-left: 0;
+  margin-top: -17px;
+  margin-left: -17px;
+}
+
+.rowBox-item {
+  font-size: 15px;
+  color: #413f3f;
+  background: white;
+  padding: 5px 8px 3px 3px;
+  cursor: pointer;
+}
+
+
+/* .rowBox-item:hover {
+  background-color: #f5f5f5;
+} */
+
+table.dataTable.hover tbody tr:hover,
+table.dataTable.display tbody tr:hover {
+  background: inherit;
+}
+
+.rowBox-active {
+  position: absolute;
+  display: block;
+  width: 100px;
+  z-index: 99;
+  box-shadow: 0px 0px 5px #00000029;
+  border-radius: 10px;
+  left: 30px;
+  bottom: -25px;
+  background: #ffffff;
+}
+
+.imgBoxImageGuide {
+  margin: 0;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.library-page table {
+  /* padding: 32px 32px 0 32px; */
+  font-size: 15px;
+}
+
+.library-page table.paymentTable tr td {
+  padding-right: 0;
+}
+
+.library-page .table>thead>tr>th {
+  font-size: 15px;
+  font-weight: bold;
+  border-bottom: none;
+}
+
+.dataTables_scrollBody {
+  padding-bottom: 30px;
+}
+
+.library-page #folders_filter,
+.dataTables_scrollHead {
+  display: none;
+}
+
+
+/* The switch - the box around the slider */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 16px;
+}
+
+.titleLibrary {
+  padding-top: 10px;
+  margin-inline-start: 20px;
+  font-size: 1.4em;
+  
+  width: 100%;
+}
+
+
+/* Hide default HTML checkbox */
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+/* The slider */
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:after {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  right: 1px;
+  bottom: 1px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked+.slider {
+  background-color: #00c736;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #00c736;
+}
+
+input:checked+.slider:after {
+  -webkit-transform: translateX(-14px);
+  -ms-transform: translateX(-14px);
+  transform: translateX(-14px);
+}
+
+
+/* Rounded sliders */
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:after {
+  border-radius: 50%;
+}
+
+table.dataTable.stripe tbody tr.odd,
+table.dataTable.display tbody tr.odd,
+table.dataTable.stripe tbody tr.even,
+table.dataTable.display tbody tr.even {
+  background: white;
+}
+
+.LibraryFolderRow {
+  height: 35px;
+  background: #f4f4f4 !important;
+}
+
+.selectContainer {
+  background-color: #f4f4f4 !important;
+}
+
+.select2-container--default .select2-selection--single {
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  border-bottom: 1px solid grey;
+  border-radius: 0;
+  outline: none;
+}
+
+#durationBtn {
+  cursor: pointer;
+  line-height: 1;
+}
+
+#duration {
+  width: 70%;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  border-bottom: 1px solid grey;
+}
+
+.select2-container--default .select2-selection--multiple {
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  border-bottom: 1px solid grey;
+}
+
+#folders .LibraryFolderRow td {
+  border-bottom: 10px solid white;
+}
+
+.dataTables_scrollBody {
+  padding: 10px;
+  padding-top: 0;
+}
+
+.dataTables_scrollBody.pb-0 {
+  margin-bottom: 5px;
+  padding-top: 15px;
+}
+
+
+/* table.dataTable.row-border tbody tr:first-child th, table.dataTable.row-border tbody tr:first-child td, table.dataTable.display tbody tr:first-child th, table.dataTable.display tbody tr:first-child td{
+ 
+} */
+
+.disableCheck {
+  cursor: default;
+  pointer-events: none;
+}
+
+.disableCheck .fa-check {
+  color: transparent !important;
+  cursor: default;
+  pointer-events: none;
+}
+
+@media (max-width: 784px) {
+  td:nth-child(4),
+  td:nth-child(5),
+  td:nth-child(6),
+  th:nth-child(4),
+  th:nth-child(5),
+  th:nth-child(6) {
+    display: none;
+  }
+  table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before {
+    display: none;
+  }
+  table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child {
+    padding-left: 0;
+  }
+  .library-page {
+    width: 95%;
+  }
+}
+
+#folders_wrapper tr {
+  transition: background 0.5s;
+}
+
+#folders_wrapper tr:hover {
+  background: #f4f4f491 !important;
+}
+
+#folders_wrapper .LibraryVideoRow td:first-child {
+  /* text-align: center; */
+  outline: none !important;
+}
+
+#folders_wrapper td {
+  outline: none !important;
+  white-space: nowrap;
+}
+
+#folders_processing {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.no-border {
+  border-top: transparent !important;
+}
+
+.table-cog {
+  /* margin-left:20px; */
+}
+
+tr td:last-child {
+  text-align: end;
+}
+
+tr td:last-child div {
+  margin-left: 10px;
+}
+
+tr td:first-child {
+  text-align: start;
+}
+
+tr td:first-child {
+  margin-right: 10px;
+}

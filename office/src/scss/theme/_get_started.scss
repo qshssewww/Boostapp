@@ -1,0 +1,57 @@
+.#{$theme-prefix}-get-started{
+    .wizard-navigation {
+        .nav-pills{
+            @extend .bg-transparent;
+        }
+        .nav-pills > li > a:after{
+            height : 13px !important;
+            width : 13px !important;
+
+        }
+        li{
+            display : flex;
+            justify-content : start !important;
+            a{
+                margin : 0px !important;
+                top:-5px;
+            }
+        }
+
+        li.#{$theme-prefix}-step-done{
+            border-top : 1px solid $primary;
+            a[data-toggle="tab"]{
+                color : $primary;
+                .icon-circle{
+                    border-color : $primary;
+                    background : $primary ;
+                }
+            }
+        }
+        a[data-toggle="tab"]{
+            color : $gray-500;
+            .icon-circle{
+                border-color : $gray-500;
+                height : 13px !important;
+                width : 13px !important;  
+                background : none;                
+            }
+            &.active {
+                color : $primary;
+                .icon-circle{
+                    border-color : $primary;
+                    background : none !important ;
+                }
+            }
+        }
+    }
+
+}
+
+.#{$theme-prefix}-checkbox-buttons{
+    input[type="checkbox"]+div{
+        @extend .btn-outline-info;
+    }
+    input[type="checkbox"]:checked+div{
+        @extend .btn-info;
+    }   
+}

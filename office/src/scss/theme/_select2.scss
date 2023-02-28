@@ -1,0 +1,348 @@
+@import "../../../../node_modules/select2/src/scss/core.scss";
+
+
+[dir="rtl"]{
+    .select2-selection--single .select2-selection__arrow {
+        left : 1px;
+        right : unset ;
+    }
+}
+
+
+.select2-selection--single .select2-selection__arrow {    
+    @extend .position-absolute;
+    top: 1px;
+    right: 1px; 
+    left: unset ;
+    width: 20px;
+    padding-inline-start : 8px; 
+}
+.select2-container .select2-selection--single .select2-selection__arrow b {
+    border-color: #888 transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px 4px 0 4px;
+    height: 0;
+    left: 50%;
+    margin-inline-end : -4px;
+    margin-top : -2px;
+    @extend .position-absolute;
+    top: 50%;
+    width: 0;
+}
+.select2-container.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: transparent transparent #888 transparent;
+    border-width: 0 4px 5px 4px;
+}
+
+
+.select2-container.select2-container--#{$theme-prefix}-dropdown.#{$theme-prefix}-outline-gray-300{
+    .selection{
+        .select2-selection{
+            .select2-selection__rendered{
+                background : white !important;
+                @extend .text-dark;
+                @extend .border-gray-300; 
+                @extend .bg-white;
+                border-color: $gray-300 !important;
+            }  
+            .select2-selection__arrow b {
+                border-color:  $dark transparent transparent transparent;
+            }
+        }   
+    }
+}
+
+
+.select2-container.select2-container--#{$theme-prefix}-dropdown{
+    @extend .text-start ;
+    &.select2{
+        @extend .w-100 ;
+    }
+
+    &.#{$theme-prefix}-no-arrow{
+        .select2-selection__arrow{
+            @extend .d-none ;
+        } 
+    }
+    &.#{$theme-prefix}-checkbox{
+        .select2-results__option{
+            display:flex;
+            align-items : center; 
+        }
+
+        .select2-results__option:before{
+            font-family: "Font Awesome 5 Pro";
+            content : "\f00c";
+            display : flex;
+            align-items:center;
+            justify-content :center;
+            width : 16px;
+            color : transparent;
+            height : 16px;
+            font-size:10px;
+            background : $light ;
+            border-radius : 3px; 
+            margin-inline-end : 8px;
+        }
+
+        .select2-results__option[aria-selected='true']:before{
+            background : $primary;
+            content : "\f00c";
+            color : white;
+        }
+
+        ul.select2-selection__rendered{
+
+            li.select2-search--inline{               
+                @extend .d-none ;
+            }
+            li.select2-selection__choice {
+                @extend .d-none ;
+            }
+        }
+    }
+
+    &.#{$theme-prefix}-branches-select{
+        .selection{           
+            .select2-selection{
+                .select2-selection__rendered{
+                    @extend .d-flex ;
+                    @extend .align-items-center ;
+                    @extend .bg-dark;
+                    @extend .border-dark;
+                    @media screen and (max-width:576px){
+                        height : 48px !important;
+                    }
+                }    
+            }    
+        }    
+    }
+
+    .selection{
+        .select2-selection{
+            &:focus {
+                outline : none ;
+            }
+
+            @extend .h-auto ;
+            @extend .border-light;
+
+            .select2-selection__rendered{
+                @extend .pie-12 ;
+                @extend .pis-12 ;
+                @extend .form-control ;
+                @extend .bg-light ;
+                @extend .border-light ; 
+
+                li.select2-search{  
+                    width : 100% !important;
+
+                    .select2-search__field{
+                        width : 100% !important;
+                    }
+                } 
+
+                .select2-selection__clear{
+                    @extend .d-none ;  
+                }	 
+            }
+            .select2-selection__arrow{
+                @extend .h-100 ;
+            } 
+
+        } 
+    }
+
+
+    .select2-dropdown{
+
+        @extend .border-0;
+        @extend .shadow;
+        @extend .rounded;
+
+        &.select2-dropdown--below {
+            @extend .mt-5;	
+        }
+
+
+        .select2-results{
+            .select2-results__options {
+                max-height : 300px;
+                @extend .overflow-auto;
+            }
+        }
+
+        .select2-search__field{
+            @extend .form-control ;
+        }
+
+        .select2-results__option{
+            @extend .px-10;
+            @extend .py-7;
+
+
+            &:hover{
+                @extend .bg-primary;
+                @extend .text-white;
+            } 
+        }
+
+    }	
+}
+
+.select2-container.select2-container--#{$theme-prefix}-dropdown-no-border-arrow{
+    b[role="presentation"]{
+        @extend .d-none;
+    }
+    .select2-selection__rendered{
+        @extend .px-8;
+    }
+
+    .select2-dropdown{
+
+        @extend .border-0;
+        @extend .shadow;
+        @extend .rounded;
+
+        max-height : 300px;
+        @extend .overflow-auto; 
+
+        &.select2-dropdown--below {
+            @extend .mt-5;	
+        }
+
+
+        .select2-results{
+            overflow-x : hidden;
+        }
+
+        .select2-search__field{
+            @extend .form-control ;
+        }
+
+        .select2-results__option{
+            @extend .px-10;
+            @extend .py-7;
+
+            &:hover{
+                @extend .bg-primary;  
+                @extend .text-white; 
+            } 
+        }
+
+    }	
+}
+.select2-container.select2-container--#{$theme-prefix}-dropdown-user-select{ 
+    @extend .text-start ;
+    &.select2{
+        @extend .w-100 ;
+    }
+
+    &.#{$theme-prefix}-no-arrow{
+        .select2-selection__arrow{
+            @extend .d-none ;
+        }  
+    }
+
+
+
+    .selection{
+        .select2-selection{   
+            &:focus {
+                outline : none ;
+            }  
+            @extend .h-auto ;
+            @extend .border-transparent;
+
+            .select2-selection__rendered{
+                @extend .list-unstyled;
+                @extend .w-100;
+                @extend .d-flex;
+                @extend .flex-wrap;
+
+                @extend .pie-12 ;
+                @extend .pis-12 ;
+
+                .select2-selection__clear{
+                    @extend .d-none ;  
+                }	
+
+                li.select2-selection__choice{   
+                    @extend .p-0 ;
+                    @extend .mb-8 ;
+                    @extend .mt-0 ;
+                    @extend .mie-8 ;
+                    @extend .bg-white;
+                    @extend .border-0; 
+                    .select2-selection__choice__remove{
+                        @extend .d-none;
+                    }
+                }
+                li.select2-search{
+                    .select2-search__field{
+                        outline : 0 !important;
+                        @extend .w-100;
+                        @extend .mt-0;
+
+                    }
+                } 
+
+            }
+            .select2-selection__arrow{
+                @extend .h-100 ;
+            } 
+
+        } 
+    }   
+
+
+    .select2-dropdown{
+
+        @extend .border-0;
+        @extend .shadow;
+        @extend .rounded;
+
+        &.select2-dropdown--below {
+            @extend .mt-5;	
+        }
+
+
+        .select2-results{
+            overflow-x : hidden;
+        }
+
+
+        .select2-results__option{
+            @extend .px-10;
+            @extend .py-7;
+
+
+            &:not([role="group"]):hover{
+                @extend .bg-primary;
+                @extend .text-white;
+            } 
+
+            &[aria-selected="true"]{
+                @extend .bg-light; 
+            }
+        }
+
+    }	
+}
+
+
+
+.select2-results__option{
+    .#{$theme-prefix}-plus-icon{
+        @extend .border-gray-500;
+        @extend .text-gray-500;
+    }
+
+    &:hover{
+        .#{$theme-prefix}-plus-icon{
+            @extend .border-white;
+            @extend .text-white;
+        }
+    } 
+}
+

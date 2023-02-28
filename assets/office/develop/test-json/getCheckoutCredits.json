@@ -1,0 +1,24 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "Some message here",
+  "creditSavedCard": [
+    {
+      "id": "315910",
+      "text": "****7820"
+    },{
+      "id": "317445",
+      "text": "****7822"
+    },{
+      "id": "323108",
+      "text": "****9407"
+    },{
+      "id": "340145",
+      "text": "****7821"
+    },{
+      "id": "341213",
+      "text": "****1729"
+    }
+  ],
+  "iframeUrl": "https://icom.yaad.net/p/?action=pay&Amount=1&ClientLName=%D7%92%D7%95%D7%9C%D7%9F&ClientName=%D7%9E%D7%A9%D7%94&Coin=1&FixTash=True&HeshDesc=&Info=322592&J5=False&Masof=4500355328&MoreData=True&Order=loginPaymentNewCard-322592&PageLang=HEB&Postpone=False&SendHesh=True&ShowEngTashText=False&Sign=True&Tash=1&UTF8=True&UTF8out=True&action=pay&cell=0508777066&email=moshegolan86%40gmail.com&sendemail=False&tmp=5&signature=3ac94f2fdf3276f4e4ee1e233aeef3be7e2308a0fd70d64966219213206518f5"
+}

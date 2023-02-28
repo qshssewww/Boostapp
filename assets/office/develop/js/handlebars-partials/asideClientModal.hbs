@@ -1,0 +1,78 @@
+<div class="modal-dialog">
+	<div class="modal--preloader js--modal-preloader d-none">
+		<div class="spinner-border"><span class="sr-only">{{lang 'loading'}}</span></div>
+	</div>
+	<header class="modal-header p-0 flex-column">
+		<div class="modal-header_content d-flex align-items-center justify-content-between">
+			<h3 class="h3">{{lang 'custome_selection'}}</h3>
+			<button class="close-modal js--close-modal" aria-label="close modal" data-close="" type="button">
+				<i class="fa-light fa-xmark"></i>
+			</button>
+		</div>
+	</header>
+	<section class="modal-body{{#unless user}} without-footer{{/unless}}">
+		{{#with user}}
+			<input type="hidden" name="is-new" value="{{isNew}}">
+			<input type="hidden" name="client-id" value="{{id}}">
+
+			<div class="d-flex bsapp--search-user align-items-center">
+				<div class="aside--user-icon">
+					<i class="fa-light fa-circle-user"></i>
+				</div>
+				<div class="aside--user-field">
+					<input value="{{name}}"
+						   class="full{{#if isNew}} new{{/if}}"
+						   type="text"
+						   placeholder="{{lang 'username_single'}}"
+						   name="client-name"{{#if readonly}} readonly{{/if}}>
+					<button class="bsapp--btn-icon js--clear-select2">
+						<i class="fa-light fa-xmark"></i>
+						{{#if isNew}}
+							<div class="badge badge-info">{{lang 'new'}}</div>
+						{{/if}}
+					</button>
+				</div>
+			</div>
+			<div class="d-flex bsapp--search-user align-items-center">
+				<div class="aside--user-icon">
+					<i class="fa-light fa-phone-flip"></i>
+				</div>
+				<div class="aside--user-field">
+					<input value="{{phone}}"
+						   class="full ltr"
+						   type="tel"
+						   placeholder="{{lang 'settings_phone'}}"
+						   name="client-phone"{{#if readonly}} readonly{{/if}}>
+				</div>
+			</div>
+
+			<button class="theme--link aside--clear-user js--clear-select2">
+				<i class="fal fa-long-arrow-right ltr--rotate"></i>
+				{{lang 'search_client'}}
+			</button>
+			<p class="aside--clear-user js--aside-user-error error"></p>
+
+		{{else}}
+			<div class="d-flex bsapp--search-user align-items-center">
+				<div class="aside--user-icon">
+					<i class="fa-light fa-magnifying-glass"></i>
+				</div>
+				<div class="aside--user-field js--aside--user-field">
+					<input type="hidden" id="userTypeNew" value="0">
+					<select class="bsapp--user-search" id="userSearchSelect">
+						<option></option>
+					</select>
+				</div>
+			</div>
+		{{/with}}
+	</section>
+
+	{{#if user}}
+		<footer class="modal-footer without--b-top">
+			<button class="btn btn--primary btn--full btn--big js--aside-append-user"
+					{{#ifCond userAppended '||' user.isNew}}disabled="disabled"{{/ifCond}}
+					data-appended="{{userAppended}}"
+					type="button">{{lang 'continue_main'}}</button>
+		</footer>
+	{{/if}}
+</div>

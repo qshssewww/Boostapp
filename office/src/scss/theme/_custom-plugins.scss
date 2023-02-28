@@ -1,0 +1,340 @@
+/* ========================== Custom plugins ==========================
+   ===== bsappMultiSelect() ../office/assets/js/custom-plugins.js =====
+   ==================================================================== */
+$mainSelColor: #182434;
+$mainSelBg: #fff;
+$mainDisabledColor: #9F9F9F;
+$borderSelColor: #000000;
+$borderSecondColor: #B9B9B9;
+$shadowSelColor: rgba(0,0,0,.16);
+$lineSelColor: #eeeeef;
+$custom-bg-grey:#F5F5F5;
+$custom-grey:#404040;
+
+.btn-cutsom-grey{
+  background-color: $custom-bg-grey;
+  color: $custom-grey;
+  border:none;
+  font-weight: bold;
+}
+
+.bsapp--sel {
+  font-size: 1rem;
+  width: 100%;
+  position: relative;
+  color: $borderSelColor;
+  border: 1px solid $borderSecondColor;
+  border-radius: 0.5rem;
+  background-color: $mainSelBg;
+  margin-bottom: 1rem;
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0.875rem;
+  }
+
+  &.active {
+    border-color: $borderSelColor;
+    box-shadow: 0 3px 10px $shadowSelColor;
+
+    .bsapp--sel__box {
+      box-shadow: 0 3px 10px $shadowSelColor;
+    }
+    .bsapp--sel__placeholder {
+      background-color: $mainSelBg;
+      z-index: 3;
+
+      &:before {
+        transform: rotateX(-180deg);
+        //margin-top: -0.125rem;
+      }
+    }
+  }
+
+  &.disabled {
+    opacity: 1;
+    &:before {
+      opacity: 0.7;
+    }
+
+    .bsapp--sel__placeholder {
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}
+
+.bsapp--sel__placeholder {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 46px;
+  margin-bottom: 0;
+
+  font-size: 0.8125rem;
+  line-height: 15px;
+  letter-spacing: 0.12px;
+  color: $mainSelBg;
+
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  padding-inline-start: 0.75rem;
+  padding-inline-end: 36px;
+  user-select: none;
+  visibility: visible;
+  position: relative;
+  cursor: pointer;
+
+  overflow: hidden;
+  border-radius: 0.5rem;
+
+  &:before {
+    content: attr(data-arrow-icon);
+    font-family: "Font Awesome 5 Pro";
+    color: $borderSelColor;
+    font-size: 1rem;
+
+    position: absolute;
+    inset-inline-end: 0.75rem;
+    top: calc(50% - 0.5em);
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .bsapp--sel__tag {
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.12px;
+    color: $mainSelBg;
+    background-color: $mainSelColor;
+    border-radius: 3px;
+    padding: 6px;
+    margin-inline-end: 10px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.bsapp--sel__box {
+  display: none;
+  position: absolute;
+  left: -1px;
+  width: calc(100% + 2px);
+
+  z-index: 2;
+  list-style-type: none;
+  background-color: $mainSelBg;
+  box-sizing: border-box;
+  line-height: 19px;
+  border: 1px solid $borderSelColor;
+
+  will-change: height;
+  margin-bottom: 0;
+
+  &:not(.to-top) {
+    top: calc(100% - 0.25rem - 1px);
+    border-top: none;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    padding-top: 0.25rem;
+  }
+
+  &.to-top {
+    bottom: calc(100% - 0.25rem - 1px);
+    border-bottom: none;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    padding-bottom: 0.25rem;
+  }
+
+  & > ul {
+    height: 100%;
+    max-height: 275px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scrollbar-gutter: stable;
+    padding: 0.25rem 0.75rem 0;
+    padding-inline-end: calc(0.75rem - 6px);
+    margin-bottom: 0.25rem;
+
+    & > .bsapp--sel__options {
+      margin-inline-start: 0.875rem;
+    }
+  }
+
+  .bsapp--sel__options {
+    position: relative;
+    color: $borderSelColor;
+    margin-bottom: 0.4375rem;
+    min-height: 1.5625rem;
+    display: flex;
+    align-items: center;
+    padding-inline-start: calc(1.125rem + 0.375rem);
+
+    &.disabled {
+      color: $mainDisabledColor;
+
+      &:not(.multi-label) {
+        padding-inline-start: 0;
+        font-style: italic;
+      }
+
+      input {
+        pointer-events: none;
+        &:checked ~ label:before {
+          background-color: $mainDisabledColor;
+        }
+      }
+      label {
+        cursor: default;
+        &:before {
+          border-color: $mainDisabledColor;
+        }
+      }
+    }
+
+    input {
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      width: 1rem;
+      height: 1rem;
+      opacity: 0;
+    }
+
+    label {
+      margin-bottom: 0;
+      vertical-align: top;
+      display: block;
+      cursor: pointer;
+
+      &:after,
+      &:before {
+        content: "";
+        width: 1.125rem;
+        height: 1.125rem;
+        border-radius: 4px;
+
+        position: absolute;
+        top: calc(50% - 0.5625rem);
+        inset-inline: 0;
+        display: block;
+      }
+
+      &:before {
+        border: 1px solid $mainSelColor;
+        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+
+      &:after {
+        font-family: "Font Awesome 5 Pro";
+        font-size: 0.8125rem;
+        font-weight: 300;
+        color: $mainSelBg;
+        text-align: center;
+      }
+    }
+
+    &.multi {
+      margin-inline-start: 2rem;
+    }
+
+    input:checked ~ label {
+      &:before {
+        background-color: $mainSelColor;
+      }
+      &:after {
+        content: '\f00c';
+      }
+    }
+  }
+}
+
+.bsapp--sel__optgroup {
+  padding-inline-start: 0.875rem;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid $lineSelColor;
+    margin-bottom: 0.4375rem;
+  }
+
+  .label {
+    font-size: 1.125rem;
+    line-height: 22px;
+    font-weight: 500;
+    margin-bottom: 0.4375rem;
+    display: block;
+    position: relative;
+    cursor: pointer;
+
+    &:before {
+      content: '\f0dd';
+      font-family: "Font Awesome 5 Pro";
+      color: inherit;
+
+      position: absolute;
+      inset-inline-end: 0;
+      top: 0;
+      z-index: 1;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+  }
+
+  &.active {
+    .label:before {
+      transform: rotateX(-180deg);
+      margin-top: 0.125rem;
+    }
+  }
+}
+
+.bsapp--sel__search {
+  position: relative;
+  margin: 0.375rem 0.75rem;
+
+  &:before,
+  button[type=button] {
+    color: $borderSecondColor;
+    font-size: 1.125rem;
+    font-weight: 300;
+
+    position: absolute;
+    top: calc(50% - 0.5em);
+    z-index: 1;
+  }
+
+  &:before {
+    content: '\f002';
+    font-family: "Font Awesome 5 Pro";
+    inset-inline-start: 0.75rem;
+  }
+
+  button[type=button] {
+    border: none;
+    background-color: transparent;
+    inset-inline-end: 0.75rem;
+    padding: 0;
+    display: none;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem 2.125rem;
+    border-radius: 0.5rem;
+    border: 1px solid $borderSecondColor;
+    //color: $borderSecondColor;
+    font-size: 1.125rem;
+    line-height: 21px;
+
+    &:focus-visible,
+    &:focus {
+      outline: none;
+      border-color: $borderSelColor;
+    }
+  }
+}

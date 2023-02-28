@@ -1,0 +1,61 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "Some message here",
+  "item": {
+    "variants": [
+      {
+        "id": 257,
+        "inventory": 5,
+        "option1": "XS",
+        "option2": "Black__#000"
+      },
+      {
+        "id": 300,
+        "inventory": 55,
+        "option1": "S",
+        "option2": "Black__#000"
+      },
+      {
+        "id": 258,
+        "inventory": 20,
+        "option1": "S",
+        "option2": "Red__#DE3618"
+      },
+      {
+        "id": 259,
+        "inventory": 50,
+        "option1": "M",
+        "option2": "White__#fff"
+      },
+      {
+        "id": 260,
+        "inventory": 5,
+        "option1": "XS",
+        "option2": "Light Blue__#759eff"
+      },
+      {
+        "id": 268,
+        "inventory": 20,
+        "option1": "S",
+        "option2": "Light Blue__#759eff"
+      },
+      {
+        "id": 269,
+        "inventory": 50,
+        "option1": "M",
+        "option2": "Blue__#006FBB"
+      }
+    ],
+    "options": [
+      {
+        "type": "sizes",
+        "label": "מידה"
+      },
+      {
+        "type": "colors",
+        "label": "צבע"
+      }
+    ]
+  }
+}

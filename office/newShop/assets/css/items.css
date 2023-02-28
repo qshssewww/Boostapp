@@ -1,0 +1,6 @@
+#shopItemsTable_filter{
+    display:none;
+}
+#shopItemsTable td:nth-child(3){
+    padding-left: 0;
+}

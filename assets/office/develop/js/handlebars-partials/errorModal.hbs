@@ -1,0 +1,36 @@
+<header style="{{#if borderN}} {{borderN}} {{/if}}" class="modal-header d-flex align-items-center justify-content-between">
+	<h3 class="h3">{{lang langTitleKey}}</h3>
+	<button {{#if jsCloseId}} id="{{jsCloseId}}"{{/if}} class="close-modal js--close-modal" aria-label="close modal" data-close="" type="button"><i class="fal fa-times"></i></button>
+</header>
+<section class="modal-body{{#unless bottomBtns}} without-footer{{/unless}}">
+	<div class="bsapp--error-modal d-flex align-items-center justify-content-center flex-column text-center">
+		{{#if classIcon}}<i class="{{classIcon}}"></i>{{/if}}
+		{{#if textKey}}{{#unless notM}}<p class="s-18 {{#if classText}} {{classText}} {{/if}}">{{lang textKey}}</p>{{/unless}}{{/if}}
+        {{#if notM}}<p class="s-18 {{#if classText}} {{classText}} {{/if}}">{{lang textKey}}</p>{{/if}}
+		{{#if error}}<p class="note">{{error}}</p>{{/if}}
+		{{#if textAreaInput }}
+            <textarea id="js-error-input-message" class="error-input-message" placeholder="{{textAreaInput}}"></textarea>
+		{{/if}}
+		{{#with linkBtn}}
+			<button class="bsapp--modal-link{{#if class}} {{class}}{{/if}}"
+					type="button">{{lang textKey}}</button>
+		{{/with}}
+	</div>
+</section>
+{{#if bottomBtns}}
+<footer style="{{#if classFooter}} {{classFooter}} {{/if}}" class="modal-footer{{#ifCond bottomBtns.length '===' 2}} btn--small-mob btn--to-half d-flex align-items-center justify-content-between{{/ifCond}}">
+	{{#each bottomBtns}}
+	<button{{#if jsId}} id="{{jsId}}"{{/if}}
+            {{#if dataIdParam}} data-id="{{dataIdParam}}"{{/if}}
+            {{#if dataIsRefund}} data-is-refund="{{dataIsRefund}}"{{/if}}
+			class="btn{{#if @first}} {{#unless class1}} btn--red {{/unless}} {{else}} btn--primary-revert{{/if}}{{#ifCond ../bottomBtns.length '===' 1}} btn--full{{/ifCond}} {{#if class1}} {{class1}} {{/if}}"
+		{{#if dataId}} data-id="{{dataId}}"{{/if}}
+        {{#if loginOrderId}} login-order-id="{{loginOrderId}}"{{/if}}
+		{{#if dataType}} data-type="{{dataType}}"{{/if}}
+			type="button"
+			title="{{#if textKey1}} {{textKey1}} {{else}} {{lang textKey}} {{/if}}">
+        {{lang textKey}}
+	</button>
+	{{/each}}
+</footer>
+{{/if}}

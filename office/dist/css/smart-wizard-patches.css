@@ -1,0 +1,169 @@
+/** 
+-this file is used for creating updated css file for smart wizard css 
+-once you have the css file built from this simple paste the contents of the generated file into the  main asset file 
+ **/
+/*!
+* SmartWizard v4.3.x
+* jQuery Wizard Plugin
+* http://www.techlaboratory.net/smartwizard
+*
+* Created by Dipu Raj
+* http://dipuraj.me
+*
+* Licensed under the terms of MIT License
+* https://github.com/techlab/SmartWizard/blob/master/LICENSE
+*/
+/* SmartWizard Theme: Arrows */
+.nav-tabs > li > a {
+  margin-inline-start: 0px; }
+
+.sw-theme-arrows {
+  border-radius: 5px;
+  border: 1px solid #ddd; }
+
+.sw-theme-arrows > .sw-container {
+  min-height: 200px; }
+
+.sw-theme-arrows .step-content {
+  padding: 0 10px 0px 10px;
+  border: 0px solid #D4D4D4;
+  background-color: #FFF;
+  text-align: start; }
+
+.sw-theme-arrows .sw-toolbar {
+  padding: 10px;
+  margin-bottom: 0 !important; }
+
+.sw-theme-arrows > ul.step-anchor {
+  border: 0;
+  border-bottom: 1px solid #ddd;
+  padding: 0px;
+  background: #f5f5f5;
+  border-radius: 0;
+  border-start-end-radius: 5px;
+  list-style: none;
+  overflow: hidden; }
+
+.sw-theme-arrows > ul.step-anchor li + li:before {
+  padding: 0; }
+
+.sw-theme-arrows > ul.step-anchor > li > a, .sw-theme-arrows > ul.step-anchor > li > a:hover {
+  color: #bbb;
+  text-decoration: none;
+  /*padding: 10px 45px 10px 0px;*/
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-inline-start: 45px;
+  padding-inline-end: 0px;
+  position: relative;
+  display: block;
+  border: 0 !important;
+  border-radius: 0;
+  outline-style: none;
+  background: #f5f5f5; }
+
+.sw-theme-arrows > ul.step-anchor > li > a:after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-inline-start: 30px solid #f5f5f5;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  right: unset;
+  left: 100%;
+  z-index: 2; }
+
+.sw-theme-arrows > ul.step-anchor > li > a:before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  /* Go big on the size, and let overflow hide */
+  border-bottom: 50px solid transparent;
+  border-inline-start: 30px solid #ddd;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  margin-right: 1px;
+  left: 100%;
+  right: unset;
+  z-index: 1; }
+
+.sw-theme-arrows > ul.step-anchor > li:first-child > a {
+  padding-inline-start: 15px; }
+
+.sw-theme-arrows > ul.step-anchor > li > a:hover {
+  color: #bbb;
+  text-decoration: none;
+  outline-style: none;
+  background: #f5f5f5;
+  border-color: #f5f5f5; }
+
+.sw-theme-arrows > ul.step-anchor > li > a:hover:after {
+  border-inline-start-color: #f5f5f5; }
+
+.sw-theme-arrows > ul.step-anchor > li.clickable > a:hover {
+  color: #4285F4 !important;
+  background: #46b8da !important; }
+
+.sw-theme-arrows > ul.step-anchor > li.active > a {
+  border-color: #5cb85c !important;
+  color: #fff !important;
+  background: #5cb85c !important; }
+
+.sw-theme-arrows > ul.step-anchor > li.active > a:after {
+  border-inline-start: 30px solid #5cb85c !important; }
+
+.sw-theme-arrows > ul.step-anchor > li.done > a {
+  border-color: #b1dfbb !important;
+  /*  #5cb85c */
+  color: #fff !important;
+  background: #b1dfbb !important; }
+
+.sw-theme-arrows > ul.step-anchor > li.done > a:after {
+  border-inline-start: 30px solid #b1dfbb;
+  /* c3e6cb */ }
+
+.sw-theme-arrows > ul.step-anchor > li.danger > a {
+  border-color: #d9534f !important;
+  color: #fff !important;
+  background: #d9534f !important; }
+
+.sw-theme-arrows > ul.step-anchor > li.danger > a:after {
+  border-inline-start: 30px solid #d9534f !important; }
+
+.sw-theme-arrows > ul.step-anchor > li.disabled > a, .sw-theme-arrows > ul.step-anchor > li.disabled > a:hover {
+  color: #eee !important; }
+
+/* Responsive CSS */
+@media screen and (max-width: 768px) {
+  .sw-theme-arrows > ul.step-anchor {
+    border: 0;
+    background: #ddd !important; }
+  .sw-theme-arrows > .nav-tabs > li {
+    float: none !important;
+    margin-bottom: 0; }
+  .sw-theme-arrows > ul.step-anchor > li > a, .sw-theme-arrows > ul.step-anchor > li > a:hover {
+    padding-inline-start: 15px;
+    margin-inline-start: 0;
+    margin-bottom: 1px; }
+  .sw-theme-arrows > ul.step-anchor > li > a:after, .sw-theme-arrows > ul.step-anchor > li > a:before {
+    display: none; } }
+
+/* Loader Custom Style */
+.sw-theme-arrows::before {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #5cb85c; }
+
+[dir="rtl"] .sw-theme-arrows > ul.step-anchor > li > a:after {
+  right: 100%;
+  left: unset; }
+
+[dir="rtl"] .sw-theme-arrows > ul.step-anchor > li > a:before {
+  left: unset;
+  right: 100%; }
