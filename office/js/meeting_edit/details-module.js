@@ -2143,12 +2143,18 @@ const meetingDetailsModule = (function (module, $) {
 			return [eTooltip, eTopContent];
 		}
 
+		if (customer && customer.name !== undefined && eDiffMinutes > 50) {
+			let eParticipants = document.createElement('h5');
+			eParticipants.innerHTML = customer.name;
+			eParticipants.className = 'bsapp-text-overflow';
+			eParticipants.setAttribute('client-reg-card', arg.event.id);
+			eTopContent.appendChild(eParticipants);
+		}
 		if (title !== undefined) {
-			let eTitle = document.createElement('h5');
-			eTitle.innerHTML = title;
-			eTitle.className = 'bsapp-text-overflow';
+			let eTitle = document.createElement('div');
+			eTitle.classList.add('eParticipants', 'bsapp-event-participants', 'bsapp-text-overflow', 'pie-9');
 			eTitle.setAttribute('data-group-number', extendedProps.groupNumber);
-			eTitle.setAttribute('data-class-id', arg.event.id);
+			eTitle.innerHTML = '<span id="data-class-id' + arg.event.id + '" class="' + classFontSize + '"> ' + title + '</span>';
 			eTopContent.appendChild(eTitle);
 		}
 
@@ -2165,13 +2171,6 @@ const meetingDetailsModule = (function (module, $) {
 				eOwner.classList.add('bsapp-event-owner', 'bsapp-text-overflow');
 				eOwner.innerHTML = owner;
 				eTopContent.appendChild(eOwner);
-			}
-
-			if (customer && customer.name !== undefined && eDiffMinutes > 50) {
-				let eParticipants = document.createElement('div');
-				eParticipants.classList.add('eParticipants', 'bsapp-event-participants', 'bsapp-text-overflow', 'pie-9');
-				eParticipants.innerHTML = '<i class="fal fa-user"></i><span id="client-reg-card' + arg.event.id + '" class="' + classFontSize + '"> ' + customer.name + '</span>';
-				eTopContent.appendChild(eParticipants);
 			}
 
 			if (meetingStatus !== undefined) {

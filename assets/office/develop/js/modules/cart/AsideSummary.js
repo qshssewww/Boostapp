@@ -43,8 +43,8 @@ function initEvents() {
 					html: mainDropdownModal({
 						list: [
 							{
+								jsId: "checkoutBtnModal",
 								textKey: 'cart_keep_in_debt',
-								class: 'js--cart-keep-in-debt'
 							},
 							{
 								textKey: 'cart_clear_all',

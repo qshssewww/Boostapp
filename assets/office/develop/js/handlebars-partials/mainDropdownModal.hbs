@@ -4,7 +4,7 @@
 	<ul class="bsapp--dropdown-list">
 		{{#each list}}
 			<{{#ifCond type '===' 'link'}}a href="{{href}}"{{#if target}} target="{{target}}"{{/if}} aria-label="{{lang textKey}}"{{else}}li{{/ifCond}}
-				class="bsapp--dropdown-li d-flex align-items-center justify-content-{{#if icon}}between{{else}}center{{/if}}{{#if class}} {{class}}{{/if}}">
+				{{#if jsId}}id="{{jsId}}"{{/if}}class="bsapp--dropdown-li d-flex align-items-center justify-content-{{#if icon}}between{{else}}center{{/if}}{{#if class}} {{class}}{{/if}}">
 				<span>{{lang textKey}}</span>
 				{{#if icon}}<i class="{{icon}}"></i>{{/if}}
 			</{{#ifCond type '===' 'link'}}a{{else}}li{{/ifCond}}>

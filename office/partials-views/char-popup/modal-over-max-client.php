@@ -18,7 +18,7 @@
 <div class="d-flex flex-column justify-content-between h-100 bsapp-min-h-400p">
     <div class="d-none" id="js-max-popup-data"
     data-act-id-arr='<?php echo json_encode($actIdArr); ?>' 
-    data-class-id="<?php echo $classId; ?>"
+        data-class-id="<?php echo $classId; ?>"
     data-is-single="<?php echo $isSingle; ?>"></div>
 
     <a class="text-dark js-cancel-assignment"><i class="fal fa-times h4"></i></a>
