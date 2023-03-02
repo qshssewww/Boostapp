@@ -2145,18 +2145,23 @@ const meetingDetailsModule = (function (module, $) {
 
 		if (customer && customer.name !== undefined && eDiffMinutes > 50) {
 			let eParticipants = document.createElement('h5');
-			eParticipants.innerHTML = customer.name;
-			eParticipants.className = 'bsapp-text-overflow';
+			if (title !== undefined){
+				eParticipants.innerHTML = title  + '-' + customer.name;
+			} else {
+				eParticipants.innerHTML = customer.name;
+			}
+			eParticipants.className = 'bsapp-text-overflow d-inline';
 			eParticipants.setAttribute('client-reg-card', arg.event.id);
+			eParticipants.setAttribute('data-group-number', extendedProps.groupNumber);
 			eTopContent.appendChild(eParticipants);
 		}
-		if (title !== undefined) {
-			let eTitle = document.createElement('div');
-			eTitle.classList.add('eParticipants', 'bsapp-event-participants', 'bsapp-text-overflow', 'pie-9');
-			eTitle.setAttribute('data-group-number', extendedProps.groupNumber);
-			eTitle.innerHTML = '<span id="data-class-id' + arg.event.id + '" class="' + classFontSize + '"> ' + title + '</span>';
-			eTopContent.appendChild(eTitle);
-		}
+		// if (title !== undefined) {
+		// 	let eTitle = document.createElement('span');
+		// 	eTitle.classList.add('eParticipants', 'bsapp-event-participants', 'bsapp-text-overflow', 'pie-9');
+		// 	eTitle.setAttribute('data-group-number', extendedProps.groupNumber);
+		// 	eTitle.innerHTML = '<span id="data-class-id' + arg.event.id + '" class="' + classFontSize + '"> ' + title + '</span>';
+		// 	eTopContent.appendChild(eTitle);
+		// }
 
 		if (!isMonth) {
 			if (arg.event.start !== undefined && arg.event.end !== undefined && eDiffMinutes > 20) {
