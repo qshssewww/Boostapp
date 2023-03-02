@@ -2058,7 +2058,7 @@ const meetingDetailsModule = (function (module, $) {
 		const title = arg.event.title,
 			eStartTime = moment(arg.event.start),
 			eEndTime = moment(arg.event.end),
-			eTimeString = eStartTime.format('HH:mm') + ' - ' + eEndTime.format('HH:mm'),
+			eTimeString = eEndTime.format('HH:mm') + ' - ' + eStartTime.format('HH:mm'),
 			owner = (jsTypeOfView == 2 && jsSplitView == 0) ? '' : extendedProps.owner,
 			customer = extendedProps.customer,
 			meetingStatus = extendedProps.status;
