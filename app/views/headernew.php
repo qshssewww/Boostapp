@@ -556,7 +556,7 @@ $color = Config::get('app.color_scheme');
                     </div>
                 </div>
                 <div class="bsapp-main-section js-main-section <?php echo $js_bsapp_shrink; ?> ">
-                    <header class="bsapp-horizontal-menu">
+                    <header style="border-bottom: 2px solid #E3E3E3!important" class="bsapp-horizontal-menu">
                         <nav class="navbar navbar-expand-lg navbar-light px-5 d-flex justify-content-between js-header-primary-menu bsapp-header-primary-menu position-fixed bsapp-z-99  w-100 <?php echo $js_bsapp_shrink; ?>">
                             <div class="d-flex px-10 align-items-center bsapp-main-header-icons">
                                 <a class="js-md-menu-show  d-none d-md-flex text-decoration-none pie-15   <?php echo $js_is_active; ?>" href="javascript:;">
@@ -609,14 +609,14 @@ $color = Config::get('app.color_scheme');
                                     <?php endif; ?>
 
 
-                                    <div class="dropdown px-10 d-none d-md-flex bsapp-min-w-125p"   style="font-size:14px;line-height: 14px;">
+                                    <div  class="dropdown px-10 d-none d-md-flex bsapp-min-w-125p"   style="font-size:14px;line-height: 14px;">
                                         <a class="dropdown-toggle text-decoration-none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"  >
                                             <div class="d-flex align-items-start">
                                                 <div class="pie-10">
                                                 <img class="rounded-circle w-30p h-30p" style="border:1px solid #000" src="<?php echo (!empty(Auth::user()->UploadImage)) ? '/camera/uploads/large/' . Auth::user()->UploadImage : 'https://ui-avatars.com/api/?length=1&name=' . $userDetails->FirstName . '&background=f3f3f4&color=000&font-size=0.5' ?>"/>
 				
                                                 </div>
-                                                <div class="mie-20 text-start">
+                                                <div style="color: #1A1A1A !important;" class="mie-20 text-start">
                                                     <small id="user-displayName" class="bsapp-fs-14"> <?php echo Auth::user()->display_name; ?></small> <br> <small><?php echo transDbVal(trim($userRole->Title)); ?></small> 
                                                 </div>
                                             </div>
@@ -645,7 +645,7 @@ $color = Config::get('app.color_scheme');
                                         </form>
                                     </div>
                                     <div class="px-10 bsapp-notification-content align-self-center border-md-istart" id="NotificationBtn" data-ip-modal="#no-open-modal">
-                                        <a class=" text-gray-400 " href="#" tabindex="-1" aria-disabled="true" title="<?php echo lang('notifications') ?>" id="notification">
+                                        <a style="color: #1A1A1A !important;" class=" text-gray-400 " href="#" tabindex="-1" aria-disabled="true" title="<?php echo lang('notifications') ?>" id="notification">
                                             <i class="fal fa-bell"></i>
                                             <?php if ($notifications > 0) { ?>
                                                 <span id="Clicknotification" class="<?= $notifications < 10 ? 'px-5' : 'px-10' ?> bsapp-notification-badge animated animate__bounce"><?php echo $notifications > 99 ? '99+' : $notifications; ?></span>
@@ -657,7 +657,7 @@ $color = Config::get('app.color_scheme');
 									if (MeetingService::hasOpenedOrWaitingMeetings($CompanyNum)):
 										?>
 										<div class="px-10 bsapp-notification-content align-self-center border-istart">
-											<button id="openManageMeetingSidebar" class="text-gray-400 bsapp--manage-meeting--btn"  title="<?= lang('cal_appointments') ?>">
+											<button id="openManageMeetingSidebar" style="color: #1A1A1A !important;" class="text-gray-400 bsapp--manage-meeting--btn"  title="<?= lang('cal_appointments') ?>">
 												<i class="fal fa-calendar-exclamation"></i>
                                                 <span id='calendarIcon'  class="<?= $waitingCount < 10 ? 'px-5' : 'px-10' ?> <?= $waitingCount > 0 ? 'd-flex' : 'd-none' ?> bsapp-notification-badge animated animate__bounce"><?php echo $waitingCount > 99 ? '99+' : $waitingCount; ?></span>
 											</button>
@@ -669,7 +669,7 @@ $color = Config::get('app.color_scheme');
                         <div style="min-height: 48px;"></div>
                     </header>
                     <section class="bsapp-content">
-                        <div class="container-fluid bg-light px-15">
+                        <div class="container-fluid px-15">
                             <div class="row">
                                 <div class="col-md-12 justify-content-start  bsapp-page"  >
                                     <!-- content goes here :: begin -->
