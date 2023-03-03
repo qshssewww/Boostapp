@@ -235,7 +235,9 @@ if (Auth::check()):
 
                                     <div class="form-group">
                                         <button type="submit"
-                                                class="btn btn-success btn-lg"><?php echo lang('update') ?></button>
+                                                class="btn btn-success btn-lg"><?php echo lang('update') ?>
+                                        </button>
+
                                     </div>
                             </div>
                             </form>
@@ -552,8 +554,39 @@ if (Auth::check()):
                                     <!--<hr>	-->
                                     <div class="form-group">
                                         <button type="submit"
-                                                class="btn btn-success btn-lg"><?php echo lang('update') ?></button>
-                                    </div>
+                                                class="btn btn-success btn-lg"><?php echo lang('update') ?>
+                                        </button>
+                                        <div class="card spacebottom"role="tabpanel">
+                                            <div class="card-header text-start">
+                                                <strong>
+                                                    <?php echo lang('permanent_notes') ?>
+                                                </strong>
+                                            </div>
+                                            <div class="card-body">
+                                                <form action="DocsRemakrsPage" class="ajax-form clearfix" autocomplete="off">
+                                                                             <input type="hidden" name="CompanyNum" value="1">
+
+                                                                             <?php
+
+                                                                             $DocsTables = DB::table('docstable')->where('CompanyNum', '=', Auth::user()->CompanyNum)->where('Status', '=', '0')->get();
+                                                                             foreach ($DocsTables as $DocsTable) {
+
+                                                                                 ?>
+                                                                                 <div class="form-group">
+                                                                                     <label><?php echo $DocsTable->TypeTitleSingle; ?></label>
+                                                                                     <textarea class="form-control summernote"
+                                                                                               name="DocNotes<?php echo $DocsTable->id; ?>"
+                                                                                               rows="5"><?php echo @$DocsTable->DocsRemarks; ?></textarea>
+                                                                                 </div>
+
+
+                                                                             <?php } ?>
+                                                                             <hr>
+                                                                     </div>
+                                                </form>
+                                            </div>
+                                         </div>
+
                             </div>
                             </form>
                             <script>
@@ -567,38 +600,7 @@ if (Auth::check()):
                     </div>
 
 
-                    <div class="tab-pane fade text-start" role="tabpanel" id="docsnotes">
-                        <div class="card spacebottom">
-                            <div class="card-header text-start"><strong><?php echo lang('permanent_notes') ?></strong>
-                            </div>
-                            <div class="card-body">
-                                <form action="DocsRemakrsPage" class="ajax-form clearfix" autocomplete="off">
-                                    <input type="hidden" name="CompanyNum" value="1">
 
-                                    <?php
-
-                                    $DocsTables = DB::table('docstable')->where('CompanyNum', '=', Auth::user()->CompanyNum)->where('Status', '=', '0')->get();
-                                    foreach ($DocsTables as $DocsTable) {
-
-                                        ?>
-                                        <div class="form-group">
-                                            <label><?php echo $DocsTable->TypeTitleSingle; ?></label>
-                                            <textarea class="form-control summernote"
-                                                      name="DocNotes<?php echo $DocsTable->id; ?>"
-                                                      rows="5"><?php echo @$DocsTable->DocsRemarks; ?></textarea>
-                                        </div>
-
-
-                                    <?php } ?>
-                                    <hr>
-                                    <div class="form-group">
-                                        <button type="submit"
-                                                class="btn btn-success btn-lg"><?php echo lang('update') ?></button>
-                                    </div>
-                            </div>
-                            </form>
-                        </div>
-                    </div>
 
                     <div class="tab-pane fade text-start" role="tabpanel" id="accountmanager">
                         <div class="card spacebottom">

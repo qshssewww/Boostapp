@@ -145,7 +145,7 @@ $companySettings = (new Settings())->getSettings($CompanyNum);
   <a class="nav-link text-dark"  data-toggle="pill" href="#docsnum" role="tab" aria-controls="v-pills-overview" aria-selected="true"><?php echo lang('settings_main_docs') ?></a>
   <a class="nav-link text-dark"  data-toggle="pill" href="#docsdesign" role="tab" aria-controls="v-pills-overview" aria-selected="true"><?php echo lang('settings_docs_style') ?></a>
   <a class="nav-link text-dark"  data-toggle="pill" href="#contactinfo" role="tab" aria-controls="v-pills-overview" aria-selected="true"><?php echo lang('contact_details') ?></a>
-  <a class="nav-link text-dark"  data-toggle="pill" href="#docsnotes" role="tab" aria-controls="v-pills-overview" aria-selected="true"><?php echo lang('permanent_notes') ?></a>
+<!--   <a class="nav-link text-dark"  data-toggle="pill" href="#docsnotes" role="tab" aria-controls="v-pills-overview" aria-selected="true"><?php echo lang('permanent_notes') ?></a> -->
   <a class="nav-link text-dark"  data-toggle="pill" href="#accountmanager" role="tab" aria-controls="v-pills-overview" aria-selected="true"><?php echo lang('auto_reports') ?></a>
     <?php if(Auth::user()->role_id == 1) { ?>
   <a class="nav-link text-dark"  data-toggle="pill" href="#creditcard" role="tab" aria-controls="v-pills-overview" aria-selected="true"><?php echo lang('clearing_cc') ?></a>
