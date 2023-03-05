@@ -477,7 +477,7 @@ const MeetingPopup = {
 
             container.find('.js-template-cost').val(Math.trunc(selected.data('cost'))).trigger('change')
             container.find('.js-template-duration').val(selected.data('minutes'))
-                .trigger('change').closest('.js-template-chosen').removeClass('d-none')
+                .trigger('change').closest('.js-template-chosen').removeClass('d-none').addClass('d-flex')
 
             if (clientId && fieldEvents.meetingActions.checkCanShowMembership()) {
                 const classTypeId = selected.val()

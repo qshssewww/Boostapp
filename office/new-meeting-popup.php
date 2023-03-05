@@ -1329,7 +1329,7 @@ foreach ($templates as $template) {
                                                 </div>
                                                 <div class="js-treatment-item collapse show">
                                                     <div class="bsapp-fs-16 d-flex align-items-start justify-content-between">
-                                                        <div class="bsapp-fs-16 d-flex flex-column justify-content-be">
+                                                        <div class="bsapp-fs-16 d-flex flex-column justify-content-be w-100">
                                                             <div class="mb-5 d-flex align-items-center justify-content-between">
                                                                 <div class="form-group mb-0 w-100">
                                                                     <div class="is-invalid-container">
@@ -1361,7 +1361,7 @@ foreach ($templates as $template) {
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="d-flex justify-content-between js-template-chosen d-none">
+                                                            <div class="d-none justify-content-between js-template-chosen">
                                                                 <div class="d-flex flex-column w-25">
                                                                     <span class="bsapp-fs-14 mb-2"><?= lang('hour') ?></span>
                                                                     <div class="form-group mb-0">
