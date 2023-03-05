@@ -585,6 +585,9 @@ if (Auth::check()):
                                                                      </div>
                                                 </form>
                                             </div>
+                                            <button type="submit" class="btn btn-success btn-lg">
+                                                <?php echo lang('update') ?>
+                                            </button>
                                          </div>
 
                             </div>
