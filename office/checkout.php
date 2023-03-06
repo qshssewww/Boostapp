@@ -153,7 +153,7 @@ $pageTitle = lang('checkout');
             <div class="form--group-rel">
         	    <div class="bsapp--label">הערה למסמך</div>
                     <input id="comment" class="form--group-input bsapp--icon-input full input--big" placeholder="הקלד\יכאו">
-                    <span id="value-clear" style="cursor: pointer" class="form--group-icon mt-0"><i class="fa fa-times-circle-o"></i></span>
+                    <span id="value-clear" style="cursor: pointer" class="form--group-icon mt-0"><i class="fal fa-times-circle delete-btn"></i></span>
         		</div>
         	</div>
 		<div id="checkoutBottomOptions" class="aside--summary-total">
