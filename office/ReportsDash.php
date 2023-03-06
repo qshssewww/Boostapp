@@ -58,7 +58,7 @@ $CompanyNum = Auth::user()->CompanyNum;
 <?php include("ReportsInc/SideMenu.php"); ?>
 
 <div class="col-md-10 col-sm-12">	
-    <div class="tab-content d-flex justify-content-end">
+    <div class="tab-content">
                         
                         
                         
@@ -66,7 +66,7 @@ $CompanyNum = Auth::user()->CompanyNum;
 							
 							
 							
-<div style="width: 93.4%" class="tab-pane fade show active text-start" role="tabpanel" id="user-overview">
+<div class="tab-pane fade show active text-start" role="tabpanel" id="user-overview">
 <div class="card spacebottom">
       <div class="card-header text-start" ><i class="fas fa-chart-pie fa-fw"></i><strong> <?php echo lang('reports') ?></strong></div>    
   <div class="card-body">       

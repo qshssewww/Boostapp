@@ -18,11 +18,11 @@ $CompanySettingsDash = Settings::getSettings($CompanyNum ?? Auth::user()->Compan
 
 ?>
 
-<div class="col-md-2 col-sm-12">
+<div style="padding: 0 7px" class="col-md-2 col-sm-12">
 
     <!-- Attendance reports | START | דוחות נוכחות -->
     <?php if ($isClasses) { ?>
-    <div style="min-width: 15vw" class="card spacebottom mb-20">
+    <div style="min-width: 12.5vw" class="card spacebottom mb-20">
         <a data-toggle="collapse" href="#reports_menu_attendance" aria-expanded="true" aria-controls="CPAmenu" style="color: black;">
             <div class="card-header text-start">
                 <strong><i class="fal fa-file-chart-line"></i> <?= lang('text_attendance_reports') ?></strong>

@@ -162,6 +162,7 @@ const payCashBtn = document.getElementById('payCash');
 const checkoutDocsPreviewEl = document.getElementById('checkoutDocsPreview');
 const openHalfSidebarBtn = document.querySelectorAll('.js--open-half-sidebar');
 
+
 function updateCreditPaymentSettingsByTypeShva(typeShva) {
 	checkoutDefaultParameters.paymentMethod.labelKey = 'refund_method';
 	switch (typeShva) {
@@ -1029,10 +1030,13 @@ function checkRequiredFields(modalEl) {
 }
 
 export function buildPdfDoc() {
+
 	const checkoutObject = getCheckoutObject();
 	const cartObject = getCartObject();
 	if (!isMobile.matches) {
 		const studioInfoTableEl = document.getElementById('studioInfoTable');
+		const comment = document.getElementById('comment')
+		const valueClear = document.getElementById('value-clear')
 		checkoutDocsPreviewEl.innerHTML = pdfDocBox({
 			isRefund: checkoutObject.isRefundPage ?? false,
 			studioBg: studioInfoTableEl && studioInfoTableEl.getAttribute('data-studio-bg') || '#0D7DFF',
@@ -1042,9 +1046,41 @@ export function buildPdfDoc() {
 			cart: cartObject,
 			hasOrder: checkoutObject.orderId !== null,
 			cartSubtotalPrice: reduceTotal(cartObject.items, 'totalPrice'),
+			comment: comment.value,
 			transactions: checkoutObject.transactions,
 			transactionsTotalPrice: reduceTotal(checkoutObject.transactions)
 		});
+		comment.addEventListener('change', () =>{
+			checkoutDocsPreviewEl.innerHTML = pdfDocBox({
+				isRefund: checkoutObject.isRefundPage ?? false,
+				studioBg: studioInfoTableEl && studioInfoTableEl.getAttribute('data-studio-bg') || '#0D7DFF',
+				studioColor: studioInfoTableEl && studioInfoTableEl.getAttribute('data-studio-color') || '#FFF',
+				dateStr: setDate(new Date(), false, '/'),
+				client: options.helpData.client,
+				cart: cartObject,
+				hasOrder: checkoutObject.orderId !== null,
+				cartSubtotalPrice: reduceTotal(cartObject.items, 'totalPrice'),
+				comment: comment.value,
+				transactions: checkoutObject.transactions,
+				transactionsTotalPrice: reduceTotal(checkoutObject.transactions)
+			});
+		})
+		valueClear.addEventListener('click', () => {
+			comment.value = ''
+			checkoutDocsPreviewEl.innerHTML = pdfDocBox({
+				isRefund: checkoutObject.isRefundPage ?? false,
+				studioBg: studioInfoTableEl && studioInfoTableEl.getAttribute('data-studio-bg') || '#0D7DFF',
+				studioColor: studioInfoTableEl && studioInfoTableEl.getAttribute('data-studio-color') || '#FFF',
+				dateStr: setDate(new Date(), false, '/'),
+				client: options.helpData.client,
+				cart: cartObject,
+				hasOrder: checkoutObject.orderId !== null,
+				cartSubtotalPrice: reduceTotal(cartObject.items, 'totalPrice'),
+				comment: comment.value,
+				transactions: checkoutObject.transactions,
+				transactionsTotalPrice: reduceTotal(checkoutObject.transactions)
+			});
+		})
 	}
 
 	// update a main price input value
