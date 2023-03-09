@@ -244,12 +244,19 @@ export function buildAllCategoriesNav(props) {
 	// add favorite item to navigation
 	nav.push(buildNav(dataFavorites.type, dataFavorites.categoryTitle));
 	// compile navigation
+	console.log(nav)
 	cartNavCategoriesEl.innerHTML = navItem(nav);
 	const haveFavorites = ifFavoritesExists();
 	navOrderPosition(haveFavorites);
 	buildCategory(haveFavorites ? 'favorite' : nav[0].type);
 }
 
+export function userAccountNav(){
+	let nav = []
+	nav.push({type: '#user-account', categoryTitle: '123'});
+	nav.push({type: '#user-account', categoryTitle: '456'});
+	cartNavCategoriesEl.innerHTML = navItem(nav);
+}
 export function getAllItemInfo(target) {
 	const articleEl = target.closest('.article');
 	const articleContentEl = target.closest('.js--article-content');
@@ -273,10 +280,11 @@ export function getAllItemInfo(target) {
 	};
 }
 
-function buildNav(type, categoryTitle) {
+function buildNav(type, categoryTitle, link) {
 	return {
 		type,
-		categoryTitle
+		categoryTitle,
+		link
 	};
 }
 

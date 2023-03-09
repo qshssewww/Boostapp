@@ -14,6 +14,17 @@
             </strong>
             <?php echo @$DocCountC; ?>
         </div>
+        <div>
+            <ul class="bsapp--tabs category--tabs" id="userAccount-nav">
+                <li class="nav-item category active"
+                    <a href="#user-account"
+                        class="nav-link js--nav-link"
+                		<span>פירוט תקבולים</span>
+                		<i class="fa-light fa-angle-left d-lg-none ltr--rotate"></i>
+                	</a>
+                </li>
+            </ul>
+        </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-md-3 col-sm-12">

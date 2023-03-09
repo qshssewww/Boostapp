@@ -259,12 +259,13 @@ $UserId = $ClientId;
   </div>
   <div class="row">
     <div class="col-md-2 col-sm-12 mobile-p-0"  id="menusidebarborder">
-      <div class="card spacebottom">
+      <div style="border-radius: .5rem; border-color: #969696" class="card spacebottom mb-media">
         <a data-toggle="collapse" href="#MenuCard" aria-expanded="true" aria-controls="MenuCard" style="color: black;">
           <div class="card-header text-start">
-            <strong>
-              <i class="fas fa-bars fa-fw">
-              </i> <?php echo lang('customer_nav') ?>
+          <i class="far bsapp-fs-22 fa-chevron-down text-end arrow-icon"></i>
+            <strong style="color: #707070">
+<!--                <?php echo lang('customer_nav') ?> -->
+               לוח בקרה
             </strong>
           </div>
         </a>
@@ -363,42 +364,38 @@ $UserId = $ClientId;
               </a>
               <?php } ?>
               <?php if (Auth::userCan('69')): ?>
-              <div class="group">
-                <a class="nav-link text-dark dropdown-toggle" id="btnGroupDrop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
+                <a class="nav-link text-dark" href="#user-account" data-toggle="pill" role="tab" aria-controls="v-pills-lead" aria-selected="false" style="cursor: pointer;">
                   <i class="fas fa-shekel-sign fa-fw">
                   </i> <?php echo lang('bookkeeping') ?>
                 </a>
-                <div class="dropdown-menu text-start dropdown-menu-right py-0" aria-labelledby="btnGroupDrop1">
-                  <a class="dropdown-item py-7" data-toggle="pill" href="#user-account" role="tab" aria-controls="v-pills-sendit" aria-selected="false">
-                    <i class="fas fa-shekel-sign fa-fw">
-                    </i> <?php echo lang('docs') ?>
-                  </a>
-                  <a class="dropdown-item py-7" data-toggle="pill" href="#user-accountmoney" role="tab" aria-controls="v-pills-archivsms" aria-selected="false">
-                    <i class="fas fa-list-ul fa-fw">
-                    </i> <?php echo lang('detailed_receipt') ?>
-                  </a>
-                </div>
-              </div>
+<!--                 <div class="dropdown-menu text-start dropdown-menu-right py-0" aria-labelledby="btnGroupDrop1"> -->
+<!--                   <a class="dropdown-item py-7" data-toggle="pill" href="#user-account" role="tab" aria-controls="v-pills-sendit" aria-selected="false"> -->
+<!--                     <i class="fas fa-shekel-sign fa-fw"> -->
+<!--                     </i> <?php echo lang('docs') ?> -->
+<!--                   </a> -->
+<!--                   <a class="dropdown-item py-7" data-toggle="pill" href="#user-accountmoney" role="tab" aria-controls="v-pills-archivsms" aria-selected="false"> -->
+<!--                     <i class="fas fa-list-ul fa-fw"> -->
+<!--                     </i> <?php echo lang('detailed_receipt') ?> -->
+<!--                   </a> -->
+<!--                 </div> -->
               <?php endif; ?>
               <?php if ((!$isRandomClient) && (Auth::userCan('75') || $editLeadsPermission) ): ?>
-              <div class="group">
-                <a class="nav-link text-dark dropdown-toggle" id="btnGroupDrop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
+                <a class="nav-link text-dark" href="#user-sendit" data-toggle="pill" role="tab" aria-controls="v-pills-lead" aria-selected="false" style="cursor: pointer;">
                   <i class="fas fa-comments fa-fw">
                   </i> <?php echo lang('messages') ?>
                 </a>
-                <div class="dropdown-menu text-start dropdown-menu-right py-0" aria-labelledby="btnGroupDrop1">
-                  <a class="dropdown-item py-7" data-toggle="pill" href="#user-sendit" role="tab" aria-controls="v-pills-sendit" aria-selected="false">
-                    <i class="fas fa-share-square fa-fw">
-                    </i> <?php echo lang('send_message') ?>
-                  </a>
-                  <?php if (Auth::userCan('77') || $editLeadsPermission): ?>
-                  <a class="dropdown-item py-7" data-toggle="pill" href="#user-ArchiveMessage" role="tab" aria-controls="v-pills-archivsms" aria-selected="false">
-                    <i class="fas fa-comments fa-fw">
-                    </i> <?php echo lang('archive_msg') ?>
-                  </a>
-                  <?php endif; ?>
-                </div>
-              </div>
+<!--                 <div class="dropdown-menu text-start dropdown-menu-right py-0" aria-labelledby="btnGroupDrop1"> -->
+<!--                   <a class="dropdown-item py-7" data-toggle="pill" href="#user-sendit" role="tab" aria-controls="v-pills-sendit" aria-selected="false"> -->
+<!--                     <i class="fas fa-share-square fa-fw"> -->
+<!--                     </i> <?php echo lang('send_message') ?> -->
+<!--                   </a> -->
+<!--                   <?php if (Auth::userCan('77') || $editLeadsPermission): ?> -->
+<!--                   <a class="dropdown-item py-7" data-toggle="pill" href="#user-ArchiveMessage" role="tab" aria-controls="v-pills-archivsms" aria-selected="false"> -->
+<!--                     <i class="fas fa-comments fa-fw"> -->
+<!--                     </i> <?php echo lang('archive_msg') ?> -->
+<!--                   </a> -->
+<!--                   <?php endif; ?> -->
+<!--                 </div> -->
               <?php endif; ?>
               <?php if (Auth::userCan('70')): ?>
               <div class="group">
@@ -439,32 +436,30 @@ $UserId = $ClientId;
                 </div>
               </div>
               <?php endif; ?>
-              <div class="group" role="group">
-                <a class="nav-link text-dark dropdown-toggle" id="btnGroupDrop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
+                <a class="nav-link text-dark" href="#user-settings" data-toggle="pill" role="tab" aria-controls="v-pills-lead" aria-selected="false" style="cursor: pointer;">
                   <i class="fas fa-cogs fa-fw">
                   </i> <?php echo lang('path_settings') ?>
                 </a>
-                <div class="dropdown-menu text-start dropdown-menu-right py-0" aria-labelledby="btnGroupDrop1">
-                  <?php if (Auth::userCan('78' || $editLeadsPermission) && !$isRandomClient): ?>
-                  <a class="dropdown-item py-7" data-toggle="pill" href="#user-settings" role="tab" aria-selected="false">
-                    <i class="far fa-edit fa-fw">
-                    </i> <?php echo lang('edit_customer_card') ?>
-                  </a>
-                  <?php endif ?>
-                  <?php if (@$Supplier->Status!='2') { ?>
-                  <a class="dropdown-item py-7" data-toggle="pill" href="#user-files" role="tab" aria-selected="false" style="display: none;">
-                    <i class="far fa-hdd fa-fw">
-                    </i> <?php echo lang('file') ?>
-                  </a>
-                  <?php } ?>
-                  <?php if (Auth::userCan('79')): ?>
-                  <a class="dropdown-item py-7" data-toggle="pill" href="#user-log" role="tab" aria-selected="false">
-                    <i class="fas fa-bars fa-fw">
-                    </i> <?php echo lang('log_single') ?>
-                  </a>
-                  <?php endif ?>
-                </div>
-              </div>
+<!--                 <div class="dropdown-menu text-start dropdown-menu-right py-0" aria-labelledby="btnGroupDrop1"> -->
+<!--                   <?php if (Auth::userCan('78' || $editLeadsPermission) && !$isRandomClient): ?> -->
+<!--                   <a class="dropdown-item py-7" data-toggle="pill" href="#user-settings" role="tab" aria-selected="false"> -->
+<!--                     <i class="far fa-edit fa-fw"> -->
+<!--                     </i> <?php echo lang('edit_customer_card') ?> -->
+<!--                   </a> -->
+<!--                   <?php endif ?> -->
+<!--                   <?php if (@$Supplier->Status!='2') { ?> -->
+<!--                   <a class="dropdown-item py-7" data-toggle="pill" href="#user-files" role="tab" aria-selected="false" style="display: none;"> -->
+<!--                     <i class="far fa-hdd fa-fw"> -->
+<!--                     </i> <?php echo lang('file') ?> -->
+<!--                   </a> -->
+<!--                   <?php } ?> -->
+<!--                   <?php if (Auth::userCan('79')): ?> -->
+<!--                   <a class="dropdown-item py-7" data-toggle="pill" href="#user-log" role="tab" aria-selected="false"> -->
+<!--                     <i class="fas fa-bars fa-fw"> -->
+<!--                     </i> <?php echo lang('log_single') ?> -->
+<!--                   </a> -->
+<!--                   <?php endif ?> -->
+<!--                 </div> -->
             </div>
           </div>
         </div>
@@ -2264,6 +2259,25 @@ $EndDate = $_REQUEST["year"].'-12-31';
 $DocGetsC = DB::table('docs_payment')->where('CompanyNum' ,'=', $CompanyNum)->where('ClientId','=', $Supplier->id)->whereBetween('UserDate', array($StartDate, $EndDate))->orderBy('id', 'DESC')->get();
 $DocCountC = count($DocGetsC);
 ?>
+
+    <div id="userAccount-nav" class="user-nav">
+                                <div class="nav-item category">
+                                    <a style="color: black" data-toggle="pill" href="#user-account" role="tab" aria-controls="v-pills-sendit" aria-selected="false" class="nav-a">
+                                		<span>
+                                		מסמכים
+                                		</span>
+                                		<div class="user-line"></div>
+                                	</a>
+                                </div>
+                                <div class="nav-item category">
+                                     <a data-toggle="pill" href="#user-accountmoney" role="tab" aria-controls="v-pills-archivsms" aria-selected="false" class="nav-a">
+                                		<span>
+                                		פירוט תקבולים
+                                		</span>
+                                		<div class="user-line d-none"></div>
+                                     </a>
+                                </div>
+                            </div>
     <div class="card spacebottom">
       <div class="card-header text-start">
         <i class="fas fa-shekel-sign">

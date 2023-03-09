@@ -152,6 +152,7 @@ $pageTitle = lang('checkout');
 		<div style="padding-bottom: 0" class="form--group-items pb-0">
             <div class="form--group-rel">
         	    <div class="bsapp--label">הערה למסמך</div>
+        	    <?php=lang('card_document_none')?>
                     <input id="comment" class="form--group-input bsapp--icon-input full input--big" placeholder="הקלד\יכאו">
                     <span id="value-clear" style="cursor: pointer" class="form--group-icon mt-0"><i class="fal fa-times-circle delete-btn"></i></span>
         		</div>

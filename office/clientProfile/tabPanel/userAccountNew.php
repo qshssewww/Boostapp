@@ -7,14 +7,65 @@
     $DocGetsC = DB::table('docs')->where('CompanyNum' ,'=', $CompanyNum)->where('ClientId','=', $Supplier->id)->where('Accounts','=','1')->whereBetween('UserDate', array($StartDate, $EndDate))->orderBy('id', 'DESC')->get();
     $DocCountC = count($DocGetsC);
     ?>
+    <?php
+    ini_set("max_execution_time", 0);
+
+    require_once "../app/init.php";
+    require_once "Classes/Translations.php";
+    require_once "../app/helpers/MultiUserHelper.php";
+
+    if (!Auth::check()) {
+        redirect_to('//' . $_SERVER['HTTP_HOST']);
+    }
+
+    $theme_prefix = 'bsapp';
+    $_SESSION['lang'] = $_COOKIE['boostapp_lang'] ?? 'he';
+    $pageTitle = lang('cart_title');
+    ?>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="csrf-token" content="<?php echo csrf_token() ?>">
+
+        <link href="/assets/office/fontawesome6/pro/css/fontawesome.css" rel="stylesheet">
+        <link href="/assets/office/fontawesome6/pro/css/solid.css" rel="stylesheet">
+        <link href="/assets/office/fontawesome6/pro/css/light.css" rel="stylesheet">
+
+    	<script src="/assets/office/dist/vendor.bundle.js" defer></script>
+    	<script src="/assets/office/dist/cart.bundle.js" defer></script>
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P3BPF8F');</script>
+        <!-- End Google Tag Manager -->
+
+    </head>
+
+<!--     <div id="userAccount-nav" class="user-nav"> -->
+<!--                                 <a style="color: black" data-toggle="pill" href="#user-account" role="tab" aria-controls="v-pills-sendit" aria-selected="false" class="nav-a"> -->
+<!--                             		<span> -->
+<!--                             		מסמכים -->
+<!--                             		</span> -->
+<!--                             		<div class="user-line"></div> -->
+<!--                             	</a> -->
+<!--                                  <a style="color: black" data-toggle="pill" href="#user-accountmoney" role="tab" aria-controls="v-pills-archivsms" aria-selected="false" class="nav-a"> -->
+<!--                             		<span> -->
+<!--                             		פירוט תקבולים -->
+<!--                             		</span> -->
+<!--                             		<div class="user-line d-none"></div> -->
+<!--                                  </a> -->
+<!--                         </div> -->
     <div class="card spacebottom">
-        <div class="card-header text-start">
-            <i class="fas fa-shekel-sign">
-            </i>
-            <strong><?php echo lang('customer_card_bookkeeping') ?> ::
-            </strong>
-            <?php echo @$DocCountC; ?>
-        </div>
+                <div class="card-header text-start">
+                    <i class="fas fa-shekel-sign">
+                    </i>
+                    <strong><?php echo lang('customer_card_bookkeeping') ?> ::
+                    </strong>
+                    <?php echo @$DocCountC; ?>
+                </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-md-3 col-sm-12">

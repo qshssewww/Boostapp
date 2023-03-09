@@ -192,6 +192,8 @@ async function initialRequest() {
 	});
 }
 
+
+
 function widthChange() {
 	if (!isMobile.matches) {
 		const activeEl = document.querySelector('.js--nav-link.active');
