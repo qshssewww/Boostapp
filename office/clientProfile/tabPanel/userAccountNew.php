@@ -43,21 +43,27 @@
         <!-- End Google Tag Manager -->
 
     </head>
-
-<!--     <div id="userAccount-nav" class="user-nav"> -->
-<!--                                 <a style="color: black" data-toggle="pill" href="#user-account" role="tab" aria-controls="v-pills-sendit" aria-selected="false" class="nav-a"> -->
-<!--                             		<span> -->
-<!--                             		מסמכים -->
-<!--                             		</span> -->
-<!--                             		<div class="user-line"></div> -->
-<!--                             	</a> -->
-<!--                                  <a style="color: black" data-toggle="pill" href="#user-accountmoney" role="tab" aria-controls="v-pills-archivsms" aria-selected="false" class="nav-a"> -->
-<!--                             		<span> -->
-<!--                             		פירוט תקבולים -->
-<!--                             		</span> -->
-<!--                             		<div class="user-line d-none"></div> -->
-<!--                                  </a> -->
-<!--                         </div> -->
+    <script>
+        function clickUserAccountA(){
+            document.querySelector('#user-account').classList.remove('show')
+            document.querySelector('#user-account').classList.remove('active')
+            document.querySelector('#user-accountmoney').classList.add('show')
+            document.querySelector('#user-accountmoney').classList.add('active')
+        }
+    </script>
+    <div id="userAccount-nav" class="user-nav">
+                                <a style="color: black" href="#user-account"  class="nav-a">
+                            		<span>
+                            		<?php echo lang('docs') ?>
+                            		</span>
+                            		<div class="user-line"></div>
+                            	</a>
+                                 <a style="color: #B9B9B9" onclick="clickUserAccountA()" style="color: black" href="#user-accountmoney" class="nav-a">
+                            		<span>
+                            		<?php echo lang('detailed_receipt') ?>
+                            		</span>
+                                 </a>
+                        </div>
     <div class="card spacebottom">
                 <div class="card-header text-start">
                     <i class="fas fa-shekel-sign">
