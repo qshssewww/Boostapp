@@ -398,28 +398,43 @@ $UserId = $ClientId;
 <!--                 </div> -->
               <?php endif; ?>
               <?php if (Auth::userCan('70')): ?>
-                <a class="nav-link text-dark" href="#user-pay" data-toggle="pill" role="tab" aria-haspopup="v-pills-lead" aria-expanded="false" style="cursor: pointer;">
+              <div class="group">
+                <a class="nav-link text-dark dropdown-toggle" id="btnGroupDrop2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
                   <i class="fas fa-credit-card fa-fw">
                   </i> <?php echo lang('customer_card_charges') ?>
                 </a>
-<!--                 <div class="dropdown-menu text-start dropdown-menu-right py-0" aria-labelledby="btnGroupDrop2"> -->
-<!--                   <a class="dropdown-item py-7" data-toggle="pill" href="#user-pay" role="tab" aria-controls="v-pills-pay" aria-selected="false"> -->
-<!--                     <i class="fas fa-credit-card fa-fw"> -->
-<!--                     </i> <?php echo lang('charge_client') ?> -->
-<!--                   </a> -->
-<!--                   <a class="dropdown-item py-7" data-toggle="pill" href="#user-paytoken" role="tab" aria-controls="v-pills-paytoken" aria-selected="false"> -->
-<!--                     <i class="fas fa-sync fa-fw"> -->
-<!--                     </i> <?php echo lang('hok_title') ?> -->
-<!--                   </a> -->
-<!--                   <a class="dropdown-item SaveTokenMeshulam py-7" id="SaveTokenMeshulam" data-toggle="pill" href="#user-token" role="tab" aria-controls="v-pills-token" aria-selected="false"> -->
-<!--                     <i class="fab fa-expeditedssl fa-fw"> -->
-<!--                     </i> <?php echo lang('save_credit_card') ?> -->
-<!--                   </a> -->
-<!--                   <a class="dropdown-item text-danger py-7" data-toggle="pill" href="#user-refoundpay" role="tab" aria-controls="v-pills-pay" aria-selected="false"> -->
-<!--                     <i class="fas fa-credit-card fa-fw"> -->
-<!--                     </i> <?php echo lang('refund_title') ?> -->
-<!--                   </a> -->
-<!--                 </div> -->
+                <div class="dropdown-menu text-start dropdown-menu-right py-0" aria-labelledby="btnGroupDrop2">
+                    <?php
+                    //todo-bp-909 (cart) remove-beta
+                    $CompanySettingsDash = DB::table('settings')->where('CompanyNum', '=', $CompanyNum)->first();
+                    if(!in_array($CompanySettingsDash->beta, [1]))
+                    { ?>
+                  <a class="dropdown-item py-7" data-toggle="pill" href="#user-pay" role="tab" aria-controls="v-pills-pay" aria-selected="false">
+                    <i class="fas fa-credit-card fa-fw">
+                    </i> <?php echo lang('charge_client') ?>
+                  </a>
+                  <?php }
+                  if (Auth::userCan('72') && !$isRandomClient && $Supplier->Status!='2') { ?>
+                  <a class="dropdown-item py-7" data-toggle="pill" href="#user-paytoken" role="tab" aria-controls="v-pills-paytoken" aria-selected="false">
+                    <i class="fas fa-sync fa-fw">
+                    </i> <?php echo lang('hok_title') ?>
+                  </a>
+                  <?php } ?>
+                  <?php if (Auth::userCan('73') && !$Supplier->isRandomClient): ?>
+                  <a class="dropdown-item SaveTokenMeshulam py-7" id="SaveTokenMeshulam" data-toggle="pill" href="#user-token" role="tab" aria-controls="v-pills-token" aria-selected="false">
+                    <i class="fab fa-expeditedssl fa-fw">
+                    </i> <?php echo lang('save_credit_card') ?>
+                  </a>
+                  <?php endif; ?>
+                  <?php //todo-bp-909 (cart) remove-beta
+                    if(Auth::userCan('71') && !in_array($CompanySettingsDash->beta, [1])) : ?>
+                  <a class="dropdown-item text-danger py-7" data-toggle="pill" href="#user-refoundpay" role="tab" aria-controls="v-pills-pay" aria-selected="false">
+                    <i class="fas fa-credit-card fa-fw">
+                    </i> <?php echo lang('refund_title') ?>
+                  </a>
+                  <?php endif; ?>
+                </div>
+              </div>
               <?php endif; ?>
                 <a class="nav-link text-dark" href="#user-settings" data-toggle="pill" role="tab" aria-controls="v-pills-lead" aria-selected="false" style="cursor: pointer;">
                   <i class="fas fa-cogs fa-fw">
@@ -2115,27 +2130,6 @@ $MedicalStatus = '<span class="text-danger">(מוסתר)</span>';
 <?php endif ?>
 <?php if (Auth::userCan('75') || $editLeadsPermission): ?>
 <div class="tab-pane fade text-start" role="tabpanel" id="user-sendit">
-<script>
-    function clickUserArchiveMessageA(){
-        document.querySelector('#user-sendit').classList.remove('show')
-        document.querySelector('#user-sendit').classList.remove('active')
-        document.querySelector('#user-ArchiveMessage').classList.add('show')
-        document.querySelector('#user-ArchiveMessage').classList.add('active')
-      }
-  </script>
-<div id="userAccount-nav" class="user-nav">
-                                    <a style="color: black" href="#user-sendit"class="nav-a">
-                                 		<span>
-                                  		<?php echo lang('send_message')?>
-                                 		</span>
-                                   		<div class="user-line"></div>
-                                 </a>
-                                    <a onclick="clickUserArchiveMessageA()" style="color: #B9B9B9" href="#user-ArchiveMessage" class="nav-a">
-                                  		<span>
-                                        <?php echo lang('archive_msg') ?>
-                                   		</span>
-                                  	</a>
-</div>
   <div class="card spacebottom">
     <div class="card-header text-start">
       <i class="fas fa-share-square fa-fw">
@@ -2265,27 +2259,25 @@ $EndDate = $_REQUEST["year"].'-12-31';
 $DocGetsC = DB::table('docs_payment')->where('CompanyNum' ,'=', $CompanyNum)->where('ClientId','=', $Supplier->id)->whereBetween('UserDate', array($StartDate, $EndDate))->orderBy('id', 'DESC')->get();
 $DocCountC = count($DocGetsC);
 ?>
-  <script>
-    function clickUserAccountMoneyA(){
-        document.querySelector('#user-accountmoney').classList.remove('show')
-        document.querySelector('#user-accountmoney').classList.remove('active')
-        document.querySelector('#user-account').classList.add('show')
-        document.querySelector('#user-account').classList.add('active')
-      }
-  </script>
-     <div id="userAccount-nav" class="user-nav">
-                                    <a style="color: #B9B9B9" onclick="clickUserAccountMoneyA()" href="#user-account" class="nav-a">
-                                  		<span>
-                                        <?php echo lang('docs') ?>
-                                   		</span>
-                                  	</a>
-                                    <a style="color: black" href="#user-accountmoney"class="nav-a">
-                                 		<span>
-                                  		<?php echo lang('detailed_receipt') ?>
-                                 		</span>
-                                   		<div class="user-line"></div>
-                                 </a>
-                       </div>
+
+    <div id="userAccount-nav" class="user-nav">
+                                <div class="nav-item category">
+                                    <a style="color: black" data-toggle="pill" href="#user-account" role="tab" aria-controls="v-pills-sendit" aria-selected="false" class="nav-a">
+                                		<span>
+                                		מסמכים
+                                		</span>
+                                		<div class="user-line"></div>
+                                	</a>
+                                </div>
+                                <div class="nav-item category">
+                                     <a data-toggle="pill" href="#user-accountmoney" role="tab" aria-controls="v-pills-archivsms" aria-selected="false" class="nav-a">
+                                		<span>
+                                		פירוט תקבולים
+                                		</span>
+                                		<div class="user-line d-none"></div>
+                                     </a>
+                                </div>
+                            </div>
     <div class="card spacebottom">
       <div class="card-header text-start">
         <i class="fas fa-shekel-sign">
@@ -2316,7 +2308,7 @@ if ($x == $_REQUEST["year"]) {echo "<option selected>$x</option>";}	else {echo "
           </div>
           <hr>
           <?php if ($DocCountC != '0') { ?>
-          <table class="table table-bordered table-hover table-responsive-md text-start wrap Carteset d-table"   cellspacing="0" width="100%" id="AccountsTable">
+          <table class="table table-bordered table-hover table-responsive-md text-start wrap Carteset"   cellspacing="0" width="100%" id="AccountsTable">
             <thead class="thead-dark">
               <tr style="background-color:#bce8f1;">
                 <th  style="text-align:start;">#
@@ -2433,27 +2425,6 @@ $BalanceTotal += $DocGet->Amount;
     <?php endif ?>
     <?php if (Auth::userCan('78') || $editLeadsPermission ): ?>
     <div class="tab-pane fade" role="tabpanel" id="user-settings">
-      <script>
-        function clickUserLog(){
-            document.querySelector('#user-settings').classList.remove('show')
-            document.querySelector('#user-settings').classList.remove('active')
-            document.querySelector('#user-log').classList.add('show')
-            document.querySelector('#user-log').classList.add('active')
-          }
-      </script>
-    <div id="userAccount-nav" class="user-nav">
-                                        <a style="color: black" href="#user-settings" class="nav-a">
-                                      		<span>
-                                            <?php echo lang('client_profile_settings_customer_card') ?>
-                                       		</span>
-                                       		<div class="user-line"></div>
-                                      	</a>
-                                        <a onclick="clickUserLog()" style="color: #B9B9B9" href="#user-log"class="nav-a">
-                                     		<span>
-                                      		<?php echo lang('log_single') ?>
-                                     		</span>
-                                     </a>
-                           </div>
       <div class="card spacebottom">
         <div class="card-header text-start">
           <i class="far fa-edit fa-fw">
@@ -3266,27 +3237,6 @@ elseif (@$ClassAct->Level == '2') {$LevelIcon = '<i class="fas fa-star"></i><i c
 <?php endif ?>
 <?php if (Auth::userCan('77') || $editLeadsPermission): ?>
 <div class="tab-pane fade" role="tabpanel" id="user-ArchiveMessage">
-<script>
-    function clickUserSenditA(){
-        document.querySelector('#user-ArchiveMessage').classList.remove('show')
-        document.querySelector('#user-ArchiveMessage').classList.remove('active')
-        document.querySelector('#user-sendit').classList.add('show')
-        document.querySelector('#user-sendit').classList.add('active')
-      }
-  </script>
-<div id="userAccount-nav" class="user-nav">
-                                    <a onclick="clickUserSenditA()" style="color: #B9B9B9" href="#user-sendit"class="nav-a">
-                                 		<span>
-                                  		<?php echo lang('send_message')?>
-                                 		</span>
-                                 </a>
-                                    <a style="color: black" href="#user-ArchiveMessage" class="nav-a">
-                                  		<span>
-                                        <?php echo lang('archive_msg') ?>
-                                   		</span>
-                                   		<div class="user-line"></div>
-                                  	</a>
-</div>
   <div class="card spacebottom">
     <div class="card-header text-start">
       <i class="fas fa-comments fa-fw">
@@ -3410,43 +3360,6 @@ foreach ($SmsLogList as $SmsLog) {
 <?php endif ?>
 <?php if (Auth::userCan('70')): ?>
 <div class="tab-pane fade" role="tabpanel" id="user-pay">
-<script>
-    function clickUserPay(){
-        document.querySelector('#user-paytoken').classList.remove('show')
-        document.querySelector('#user-paytoken').classList.remove('active')
-        document.querySelector('#user-token').classList.remove('show')
-        document.querySelector('#user-token').classList.remove('active')
-        document.querySelector('#user-refoundpay').classList.remove('active')
-        document.querySelector('#user-refoundpay').classList.remove('active')
-
-
-        document.querySelector('#user-pay').classList.add('show')
-        document.querySelector('#user-pay').classList.add('active')
-      }
-  </script>
- <div id="userAccount-nav" class="user-nav">
-                                    <a onclick="clickUserPay()" style="color: black" href="#user-pay" class="nav-a">
-                                  		<span>
-                                            <?php echo lang('client_profile_bookkeping_refund') ?>
-                                   		</span>
-                                   		<div class="user-line"></div>
-                                  	</a>
-                                    <a onclick="clickUserPaytoken()" style="color: #B9B9B9" href="#user-paytoken" class="nav-a">
-                                 		<span>
-                                  		    <?php echo lang('hok_title') ?>
-                                 		</span>
-                                 </a>
-                                 <a onclick="clickUserToken()" style="color: #B9B9B9" id="SaveTokenMeshulam" href="#user-token" class="nav-a">
-                                        <span>
-                                            <?php echo lang('client_profile_bookkeepping_save_cc') ?>
-                                        </span>
-                                 </a>
-                                 <a onclick="clickUserRefoundpay()" style="color: #B9B9B9" href="#user-refoundpay" class="nav-a">
-                                        <span>
-                                            <?php echo lang('credit_monetary') ?>
-                                        </span>
-                                 </a>
-                       </div>
   <div class="card spacebottom">
     <div class="card-header d-flex justify-content-between text-start">
       <div>
@@ -4009,43 +3922,6 @@ foreach ($SmsLogList as $SmsLog) {
 <?php endif ?>
 
 <div class="tab-pane fade" role="tabpanel" id="user-refoundpay">
-<script>
-    function clickUserRefoundpay(){
-        document.querySelector('#user-pay').classList.remove('show')
-        document.querySelector('#user-pay').classList.remove('active')
-        document.querySelector('#user-paytoken').classList.remove('show')
-        document.querySelector('#user-paytoken').classList.remove('active')
-        document.querySelector('#user-token').classList.remove('show')
-        document.querySelector('#user-token').classList.remove('active')
-
-
-        document.querySelector('#user-refoundpay').classList.add('show')
-        document.querySelector('#user-refoundpay').classList.add('active')
-      }
-  </script>
-<div id="userAccount-nav" class="user-nav">
-                                    <a onclick="clickUserPay()" style="color: #B9B9B9" href="#user-pay" class="nav-a">
-                                  		<span>
-                                            <?php echo lang('client_profile_bookkeping_refund') ?>
-                                   		</span>
-                                  	</a>
-                                    <a onclick="clickUserPaytoken()" style="color: #B9B9B9" href="#user-paytoken" class="nav-a">
-                                 		<span>
-                                  		    <?php echo lang('client_profile_bookkeeping_standing_order') ?>
-                                 		</span>
-                                 </a>
-                                 <a onclick="clickUserToken()" style="color: #B9B9B9" id="SaveTokenMeshulam" href="#user-token" class="nav-a">
-                                        <span>
-                                            <?php echo lang('client_profile_bookkeepping_save_cc') ?>
-                                        </span>
-                                 </a>
-                                 <a onclick="clickUserRefoundpay()" style="color: black" href="#user-refoundpay" class="nav-a">
-                                        <span>
-                                            <?php echo lang('credit_monetary') ?>
-                                        </span>
-                         		 <div class="user-line"></div>
-                                 </a>
-                       </div>
   <div class="card spacebottom">
     <div class="card-header text-start">
       <i class="fas fa-credit-card fa-fw">
@@ -4645,42 +4521,6 @@ foreach ($SmsLogList as $SmsLog) {
 </div>
 <?php if (Auth::userCan('72')): ?>
 <div class="tab-pane fade" role="tabpanel" id="user-paytoken">
-<script>
-    function clickUserPaytoken(){
-        document.querySelector('#user-pay').classList.remove('show')
-        document.querySelector('#user-pay').classList.remove('active')
-        document.querySelector('#user-token').classList.remove('show')
-        document.querySelector('#user-token').classList.remove('active')
-        document.querySelector('#user-refoundpay').classList.remove('show')
-        document.querySelector('#user-refoundpay').classList.remove('active')
-
-        document.querySelector('#user-paytoken').classList.add('show')
-        document.querySelector('#user-paytoken').classList.add('active')
-      }
-  </script>
-<div id="userAccount-nav" class="user-nav">
-                                    <a onclick="clickUserPay()" style="color: #B9B9B9" href="#user-pay" class="nav-a">
-                                  		<span>
-                                            <?php echo lang('client_profile_bookkeping_refund') ?>
-                                   		</span>
-                                  	</a>
-                                    <a onclick="clickUserPaytoken()" style="color: black" href="#user-paytoken" class="nav-a">
-                                 		<span>
-                                  		    <?php echo lang('client_profile_bookkeeping_standing_order') ?>
-                                 		</span>
-                                 		<div class="user-line"></div>
-                                 </a>
-                                 <a onclick="clickUserToken()" style="color: #B9B9B9" id="SaveTokenMeshulam" href="#user-token" class="nav-a">
-                                        <span>
-                                            <?php echo lang('client_profile_bookkeepping_save_cc') ?>
-                                        </span>
-                                 </a>
-                                 <a onclick="clickUserRefoundpay()" style="color: #B9B9B9" href="#user-refoundpay" class="nav-a">
-                                        <span>
-                                            <?php echo lang('credit_monetary') ?>
-                                        </span>
-                                 </a>
-                       </div>
   <div class="card spacebottom">
     <div class="card-header text-start">
       <i class="fas fa-sync fa-fw">
@@ -5128,27 +4968,6 @@ $DataDates = '1';
 <?php endif ?>
 <?php if (Auth::userCan('79')): ?>
 <div class="tab-pane fade" role="tabpanel" id="user-log">
-<script>
-        function clickUserSetings(){
-            document.querySelector('#user-log').classList.remove('show')
-            document.querySelector('#user-log').classList.remove('active')
-            document.querySelector('#user-settings').classList.add('show')
-            document.querySelector('#user-settings').classList.add('active')
-          }
-      </script>
-    <div id="userAccount-nav" class="user-nav">
-                                        <a style="color: #B9B9B9" onclick="clickUserSetings()" href="#user-settings" class="nav-a">
-                                      		<span>
-                                            <?php echo lang('client_profile_settings_customer_card') ?>
-                                       		</span>
-                                      	</a>
-                                        <a style="color: black" href="#user-log"class="nav-a">
-                                     		<span>
-                                      		<?php echo lang('log_single') ?>
-                                     		</span>
-                                       		<div class="user-line"></div>
-                                     </a>
-                           </div>
   <div class="card spacebottom">
     <div class="card-header text-start">
       <i class="fas fa-bars fa-fw">
@@ -5162,7 +4981,7 @@ echo '<div  class="text-start">'.lang('no_log_data').'</div>';
 }
 else {
 ?>
-      <table class="table table-bordered table-hover table-responsive-md text-start wrap Log d-table"   cellspacing="0" width="100%" id="AccountsTable">
+      <table class="table table-bordered table-hover table-responsive-md text-start wrap Log"   cellspacing="0" width="100%" id="AccountsTable">
         <thead class="thead-dark">
           <tr>
             <th style="text-align:start;">#
@@ -5237,8 +5056,8 @@ $ClientUploads = Upload::getByClientId((int)$ClientId);
       <form id="ClientDocUploadForm" action="ClientDocumentUpload" class="d-none">
       <input type="file" id="docUpload" name="docUpload" accept="image/jpeg, image/jpg, image/png, application/pdf">
       </form>
-
-      <table class="table table-bordered table-hover dt-responsive text-start wrap tableForms d-table"   cellspacing="0" width="100%" id="AccountsTable">
+      
+      <table class="table table-bordered table-hover dt-responsive text-start wrap tableForms"   cellspacing="0" width="100%" id="AccountsTable">
         <thead class="thead-dark">
           <tr>
             <th style="text-align:start;">#
@@ -5349,7 +5168,7 @@ $ClientContacts = DB::table('clientcontact')->where('CompanyNum', $CompanyNum)->
         <a href="#" data-ip-modal="#AddClientContactPopup" name="AddClientContactPopup" class="btn btn-primary text-white"><?php echo lang('add_new_contact') ?>
         </a>
       </div>
-      <table class="table table-bordered table-hover table-responsive-md text-start wrap Log d-table"   cellspacing="0" width="100%" id="AccountsTable">
+      <table class="table table-bordered table-hover table-responsive-md text-start wrap Log"   cellspacing="0" width="100%" id="AccountsTable">
         <thead class="thead-dark">
           <tr>
             <th style="text-align:start;">#
@@ -5529,43 +5348,6 @@ foreach ($ClientContacts as $ClientContact) {
 </script>
 <?php if (Auth::userCan('73')): ?>
 <div class="tab-pane fade" role="tabpanel" id="user-token">
-<script>
-    function clickUserToken(){
-        document.querySelector('#user-pay').classList.remove('show')
-        document.querySelector('#user-pay').classList.remove('active')
-        document.querySelector('#user-paytoken').classList.remove('show')
-        document.querySelector('#user-paytoken').classList.remove('active')
-        document.querySelector('#user-refoundpay').classList.remove('show')
-        document.querySelector('#user-refoundpay').classList.remove('active')
-
-
-        document.querySelector('#user-token').classList.add('show')
-        document.querySelector('#user-token').classList.add('active')
-      }
-  </script>
-<div id="userAccount-nav" class="user-nav">
-                                    <a onclick="clickUserPay()" style="color: #B9B9B9" href="#user-pay" class="nav-a">
-                                  		<span>
-                                            <?php echo lang('client_profile_bookkeping_refund') ?>
-                                   		</span>
-                                  	</a>
-                                    <a onclick="clickUserPaytoken()" style="color: #B9B9B9" href="#user-paytoken" class="nav-a">
-                                 		<span>
-                                  		    <?php echo lang('client_profile_bookkeeping_standing_order') ?>
-                                 		</span>
-                                 </a>
-                                 <a onclick="clickUserToken()" style="color: black" id="SaveTokenMeshulam" href="#user-token" class="nav-a">
-                                        <span>
-                                            <?php echo lang('save_credit_card') ?>
-                                        </span>
-                                        <div class="user-line"></div>
-                                 </a>
-                                 <a onclick="clickUserRefoundpay()" style="color: #B9B9B9" href="#user-refoundpay" class="nav-a">
-                                        <span>
-                                            <?php echo lang('credit_monetary') ?>
-                                        </span>
-                                 </a>
-                       </div>
   <div class="card spacebottom">
     <div class="card-header text-start">
       <i class="fab fa-expeditedssl fa-fw">
@@ -8428,7 +8210,7 @@ if (@$Insurance->Status=='0'){
 
   });
   <?php } ?>
-
+  
   $('#docUpload', '#user-Health').on('change', function(event){
     if(event.target instanceof HTMLInputElement && event.target.type === 'file'){
       if(event.target.files.length > 0 && event.target.value !== ''){
@@ -8488,7 +8270,7 @@ if (@$Insurance->Status=='0'){
                           icon: 'fas fa-exclamation',
                           message: "<?php lang('error_oops_something_went_wrong'); ?>"
                       }, {type: 'danger', z_index: '99999999'});
-                  }
+                  }                
                 });
             } else{
               <?php $fileType =  lang('for_file_type'); $fileType = preg_replace("/TYPE/", 'PDF', $fileType) ?>
@@ -8550,7 +8332,7 @@ if (@$Insurance->Status=='0'){
                           icon: 'fas fa-exclamation',
                           message: "<?php lang('error_oops_something_went_wrong'); ?>"
                       }, {type: 'danger', z_index: '99999999'});
-                  }
+                  }                
                 });
             } else{
               <?php $fileType =  lang('for_file_type'); $fileType = preg_replace("/TYPE/", lang('image_single'), $fileType) ?>

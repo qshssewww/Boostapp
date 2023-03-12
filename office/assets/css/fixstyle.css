@@ -870,6 +870,7 @@ html[dir="ltr"] .floating-plus-btn, html[dir=""] .floating-plus-btn {
   }
 }
 .nav-a{
+  margin-right: 1.25rem;
   font-size: 1.1875rem;
   display: block;
   color: black;
@@ -878,14 +879,13 @@ html[dir="ltr"] .floating-plus-btn, html[dir=""] .floating-plus-btn {
   margin: .5rem 0;
   display: block;
 }
-.nav-a:not(:first-child){
+.nav-a:not(:last-child){
   margin-right: 2rem;
 }
 .user-nav{
-  margin: 0 auto 1.25rem;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
-  overflow: hidden;
+  overflow-x: auto;
 }
 .user-line{
   height: 4px;

@@ -6,27 +6,6 @@
     $DocGetsC = DB::table('docs')->where('CompanyNum' ,'=', $CompanyNum)->where('ClientId','=', $Supplier->id)->where('Accounts','=','1')->whereBetween('UserDate', array($StartDate, $EndDate))->orderBy('id', 'DESC')->get();
     $DocCountC = count($DocGetsC);
     ?>
-    <script>
-            function clickUserAccountA(){
-                document.querySelector('#user-account').classList.remove('show')
-                document.querySelector('#user-account').classList.remove('active')
-                document.querySelector('#user-accountmoney').classList.add('show')
-                document.querySelector('#user-accountmoney').classList.add('active')
-            }
-        </script>
-        <div id="userAccount-nav" class="user-nav">
-                                    <a style="color: black" href="#user-account"  class="nav-a user-account-a">
-                                		<span>
-                                		<?php echo lang('docs') ?>
-                                		</span>
-                                		<div class="user-line"></div>
-                                	</a>
-                                     <a style="color: #B9B9B9" onclick="clickUserAccountA()" style="color: black" href="#user-accountmoney" class="nav-a user-accountmoney-a">
-                                		<span>
-                                		<?php echo lang('detailed_receipt') ?>
-                                		</span>
-                                     </a>
-                            </div>
     <div class="card spacebottom">
         <div class="card-header text-start">
             <i class="fas fa-shekel-sign">
@@ -34,6 +13,17 @@
             <strong><?php echo lang('customer_card_bookkeeping') ?> ::
             </strong>
             <?php echo @$DocCountC; ?>
+        </div>
+        <div>
+            <ul class="bsapp--tabs category--tabs" id="userAccount-nav">
+                <li class="nav-item category active"
+                    <a href="#user-account"
+                        class="nav-link js--nav-link"
+                		<span>פירוט תקבולים</span>
+                		<i class="fa-light fa-angle-left d-lg-none ltr--rotate"></i>
+                	</a>
+                </li>
+            </ul>
         </div>
         <div class="card-body">
             <div class="row">
