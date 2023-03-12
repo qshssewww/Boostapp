@@ -835,6 +835,23 @@ html[dir="ltr"] .floating-plus-btn, html[dir=""] .floating-plus-btn {
   border: 1px solid #FF0045;
   border-radius: 8px;
 }
+.header_red_btn:hover{
+  text-decoration: none!important;
+}
+.header_red_btn-a{
+  font-size: 14px;
+  color: #FF0045!important;
+  padding: 0!important;
+  margin-bottom: 3px;
+}
+@media screen and (max-width: 768px){
+  .header_red_btn-a{
+    display: none;
+  }
+  .header_red_btn{
+    border: none;
+  }
+}
 /** animation time change for header scroll **/
 .bsapp-header-primary-menu.light-animated {
   animation-duration: .3s !important;
