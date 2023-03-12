@@ -839,10 +839,14 @@ html[dir="ltr"] .floating-plus-btn, html[dir=""] .floating-plus-btn {
   text-decoration: none!important;
 }
 .header_red_btn-a{
+  margin: 0 0 3px 4px;
   font-size: 14px;
   color: #FF0045!important;
   padding: 0!important;
-  margin-bottom: 3px;
+}
+.header-red-icon{
+  font-size: 18px;
+  color: #FF0045;
 }
 @media screen and (max-width: 768px){
   .header_red_btn-a{
@@ -850,6 +854,9 @@ html[dir="ltr"] .floating-plus-btn, html[dir=""] .floating-plus-btn {
   }
   .header_red_btn{
     border: none;
+  }
+  .header-red-icon{
+    font-size: 24px;
   }
 }
 /** animation time change for header scroll **/

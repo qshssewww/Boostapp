@@ -604,7 +604,7 @@ $color = Config::get('app.color_scheme');
                                                 <span class="btn header_red_btn-a" title="<?= lang('open_order') ?>" >
                                                     <?= lang('open_order') ?>
                                                 </span>
-                                                <i class="fa-thin fa-file-invoice"></i>
+                                                <i class="fal fa-file-invoice header-red-icon"></i>
                                             </a>
                                         </div>
                                     <?php endif; ?>
