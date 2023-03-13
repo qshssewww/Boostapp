@@ -553,9 +553,9 @@ if (Auth::check()):
 
                                     <!--<hr>	-->
                                     <div class="form-group">
-                                        <button type="submit"
-                                                class="btn btn-success btn-lg"><?php echo lang('update') ?>
-                                        </button>
+    <!--                                         <button type="submit" -->
+    <!--                                                 class="btn btn-success btn-lg"><?php echo lang('update') ?> -->
+    <!--                                         </button> -->
                                         <div class="card spacebottom"role="tabpanel">
                                             <div class="card-header text-start">
                                                 <strong>
