@@ -600,11 +600,11 @@ $color = Config::get('app.color_scheme');
                                         $linkCart = LinkHelper::getPrefixUrlByHttpHost() .  '/office/cart.php?u=' .$OpenCheckoutOrder->ClientId;
                                         ?>
                                         <div class="px-10 bsapp-notification-content align-self-center">
-                                            <a class="px-10 bsapp-notification-content align-self-center header_red_btn" id="openCheckOutOrder" target="_blank" href="<?=$linkCart?>">
+                                            <a class="py-6 bsapp-notification-content align-self-center d-flex header_red_btn" id="openCheckOutOrder" target="_blank" href="<?=$linkCart?>">
+                                            <i class="fal fa-cash-register header-red-icon"></i>
                                                 <span class="btn header_red_btn-a" title="<?= lang('open_order') ?>" >
                                                     <?= lang('open_order') ?>
                                                 </span>
-                                                <i class="fal fa-file-invoice header-red-icon"></i>
                                             </a>
                                         </div>
                                     <?php endif; ?>

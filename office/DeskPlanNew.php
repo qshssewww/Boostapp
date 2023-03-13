@@ -488,7 +488,9 @@ if (Auth::check() ):
         include_once('calendarPopups/zoomPopup.php');
 
         ?>
-
+        <a class="floating-plus-btn header_red_btn_media" id="openCheckOutOrder" target="_blank" href="<?=$linkCart?>">
+            <i class="fal fa-cash-register header-red-icon"></i>
+        </a>
     <?php if (Auth::userCan('166')): ?>
         <a data-toggle="modal" class="floating-plus-btn d-flex bg-primary" href="#js-action-modal" >
             <i class="fal fa-plus fa-lg margin-a"></i>

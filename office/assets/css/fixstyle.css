@@ -832,31 +832,40 @@ html[dir="ltr"] .floating-plus-btn, html[dir=""] .floating-plus-btn {
   border: 1px solid white;
 }
 .header_red_btn{
-  border: 1px solid #FF0045;
-  border-radius: 8px;
+  padding: 0 40px;
+  background: #FDEAEF;
+  border-radius: 12px;
 }
 .header_red_btn:hover{
   text-decoration: none!important;
 }
 .header_red_btn-a{
-  margin: 0 0 3px 4px;
   font-size: 14px;
   color: #FF0045!important;
   padding: 0!important;
 }
 .header-red-icon{
+  margin-left: 4px;
   font-size: 18px;
   color: #FF0045;
 }
+.header_red_btn_media{
+  display: none!important;
+}
 @media screen and (max-width: 768px){
-  .header_red_btn-a{
-    display: none;
-  }
   .header_red_btn{
-    border: none;
+    display: none !important;
+  }
+  .header_red_btn_media{
+    display: flex!important;
+    background: white;
+    margin-bottom: 70px;
+    align-items: center;
+    justify-content: center;
   }
   .header-red-icon{
-    font-size: 24px;
+    margin: 0;
+    font-size: 26px;
   }
 }
 /** animation time change for header scroll **/
