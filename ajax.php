@@ -8950,7 +8950,6 @@ if (isset($_POST['action'])) {
         case 'DocsRemakrsPage':
 
 
-
             if (Auth::guest()) exit;
 
 
@@ -8966,6 +8965,35 @@ if (isset($_POST['action'])) {
 
 
             if ($validator->passes()) {
+
+    $DocsBackgroundColor = $_POST['DocsBackgroundColor'];
+
+                            $DocsDetailDBs = DB::table('docsdetails')->where('CompanyNum', $CompanyNum)->where('EditTable', '=', '1')->get();
+
+                            foreach ($DocsDetailDBs as $DocsDetailDB) {
+
+                                if(isset($_POST['DocChooseTd' . $DocsDetailDB->id])) {
+
+                                    $DocsDetailsId = $DocsDetailDB->id;
+
+                                    $DocsDetailsChooseTd = $_POST['DocChooseTd' . $DocsDetailDB->id];
+
+
+                                    DB::table('docsdetails')
+                                        ->where('id', $DocsDetailsId)
+                                        ->where('CompanyNum', $CompanyNum)
+                                        ->update(array('Status' => $DocsDetailsChooseTd));
+
+                                }
+
+                            }
+
+                            DB::table('settings')
+                                ->where('CompanyNum', $CompanyNum)
+                                ->update(array('DocsBackgroundColor' => $DocsBackgroundColor));
+
+
+
 
 
 
