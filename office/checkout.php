@@ -150,12 +150,15 @@ $pageTitle = lang('checkout');
 		</div>
 		<div id="checkoutBottomTransaction" class="aside--checkout-transaction"></div>
 		<div style="padding-bottom: 0" class="form--group-items pb-0">
-            <div class="form--group-rel">
-        	    <div class="bsapp--label">הערה למסמך</div>
-        	    <?php=lang('card_document_none')?>
+            <div id="checkoutComment" class="form--group-rel d-none">
+        	        <div class="bsapp--label">הערה למסמך</div>
                     <input id="comment" class="form--group-input bsapp--icon-input full input--big" placeholder="הקלד\יכאו">
                     <span id="value-clear" style="cursor: pointer" class="form--group-icon mt-0"><i class="fal fa-times-circle delete-btn"></i></span>
-        		</div>
+        	</div>
+        		<div id="checkoutCommentPlus" style="display: flex" class="form--group-rel justify-content-between">
+           	        <div style="margin: 0" class="bsapp--label">הערה למסמך</div>
+           	        <i class="fa fa-plus add-comment-icon"></i>
+                </div>
         	</div>
 		<div id="checkoutBottomOptions" class="aside--summary-total">
 			<div class="aside--summary-options">

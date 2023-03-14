@@ -200,7 +200,6 @@ function initEvent() {
 		e.preventDefault();
 		buildBottomOptions(e);
 	});
-
 	document.addEventListener('click', async function(e) {
 		for (let target = e.target; target && target != this; target = target.parentNode) {
 			if (target.matches('.js--go-to-payment-confirmation')) {
@@ -245,6 +244,12 @@ function initEvent() {
 				}
 				clearAllTransactions(true);
 				break;
+			} else if (target.matches('.add-comment-icon')) {
+				e.preventDefault();
+				addClass(document.getElementById('checkoutComment'), 'd-block')
+				addClass(document.getElementById('checkoutCommentPlus'), 'd-none')
+				console.log(document.getElementById('checkoutCommentPlus'))
+
 			} else if (target.matches('#removeTransactionsWithoutReturn')) {
 				e.preventDefault();
 				closeErrorModal();
