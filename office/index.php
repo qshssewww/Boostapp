@@ -173,9 +173,6 @@ if(isset($_GET['spid']) && !empty($_GET['spid'])) {
 </script>
 
 <link href="/office/assets/css/fixstyle.css?<?php echo filemtime('assets/css/fixstyle.css') ?>" rel="stylesheet">
-    <a class="floating-plus-btn header_red_btn_media" id="openCheckOutOrder" target="_blank" href="<?=$linkCart?>">
-        <i class="fal fa-cash-register header-red-icon"></i>
-    </a>
     <a href="#js-action-modal" data-toggle="modal" class="floating-plus-btn d-flex bg-primary">
 <!--    <a href="/office/client-popup.php" class="floating-plus-btn d-flex bg-primary">-->
         <i class="fal fa-plus fa-lg margin-a"></i>
