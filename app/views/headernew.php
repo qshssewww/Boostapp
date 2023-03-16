@@ -556,8 +556,8 @@ $color = Config::get('app.color_scheme');
                     </div>
                 </div>
                 <div class="bsapp-main-section js-main-section <?php echo $js_bsapp_shrink; ?> ">
-                    <header style="border-bottom: 2px solid #E3E3E3!important" class="bsapp-horizontal-menu">
-                        <nav class="navbar navbar-expand-lg navbar-light px-5 d-flex justify-content-between js-header-primary-menu bsapp-header-primary-menu position-fixed bsapp-z-99  w-100 <?php echo $js_bsapp_shrink; ?>">
+                    <header class="bg-light bsapp-horizontal-menu">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light px-5 d-flex justify-content-between js-header-primary-menu bsapp-header-primary-menu position-fixed bsapp-z-99  w-100 <?php echo $js_bsapp_shrink; ?>">
                             <div class="d-flex px-10 align-items-center bsapp-main-header-icons">
                                 <a class="js-md-menu-show  d-none d-md-flex text-decoration-none pie-15   <?php echo $js_is_active; ?>" href="javascript:;">
                                     <i class="far fa-bars"></i>
@@ -567,12 +567,12 @@ $color = Config::get('app.color_scheme');
                                         <div class="bsapp-search-minified  js-search-minified ">
                                             <div class="input-group mb-3 input-group-sm bsapp-search-box" id="js-clientsSearch">
                                                 <div class="input-group-prepend"> 
-                                                    <a style="margin-top: 2px; padding-right: 1px;" href="javascript:;" class="input-group-text d-none d-md-flex text-decoration-none " ><i class="far color-fa-search fa-search"></i></a>
+                                                    <a href="javascript:;" class="input-group-text d-none d-md-flex text-decoration-none" ><i class="far fa-search"></i></a>
                                                     <a href="javascript:;" class="input-group-text d-md-none js-show-search" ><i class="far fa-search"></i></a>
                                                 </div>
-                                                <input style="border-radius: 8px !important;" type="text" class="form-control border-2 typeahead js-typeahead"  placeholder="<?php echo lang('search_client') ?>" >
+                                                <input type="text" class="form-control typeahead js-typeahead"  placeholder="<?php echo lang('search_client') ?>" >
                                                 <div class="input-group-append">
-                                                    <a href="javascript:;"  class="input-group-text js-hide-search"><i class="fas fa-times"></i></a>
+                                                    <a href="javascript:;"  class="input-group-text js-hide-search" ><i class="fas fa-times"></i></a> 
                                                 </div>
                                             </div>
                                         </div>
@@ -600,24 +600,23 @@ $color = Config::get('app.color_scheme');
                                         $linkCart = LinkHelper::getPrefixUrlByHttpHost() .  '/office/cart.php?u=' .$OpenCheckoutOrder->ClientId;
                                         ?>
                                         <div class="px-10 bsapp-notification-content align-self-center">
-                                            <a class="py-6 bsapp-notification-content align-self-center d-flex header_red_btn" id="openCheckOutOrder" target="_blank" href="<?=$linkCart?>">
-                                            <i class="fal fa-cash-register header-red-icon"></i>
-                                                <span class="btn header_red_btn-a" title="<?= lang('open_order') ?>" >
+                                            <div class="px-10 bsapp-notification-content align-self-center">
+                                                <a class="btn badge-danger" id="openCheckOutOrder" target="_blank" href="<?=$linkCart?>" title="<?= lang('open_order') ?>" >
                                                     <?= lang('open_order') ?>
-                                                </span>
-                                            </a>
+                                                </a>
+                                            </div>
                                         </div>
                                     <?php endif; ?>
 
 
-                                    <div  class="dropdown px-10 d-none d-md-flex bsapp-min-w-125p"   style="font-size:14px;line-height: 14px;">
+                                    <div class="dropdown px-10 d-none d-md-flex bsapp-min-w-125p"   style="font-size:14px;line-height: 14px;">
                                         <a class="dropdown-toggle text-decoration-none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"  >
                                             <div class="d-flex align-items-start">
                                                 <div class="pie-10">
                                                 <img class="rounded-circle w-30p h-30p" style="border:1px solid #000" src="<?php echo (!empty(Auth::user()->UploadImage)) ? '/camera/uploads/large/' . Auth::user()->UploadImage : 'https://ui-avatars.com/api/?length=1&name=' . $userDetails->FirstName . '&background=f3f3f4&color=000&font-size=0.5' ?>"/>
 				
                                                 </div>
-                                                <div style="color: #1A1A1A !important;" class="mie-20 text-start">
+                                                <div class="mie-20 text-start">
                                                     <small id="user-displayName" class="bsapp-fs-14"> <?php echo Auth::user()->display_name; ?></small> <br> <small><?php echo transDbVal(trim($userRole->Title)); ?></small> 
                                                 </div>
                                             </div>
@@ -646,7 +645,7 @@ $color = Config::get('app.color_scheme');
                                         </form>
                                     </div>
                                     <div class="px-10 bsapp-notification-content align-self-center border-md-istart" id="NotificationBtn" data-ip-modal="#no-open-modal">
-                                        <a style="color: #1A1A1A !important;" class=" text-gray-400 " href="#" tabindex="-1" aria-disabled="true" title="<?php echo lang('notifications') ?>" id="notification">
+                                        <a class=" text-gray-400 " href="#" tabindex="-1" aria-disabled="true" title="<?php echo lang('notifications') ?>" id="notification">
                                             <i class="fal fa-bell"></i>
                                             <?php if ($notifications > 0) { ?>
                                                 <span id="Clicknotification" class="<?= $notifications < 10 ? 'px-5' : 'px-10' ?> bsapp-notification-badge animated animate__bounce"><?php echo $notifications > 99 ? '99+' : $notifications; ?></span>
@@ -658,7 +657,7 @@ $color = Config::get('app.color_scheme');
 									if (MeetingService::hasOpenedOrWaitingMeetings($CompanyNum)):
 										?>
 										<div class="px-10 bsapp-notification-content align-self-center border-istart">
-											<button id="openManageMeetingSidebar" style="color: #1A1A1A !important;" class="text-gray-400 bsapp--manage-meeting--btn"  title="<?= lang('cal_appointments') ?>">
+											<button id="openManageMeetingSidebar" class="text-gray-400 bsapp--manage-meeting--btn"  title="<?= lang('cal_appointments') ?>">
 												<i class="fal fa-calendar-exclamation"></i>
                                                 <span id='calendarIcon'  class="<?= $waitingCount < 10 ? 'px-5' : 'px-10' ?> <?= $waitingCount > 0 ? 'd-flex' : 'd-none' ?> bsapp-notification-badge animated animate__bounce"><?php echo $waitingCount > 99 ? '99+' : $waitingCount; ?></span>
 											</button>
@@ -670,7 +669,12 @@ $color = Config::get('app.color_scheme');
                         <div style="min-height: 48px;"></div>
                     </header>
                     <section class="bsapp-content">
-                        <div class="container-fluid px-15">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light d-none px-5 py-8 d-md-flex justify-content-between bsapp-header-secondary-menu">
+                            <div class="px-10">
+                                <h5><?php echo $pageTitle; ?></h5>
+                            </div>
+                        </nav>
+                        <div class="container-fluid my-15 px-15">
                             <div class="row">
                                 <div class="col-md-12 justify-content-start  bsapp-page"  >
                                     <!-- content goes here :: begin -->

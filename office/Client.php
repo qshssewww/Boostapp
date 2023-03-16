@@ -448,9 +448,7 @@ $PageTitleClient = lang('client_management');
 <?php
     require_once '../app/views/clientsSettings.php';
 ?>
-<a class="floating-plus-btn header_red_btn_media" id="openCheckOutOrder" target="_blank" href="<?=$linkCart?>">
-    <i class="fal fa-cash-register header-red-icon"></i>
-</a>
+
 <?php if ((Auth::userCan('50') && $_REQUEST['Act'] == '0') || (Auth::userCan('50') && $_REQUEST['Act'] == '1')): ?>
 <a href="javascript:void(0);" class="floating-plus-btn d-flex bg-primary" onclick="NewClient()">
     <i class="fal fa-plus fa-lg margin-a"></i>
